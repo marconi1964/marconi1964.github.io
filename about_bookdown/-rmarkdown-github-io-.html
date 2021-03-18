@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 開始 RMarkdown 在 github.io 的冒險之旅 | 關於 Rmarkdown / bookdown / blogdown / Hugodown</title>
+  <meta name="description" content="Chapter 3 開始 RMarkdown 在 github.io 的冒險之旅 | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 開始 RMarkdown 在 github.io 的冒險之旅 | 關於 Rmarkdown / bookdown / blogdown / Hugodown" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Chapter 3 開始 RMarkdown 在 github.io 的冒險之旅 | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 開始 RMarkdown 在 github.io 的冒險之旅 | 關於 Rmarkdown / bookdown / blogdown / Hugodown" />
+  
+  <meta name="twitter:description" content="Chapter 3 開始 RMarkdown 在 github.io 的冒險之旅 | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
+  
+
+<meta name="author" content="Marconi Jiang" />
+
+
+<meta name="date" content="2021-03-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="-rmarkdown-blogdown-deploy-netlify.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">關於 Rmarkdown / bookdown / blogdown / Hugodown </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prefix</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> 安裝 R、RStudio 及 github 設定</a></li>
+<li class="chapter" data-level="3" data-path="-rmarkdown-github-io-.html"><a href="-rmarkdown-github-io-.html"><i class="fa fa-check"></i><b>3</b> 開始 RMarkdown 在 github.io 的冒險之旅</a></li>
+<li class="chapter" data-level="4" data-path="-rmarkdown-blogdown-deploy-netlify.html"><a href="-rmarkdown-blogdown-deploy-netlify.html"><i class="fa fa-check"></i><b>4</b> 3 將 RMarkdown blogdown 內容 deploy 到 Netlify</a></li>
+<li class="chapter" data-level="5" data-path="-bookdown.html"><a href="-bookdown.html"><i class="fa fa-check"></i><b>5</b> 4. 重新安裝 bookdown</a></li>
+<li class="chapter" data-level="6" data-path="-bookdown-deploy-github-io.html"><a href="-bookdown-deploy-github-io.html"><i class="fa fa-check"></i><b>6</b> 5 成功安裝 bookdown, 且順利 deploy 到 github.io</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/marconi1964" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">關於 Rmarkdown / bookdown / blogdown / Hugodown</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="開始-rmarkdown-在-github.io-的冒險之旅" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> 開始 RMarkdown 在 github.io 的冒險之旅</h1>
+<p>主要是根據 <a href="https://alison.rbind.io/post/new-year-new-blogdown/">Alison Hill 關於 blogdown 的 2021 更新</a> *1, (除非有其他的參考文章會特別標出)</p>
+<div id="r-markdown-的基本指令-2" class="section level4" number="3.0.0.1">
+<h4><span class="header-section-number">3.0.0.1</span> 2.1 R Markdown 的基本指令 *2</h4>
+<pre><code>## 參考用, 待會兒執行時, 會有詳細指令說明
+## 安裝套件 Install packages from CRAN
+
+&gt; if (!requireNamespace(&quot;remotes&quot;)) install.packages(&quot;remotes&quot;)  ## install remotes
+
+## install blogdown from CRAN
+&gt; install.packages(&quot;blogdown&quot;) 
+## Or, install blogdown from GitHub
+&gt; remotes::install_github(&quot;rstudio/blogdown&quot;)
+
+## blogdown 是基於 Hugo (https://gohugo.io) 靜態網頁產生器, 需要  blogdown 下載並安裝 hugo
+&gt; blogdown::install_hugo()
+
+## 安裝後, 如果要開啟 server 的 preview, 就執行以下指令
+&gt; blogdown::serve_site()</code></pre>
+</div>
+<div id="create-project-ref-1.-step-2-create-project" class="section level4" number="3.0.0.2">
+<h4><span class="header-section-number">3.0.0.2</span> 2.2 Create project (Ref 1. Step 2 Create project)</h4>
+<ul>
+<li>RStudio 選擇 File &gt; New Project &gt; Version Control &gt; Git</li>
+<li>複製 github 的 url, 我的例子是 <a href="https://github.com/MarconiJiang/marconijiang.github.io.git" class="uri">https://github.com/MarconiJiang/marconijiang.github.io.git</a></li>
+<li>Create Project</li>
+</ul>
+<p>這時候, RStudio 會開個全新的畫面, 下載 marconijiang.github.io 的內容, 同時 file 目錄指向筆電 local repo 的目錄</p>
+</div>
+<div id="create-site-ref-1.-step-3-create-site" class="section level4" number="3.0.0.3">
+<h4><span class="header-section-number">3.0.0.3</span> 2.3 Create site (Ref 1. Step 3 Create site)</h4>
+<p>2.3.1 安裝 blogdown</p>
+<pre><code>## 到 RStudio 的 console 下, 執行以下指令
+&gt; if (!requireNamespace(&quot;remotes&quot;)) install.packages(&quot;remotes&quot;)
+&gt; remotes::install_github(&quot;rstudio/blogdown&quot;)
+
+##  完成後, 會出現安裝完成字樣
+##  * DONE (blogdown)</code></pre>
+<p>2.3.2 在 RStudio / blogdown 下創建新的網站<br />
+執行以下指令</p>
+<pre><code>&gt; library(blogdown)
+&gt; blogdown::new_site(theme = &#39;yihui/hugo-lithium&#39;)</code></pre>
+<p>原始文章安裝的是另一個主題 (theme), 我嘗試的做了些修改, 都是出現錯誤後, 發現 error message 裡面嘗試去 github 尋找 lithium, 因此我 google 了 “github lithium theme,” 找到了至少 3 個 github 包含 lithium 這個主題 (theme), 但是, 只有其中一個的 README.md 說明清楚如何在 blogdown 上安裝, 就照著他的說明進行</p>
+<ul>
+<li><a href="https://github.com/yihui/hugo-lithium">Yihui Hugo Lithium</a> ## 清楚說明, 雖然是從 <a href="https://github.com/jrutheiser/hugo-lithium-theme">jrutheiser</a> fork 出來</li>
+<li><a href="https://github.com/jrutheiser/hugo-lithium-theme">Jrutheiser Hugo Lithium</a> ## 應該是原始出處</li>
+<li><a href="https://github.com/janikvonrotz/hugo-lithium-theme">janikvonrotz Hugo Lithium</a></li>
+<li><a href="https://themes.gohugo.io/hugo-lithium-theme/">Hugo Lithium 官網</a></li>
+</ul>
+<pre><code>## 以下為錯誤嘗試, 不必重複
+&gt; new_site(theme = &quot;wowchemy/starter-academic&quot;)   ## 原始文章作法
+
+也參考了 https://bookdown.org/yihui/blogdown/other-themes.html  的說明
+&gt; blogdown::new_site(theme = &quot;lxndrblz/anatole&quot;)
+
+&gt; new_site(theme = &quot;Lithium&quot;)       ##  我的錯誤嘗試
+&gt; new_site(theme = &quot;Hugo/Lithium&quot;)  ##  我的錯誤嘗試</code></pre>
+<p>需要再按 ‘y’ 來確定執行後, RStudio 就開始創建一個新的網站, 有三個方式可以看到網頁內容(雖然目前內容是空的)
+1. RStudio 右下方的 Viewer 視窗(在 Files 的右邊)
+2. Viewer 視窗下, 有個箭頭的 icon, 意思是 Show in new window, 按下後, 會開 browser 的新視窗
+3. 自行到 browser 下, 輸入網址 <a href="http://localhost:4321" class="uri">http://localhost:4321</a> (實際位址可能會有變動, 需查看 RStudio 視窗內容顯示的網址, 類似如下的內容)</p>
+<pre><code>― Creating your new site
+| Installing the theme yihui/hugo-lithium from github.com
+trying URL &#39;https://github.com/yihui/hugo-lithium/archive/master.tar.gz&#39;
+Content type &#39;application/x-gzip&#39; length unknown
+downloaded 109 KB
+
+| Adding the sample post to content/post/2020-12-01-r-rmarkdown/index.Rmd
+| Converting all metadata to the YAML format
+| Adding netlify.toml in case you want to deploy the site to Netlify
+| Adding .Rprofile to set options() for blogdown
+― The new site is ready
+○ To start a local preview: use blogdown::serve_site(), or the RStudio add-in &quot;Serve Site&quot;
+○ To stop a local preview: use blogdown::stop_server(), or restart your R session
+&gt; Want to serve and preview the site now? (y/n) y
+Launching the server via the command:
+  C:/Users/mjiang/AppData/Roaming/Hugo/0.81.0/hugo.exe server --bind 127.0.0.1 -p 4321 --themesDir themes -t hugo-lithium -D -F --navigateToChanged
+Serving the directory . at http://localhost:4321
+Launched the hugo server in the background (process ID: 32508). To stop it, call blogdown::stop_server() or restart the R session.
+Rendering content/post/2020-12-01-r-rmarkdown/index.Rmd... Done.</code></pre>
+<p>網頁到此已順利創建完成, 接下來就是網頁內容的修改, 及如何 deploy 到 github.io</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="-rmarkdown-blogdown-deploy-netlify.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["marconi1964.github.io.pdf", "marconi1964.github.io.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

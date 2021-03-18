@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>關於 Rmarkdown / bookdown / blogdown / Hugodown</title>
+  <meta name="description" content="關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="關於 Rmarkdown / bookdown / blogdown / Hugodown" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="關於 Rmarkdown / bookdown / blogdown / Hugodown" />
+  
+  <meta name="twitter:description" content="關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
+  
+
+<meta name="author" content="Marconi Jiang" />
+
+
+<meta name="date" content="2021-03-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="intro.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">關於 Rmarkdown / bookdown / blogdown / Hugodown </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prefix</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> 安裝 R、RStudio 及 github 設定</a></li>
+<li class="chapter" data-level="3" data-path="-rmarkdown-github-io-.html"><a href="-rmarkdown-github-io-.html"><i class="fa fa-check"></i><b>3</b> 開始 RMarkdown 在 github.io 的冒險之旅</a></li>
+<li class="chapter" data-level="4" data-path="-rmarkdown-blogdown-deploy-netlify.html"><a href="-rmarkdown-blogdown-deploy-netlify.html"><i class="fa fa-check"></i><b>4</b> 3 將 RMarkdown blogdown 內容 deploy 到 Netlify</a></li>
+<li class="chapter" data-level="5" data-path="-bookdown.html"><a href="-bookdown.html"><i class="fa fa-check"></i><b>5</b> 4. 重新安裝 bookdown</a></li>
+<li class="chapter" data-level="6" data-path="-bookdown-deploy-github-io.html"><a href="-bookdown-deploy-github-io.html"><i class="fa fa-check"></i><b>6</b> 5 成功安裝 bookdown, 且順利 deploy 到 github.io</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/marconi1964" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">關於 Rmarkdown / bookdown / blogdown / Hugodown</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">關於 Rmarkdown / bookdown / blogdown / Hugodown</h1>
+<p class="author"><em>Marconi Jiang</em></p>
+<p class="date"><em>2021-03-18</em></p>
+</div>
+<div id="prefix" class="section level1" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Prefix</h1>
+<div id="using-r-markdown-to-build-github.io-static-web-pages" class="section level4" number="1.0.0.1">
+<h4><span class="header-section-number">1.0.0.1</span> Using R Markdown to build github.io static web pages</h4>
+</div>
+<div id="無意間發現-merely-useful.github.io-網頁完美結合-github-及-github.io-集合眾人之力-內文集程式更新於-github-並且以書籍形式發表於-github.io-詢問作者-後-得知是運用-r-markdown-的作品.-本以為是個簡單的-deployment-實際執行後-還是有不小的-efforts-而且-google-到相關的文章不是太多-只好自己努力." class="section level4" number="1.0.0.2">
+<h4><span class="header-section-number">1.0.0.2</span> 無意間發現 merely-useful.github.io 網頁完美結合 github 及 github.io, 集合眾人之力, 內文集程式更新於 github, 並且以書籍形式發表於 github.io, 詢問作者 後, 得知是運用 R Markdown 的作品. 本以為是個簡單的 deployment, 實際執行後, 還是有不小的 efforts, 而且 google 到相關的文章不是太多, 只好自己努力.</h4>
+<p>相關連結
+- Merely-useful 網站
+- <a href="https://github.com/merely-useful/merely-useful.github.io">github.com/merely-useful</a>
+- <a href="https://merely-useful.github.io">merely-useful.github.io</a> 我喜歡 hyperlink 的設計 (本以為是 CSS 的能力, 發現是這網頁使用的是 <a href="https://themes.gohugo.io/hugo-lithium-theme/">Hugo 的 Lithium theme</a> )
+- RMarkdown 的網站有兩個: <span style="color:red">bookdown</span> 跟 <span style="color:red">blogdown</span>, blogdown 似乎是比較舊, 但是含有安裝 Hugo 的說明, bookdown 比較新, 卻沒有 Hugo 的安裝說明
+- <a href="https://bookdown.org/yihui/bookdown/get-started.html">bookdown: Authoring Books and Technical Documents with R Markdown</a>
+- <a href="https://bookdown.org/yihui/blogdown/get-started.html">blogdown: Creating Websites with R Markdown</a>
+- 勉強找到幾篇入門的教學文章, 試試看是否可行<br />
+- 這篇應該是完整且最新的詳細說明 <a href="https://alison.rbind.io/post/new-year-new-blogdown/">Getting any website up and running with all the moving parts (RStudio, GitHub, Hugo, Netlify)</a> (完成後發現, 她是以 blogdown 的格式, 也就是適合 blog 的文章, 跟我希望用的 bookdown 是完全不同的, 是否可以直接套用在 bookdown, 還需要再確定)<br />
+- <a href="https://medium.com/@delucmat/how-to-publish-bookdown-projects-with-github-actions-on-github-pages-6e6aecc7331e">How to publish bookdown projects with GitHub Actions on GitHub Pages</a>
+- 運用 Netlify 工具 deploy <a href="https://www.garrickadenbuie.com/blog/blogdown-netlify-new-post-workflow/">A Blogdown New Post Workflow with Github and Netlify</a>
+- 運用 Travis 工具 deploy 到 github <a href="https://bookdown.org/yihui/blogdown/travis-github.html">Blogdown - Travis + GitHub</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["marconi1964.github.io.pdf", "marconi1964.github.io.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

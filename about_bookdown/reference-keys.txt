@@ -1,0 +1,11 @@
+prefix
+using-r-markdown-to-build-github.io-static-web-pages
+無意間發現-merely-useful.github.io-網頁完美結合-github-及-github.io-集合眾人之力-內文集程式更新於-github-並且以書籍形式發表於-github.io-詢問作者-後-得知是運用-r-markdown-的作品.-本以為是個簡單的-deployment-實際執行後-還是有不小的-efforts-而且-google-到相關的文章不是太多-只好自己努力.
+intro
+開始-rmarkdown-在-github.io-的冒險之旅
+r-markdown-的基本指令-2
+create-project-ref-1.-step-2-create-project
+create-site-ref-1.-step-3-create-site
+將-rmarkdown-blogdown-內容-deploy-到-netlify
+重新安裝-bookdown
+成功安裝-bookdown-且順利-deploy-到-github.io

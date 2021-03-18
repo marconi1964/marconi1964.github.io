@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 3 將 RMarkdown blogdown 內容 deploy 到 Netlify | 關於 Rmarkdown / bookdown / blogdown / Hugodown</title>
+  <meta name="description" content="Chapter 4 3 將 RMarkdown blogdown 內容 deploy 到 Netlify | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 3 將 RMarkdown blogdown 內容 deploy 到 Netlify | 關於 Rmarkdown / bookdown / blogdown / Hugodown" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Chapter 4 3 將 RMarkdown blogdown 內容 deploy 到 Netlify | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 3 將 RMarkdown blogdown 內容 deploy 到 Netlify | 關於 Rmarkdown / bookdown / blogdown / Hugodown" />
+  
+  <meta name="twitter:description" content="Chapter 4 3 將 RMarkdown blogdown 內容 deploy 到 Netlify | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
+  
+
+<meta name="author" content="Marconi Jiang" />
+
+
+<meta name="date" content="2021-03-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="-rmarkdown-github-io-.html"/>
+<link rel="next" href="-bookdown.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">關於 Rmarkdown / bookdown / blogdown / Hugodown </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prefix</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> 安裝 R、RStudio 及 github 設定</a></li>
+<li class="chapter" data-level="3" data-path="-rmarkdown-github-io-.html"><a href="-rmarkdown-github-io-.html"><i class="fa fa-check"></i><b>3</b> 開始 RMarkdown 在 github.io 的冒險之旅</a></li>
+<li class="chapter" data-level="4" data-path="-rmarkdown-blogdown-deploy-netlify.html"><a href="-rmarkdown-blogdown-deploy-netlify.html"><i class="fa fa-check"></i><b>4</b> 3 將 RMarkdown blogdown 內容 deploy 到 Netlify</a></li>
+<li class="chapter" data-level="5" data-path="-bookdown.html"><a href="-bookdown.html"><i class="fa fa-check"></i><b>5</b> 4. 重新安裝 bookdown</a></li>
+<li class="chapter" data-level="6" data-path="-bookdown-deploy-github-io.html"><a href="-bookdown-deploy-github-io.html"><i class="fa fa-check"></i><b>6</b> 5 成功安裝 bookdown, 且順利 deploy 到 github.io</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/marconi1964" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">關於 Rmarkdown / bookdown / blogdown / Hugodown</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="將-rmarkdown-blogdown-內容-deploy-到-netlify" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> 3 將 RMarkdown blogdown 內容 deploy 到 Netlify</h1>
+<p>參考 <a href="https://alison.rbind.io/post/new-year-new-blogdown/#using-github">Ref. 1 Using github 章節</a></p>
+<p>3.1 設定 .gitignore : 雖然不知道這時候設定 .gitignore 的必要性, 還是照著說明做</p>
+<pre><code>file.edit(&quot;.gitignore&quot;)</code></pre>
+<p>RStudio 會將 cursor 移到左上角的檔案內容檢視視窗, 在該視窗類加上以下內容</p>
+<pre><code>## 原始內容 
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+## 增加以下內容
+.DS_Store
+Thumbs.db</code></pre>
+<p>3.2 blogdown 檢查 check_gitignore()<br />
+執行第一次 commit 之前, 先用 blogdown 檢查</p>
+<pre><code>&gt; blogdown::check_gitignore()</code></pre>
+<p>不太清楚 [TODO] 再這裡的意義, 待研究</p>
+<pre><code>― Checking .gitignore
+| Checking for items to remove...
+○ Nothing to see here - found no items to remove.
+| Checking for items to change...
+○ Nothing to see here - found no items to change.
+| Checking for items you can safely ignore...
+○ Found! You have safely ignored: .DS_Store, Thumbs.db
+| Checking for items to ignore if you build the site on Netlify...
+● [TODO] When Netlify builds your site, you can safely add to .gitignore: /public/, /resources/
+| Checking for files required by blogdown but not committed...
+● [TODO] Found 1 file that should be committed in GIT:
+
+  layouts/shortcodes/blogdown/postref.html
+― Check complete: .gitignore</code></pre>
+<p>3.3 blogdown 檢查 check_content()</p>
+<p>還不清楚這動作的意義, 待確認</p>
+<pre><code>&gt; blogdown::check_content()</code></pre>
+<p>執行結果</p>
+<pre><code>― Checking content files
+| Checking for validity of YAML metadata in posts...
+○ All YAML metadata appears to be syntactically valid.
+| Checking for previewed content that will not be published...
+○ Found 0 files with future publish dates.
+○ Found 0 files marked as drafts.
+| Checking your R Markdown content...
+○ All R Markdown files have been knitted.
+○ All R Markdown output files are up to date with their source files.
+| Checking for .html/.md files to clean up...
+○ Found 0 duplicate .html output files.
+○ Found 0 incompatible .html files to clean up.
+| Checking for the unnecessary &#39;content/&#39; directory in theme...
+○ Great! Your theme does not contain the content/ directory.
+― Check complete: Content
+</code></pre>
+<p>3.4 在 Netlify 網站上建置並且 Publish site</p>
+<p>參考 <a href="https://alison.rbind.io/post/new-year-new-blogdown/#step-5-publish-site">Ref 1. Publish site 章節</a></p>
+<p>我們在這章節會使用比較高端的做法, 讓 Netlify 來將我們建立的網站, 建置到 github 上.
+1. 到 <a href="https://www.netlify.com/">Netlify</a> 網站
+2. 用 github 的帳號去 sign up (無須建立新帳號)
+3. log in 後, 選擇 New site from Git &gt; Continuous Deployment: GitHub.
+4. (optional) 到 (Netlify) menu 右上角 Site Setting 點選後, 更改 Change site name 到自己已歡的名字, 我挑選的是 marconijiang, 所以我的網站就是 <a href="https://marconijiang.netlify.app" class="uri">https://marconijiang.netlify.app</a>. 如果修改, 會是 Netlify 自行設定的網址名稱, 位於左上角類似 xxxx-yyyyy-zzzz.netlify.app 的網址
+5. 可以另開一個 browser 頁面, 輸入網址 marconijiang.netlify.app, 就可以看到自己的 github 上的內容 (這時候的內容是 github 網站的內容, 如果還沒跟電腦上的同步, 內容可能是空的)</p>
+<p>3.5 git 指令將電腦的內容更新於 github
+移到 RStudio 左下角的 terminal (console 右邊), 透過一般的 git 指令去更新 github 上的內容</p>
+<pre><code>## 這時候, 目錄位址應該是從網頁內容 git clone 下來的目錄, 都是 xxxx.github.io
+## 像我的目錄就是 marconijiang.github.io 
+$ git add *
+$ git commit -m &quot;init commit&quot;
+$ git push origin main      # 最近, github 將 &quot;master&quot; branch 改成 main
+##  需要輸入 github 的 user id 跟 password</code></pre>
+<p>這時候, 再回到 browser 的 <a href="https://marconijiang.netlify.app" class="uri">https://marconijiang.netlify.app</a> 稍稍等個一分鐘, 網頁會自動更新到最新的內容</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="-rmarkdown-github-io-.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="-bookdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["marconi1964.github.io.pdf", "marconi1964.github.io.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
