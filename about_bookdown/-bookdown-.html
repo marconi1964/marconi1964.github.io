@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 重新安裝 bookdown | 關於 Rmarkdown / bookdown / blogdown / Hugodown</title>
-  <meta name="description" content="Chapter 5 重新安裝 bookdown | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
+  <title>Chapter 7 快速使用 Bookdown 的說明 | 關於 Rmarkdown / bookdown / blogdown / Hugodown</title>
+  <meta name="description" content="Chapter 7 快速使用 Bookdown 的說明 | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 重新安裝 bookdown | 關於 Rmarkdown / bookdown / blogdown / Hugodown" />
+  <meta property="og:title" content="Chapter 7 快速使用 Bookdown 的說明 | 關於 Rmarkdown / bookdown / blogdown / Hugodown" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Chapter 5 重新安裝 bookdown | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
+  <meta property="og:description" content="Chapter 7 快速使用 Bookdown 的說明 | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 重新安裝 bookdown | 關於 Rmarkdown / bookdown / blogdown / Hugodown" />
+  <meta name="twitter:title" content="Chapter 7 快速使用 Bookdown 的說明 | 關於 Rmarkdown / bookdown / blogdown / Hugodown" />
   
-  <meta name="twitter:description" content="Chapter 5 重新安裝 bookdown | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
+  <meta name="twitter:description" content="Chapter 7 快速使用 Bookdown 的說明 | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
   
 
 <meta name="author" content="Marconi Jiang" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="-rmarkdown-blogdown-deploy-netlify.html"/>
-<link rel="next" href="-bookdown-deploy-github-io.html"/>
+<link rel="prev" href="-bookdown-deploy-github-io.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -136,29 +136,67 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="重新安裝-bookdown" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> 重新安裝 bookdown</h1>
-<p>此章節主要參考 Ref 7. <a href="https://github.com/r-lib/hugodown">rib-hugodown github 網頁</a></p>
-<div id="安裝-bookdown-套件" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> 安裝 bookdown 套件</h2>
-<pre><code>&gt; install.packages(&quot;devtools&quot;)
-## devtools::install_github(&#39;rstudio/bookdown&#39;)
-&gt; devtools::install_github(&quot;r-lib/hugodown&quot;)
-
-## 不知是否是版本問題, 還是改安裝了 0.66.0 版後才沒問題
-&gt; hugodown::hugo_install(&#39;0.66.0&#39;)</code></pre>
+<div id="快速使用-bookdown-的說明" class="section level1" number="7">
+<h1><span class="header-section-number">Chapter 7</span> 快速使用 Bookdown 的說明</h1>
+<p>需要回頭看第 5 章的 bookdown 安裝, 再繼續往下看</p>
+<div id="開始全新的-bookdown-檔案" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> 開始全新的 bookdown 檔案</h2>
+<ol style="list-style-type: decimal">
+<li>我會 copy 這篇文章/目錄 (github.com/marconi1964/About_bookdown) 的全部內容到新建的目錄</li>
+<li>打開 RStudio</li>
+<li>到 RStudio 右下角的 file, 找到新建目錄</li>
+<li>找到並點擊 marconi1964.github.Rproj, 此時 RStudio 會重新建立以這個目錄內容的新 project, 就可以開始了</li>
+</ol>
 </div>
-<div id="在-rstudio-建立新專案" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> 在 RStudio 建立新專案</h2>
-<p>進入 RStudio -&gt; New Project -&gt; New Directory -&gt; New Project -&gt; “Directory name” -&gt; “Create Project”</p>
+<div id="注意事項" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> 注意事項</h2>
+<ul>
+<li>如果是 post 在 gibhub.io, 需要在 index.html 的同一個目錄下新增 .nkjekyll 這檔案, 這檔案不必有內容, 一般都是用 linux 的指令 touch 來創建該檔案</li>
+</ul>
+<pre><code>$ touch .nojekyll</code></pre>
 </div>
-<div id="創建-hugo-的-academic-模板網站" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> 創建 hugo 的 academic 模板網站</h2>
-<p>創建 hugo 的 academic 模板網站</p>
-<pre><code>&gt; hugodown::create_site_academic()</code></pre>
-<p>開始 hugodown 網頁的 server</p>
-<pre><code>&gt; hugodown::hugo_start()
-Starting server on port 1313</code></pre>
+<div id="檔案結構" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> 檔案結構</h2>
+<p>我在 github 設定的 檔案目錄結構如下</p>
+<pre><code>github.com/marconi1964
+|
+|-- About_bookdown         # 書的 Rmarkdown 內容儲存於 github 的第一層子目錄下
+    |-- _bookdown.yml      # 需要新增一行到此檔案, 將 html 輸出到 marconi1964.github.io 目錄下
+         output_dir: &quot;../marconi1964.github.io/about_bookdown&quot;
+    |-- index.Rmd          # bookdown 會依照檔案名稱安排章節順序
+    |-- 01-intro.Rmd       # 順序依序為 : index.Rmd, 01-intro.Rmd, 02-xxx.Rmd
+    |-- 02-xxx.Rmd         # 數字後面的檔案名稱只是讓作者/讀者了解內容
+ 
+|-- JetsonNano_book        # 書的 Rmarkdown 內容儲存於 github 的第一層子目錄下
+    |-- _bookdown.yml      # 需要新增一行到此檔案, 將 html 輸出到 marconi1964.github.io 目錄下
+         output_dir: &quot;../marconi1964.github.io/JetsonNano&quot;
+    |-- ...
+    
+|-- marconi1964.github.io  # html 的內容儲存於此目錄下
+    |-- index.html         # 需自行手工創建, 建立 hyperlink 連接到不同的書內容
+    |-- about_bookdown     # 此目錄及內容由 bookdown 創建及產生
+        |-- .nojekyll      # 唯有這個檔案需要自行創建
+        |-- index.html
+        |-- ...
+    |-- JetsonNano         # 此目錄及內容由 bookdown 創建及產生
+        |-- .nojekyll      # 唯有這個檔案需要自行創建
+        |-- index.html   
+        |-- ...
+    |--
+</code></pre>
+</div>
+<div id="rmd-內容注意事項" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Rmd 內容注意事項</h2>
+<p>我目前的想法只是單純的使用 md 檔案格式, 而沒運用到 Rmd 的功能, 這樣, 就可以直接轉換到 python 常用的 md 格式</p>
+<p>其它待補充</p>
+</div>
+<div id="參考文件的參照" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> 參考文件的參照</h2>
+<p>待補充</p>
+</div>
+<div id="圖表的參照" class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> 圖表的參照</h2>
+<p>待補充</p>
 
 </div>
 </div>
@@ -167,8 +205,8 @@ Starting server on port 1313</code></pre>
           </div>
         </div>
       </div>
-<a href="-rmarkdown-blogdown-deploy-netlify.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="-bookdown-deploy-github-io.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="-bookdown-deploy-github-io.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
