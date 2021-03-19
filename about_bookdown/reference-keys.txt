@@ -1,5 +1,4 @@
 前言
-using-r-markdown-to-build-github.io-static-web-pages
 intro
 開始-rmarkdown-在-github.io-的冒險之旅
 r-markdown-的基本指令-2
