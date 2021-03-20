@@ -1,7 +1,5 @@
-fig:nice-fig
-tab:nice-tab
-prerequisites
-intro
+前言
+chap-intro
 literature
 methods
 applications

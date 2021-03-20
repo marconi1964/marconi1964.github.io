@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 安裝 R、RStudio 及 github 設定 | 關於 Rmarkdown / bookdown / blogdown / Hugodown</title>
-  <meta name="description" content="Chapter 2 安裝 R、RStudio 及 github 設定 | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
+  <title>Chapter 6 Summary - 成功安裝 bookdown, 且順利 deploy 到 github.io | 關於 Rmarkdown / bookdown / blogdown / Hugodown</title>
+  <meta name="description" content="Chapter 6 Summary - 成功安裝 bookdown, 且順利 deploy 到 github.io | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 安裝 R、RStudio 及 github 設定 | 關於 Rmarkdown / bookdown / blogdown / Hugodown" />
+  <meta property="og:title" content="Chapter 6 Summary - 成功安裝 bookdown, 且順利 deploy 到 github.io | 關於 Rmarkdown / bookdown / blogdown / Hugodown" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Chapter 2 安裝 R、RStudio 及 github 設定 | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
+  <meta property="og:description" content="Chapter 6 Summary - 成功安裝 bookdown, 且順利 deploy 到 github.io | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 安裝 R、RStudio 及 github 設定 | 關於 Rmarkdown / bookdown / blogdown / Hugodown" />
+  <meta name="twitter:title" content="Chapter 6 Summary - 成功安裝 bookdown, 且順利 deploy 到 github.io | 關於 Rmarkdown / bookdown / blogdown / Hugodown" />
   
-  <meta name="twitter:description" content="Chapter 2 安裝 R、RStudio 及 github 設定 | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
+  <meta name="twitter:description" content="Chapter 6 Summary - 成功安裝 bookdown, 且順利 deploy 到 github.io | 關於 Rmarkdown / bookdown / blogdown / Hugodown 的經驗談" />
   
 
 <meta name="author" content="Marconi Jiang" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="-rmarkdown-github-io-.html"/>
+<link rel="prev" href="-bookdown.html"/>
+<link rel="next" href="chap-bookdown.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -133,23 +133,42 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> 安裝 R、RStudio 及 github 設定</h1>
-<p><strong>安裝 R、RStudio 套件</strong><br />
-就一般的套件安裝, 沒有特別需要注意的地方</p>
-<p><strong>github 設定</strong><br />
-在 github.com 上新增一的 repo, repo 名稱必須是 marconijiang.github.io
-不想破壞原有的 marconi1964.github.io 的設計, 重新申請 github 帳號, 並且新增一個 repo 叫做 marconijiang.github.io, 網頁位址為 <a href="https://marconijiang.github.io" class="uri">https://marconijiang.github.io</a>
-- (這是 github 的標準設定, 只要設定 username.github.io 這個 repo, github 會自動設定 <a href="https://username.github.io/" class="uri">https://username.github.io/</a> 這網頁導向這個 repo)</p>
+<div id="chap-summary" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Summary - 成功安裝 bookdown, 且順利 deploy 到 github.io</h1>
+<div id="安裝套件" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> 安裝套件</h2>
+<p>我只是安裝了 blogdown 套件, 就自動安裝了 bookdown 套件（應該是如此）</p>
+<pre><code>&gt; if (!requireNamespace(&quot;remotes&quot;)) install.packages(&quot;remotes&quot;)  
+&gt; remotes::install_github(&quot;rstudio/blogdown&quot;)</code></pre>
+</div>
+<div id="產生-bookdown-範例檔案" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> 產生 bookdown 範例檔案</h2>
+<p>到 RStudio -&gt; File -&gt; New project -&gt; New directory -&gt; 向下找到 “Book project using bookdown” -&gt; Directory 的名字為 marconijiang.github.io 即可產生帶有範例的 bookdown 程式在 marconijiang.github.io 目錄下.</p>
+</div>
+<div id="deploy-到-github.io" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Deploy 到 github.io</h2>
+<p>到 RStudio 右上方, Environment 同一頁面的 Build, 選擇 Build Book 下的 bookdown::gitbook, RStudio 就開始將內容轉至 html, 儲存於 _book 子目錄下, 這時候到 <a href="https://marconijiang.github.io/_book/index.html" class="uri">https://marconijiang.github.io/_book/index.html</a> 會出現 404 not found</p>
+</div>
+<div id="網頁出現-404-not-found時-關於-.nojekyll-的解決方式" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> 網頁出現 404 not found時, 關於 .nojekyll 的解決方式</h2>
+<p>github pages 是基於 <a href="https://jekyllrb.com/docs/github-pages/">jekyll</a> 支援的網頁, 因此, 如果以底線 (underline) 開頭的檔案或目錄, github 不會將這目錄上傳, 詳見<a href="https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/">Bypassing Jekyll on GitHub Pages</a>, 偏偏 bookdown 標準設定的 html 輸出目錄正是 _book, 以底線開頭的目錄, 因此我們有兩個作法:<br />
+1. 在 檔案 _bookdown.yml 修改輸出的目錄名稱, 詳見第 §<a href="chap-bookdown.html#chap-bookdown-outputdir">7.3</a> _bookdown.yml 檔案說明;<br />
+2. 新增 .nojekyll 檔案, 作法如下:</p>
+<ul>
+<li>在 index.html 的同一個目錄下新增 .nkjekyll 這檔案, 這檔案不必有內容, 一般都是用 linux 的指令 touch 來創建該檔案</li>
+</ul>
+<pre><code>$ touch .nojekyll</code></pre>
+<p>新增沒有內容的檔案, 名字為 .nojekyll 的檔案到 _book 目錄下, 詳細內容參考 <a href="https://stackoverflow.com/questions/11577147/how-to-fix-http-404-on-github-pages">github 404 not found due to missing .nojekyll</a> 就可以成功看到 <a href="https://marconijiang.github.io/_book/index.html" class="uri">https://marconijiang.github.io/_book/index.html</a> 的內容</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="-rmarkdown-github-io-.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="-bookdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-bookdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

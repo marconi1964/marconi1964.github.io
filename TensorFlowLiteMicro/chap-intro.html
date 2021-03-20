@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | TensorFlow Lite for Microcontroller (TFLM)</title>
+  <title>Chapter 2 Introducing TensorFlow Lite for Microcontroller (TFLM) | TensorFlow Lite for Microcontroller (TFLM)</title>
   <meta name="description" content="TensorFlow Lite for Micrcontroller (TFLM) 實驗, 基於 Rmarkdown / bookdown 做成" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta property="og:title" content="Chapter 2 Introducing TensorFlow Lite for Microcontroller (TFLM) | TensorFlow Lite for Microcontroller (TFLM)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta name="twitter:title" content="Chapter 2 Introducing TensorFlow Lite for Microcontroller (TFLM) | TensorFlow Lite for Microcontroller (TFLM)" />
   
   <meta name="twitter:description" content="TensorFlow Lite for Micrcontroller (TFLM) 實驗, 基於 Rmarkdown / bookdown 做成" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="final-words.html"/>
-
+<link rel="prev" href="index.html"/>
+<link rel="next" href="literature.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -101,8 +101,53 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
+<div id="chap-intro" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Introducing TensorFlow Lite for Microcontroller (TFLM)</h1>
+<p>Google 推出 <strong>TensorFlow</strong> 框架, 可以在 CPU/GPU/TPU 上執行 training 的任務, 考慮手機上的侷限的運算能力不如 PC, 接著推出 <a href="https://www.tensorflow.org/lite/tutorials">Tensorflow Lite</a> 的機器學習框架於手機及 IoT 裝置上, 也針對 ARM M 系列及其它 embedded MCU (microcontrollers) 陸續推出支援機器學習 inference 的 <a href="https://www.tensorflow.org/lite/microcontrollers">TensorFlow Lite for Microcontrollers</a> (TFLM) 框架, 也出書推廣
+<a href="https://www.books.com.tw/products/0010865580?fbclid=IwAR1xgb-0LStRrHXajKT-u3uP982d0p8PQaDpNfhxHAzuCbATi6VOjYcwo2k">TinyML：TensorFlow Lite 機器學習</a>.</p>
+<p>截至目前 (2021 3月) 為止, TFLM 支援的硬體已經有下列的開發板 (書中只有介紹前三種):</p>
+<ul>
+<li>Arduino Nano 33 BLE Sense<br />
+</li>
+<li>SparkFun Edge<br />
+</li>
+<li>STM32F746 Discovery kit<br />
+</li>
+<li>Adafruit EdgeBadge<br />
+</li>
+<li>Adafruit TensorFlow Lite for Microcontrollers Kit<br />
+</li>
+<li>Adafruit Circuit Playground Bluefruit<br />
+</li>
+<li>Espressif ESP32-DevKitC<br />
+</li>
+<li>Espressif ESP-EYE<br />
+</li>
+<li>Wio Terminal: ATSAMD51<br />
+</li>
+<li>Himax WE-I Plus EVB Endpoint AI Development Board<br />
+</li>
+<li>Synopsys DesignWare ARC EM Software Development Platform</li>
+</ul>
+<p>而介紹的範例則有</p>
+<ul>
+<li>Hello World - 示範 TensorFlow Lite for Microcontrollers 的基本功能, 用機器學習的 inference 來推算出 sine 的值
+<ul>
+<li>Tutorial using any supported device<br />
+</li>
+</ul></li>
+<li>Micro speech - 從麥克風接收語音, 偵測 wake words: “yes,” “no,” “silence” 及 “unkown”
+<ul>
+<li>Tutorial using SparkFun Edge<br />
+</li>
+</ul></li>
+<li>Magic wand - Captures accelerometer data to classify three different physical gestures
+<ul>
+<li>Tutorial using Arduino Nano 33 BLE Sense<br />
+</li>
+</ul></li>
+<li>Person detection - Captures camera data with an image sensor to detect the presence or absence of a person</li>
+</ul>
 
 </div>
             </section>
@@ -110,8 +155,8 @@
           </div>
         </div>
       </div>
-<a href="final-words.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="literature.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
