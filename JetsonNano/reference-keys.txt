@@ -1,1 +1,10 @@
 前言
+aia-edge-ai-技術班-專案
+專案準備資料
+jetbot-開機設定
+專案啟動
+從-jetpack-4.4.1-jetbot-0.4.2-得支援-2gb-版本-因此-remove-不少套件-而且從-command-line-開機-因此-即使我們用的是-4gb-版本-還是得安裝許多套件
+car-deploying
+model-training-訓練模型及模型轉換
+開跑
+reference
