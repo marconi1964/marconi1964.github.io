@@ -1,0 +1,563 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={關於 Rmarkdown / bookdown / blogdown / Hugodown},
+  pdfauthor={Marconi Jiang},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{關於 Rmarkdown / bookdown / blogdown / Hugodown}
+\author{Marconi Jiang}
+\date{2021-03-21}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{ux524dux8a00}{%
+\chapter{前言}\label{ux524dux8a00}}
+
+\textbf{Using R Markdown to build github.io static web pages}
+
+無意間發現 merely-useful.github.io 網頁完美結合 github 及 github.io, 集合眾人之力, 內文集程式更新於 github, 並且以書籍形式發表於 github.io, 詢問作者 後, 得知是運用 R Markdown 的作品. 本以為是個簡單的 deployment, 實際執行後, 還是有不小的 efforts, 而且 google 到相關的文章不是太多, 只好自己努力.
+
+\textbf{書中部分內容是作者的 try-and-error 實驗, 讀者可以直接略過這些經驗, 跳到第 §\ref{chap-summary} 章的成果}
+
+相關連結
+
+\begin{itemize}
+\tightlist
+\item
+  Merely-useful 網站
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://github.com/merely-useful/merely-useful.github.io}{github.com/merely-useful}\\
+  \item
+    \href{https://merely-useful.github.io}{merely-useful.github.io} 我喜歡 hyperlink 的設計 (本以為是 CSS 的能力, 發現是這網頁使用的是 \href{https://themes.gohugo.io/hugo-lithium-theme/}{Hugo 的 Lithium theme} )
+  \end{itemize}
+\item
+  RMarkdown 的網站有兩個: {bookdown} 跟 {blogdown}, blogdown 似乎是比較舊, 但是含有安裝 Hugo 的說明, bookdown 比較新, 卻沒有 Hugo 的安裝說明
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://bookdown.org/yihui/bookdown/get-started.html}{bookdown: Authoring Books and Technical Documents with R Markdown}\\
+  \item
+    \href{https://bookdown.org/yihui/blogdown/get-started.html}{blogdown: Creating Websites with R Markdown}
+  \end{itemize}
+\item
+  勉強找到幾篇入門的教學文章, 試試看是否可行
+
+  \begin{itemize}
+  \tightlist
+  \item
+    這篇文章幫我完成了用 bookdown 編輯 .md 的文章格式, 然後可以快速 deploy 到 github.io 的理想, 請看 23 章 \href{https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/bookdown.html}{R 語言教學}\\
+  \item
+    這篇應該是完整且最新的詳細說明 \href{https://alison.rbind.io/post/new-year-new-blogdown/}{Getting any website up and running with all the moving parts (RStudio, GitHub, Hugo, Netlify)} (完成後發現, 她是以 blogdown 的格式, 也就是適合 blog 的文章, 跟我希望用的 bookdown 是完全不同的, 是否可以直接套用在 bookdown, 還需要再確定)\\
+  \item
+    \href{https://medium.com/@delucmat/how-to-publish-bookdown-projects-with-github-actions-on-github-pages-6e6aecc7331e}{How to publish bookdown projects with GitHub Actions on GitHub Pages}\\
+  \item
+    運用 Netlify 工具 deploy \href{https://www.garrickadenbuie.com/blog/blogdown-netlify-new-post-workflow/}{A Blogdown New Post Workflow with Github and Netlify}\\
+  \item
+    運用 Travis 工具 deploy 到 github \href{https://bookdown.org/yihui/blogdown/travis-github.html}{Blogdown - Travis + GitHub}
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{intro}{%
+\chapter{安裝 R、RStudio 及 github 設定}\label{intro}}
+
+\textbf{安裝 R、RStudio 套件}\\
+就一般的套件安裝, 沒有特別需要注意的地方
+
+\textbf{github 設定}\\
+在 github.com 上新增一的 repo, repo 名稱必須是 marconijiang.github.io
+不想破壞原有的 marconi1964.github.io 的設計, 重新申請 github 帳號, 並且新增一個 repo 叫做 marconijiang.github.io, 網頁位址為 \url{https://marconijiang.github.io}
+- (這是 github 的標準設定, 只要設定 username.github.io 這個 repo, github 會自動設定 \url{https://username.github.io/} 這網頁導向這個 repo)
+
+\hypertarget{ux958bux59cb-rmarkdown-ux5728-github.io-ux7684ux5192ux96aaux4e4bux65c5}{%
+\chapter{開始 RMarkdown 在 github.io 的冒險之旅}\label{ux958bux59cb-rmarkdown-ux5728-github.io-ux7684ux5192ux96aaux4e4bux65c5}}
+
+主要是根據 \href{https://alison.rbind.io/post/new-year-new-blogdown/}{Alison Hill 關於 blogdown 的 2021 更新} *1, (除非有其他的參考文章會特別標出)
+
+\hypertarget{r-markdown-ux7684ux57faux672cux6307ux4ee4-2}{%
+\section{R Markdown 的基本指令 *2}\label{r-markdown-ux7684ux57faux672cux6307ux4ee4-2}}
+
+\begin{verbatim}
+## 參考用, 待會兒執行時, 會有詳細指令說明
+## 安裝套件 Install packages from CRAN
+
+> if (!requireNamespace("remotes")) install.packages("remotes")  ## install remotes
+
+## install blogdown from CRAN
+> install.packages("blogdown") 
+## Or, install blogdown from GitHub
+> remotes::install_github("rstudio/blogdown")
+
+## blogdown 是基於 Hugo (https://gohugo.io) 靜態網頁產生器, 需要  blogdown 下載並安裝 hugo
+> blogdown::install_hugo()
+
+## 安裝後, 如果要開啟 server 的 preview, 就執行以下指令
+> blogdown::serve_site()
+\end{verbatim}
+
+\hypertarget{create-project-ref-1.-step-2-create-project}{%
+\section{Create project (Ref 1. Step 2 Create project)}\label{create-project-ref-1.-step-2-create-project}}
+
+\begin{itemize}
+\tightlist
+\item
+  RStudio 選擇 File \textgreater{} New Project \textgreater{} Version Control \textgreater{} Git
+\item
+  複製 github 的 url, 我的例子是 \url{https://github.com/MarconiJiang/marconijiang.github.io.git}
+\item
+  Create Project
+\end{itemize}
+
+這時候, RStudio 會開個全新的畫面, 下載 marconijiang.github.io 的內容, 同時 file 目錄指向筆電 local repo 的目錄
+
+\hypertarget{create-site-ref-1.-step-3-create-site}{%
+\section{Create site (Ref 1. Step 3 Create site)}\label{create-site-ref-1.-step-3-create-site}}
+
+\hypertarget{ux5b89ux88dd-blogdown}{%
+\subsection{安裝 blogdown}\label{ux5b89ux88dd-blogdown}}
+
+\begin{verbatim}
+## 到 RStudio 的 console 下, 執行以下指令
+> if (!requireNamespace("remotes")) install.packages("remotes")
+> remotes::install_github("rstudio/blogdown")
+
+##  完成後, 會出現安裝完成字樣
+##  * DONE (blogdown)
+\end{verbatim}
+
+\hypertarget{ux5728-rstudio-blogdown-ux4e0bux5275ux5efaux65b0ux7684ux7db2ux7ad9}{%
+\subsection{在 RStudio / blogdown 下創建新的網站}\label{ux5728-rstudio-blogdown-ux4e0bux5275ux5efaux65b0ux7684ux7db2ux7ad9}}
+
+執行以下指令
+
+\begin{verbatim}
+> library(blogdown)
+> blogdown::new_site(theme = 'yihui/hugo-lithium')
+\end{verbatim}
+
+原始文章安裝的是另一個主題 (theme), 我嘗試的做了些修改, 都是出現錯誤後, 發現 error message 裡面嘗試去 github 尋找 lithium, 因此我 google 了 ``github lithium theme'', 找到了至少 3 個 github 包含 lithium 這個主題 (theme), 但是, 只有其中一個的 README.md 說明清楚如何在 blogdown 上安裝, 就照著他的說明進行
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/yihui/hugo-lithium}{Yihui Hugo Lithium} \#\# 清楚說明, 雖然是從 \href{https://github.com/jrutheiser/hugo-lithium-theme}{jrutheiser} fork 出來
+\item
+  \href{https://github.com/jrutheiser/hugo-lithium-theme}{Jrutheiser Hugo Lithium} \#\# 應該是原始出處
+\item
+  \href{https://github.com/janikvonrotz/hugo-lithium-theme}{janikvonrotz Hugo Lithium}
+\item
+  \href{https://themes.gohugo.io/hugo-lithium-theme/}{Hugo Lithium 官網}
+\end{itemize}
+
+\begin{verbatim}
+## 以下為錯誤嘗試, 不必重複
+> new_site(theme = "wowchemy/starter-academic")   ## 原始文章作法
+
+也參考了 https://bookdown.org/yihui/blogdown/other-themes.html  的說明
+> blogdown::new_site(theme = "lxndrblz/anatole")
+
+> new_site(theme = "Lithium")       ##  我的錯誤嘗試
+> new_site(theme = "Hugo/Lithium")  ##  我的錯誤嘗試
+\end{verbatim}
+
+需要再按 `y' 來確定執行後, RStudio 就開始創建一個新的網站, 有三個方式可以看到網頁內容(雖然目前內容是空的)
+1. RStudio 右下方的 Viewer 視窗(在 Files 的右邊)
+2. Viewer 視窗下, 有個箭頭的 icon, 意思是 Show in new window, 按下後, 會開 browser 的新視窗
+3. 自行到 browser 下, 輸入網址 \url{http://localhost:4321} (實際位址可能會有變動, 需查看 RStudio 視窗內容顯示的網址, 類似如下的內容)
+
+\begin{verbatim}
+― Creating your new site
+| Installing the theme yihui/hugo-lithium from github.com
+trying URL 'https://github.com/yihui/hugo-lithium/archive/master.tar.gz'
+Content type 'application/x-gzip' length unknown
+downloaded 109 KB
+
+| Adding the sample post to content/post/2020-12-01-r-rmarkdown/index.Rmd
+| Converting all metadata to the YAML format
+| Adding netlify.toml in case you want to deploy the site to Netlify
+| Adding .Rprofile to set options() for blogdown
+― The new site is ready
+○ To start a local preview: use blogdown::serve_site(), or the RStudio add-in "Serve Site"
+○ To stop a local preview: use blogdown::stop_server(), or restart your R session
+> Want to serve and preview the site now? (y/n) y
+Launching the server via the command:
+  C:/Users/mjiang/AppData/Roaming/Hugo/0.81.0/hugo.exe server --bind 127.0.0.1 -p 4321 --themesDir themes -t hugo-lithium -D -F --navigateToChanged
+Serving the directory . at http://localhost:4321
+Launched the hugo server in the background (process ID: 32508). To stop it, call blogdown::stop_server() or restart the R session.
+Rendering content/post/2020-12-01-r-rmarkdown/index.Rmd... Done.
+\end{verbatim}
+
+網頁到此已順利創建完成, 接下來就是網頁內容的修改, 及如何 deploy 到 github.io
+
+\hypertarget{ux5c07-rmarkdown-blogdown-ux5167ux5bb9-deploy-ux5230-netlify}{%
+\chapter{將 RMarkdown blogdown 內容 deploy 到 Netlify}\label{ux5c07-rmarkdown-blogdown-ux5167ux5bb9-deploy-ux5230-netlify}}
+
+參考 \href{https://alison.rbind.io/post/new-year-new-blogdown/\#using-github}{Ref. 1 Using github 章節}
+
+\hypertarget{ux8a2dux5b9a-.gitignore-ux96d6ux7136ux4e0dux77e5ux9053ux9019ux6642ux5019ux8a2dux5b9a-.gitignore-ux7684ux5fc5ux8981ux6027-ux9084ux662fux7167ux8457ux8aaaux660eux505a}{%
+\section{設定 .gitignore : 雖然不知道這時候設定 .gitignore 的必要性, 還是照著說明做}\label{ux8a2dux5b9a-.gitignore-ux96d6ux7136ux4e0dux77e5ux9053ux9019ux6642ux5019ux8a2dux5b9a-.gitignore-ux7684ux5fc5ux8981ux6027-ux9084ux662fux7167ux8457ux8aaaux660eux505a}}
+
+\begin{verbatim}
+file.edit(".gitignore")
+\end{verbatim}
+
+RStudio 會將 cursor 移到左上角的檔案內容檢視視窗, 在該視窗類加上以下內容
+
+\begin{verbatim}
+## 原始內容 
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+## 增加以下內容
+.DS_Store
+Thumbs.db
+\end{verbatim}
+
+\hypertarget{blogdown-ux6aa2ux67e5-check_gitignore}{%
+\section{blogdown 檢查 check\_gitignore()}\label{blogdown-ux6aa2ux67e5-check_gitignore}}
+
+執行第一次 commit 之前, 先用 blogdown 檢查
+
+\begin{verbatim}
+> blogdown::check_gitignore()
+\end{verbatim}
+
+不太清楚 {[}TODO{]} 再這裡的意義, 待研究
+
+\begin{verbatim}
+― Checking .gitignore
+| Checking for items to remove...
+○ Nothing to see here - found no items to remove.
+| Checking for items to change...
+○ Nothing to see here - found no items to change.
+| Checking for items you can safely ignore...
+○ Found! You have safely ignored: .DS_Store, Thumbs.db
+| Checking for items to ignore if you build the site on Netlify...
+● [TODO] When Netlify builds your site, you can safely add to .gitignore: /public/, /resources/
+| Checking for files required by blogdown but not committed...
+● [TODO] Found 1 file that should be committed in GIT:
+
+  layouts/shortcodes/blogdown/postref.html
+― Check complete: .gitignore
+\end{verbatim}
+
+\hypertarget{blogdown-ux6aa2ux67e5-check_content}{%
+\section{blogdown 檢查 check\_content()}\label{blogdown-ux6aa2ux67e5-check_content}}
+
+還不清楚這動作的意義, 待確認
+
+\begin{verbatim}
+> blogdown::check_content()
+\end{verbatim}
+
+執行結果
+
+\begin{verbatim}
+― Checking content files
+| Checking for validity of YAML metadata in posts...
+○ All YAML metadata appears to be syntactically valid.
+| Checking for previewed content that will not be published...
+○ Found 0 files with future publish dates.
+○ Found 0 files marked as drafts.
+| Checking your R Markdown content...
+○ All R Markdown files have been knitted.
+○ All R Markdown output files are up to date with their source files.
+| Checking for .html/.md files to clean up...
+○ Found 0 duplicate .html output files.
+○ Found 0 incompatible .html files to clean up.
+| Checking for the unnecessary 'content/' directory in theme...
+○ Great! Your theme does not contain the content/ directory.
+― Check complete: Content
+\end{verbatim}
+
+\hypertarget{ux5728-netlify-ux7db2ux7ad9ux4e0aux5efaux7f6eux4e26ux4e14-publish-site}{%
+\section{在 Netlify 網站上建置並且 Publish site}\label{ux5728-netlify-ux7db2ux7ad9ux4e0aux5efaux7f6eux4e26ux4e14-publish-site}}
+
+參考 \href{https://alison.rbind.io/post/new-year-new-blogdown/\#step-5-publish-site}{Ref 1. Publish site 章節}
+
+我們在這章節會使用比較高端的做法, 讓 Netlify 來將我們建立的網站, 建置到 github 上.
+1. 到 \href{https://www.netlify.com/}{Netlify} 網站
+2. 用 github 的帳號去 sign up (無須建立新帳號)
+3. log in 後, 選擇 New site from Git \textgreater{} Continuous Deployment: GitHub.
+4. (optional) 到 (Netlify) menu 右上角 Site Setting 點選後, 更改 Change site name 到自己已歡的名字, 我挑選的是 marconijiang, 所以我的網站就是 \url{https://marconijiang.netlify.app}. 如果修改, 會是 Netlify 自行設定的網址名稱, 位於左上角類似 xxxx-yyyyy-zzzz.netlify.app 的網址
+5. 可以另開一個 browser 頁面, 輸入網址 marconijiang.netlify.app, 就可以看到自己的 github 上的內容 (這時候的內容是 github 網站的內容, 如果還沒跟電腦上的同步, 內容可能是空的)
+
+\hypertarget{git-ux6307ux4ee4ux5c07ux96fbux8166ux7684ux5167ux5bb9ux66f4ux65b0ux65bc-github}{%
+\section{git 指令將電腦的內容更新於 github}\label{git-ux6307ux4ee4ux5c07ux96fbux8166ux7684ux5167ux5bb9ux66f4ux65b0ux65bc-github}}
+
+移到 RStudio 左下角的 terminal (console 右邊), 透過一般的 git 指令去更新 github 上的內容
+
+\begin{verbatim}
+## 這時候, 目錄位址應該是從網頁內容 git clone 下來的目錄, 都是 xxxx.github.io
+## 像我的目錄就是 marconijiang.github.io 
+$ git add *
+$ git commit -m "init commit"
+$ git push origin main      # 最近, github 將 "master" branch 改成 main
+##  需要輸入 github 的 user id 跟 password
+\end{verbatim}
+
+這時候, 再回到 browser 的 \url{https://marconijiang.netlify.app} 稍稍等個一分鐘, 網頁會自動更新到最新的內容
+
+\hypertarget{ux91cdux65b0ux5b89ux88dd-bookdown}{%
+\chapter{重新安裝 bookdown}\label{ux91cdux65b0ux5b89ux88dd-bookdown}}
+
+此章節主要參考 Ref 7. \href{https://github.com/r-lib/hugodown}{rib-hugodown github 網頁}
+
+\hypertarget{ux5b89ux88dd-bookdown-ux5957ux4ef6}{%
+\section{安裝 bookdown 套件}\label{ux5b89ux88dd-bookdown-ux5957ux4ef6}}
+
+\begin{verbatim}
+> install.packages("devtools")
+## devtools::install_github('rstudio/bookdown')
+> devtools::install_github("r-lib/hugodown")
+
+## 不知是否是版本問題, 還是改安裝了 0.66.0 版後才沒問題
+> hugodown::hugo_install('0.66.0')
+\end{verbatim}
+
+\hypertarget{ux5728-rstudio-ux5efaux7acbux65b0ux5c08ux6848}{%
+\section{在 RStudio 建立新專案}\label{ux5728-rstudio-ux5efaux7acbux65b0ux5c08ux6848}}
+
+進入 RStudio -\textgreater{} New Project -\textgreater{} New Directory -\textgreater{} New Project -\textgreater{} ``Directory name'' -\textgreater{} ``Create Project''
+
+\hypertarget{ux5275ux5efa-hugo-ux7684-academic-ux6a21ux677fux7db2ux7ad9}{%
+\section{創建 hugo 的 academic 模板網站}\label{ux5275ux5efa-hugo-ux7684-academic-ux6a21ux677fux7db2ux7ad9}}
+
+創建 hugo 的 academic 模板網站
+
+\begin{verbatim}
+> hugodown::create_site_academic()
+\end{verbatim}
+
+開始 hugodown 網頁的 server
+
+\begin{verbatim}
+> hugodown::hugo_start()
+Starting server on port 1313
+\end{verbatim}
+
+\hypertarget{chap-summary}{%
+\chapter{Summary - 成功安裝 bookdown, 且順利 deploy 到 github.io}\label{chap-summary}}
+
+\hypertarget{ux5b89ux88ddux5957ux4ef6}{%
+\section{安裝套件}\label{ux5b89ux88ddux5957ux4ef6}}
+
+我只是安裝了 blogdown 套件, 就自動安裝了 bookdown 套件（應該是如此）
+
+\begin{verbatim}
+> if (!requireNamespace("remotes")) install.packages("remotes")  
+> remotes::install_github("rstudio/blogdown")
+\end{verbatim}
+
+\hypertarget{ux7522ux751f-bookdown-ux7bc4ux4f8bux6a94ux6848}{%
+\section{產生 bookdown 範例檔案}\label{ux7522ux751f-bookdown-ux7bc4ux4f8bux6a94ux6848}}
+
+到 RStudio -\textgreater{} File -\textgreater{} New project -\textgreater{} New directory -\textgreater{} 向下找到 ``Book project using bookdown'' -\textgreater{} Directory 的名字為 marconijiang.github.io 即可產生帶有範例的 bookdown 程式在 marconijiang.github.io 目錄下.
+
+\hypertarget{deploy-ux5230-github.io}{%
+\section{Deploy 到 github.io}\label{deploy-ux5230-github.io}}
+
+到 RStudio 右上方, Environment 同一頁面的 Build, 選擇 Build Book 下的 bookdown::gitbook, RStudio 就開始將內容轉至 html, 儲存於 \_book 子目錄下, 這時候到 \url{https://marconijiang.github.io/_book/index.html} 會出現 404 not found
+
+\hypertarget{ux7db2ux9801ux51faux73fe-404-not-foundux6642-ux95dcux65bc-.nojekyll-ux7684ux89e3ux6c7aux65b9ux5f0f}{%
+\section{網頁出現 404 not found時, 關於 .nojekyll 的解決方式}\label{ux7db2ux9801ux51faux73fe-404-not-foundux6642-ux95dcux65bc-.nojekyll-ux7684ux89e3ux6c7aux65b9ux5f0f}}
+
+github pages 是基於 \href{https://jekyllrb.com/docs/github-pages/}{jekyll} 支援的網頁, 因此, 如果以底線 (underline) 開頭的檔案或目錄, github 不會將這目錄上傳, 詳見\href{https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/}{Bypassing Jekyll on GitHub Pages}, 偏偏 bookdown 標準設定的 html 輸出目錄正是 \_book, 以底線開頭的目錄, 因此我們有兩個作法:\\
+1. 在 檔案 \_bookdown.yml 修改輸出的目錄名稱, 詳見第 §\ref{chap-bookdown-outputdir} \_bookdown.yml 檔案說明;\\
+2. 新增 .nojekyll 檔案, 作法如下:
+
+\begin{itemize}
+\tightlist
+\item
+  在 index.html 的同一個目錄下新增 .nkjekyll 這檔案, 這檔案不必有內容, 一般都是用 linux 的指令 touch 來創建該檔案
+\end{itemize}
+
+\begin{verbatim}
+$ touch .nojekyll
+\end{verbatim}
+
+新增沒有內容的檔案, 名字為 .nojekyll 的檔案到 \_book 目錄下, 詳細內容參考 \href{https://stackoverflow.com/questions/11577147/how-to-fix-http-404-on-github-pages}{github 404 not found due to missing .nojekyll} 就可以成功看到 \url{https://marconijiang.github.io/_book/index.html} 的內容
+
+\hypertarget{chap-bookdown}{%
+\chapter{快速使用 Bookdown 的說明}\label{chap-bookdown}}
+
+需要回頭看第 §\ref{chap-summary} 章的 bookdown 安裝, 再繼續往下看
+
+\hypertarget{ux958bux59cbux5168ux65b0ux7684-bookdown-ux6a94ux6848}{%
+\section{開始全新的 bookdown 檔案}\label{ux958bux59cbux5168ux65b0ux7684-bookdown-ux6a94ux6848}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  我會 copy 這篇文章/目錄 (github.com/marconi1964/About\_bookdown) 的全部內容到新建的目錄
+\item
+  打開 RStudio
+\item
+  到 RStudio 右下角的 file, 找到新建目錄
+\item
+  找到並點擊 marconi1964.github.Rproj, 此時 RStudio 會重新建立以這個目錄內容的新 project, 就可以開始了
+\end{enumerate}
+
+\hypertarget{ux6ce8ux610fux4e8bux9805}{%
+\section{注意事項}\label{ux6ce8ux610fux4e8bux9805}}
+
+\begin{itemize}
+\tightlist
+\item
+  如果是 post 在 gibhub.io, 需要在 index.html 的同一個目錄下新增 .nkjekyll 這檔案, 這檔案不必有內容, 一般都是用 linux 的指令 touch 來創建該檔案
+\end{itemize}
+
+\begin{verbatim}
+$ touch .nojekyll
+\end{verbatim}
+
+\hypertarget{chap-bookdown-outputdir}{%
+\section{檔案結構}\label{chap-bookdown-outputdir}}
+
+我在 github 設定的 檔案目錄結構如下
+
+\begin{verbatim}
+github.com/marconi1964
+|
+|-- About_bookdown         # 書的 Rmarkdown 內容儲存於 github 的第一層子目錄下
+    |-- _bookdown.yml      # 需要新增一行到此檔案, 將 html 輸出到 marconi1964.github.io 下一層的目錄, 這目錄名稱可以自訂, 此例子為 about_bookdown, 後續 bookdown 輸出後, 可以在 https://marconi1964.github.io/about_bookdown/index.html 看到此書的內容 
+         output_dir: "../marconi1964.github.io/about_bookdown"
+    |-- index.Rmd          # bookdown 會依照檔案名稱安排章節順序
+    |-- 01-intro.Rmd       # 順序依序為 : index.Rmd, 01-intro.Rmd, 02-xxx.Rmd
+    |-- 02-xxx.Rmd         # 數字後面的檔案名稱只是讓作者/讀者了解內容
+ 
+|-- JetsonNano_book        # 書的 Rmarkdown 內容儲存於 github 的第一層子目錄下
+    |-- _bookdown.yml      # 需要新增一行到此檔案, 將 html 輸出到 marconi1964.github.io 下一層的目錄, 這目錄名稱可以自訂, 此例子為 JetsonNano, 後續 bookdown 輸出後, 可以在 https://marconi1964.github.io/JetsonNano/index.html 看到此書的內容
+         output_dir: "../marconi1964.github.io/JetsonNano"
+    |-- ...
+    
+|-- marconi1964.github.io  # html 的內容儲存於此目錄下
+    |-- index.html         # 需自行手工創建, 建立 hyperlink 連接到不同的書內容
+    |-- about_bookdown     # 此目錄及內容由 bookdown 創建及產生, 可以在 https://marconi1964.github.io/about_bookdown/index.html 看到此書的內容
+        |-- .nojekyll      # 唯有這個檔案需要自行創建
+        |-- index.html
+        |-- ...
+    |-- JetsonNano         # 此目錄及內容由 bookdown 創建及產生, 可以在 https://marconi1964.github.io/JetsonNano/index.html 看到此書的內容
+        |-- .nojekyll      # 唯有這個檔案需要自行創建
+        |-- index.html   
+        |-- ...
+    |--
+\end{verbatim}
+
+\hypertarget{rmd-ux5167ux5bb9ux6ce8ux610fux4e8bux9805}{%
+\section{Rmd 內容注意事項}\label{rmd-ux5167ux5bb9ux6ce8ux610fux4e8bux9805}}
+
+我目前的想法只是單純的使用 md 檔案格式, 而沒運用到 Rmd 的功能, 這樣, 就可以直接轉換到 python 常用的 md 格式
+
+其它待補充
+
+\hypertarget{ux53c3ux8003ux6587ux4ef6ux7684ux53c3ux7167}{%
+\section{參考文件的參照}\label{ux53c3ux8003ux6587ux4ef6ux7684ux53c3ux7167}}
+
+待補充
+
+\hypertarget{ux5716ux8868ux7684ux53c3ux7167}{%
+\section{圖表的參照}\label{ux5716ux8868ux7684ux53c3ux7167}}
+
+待補充
+
+參考資料\\
+1. \url{https://alison.rbind.io/post/new-year-new-blogdown/}\\
+2. \url{https://bookdown.org/yihui/blogdown/installation.html}
+
+Lithium 相關主題\\
+3. \href{https://github.com/yihui/hugo-lithium}{Yihui Hugo Lithium}\\
+4. \href{https://github.com/jrutheiser/hugo-lithium-theme}{Jrutheiser Hugo Lithium} \#\# 應該是 Lithium 原始出處\\
+5. \href{https://github.com/janikvonrotz/hugo-lithium-theme}{janikvonrotz Hugo Lithium}\\
+6. \href{https://themes.gohugo.io/hugo-lithium-theme/}{Hugo Lithium 官網}
+
+Hugodown 相關網頁\\
+7. \href{https://github.com/r-lib/hugodown}{r-lib/hugodown github 官網}
+
+Bookdown 相關網頁\\
+8. \href{https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/bookdown.html}{R 語言教學} - 這篇文章幫我完成了用 bookdown 編輯 .md (實際上是 .rmd 但是盡量只用到 .md 的功能) 的文章格式, 然後可以快速 deploy 到 github.io 的理想, 請看 23 章
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}
