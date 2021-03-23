@@ -24,7 +24,7 @@
 <meta name="author" content="Marconi Jiang" />
 
 
-<meta name="date" content="2021-03-21" />
+<meta name="date" content="2021-03-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -105,7 +105,7 @@
 <h1><span class="header-section-number">Chapter 2</span> Introducing TensorFlow Lite for Microcontroller (TFLM)</h1>
 <p>Google 推出 <strong>TensorFlow</strong> 框架, 可以在 CPU/GPU/TPU 上執行 training 的任務, 考慮手機上的侷限的運算能力不如 PC, 接著推出 <a href="https://www.tensorflow.org/lite/tutorials">Tensorflow Lite</a> 的機器學習框架於手機, 至於 IoT 裝置上用的是 ARM M 系列及其它 embedded MCU (microcontrollers) 的算力以及侷限的 ROM/RAM 空間, 也針對這類型的開發板陸續推出支援機器學習 inference 的 <a href="https://www.tensorflow.org/lite/microcontrollers">TensorFlow Lite for Microcontrollers</a> (TFLM) 框架, 也出書推廣
 <a href="https://www.books.com.tw/products/0010865580?fbclid=IwAR1xgb-0LStRrHXajKT-u3uP982d0p8PQaDpNfhxHAzuCbATi6VOjYcwo2k">TinyML：TensorFlow Lite 機器學習</a>.</p>
-<p>截至目前 (2021 3月) 為止, TFLM 支援的硬體已經有下列的開發板 (書中只有介紹前三種):</p>
+<p>截至本書出版（2021-03-24）為止, TFLM 支援的硬體已經有下列的開發板 (書中只有介紹前三種):</p>
 <ul>
 <li>Arduino Nano 33 BLE Sense<br />
 </li>
@@ -141,13 +141,19 @@
 <li>Tutorial using SparkFun Edge<br />
 </li>
 </ul></li>
-<li><strong>Magic wand</strong> - Captures accelerometer data to classify three different physical gestures
+<li><strong>Magic wand</strong> - 讀取 accelerometer 資料來判斷並區分 3 種不同手勢
 <ul>
 <li>Tutorial using Arduino Nano 33 BLE Sense<br />
 </li>
 </ul></li>
-<li><strong>Person detection</strong> - Captures camera data with an image sensor to detect the presence or absence of a person</li>
+<li><strong>Person detection</strong> - 讀取 camera 的影像資料來偵測是否有人出現在精通前</li>
 </ul>
+<p>而我在本書出版時, 已經實驗過的板子及範例有, 因為 TensorFlow Lite Micro 的核心程式及 Make 環境的開發持續進行中, 程式的更新過程會造成部分來不及更新的內容及操作產生錯誤, 尤其是 STM32 相關的設定參數, 著實花了一些時間, 並且發 PR 到 TFLM github 更新.
+* <strong>Hello World</strong> : STM32 NUCLEO-F03RB, DISCO-F746NG, Arduino Nano 33 BLE Sense
+* <strong>Micro speech</strong> : DISCO-F746NG, Arduino Nano 33 BLE Sense
+* <strong>Magic wand</strong> : Arduino Nano 33 BLE Sense
+* <strong>Person detection</strong> : Not yet （標的物 Arduino Nano 33 BLE Sense, ESP32-EYE）</p>
+<p>從實驗的結果而言, 辨識的效果還有很大的改善空間, 這就當作下一個探討的題目吧.</p>
 
 </div>
             </section>
@@ -198,7 +204,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["TensorFlowLite4Microcontrollers.pdf", "TensorFlowLite4Microcontrollers.epub"],
+"download": ["TensorFlowLite4Microcontrollers_by_marconi1964.pdf", "TensorFlowLite4Microcontrollers_by_marconi1964.epub"],
 "toc": {
 "collapse": "subsection"
 }
