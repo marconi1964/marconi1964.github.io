@@ -2,6 +2,7 @@
 chap-intro
 prerequisite-準備工作
 git-及-github-簡單操作
+認識-make-及簡單操作-mbed-cli-的操作必備技能之一
 在-windows-10-下安裝-vmware-workstation-player-及-ubuntu-18.04
 事先準備
 下載-ubuntu-18.04-iso-image-檔案-電腦需要至少-20gb-以上硬碟空間-預估下載時間-7-分鐘
@@ -16,7 +17,3 @@ git-及-github-簡單操作
 參考文件
 chap-hello-world
 section
-applications
-example-one
-example-two
-final-words
