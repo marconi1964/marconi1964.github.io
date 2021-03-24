@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>TensorFlow Lite for Microcontroller (TFLM)</title>
+  <title>Chapter 4 Hello world 示範程式 - 訓練 | TensorFlow Lite for Microcontroller (TFLM)</title>
   <meta name="description" content="TensorFlow Lite for Micrcontroller (TFLM) 實驗, 基於 Rmarkdown / bookdown 做成" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta property="og:title" content="Chapter 4 Hello world 示範程式 - 訓練 | TensorFlow Lite for Microcontroller (TFLM)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta name="twitter:title" content="Chapter 4 Hello world 示範程式 - 訓練 | TensorFlow Lite for Microcontroller (TFLM)" />
   
   <meta name="twitter:description" content="TensorFlow Lite for Micrcontroller (TFLM) 實驗, 基於 Rmarkdown / bookdown 做成" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="chap-intro.html"/>
+<link rel="prev" href="prerequisite-.html"/>
+<link rel="next" href="chap-helloworld-inference.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -117,24 +117,27 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">TensorFlow Lite for Microcontroller (TFLM)</h1>
-<p class="author"><em>Marconi Jiang</em></p>
-<p class="date"><em>2021-03-24</em></p>
+<div id="chap-helloworld-training" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Hello world 示範程式 - 訓練</h1>
+<p>Hello world 示範程式跟一般的 AI 機器學習/深度學習的應用一樣, 分成“訓練 (training)” 跟 “推論 (inference)” 兩段, 參考 <a href="https://blogs.nvidia.com/blog/2016/08/22/difference-deep-learning-training-inference-ai/">AI 大神 NVidia 關於訓練與推論的文章(英文版)</a> .</p>
+<div align="center">
+<p><span style="color:blue">
+<strong>簡單而言:<br />
+<em>訓練就是‘學習’; 推論就是‘考試’</em></strong></span></p>
 </div>
-<div id="前言" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> 前言</h1>
-<p>自從 2020 年參加了台灣人工智慧學校的第一屆 Edge AI 技術專班後, 對於 edge AI 比較有點概念, 重讀 <a href="https://www.books.com.tw/products/0010865580?fbclid=IwAR1xgb-0LStRrHXajKT-u3uP982d0p8PQaDpNfhxHAzuCbATi6VOjYcwo2k">TinyML：TensorFlow Lite機器學習</a> 一書, 於 2021 春節期間比較有空時, 找出手上的 STM32 NUCLEO_F103RB 板子, 確認程式的可行性, 分享在 <a href="https://www.facebook.com/groups/edgeaitw/permalink/2841368276150520/">FB 的 Edge AI Taiwan邊緣智能交流區</a>, 後續有臉友聯繫, 希望可以跟學生分享, 就開始了 TensorFlow Lite for Microntroller 更深入的探討, 同時, 也開啟了對 TensorFlow open source 的小小貢獻.</p>
-<p>附註 : 本書的 pdf 版本下載設定有問題, 無法顯示中文, 需要修改 bookdown 設定吧, 待研究.</p>
+<p>’訓練’需要大量的電腦資源 (CPU/GPU/NPU/memory) 、資料(data) 以及長時間的訓練, 就跟我們學習需要大量閱讀與記憶的時間都比較長, 而考試的時間都需要我們馬上反應; ’推論’是基於訓練出來的模型, 來推斷新的以前沒見過的資料來得出答案。我們需要電腦 (PC 或 Mac) 來做訓練 (本章 §<a href="chap-helloworld-training.html#chap-helloworld-training">4</a> 的內容), 再將模型傳到開發板來做推論, 下一章 §<a href="chap-helloworld-inference.html#chap-helloworld-inference">5</a> 的內容.</p>
+<div id="section" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> </h2>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="chap-intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="prerequisite-.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-helloworld-inference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
