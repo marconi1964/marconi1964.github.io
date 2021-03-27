@@ -17,5 +17,11 @@ vmware
 參考文件
 arduinoide
 chap-helloworld-training
-section
+在-google-colab-上建立及訓練-hello-world-的模型
+colab-執行-training-程式前的準備工作
+colab-執行-train-hello-world-model.ipynb-程式
+訓練過程中-學習如何修正及改善模型-並將模型轉換成-tflm-接受的格式
 chap-helloworld-inference
+section
+appendixa
+appendixb

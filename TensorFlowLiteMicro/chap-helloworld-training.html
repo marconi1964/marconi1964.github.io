@@ -24,7 +24,7 @@
 <meta name="author" content="Marconi Jiang" />
 
 
-<meta name="date" content="2021-03-24" />
+<meta name="date" content="2021-03-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -93,10 +93,21 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html"><i class="fa fa-check"></i><b>4</b> Hello world 示範程式 - 訓練</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html#section"><i class="fa fa-check"></i><b>4.1</b> </a></li>
+<li class="chapter" data-level="4.1" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html#在-google-colab-上建立及訓練-hello-world-的模型"><i class="fa fa-check"></i><b>4.1</b> 在 Google colab 上建立及訓練 hello world 的模型</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html#colab-執行-training-程式前的準備工作"><i class="fa fa-check"></i><b>4.2</b> colab 執行 training 程式前的準備工作</a></li>
+<li class="chapter" data-level="4.3" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html#colab-執行-train-hello-world-model.ipynb-程式"><i class="fa fa-check"></i><b>4.3</b> colab 執行 train hello world model.ipynb 程式</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html#訓練過程中-學習如何修正及改善模型-並將模型轉換成-tflm-接受的格式"><i class="fa fa-check"></i><b>4.3.1</b> 訓練過程中, 學習如何修正及改善模型, 並將模型轉換成 TFLM 接受的格式</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="chap-helloworld-inference.html"><a href="chap-helloworld-inference.html"><i class="fa fa-check"></i><b>5</b> Hello world 示範程式 - 推論</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-helloworld-inference.html"><a href="chap-helloworld-inference.html"><i class="fa fa-check"></i><b>5</b> Hello world 示範程式 - 推論</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-helloworld-inference.html"><a href="chap-helloworld-inference.html#section"><i class="fa fa-check"></i><b>5.1</b> </a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="appendix"><span><b>附錄</b></span></li>
+<li class="chapter" data-level="A" data-path="appendixa.html"><a href="appendixa.html"><i class="fa fa-check"></i><b>A</b> Appendix A - 機器學習模型之加強及改善可能</a></li>
+<li class="chapter" data-level="B" data-path="appendixb.html"><a href="appendixb.html"><i class="fa fa-check"></i><b>B</b> Appendix B</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/marconi1964" target="blank">Marconi's github</a></li>
 
@@ -125,10 +136,226 @@
 <p><span style="color:blue">
 <strong>訓練就是‘學習’; 推論就是‘考試’</strong></span></p>
 </div>
-<p>’訓練’需要大量的電腦資源 (CPU/GPU/NPU/memory) 、資料(data) 以及長時間的訓練, 就跟我們學習需要大量閱讀與記憶的時間都比較長, 而考試的時間都需要我們馬上反應; ’推論’是基於訓練出來的模型, 來推斷新的以前沒見過的資料來得出答案。我們需要電腦 (PC 或 Mac) 來做訓練 (本章 §<a href="chap-helloworld-training.html#chap-helloworld-training">4</a> 的內容), 再將模型傳到開發板來做推論, 下一章 §<a href="chap-helloworld-inference.html#chap-helloworld-inference">5</a> 的內容.</p>
-<div id="section" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> </h2>
+<p>’訓練’需要大量的電腦資源 (CPU/GPU/NPU/memory) 、資料(data) 以及長時間的訓練, 就跟我們人類學習需要大量閱讀與長期的記憶, 而考試(推論)則需要我們的馬上反應; ’推論’是基於訓練出來的模型(如同我們大腦的記憶), 來推論出新資料的可能答案。因為訓練需要大量電腦資源, 我們無法使用開發板有限的 MCU 能力來做訓練, 而是需要電腦 (PC, Mac 甚至更快速的雲端伺服器, 如 google 的 colab) 來做訓練 (本章 §<a href="chap-helloworld-training.html#chap-helloworld-training">4</a> 的內容), 再將訓練出來的模型轉換成開發板可以接受的檔案格式, 傳到開發板上來做推論,也就是下一章 §<a href="chap-helloworld-inference.html#chap-helloworld-inference">5</a> 的內容.</p>
+<div id="在-google-colab-上建立及訓練-hello-world-的模型" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> 在 Google colab 上建立及訓練 hello world 的模型</h2>
+<p>到 <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/hello_world/train/train_hello_world_model.ipynb">github 的 Train a Simple TensorFlow Lite for Microcontrollers model</a> 會同時看到 “在 Google colab 上執行” 及 “github 原始碼” 的圖示如下, 我們點選 “在 Google colab 上執行,” 就會在 browser 上新開一個畫面, 執行 colab 上的 training 程式.</p>
+<p><a href="https://colab.research.google.com/github/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/hello_world/train/train_hello_world_model.ipynb"><img src="images/colab.png" alt="colabandgithub" style="height: 80px"></a>
+<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/hello_world/train/train_hello_world_model.ipynb"><img src="images/github.png" alt="colabandgithub" style="height: 80px"></a></p>
+</div>
+<div id="colab-執行-training-程式前的準備工作" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> colab 執行 training 程式前的準備工作</h2>
+<p>機器學習需要大量的運算, 尤其是浮點運算, 所以 NVidia 的 GPU 比 intel 的 CPU 更適合做機器學習的訓練工作, 可以縮短大量的訓練時間. Google 的 colab 提供了 3 種 runtime type 的選擇, 到選單 ‘Runtime’ 下的 “Change runtime type” 選擇 GPU. (如果選擇 None, 就會使用 CPU, 選擇 TPU, 會使用 Google 特殊設計的機器學習加速晶片, 截至目前為止, GPU 還是機器學習訓練速度最快的選項. 只是, 本次訓練的模型不大, 不管選擇哪一種, 時間都差異不大)</p>
+</div>
+<div id="colab-執行-train-hello-world-model.ipynb-程式" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> colab 執行 train hello world model.ipynb 程式</h2>
+<p>到選單 “Runtime” 選擇 “Run all,” 整個執行過程需時 5 分鐘之內. (同學們可以試試看不同的 runtime type 所需的時間各是多少)</p>
+<div id="訓練過程中-學習如何修正及改善模型-並將模型轉換成-tflm-接受的格式" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> 訓練過程中, 學習如何修正及改善模型, 並將模型轉換成 TFLM 接受的格式</h3>
+<p>這訓練模型 train hello worldmode.ipynb 令我佩服的是, 利用實例來說明機器學習模式設計可能的問題, 模型太小只能有線性的表現, 而且用圖形來顯示此結果, 進一步擴充模型(增加一層神經網路)後得到更佳結果, 值得讀者細細研讀本書<a href="https://www.books.com.tw/products/0010865580">TinyML TensorFLow Lite 機器學習中文版</a>的第 4 章, 列於 § Appendix <a href="appendixa.html#appendixa">A</a> 當作進一步研究的主題.</p>
+<p>最終訓練結果會顯示在最後一行, 帶出 2 個參數,</p>
+<ul>
+<li>g_model_len : 是型態為整數(int), 內容是模型參數的個數, 在這個模型裡面, 有 2,488 個參數<br />
+</li>
+<li>g_model[] : 是型態為’字元’(char)的’串列’ (list), 內容就是模型的全部參數 (parameters);
+<ul>
+<li>每一個參數佔用一個 byte, 也就是 8 個 bits. bit(s) 跟 byte(s) 是電腦處理器及記憶體的基本單位, 其中 1 byte = 8 bits. 在電腦常用的名詞裡, byte 還是比 bit 常用, 不過, 為了避免混淆, 常用的表達方式是用 ‘B’ 來表示 byte, 用 ‘b’ 來表示 bit. 例如現今電腦的操作系統已經進化到 64 位元(bits), 意思是 CPU 一次就可以處理 64 位元的資料, 而記憶體比較常用 128GB (bytes) 方式表達.</li>
+<li>如第一個的內容 0x1c, 0x 指的是以 16 進位(相對於人類使用的 10進位) 的方式表達, 在 16 進位的表達方式, 我們用英文字元 a - f 來表達 10 - 15 的數字.</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="right">10 進位</th>
+<th align="right">16 進位 0x開頭</th>
+<th align="right">8 進位 0o開頭</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">0x0</td>
+<td align="right">0o0</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">0x1</td>
+<td align="right">0o1</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">0x2</td>
+<td align="right">0o2</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">0x3</td>
+<td align="right">0o3</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">0x4</td>
+<td align="right">0o4</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">0x5</td>
+<td align="right">0o5</td>
+</tr>
+<tr class="odd">
+<td align="right">6</td>
+<td align="right">0x6</td>
+<td align="right">0o6</td>
+</tr>
+<tr class="even">
+<td align="right">7</td>
+<td align="right">0x7</td>
+<td align="right">0o7</td>
+</tr>
+<tr class="odd">
+<td align="right">8</td>
+<td align="right">0x8</td>
+<td align="right">0o10</td>
+</tr>
+<tr class="even">
+<td align="right">9</td>
+<td align="right">0x9</td>
+<td align="right">0o11</td>
+</tr>
+<tr class="odd">
+<td align="right">10</td>
+<td align="right">0xa</td>
+<td align="right">0o12</td>
+</tr>
+<tr class="even">
+<td align="right">11</td>
+<td align="right">0xb</td>
+<td align="right">0o13</td>
+</tr>
+<tr class="odd">
+<td align="right">12</td>
+<td align="right">0xc</td>
+<td align="right">0o14</td>
+</tr>
+<tr class="even">
+<td align="right">13</td>
+<td align="right">0xd</td>
+<td align="right">0o15</td>
+</tr>
+<tr class="odd">
+<td align="right">14</td>
+<td align="right">0xe</td>
+<td align="right">0o16</td>
+</tr>
+<tr class="even">
+<td align="right">15</td>
+<td align="right">0xf</td>
+<td align="right">0o17</td>
+</tr>
+<tr class="odd">
+<td align="right">16</td>
+<td align="right">0x10</td>
+<td align="right">0o20</td>
+</tr>
+<tr class="even">
+<td align="right">17</td>
+<td align="right">0x11</td>
+<td align="right">0o21</td>
+</tr>
+<tr class="odd">
+<td align="right">18</td>
+<td align="right">0x12</td>
+<td align="right">0o22</td>
+</tr>
+<tr class="even">
+<td align="right">19</td>
+<td align="right">0x13</td>
+<td align="right">0o23</td>
+</tr>
+<tr class="odd">
+<td align="right">20</td>
+<td align="right">0x14</td>
+<td align="right">0o24</td>
+</tr>
+<tr class="even">
+<td align="right">21</td>
+<td align="right">0x15</td>
+<td align="right">0o25</td>
+</tr>
+<tr class="odd">
+<td align="right">22</td>
+<td align="right">0x16</td>
+<td align="right">0o26</td>
+</tr>
+<tr class="even">
+<td align="right">23</td>
+<td align="right">0x17</td>
+<td align="right">0o27</td>
+</tr>
+<tr class="odd">
+<td align="right">24</td>
+<td align="right">0x18</td>
+<td align="right">0o30</td>
+</tr>
+<tr class="even">
+<td align="right">25</td>
+<td align="right">0x19</td>
+<td align="right">0o31</td>
+</tr>
+<tr class="odd">
+<td align="right">26</td>
+<td align="right">0x1a</td>
+<td align="right">0o32</td>
+</tr>
+<tr class="even">
+<td align="right">27</td>
+<td align="right">0x1b</td>
+<td align="right">0o33</td>
+</tr>
+<tr class="odd">
+<td align="right">28</td>
+<td align="right">0x1c</td>
+<td align="right">0o34</td>
+</tr>
+<tr class="even">
+<td align="right">29</td>
+<td align="right">0x1d</td>
+<td align="right">0o35</td>
+</tr>
+<tr class="odd">
+<td align="right">30</td>
+<td align="right">0x1e</td>
+<td align="right">0o36</td>
+</tr>
+<tr class="even">
+<td align="right">31</td>
+<td align="right">0x1f</td>
+<td align="right">0o37</td>
+</tr>
+<tr class="odd">
+<td align="right">32</td>
+<td align="right">0x20</td>
+<td align="right">0o40</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+<p>也就是說, 這個模型會佔用開發板上面記憶體(ROM)的 2,488 位元組(bytes), g_model_len 說明這個模型的參數個數, 模型的參數內容則儲存在 g_model[].</p>
+<pre><code># Print the C source file
+!cat {MODEL_TFLITE_MICRO}
 
+unsigned char g_model[] = {
+  0x1c, 0x00, 0x00, 0x00, 0x54, 0x46, 0x4c, 0x33, 0x14, 0x00, 0x20, 0x00,
+  0x1c, 0x00, 0x18, 0x00, 0x14, 0x00, 0x10, 0x00, 0x0c, 0x00, 0x00, 0x00,
+  0x08, 0x00, 0x04, 0x00, 0x14, 0x00, 0x00, 0x00, 0x1c, 0x00, 0x00, 0x00,
+  0x98, 0x00, 0x00, 0x00, 0xc8, 0x00, 0x00, 0x00, 0x1c, 0x03, 0x00, 0x00,
+  ...
+  0x0c, 0x00, 0x10, 0x00, 0x0f, 0x00, 0x00, 0x00, 0x08, 0x00, 0x04, 0x00,
+  0x0c, 0x00, 0x00, 0x00, 0x09, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x00, 0x09
+};
+unsigned int g_model_len = 2488;</code></pre>
+
+</div>
 </div>
 </div>
             </section>

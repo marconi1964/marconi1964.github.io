@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>TensorFlow Lite for Microcontroller (TFLM)</title>
+  <title>A 一些定理的证明 | TensorFlow Lite for Microcontroller (TFLM)</title>
   <meta name="description" content="TensorFlow Lite for Micrcontroller (TFLM) 實驗, 基於 Rmarkdown / bookdown 做成" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta property="og:title" content="A 一些定理的证明 | TensorFlow Lite for Microcontroller (TFLM)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta name="twitter:title" content="A 一些定理的证明 | TensorFlow Lite for Microcontroller (TFLM)" />
   
   <meta name="twitter:description" content="TensorFlow Lite for Micrcontroller (TFLM) 實驗, 基於 Rmarkdown / bookdown 做成" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="references.html"/>
 
-<link rel="next" href="chap-intro.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -95,19 +95,16 @@
 <ul>
 <li class="chapter" data-level="4.1" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html#在-google-colab-上建立及訓練-hello-world-的模型"><i class="fa fa-check"></i><b>4.1</b> 在 Google colab 上建立及訓練 hello world 的模型</a></li>
 <li class="chapter" data-level="4.2" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html#colab-執行-training-程式前的準備工作"><i class="fa fa-check"></i><b>4.2</b> colab 執行 training 程式前的準備工作</a></li>
-<li class="chapter" data-level="4.3" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html#colab-執行-train-hello-world-model.ipynb-程式"><i class="fa fa-check"></i><b>4.3</b> colab 執行 train hello world model.ipynb 程式</a>
-<ul>
-<li class="chapter" data-level="4.3.1" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html#訓練過程中-學習如何修正及改善模型-並將模型轉換成-tflm-接受的格式"><i class="fa fa-check"></i><b>4.3.1</b> 訓練過程中, 學習如何修正及改善模型, 並將模型轉換成 TFLM 接受的格式</a></li>
-</ul></li>
+<li class="chapter" data-level="4.3" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html#colab-執行-train-hello-world-model.ipynb-程式"><i class="fa fa-check"></i><b>4.3</b> colab 執行 train hello world model.ipynb 程式</a></li>
+<li class="chapter" data-level="4.4" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html#訓練過程中-如何修正及改善模型"><i class="fa fa-check"></i><b>4.4</b> 訓練過程中, 如何修正及改善模型</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="chap-helloworld-inference.html"><a href="chap-helloworld-inference.html"><i class="fa fa-check"></i><b>5</b> Hello world 示範程式 - 推論</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="chap-helloworld-inference.html"><a href="chap-helloworld-inference.html#section"><i class="fa fa-check"></i><b>5.1</b> </a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="appendix"><span><b>附錄</b></span></li>
-<li class="chapter" data-level="A" data-path="appendixa.html"><a href="appendixa.html"><i class="fa fa-check"></i><b>A</b> Appendix A - 機器學習模型之加強及改善可能</a></li>
-<li class="chapter" data-level="B" data-path="appendixb.html"><a href="appendixb.html"><i class="fa fa-check"></i><b>B</b> Appendix B</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="formula.html"><a href="formula.html"><i class="fa fa-check"></i><b>A</b> 一些定理的证明</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/marconi1964" target="blank">Marconi's github</a></li>
 
@@ -128,15 +125,9 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">TensorFlow Lite for Microcontroller (TFLM)</h1>
-<p class="author"><em>Marconi Jiang</em></p>
-<p class="date"><em>2021-03-27</em></p>
-</div>
-<div id="前言" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> 前言</h1>
-<p>自從 2020 年參加了台灣人工智慧學校的第一屆 Edge AI 技術專班後, 對於 edge AI 比較有點概念, 重讀 <a href="https://www.books.com.tw/products/0010865580?fbclid=IwAR1xgb-0LStRrHXajKT-u3uP982d0p8PQaDpNfhxHAzuCbATi6VOjYcwo2k">TinyML：TensorFlow Lite機器學習</a> 一書, 於 2021 春節期間比較有空時, 找出手上的 STM32 NUCLEO_F103RB 板子, 確認程式的可行性, 分享在 <a href="https://www.facebook.com/groups/edgeaitw/permalink/2841368276150520/">FB 的 Edge AI Taiwan邊緣智能交流區</a>, 後續有臉友聯繫, 希望可以跟學生分享, 就開始了 TensorFlow Lite for Microntroller 更深入的探討, 同時, 也開啟了對 TensorFlow open source 的小小貢獻.</p>
-<p>附註 : 本書的 pdf 版本下載設定有問題, 無法顯示中文, 需要修改 bookdown 設定吧, 待研究.</p>
+<div id="formula" class="section level1" number="6">
+<h1><span class="header-section-number">A</span> 一些定理的证明</h1>
+<p>test</p>
 
 </div>
             </section>
@@ -144,8 +135,8 @@
           </div>
         </div>
       </div>
+<a href="references.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="chap-intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

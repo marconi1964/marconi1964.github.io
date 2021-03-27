@@ -24,7 +24,7 @@
 <meta name="author" content="Marconi Jiang" />
 
 
-<meta name="date" content="2021-03-24" />
+<meta name="date" content="2021-03-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -93,10 +93,21 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html"><i class="fa fa-check"></i><b>4</b> Hello world 示範程式 - 訓練</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html#section"><i class="fa fa-check"></i><b>4.1</b> </a></li>
+<li class="chapter" data-level="4.1" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html#在-google-colab-上建立及訓練-hello-world-的模型"><i class="fa fa-check"></i><b>4.1</b> 在 Google colab 上建立及訓練 hello world 的模型</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html#colab-執行-training-程式前的準備工作"><i class="fa fa-check"></i><b>4.2</b> colab 執行 training 程式前的準備工作</a></li>
+<li class="chapter" data-level="4.3" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html#colab-執行-train-hello-world-model.ipynb-程式"><i class="fa fa-check"></i><b>4.3</b> colab 執行 train hello world model.ipynb 程式</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="chap-helloworld-training.html"><a href="chap-helloworld-training.html#訓練過程中-學習如何修正及改善模型-並將模型轉換成-tflm-接受的格式"><i class="fa fa-check"></i><b>4.3.1</b> 訓練過程中, 學習如何修正及改善模型, 並將模型轉換成 TFLM 接受的格式</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="chap-helloworld-inference.html"><a href="chap-helloworld-inference.html"><i class="fa fa-check"></i><b>5</b> Hello world 示範程式 - 推論</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-helloworld-inference.html"><a href="chap-helloworld-inference.html"><i class="fa fa-check"></i><b>5</b> Hello world 示範程式 - 推論</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-helloworld-inference.html"><a href="chap-helloworld-inference.html#section"><i class="fa fa-check"></i><b>5.1</b> </a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="appendix"><span><b>附錄</b></span></li>
+<li class="chapter" data-level="A" data-path="appendixa.html"><a href="appendixa.html"><i class="fa fa-check"></i><b>A</b> Appendix A - 機器學習模型之加強及改善可能</a></li>
+<li class="chapter" data-level="B" data-path="appendixb.html"><a href="appendixb.html"><i class="fa fa-check"></i><b>B</b> Appendix B</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/marconi1964" target="blank">Marconi's github</a></li>
 
@@ -127,11 +138,29 @@
 </ul>
 <div id="git" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> git 及 github 簡單操作</h2>
-<pre><code>$ git clone https://github.com/tensorflow/</code></pre>
+<pre><code>$ git clone https://github.com/marconi1964/tensorflow.git
+$ cd tensorflow
+$ git pull                 # 每次修改前, 下載 github 最新的內容
+# 新增/修改檔案後
+$ git add *
+$ git commit -m “修改內容的註釋”
+$ git push origin master    # 新的 github 已經改成 main
+# 或是簡單點
+# git push</code></pre>
+<p><a href="https://jdhao.github.io/2019/12/03/git_stash_merge_conflict_handling/">git stash 的作法</a></p>
+<pre><code># 有時候, 忘了 git pull 就修改 local 檔案時, 跟 github remote 上的檔案有衝突時該怎麼辦?
+# 不麻煩, git  stash 可以解決這個問題
+$ git stash          # 將修改過的內容暫存起來
+$ git pull
+$ git pop            # 或 git apply, 差別在於 git pop 後, 暫存內容就消失, 而 git apply 的暫存內容依舊存在
+# 這時候, 會列出內容有衝突的檔案名稱, 可以直接修改該檔案(同時列出有衝突的內容)
+# 修改後, 記得 push 去 更新 remote 內容
+$ git push           # 更新到 github remote 內容
+$ git stash drop     # 暫存內容已無必要, 可以扔了</code></pre>
 </div>
 <div id="make" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> 認識 make 及簡單操作 (mbed cli 的操作必備技能之一)</h2>
-<p>待完成</p>
+<p>見參考文件</p>
 </div>
 <div id="vmware" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> 在 Windows 10 下安裝 VMware Workstation Player 及 Ubuntu 18.04</h2>
@@ -275,7 +304,7 @@ $ sudo dpkg -i st-stlink-udev-rules-1.0.2-2-linux-all.deb</code></pre></li>
 </div>
 <div id="arduinoide" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Arduino IDE 安裝</h2>
-<p>坊間許多的 Arduino 書/網站都有詳細的 Arduino IDE 安裝介紹, 例如 <a href="https://www.taiwansensor.com.tw/lessons/arduino-arduino-ide-下載與安裝軟硬體/">台灣智能感測科技 Arduino IDE 安裝</a>, 就不在此浪費篇幅</p>
+<p>坊間許多的 Arduino 書/網站都有詳細的 Arduino IDE 安裝介紹, 例如 <a href="https://www.taiwansensor.com.tw/lessons/arduino-arduino-ide-下載與安裝軟硬體/">台灣智能感測科技 Arduino IDE 安裝</a>, 就不在此佔用篇幅</p>
 
 </div>
 </div>
