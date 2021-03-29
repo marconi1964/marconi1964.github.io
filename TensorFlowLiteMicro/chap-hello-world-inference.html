@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Introducing TFLM (TensorFlow Lite for Microcontroller) | TensorFlow Lite for Microcontroller (TFLM)</title>
+  <title>Chapter 5 Hello_world 示範程式 - 推論 | TensorFlow Lite for Microcontroller (TFLM)</title>
   <meta name="description" content="TensorFlow Lite for Micrcontroller (TFLM) 實驗, 基於 Rmarkdown / bookdown 做成" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Introducing TFLM (TensorFlow Lite for Microcontroller) | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta property="og:title" content="Chapter 5 Hello_world 示範程式 - 推論 | TensorFlow Lite for Microcontroller (TFLM)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Introducing TFLM (TensorFlow Lite for Microcontroller) | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta name="twitter:title" content="Chapter 5 Hello_world 示範程式 - 推論 | TensorFlow Lite for Microcontroller (TFLM)" />
   
   <meta name="twitter:description" content="TensorFlow Lite for Micrcontroller (TFLM) 實驗, 基於 Rmarkdown / bookdown 做成" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="prerequisite-.html"/>
+<link rel="prev" href="chap-hello-world-training.html"/>
+<link rel="next" href="references-.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -133,69 +133,176 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="chap-intro" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Introducing TFLM (TensorFlow Lite for Microcontroller)</h1>
-<p>Google 推出 <strong>TensorFlow</strong> 框架, 可以在 CPU/GPU/TPU 上執行 training 的任務, 考慮手機上的侷限的運算能力不如 PC, 接著推出 <a href="https://www.tensorflow.org/lite/tutorials">Tensorflow Lite</a> 的機器學習框架於手機, 至於 IoT 裝置上用的是 ARM M 系列及其它 embedded MCU (microcontrollers) 的算力以及侷限的 ROM/RAM 空間, 也針對這類型的開發板陸續推出支援機器學習 inference 的 <a href="https://www.tensorflow.org/lite/microcontrollers">TensorFlow Lite for Microcontrollers</a> (TFLM) 框架, 也出書推廣
-<a href="https://www.books.com.tw/products/0010865580?fbclid=IwAR1xgb-0LStRrHXajKT-u3uP982d0p8PQaDpNfhxHAzuCbATi6VOjYcwo2k">TinyML：TensorFlow Lite 機器學習</a>.</p>
-<p>截至本書出版（2021-03-29）為止, TFLM 支援的硬體已經有下列的開發板 (書中只有介紹前三種):</p>
-<ul>
-<li>Arduino Nano 33 BLE Sense<br />
-</li>
-<li>SparkFun Edge<br />
-</li>
-<li>STM32F746 Discovery kit<br />
-</li>
-<li>Adafruit EdgeBadge<br />
-</li>
-<li>Adafruit TensorFlow Lite for Microcontrollers Kit<br />
-</li>
-<li>Adafruit Circuit Playground Bluefruit<br />
-</li>
-<li>Espressif ESP32-DevKitC<br />
-</li>
-<li>Espressif ESP-EYE<br />
-</li>
-<li>Wio Terminal: ATSAMD51<br />
-</li>
-<li>Himax WE-I Plus EVB Endpoint AI Development Board<br />
-</li>
-<li>Synopsys DesignWare ARC EM Software Development Platform</li>
-</ul>
-<p>而介紹的範例則有</p>
-<ul>
-<li><strong>Hello World</strong> - 示範 TensorFlow Lite for Microcontrollers 的基本功能, 用機器學習的 inference 來推算出 sine 的值
-<ul>
-<li>Tutorial using any supported device<br />
-</li>
-</ul></li>
-<li><strong>Micro speech</strong> - 從麥克風接收語音, 偵測 wake words: “yes,” “no,” “silence” 及 “unkown”
-<ul>
-<li>Tutorial using SparkFun Edge<br />
-</li>
-</ul></li>
-<li><strong>Magic wand</strong> - 讀取 accelerometer 資料來判斷並區分 3 種不同手勢
-<ul>
-<li>Tutorial using Arduino Nano 33 BLE Sense<br />
-</li>
-</ul></li>
-<li><strong>Person detection</strong> - 讀取 camera 的影像資料來偵測是否有人出現在精通前</li>
-</ul>
-<p>而我在本書出版時, 已經實驗過的板子及範例有,<br />
-* <strong>Hello World</strong> : STM32 NUCLEO-F03RB, DISCO-F746NG, Arduino Nano 33 BLE Sense<br />
-* <strong>Micro speech</strong> : DISCO-F746NG, Arduino Nano 33 BLE Sense<br />
-* <strong>Magic wand</strong> : Arduino Nano 33 BLE Sense<br />
-* <strong>Person detection</strong> : Not yet （標的物 Arduino Nano 33 BLE Sense, ESP32-EYE）</p>
-<p>因為 TensorFlow Lite Micro 的核心程式及 Make 環境的開發持續進行中, 程式的更新過程會造成部分來不及更新的內容及操作產生錯誤, 尤其是 STM32 相關的設定參數, 著實花了一些時間, 並且發 PR 到 TFLM github 更新.</p>
-<p>再者, 從實驗的結果而言, 辨識的效果還有很大的改善空間, 這就當作下一個探討的題目吧.</p>
+<div id="chap-hello-world-inference" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Hello_world 示範程式 - 推論</h1>
+<p>本章節對應到 <a href="https://www.books.com.tw/products/0010865580">TinyML TensorFLow Lite 機器學習中文版</a> 的第六章. (原書第五章是說明 hello_world 原始程式及測試碼, 可以當作後續的研究分析, 列入 §附錄 <a href="appendixb.html#appendixb">B</a> 的主題)</p>
+<p>上一章, 我們已經建立了可以轉移到開發板上執行的模型, 模型只是機器學習應用 app 的一部分而已, TFLM 提供不同開發板的 hello_world app, 需要在筆電上將模型加入原始程式, 重新編譯成不同開發板可以執行的程式碼(不同 CPU 的程式碼無法跨平台執行), 也可以在 PC 或 Mac 上模擬結果.</p>
+<div id="disco-f746ng-hello-world" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> 在 STM32 DISCO_F746NG 上實現 hello_world</h2>
+<div id="無痛執行在筆電上編譯程式-並下載至-stm32-disco_f746ng" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> (無痛執行)在筆電上編譯程式, 並下載至 STM32 DISCO_F746NG</h3>
+<p>因為 TensorFlow Lite Micro 的開發持續在進行, 部份文件並沒有隨著開發進度而更新, 如果照著 github 上執行會產生一些錯誤, 而且, 在編譯 (make) 之前, 需要將 STM32 DISCO_F746NG 相關檔案複製到主程式目錄下, 因此, 我在 github 創建了一個 branch, 針對 DISCO_F746NG 的開發板做了檔案安排及設定調整, 可以直接編譯, 並下載到 DISCO_F746NG 開發板上執行.</p>
+<p>參考<a href="https://github.com/marconi1964/tensorflow/blob/example/tensorflow/lite/micro/examples/hello_world/disco_f746ng/README_disco_f746ng.md">我的 TFLM github - hello_world</a>無痛執行</p>
+<p>在下一節說明如果從 TFLM github 官網下載內容時, 需要做的修改.</p>
+</div>
+<div id="微痛執行在筆電上編譯程式-並下載至-stm32-disco_f746ng" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> (微痛執行)在筆電上編譯程式, 並下載至 STM32 DISCO_F746NG</h3>
+<p>此節乃針對已經熟悉上一節的內容, 順利執行後, 進一步從 TFLM github 官網下載, 得自行修改部份內容方能順利執行無誤.</p>
+<p><strong>動手修改內容</strong></p>
+<p>需要修改的內容有<br />
+1. 改從 <a href="https://github.com/tensorflow" class="uri">https://github.com/tensorflow</a> 官網下載<br />
+2. 將 DISCO_F746NG 部份的程式複製到 hello world 範例的主程式目錄下<br />
+其餘從 make 以後的操作維持跟原先內容不變</p>
+<div id="改從-httpsgithub.comtensorflow-官網下載" class="section level4" number="5.1.2.1">
+<h4><span class="header-section-number">5.1.2.1</span> 改從 <a href="https://github.com/tensorflow" class="uri">https://github.com/tensorflow</a> 官網下載</h4>
+<pre><code># 從我的 github
+$ git clone -b example --depth 1 https://github.com/marconi1964/tensorflow.git
+# 改到用 Tensorflow 官網的 github
+$ git clone --depth 1 https://github.com/marconi1964/tensorflow.git
+# 或是
+$ git clone --depth 1 https://github.com/tensorflow/tensorflow.git
+$ cd tensorflow</code></pre>
+</div>
+<div id="將-disco_f746ng-部份的程式複製到-hello_world-範例的主程式目錄下" class="section level4" number="5.1.2.2">
+<h4><span class="header-section-number">5.1.2.2</span> 將 DISCO_F746NG 部份的程式複製到 hello_world 範例的主程式目錄下</h4>
+<pre><code># 接續上一個動作, 已經在 tensorflow 目錄下, 切換到 hello_world 示範程式目錄
+$ cd tensorflow/lite/micro/examples/hello_world/
+# DISCO_F746NG 的 constant.cc 與 output_handler.cc 這兩個程式跟示範程式不同, 需要 F746NG 特別的驅動程式才能在開發板上執行
+$ cp disco_f746ng/*.cc ./
+# 複製完成後, 回到 tensorflow 主目錄下
+$ cd ~/tensorflow</code></pre>
+<p>繼續執行 make 以及後續的動作</p>
+<pre><code>$ make -f tensorflow/lite/micro/tools/make/Makefile TARGET=mbed ALL_TAGS=disco_f746ng generate_hello_world_mbed_project
+$ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed
+$ mbed config root .
+$ mbed deploy
+$ mbed compile -m DISCO_F746NG -t GCC_ARM</code></pre>
+</div>
+</div>
+<div id="disco_f746ng-執行-hello_world-當機" class="section level3" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> DISCO_F746NG 執行 hello_world 當機</h3>
+<p>第一次執行時, 還來不及沒有打開 screen, F746NG 已經當機, 就一顆球在上方定住, 懷疑我的操守有問題… 打開 screen, 出現 ** Error message **</p>
+<pre><code>x_value: 1.0*2^-127, y_value: 1.0*2^-127
 
+x_value: 1.4361557*2^-4, y_value: 1.7621826*2^-4
+
+x_value: 1.4361557*2^-3, y_value: 1.8977352*2^-3
+
+x_value: 1.0771168*2^-2, y_value: 1.389413*2^-2
+
+x_value: 1.4361557*2^-2, y_value: 1.5588537*2^-2
+
+x_value: 1.7951952*2^-2, y_value: 1.7960706*2^-2
+
+x_value: 1.0771168*2^-1, y_value: 1.965511*2^-2
+
+x_value: 1.2566366*2^-1, y_value: 1.1183078*2^-1
+
+x_value: 1.4361557*2^-1, y_value: 1.3724688*2^-1
+
+x_value: 1.6156756*2^-1, y_value: 1.4910772*2^-1
+
+x_value: 1.7951952*2^-1, y_value: 1.6605182*2^-1
+
+x_value: 1.9747147*2^-1, y_value: 1.7791265*2^-1
+
+x_value: 1.0771168*2^0, y_value: 1.7791265*2^-1
+
+x_value: 1.1668766*2^0, y_value: 1.8977352*2^-1
+
+x_value: 1.2566366*2^0, y_value: 1.9316229*2^-1
+
+x_value: 1.3463962*2^0, y_value: 1.965511*2^-1
+
+x_value: 1.4361557*2^0, y_value: 1.0166438*2^0
+
+++ MbedOS Fault Handler ++
+
+FaultType: HardFault
+
+Context:
+R0: 7C
+R1: 8
+R2: FFDB4437
+R3: 1
+R4: 20002D58
+R5: 34
+R6: A
+R7: FFDB4437
+R8: 0
+R9: 72
+R10: 8
+R11: 68
+R12: 34
+SP   : 2004FF8C
+LR   : 800051B
+PC   : 8000472
+xPSR : 1000200
+PSP  : 0
+MSP  : 2004FF20
+CPUID: 410FC271
+HFSR : 40000000
+MMFSR: 0
+BFSR : 4
+UFSR : 0
+DFSR : 9
+AFSR : 0
+Mode : Thread
+Priv : Privileged
+Stack: MSP
+
+-- MbedOS Fault Handler --
+
+
+
+++ MbedOS Error Info ++
+Error Status: 0x80FF013D Code: 317 Module: 255
+Error Message: Fault exception
+Location: 0x8000472
+Error Value: 0x20002E34
+For more info, visit: https://mbed.com/s/error?error=0x80FF013D&amp;tgt=DISCO_F746NG
+-- MbedOS Error Info --
+</code></pre>
+<p>查看 <a href="https://mbed.com/s/error?error=0x80FF013D&amp;tgt=DISCO_F746NG" class="uri">https://mbed.com/s/error?error=0x80FF013D&amp;tgt=DISCO_F746NG</a> 輸入錯誤碼 (error code) 0x80FF013D 後會產生以下訊息</p>
+<pre><code>
+Error Decoder
+0x80FF013D
+Type:
+System
+Module
+Unknown module
+Error Code
+HardFault exception
+Cortex-M HardFault exception has occurred. Please see https://os.mbed.com/docs/latest/tutorials/analyzing-mbed-os-crash-dump.html for more info.
+</code></pre>
+<p>進一步查看 <a href="https://os.mbed.com/docs/latest/tutorials/analyzing-mbed-os-crash-dump.html" class="uri">https://os.mbed.com/docs/latest/tutorials/analyzing-mbed-os-crash-dump.html</a></p>
+<pre><code>The following Cortex-M fault exceptions trigger the Mbed OS fault exception handler.
+
+    MemManage Exception - Memory accesses that violate the setup in the MPU and certain illegal memory accesses trigger memory management faults.
+    BusFault Exception - When an error response is received during a transfer on the AHB interfaces, it produces bus faults.
+    UsageFault Exception - Division by zero, unaligned accesses and trying to execute coprocessor instructions can cause usage faults.
+    HardFault Exception - Triggered on all fault conditions or if the corresponding fault handler (one of the above) is not enabled.
+</code></pre>
+<p>猜可能是記憶體問題, 再看一下螢幕當機時, 球是在螢幕的最上方, 是否是超過螢幕的範圍而造成錯誤, 看一下原始檔案 output_handler.cc 跟 error message 可能是有衝突的.</p>
+<pre><code># error message
+x_value: 1.4361557*2^0, y_value: 1.0166438*2^0
+
+# output_handler.cc
+    y_pos = dot_radius + static_cast&lt;int&gt;(midpoint * (1.f - y_value));     # 原始程式會有問題
+
+    y_pos = dot_radius + static_cast&lt;int&gt;(midpoint * (1.1f - y_value));    # 小調整後即可正常運作
+</code></pre>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="prerequisite-.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chap-hello-world-training.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references-.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
