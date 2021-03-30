@@ -27,6 +27,9 @@ disco-f746ng-hello-world
 微痛執行在筆電上編譯程式-並下載至-stm32-disco_f746ng
 改從-httpsgithub.comtensorflow-官網下載
 將-disco_f746ng-部份的程式複製到-hello_world-範例的主程式目錄下
-disco_f746ng-執行-hello_world-當機
+痛苦的-debug過程-disco_f746ng-執行-hello_world-當機
+disco-nano33-hello-world
+chap-micro-speech-training
+chap-micro-speech-inference
 appendixa
 appendixb
