@@ -24,7 +24,7 @@
 <meta name="author" content="Marconi Jiang" />
 
 
-<meta name="date" content="2021-03-30" />
+<meta name="date" content="2021-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -168,7 +168,7 @@ $ git stash drop     # 暫存內容已無必要, 可以扔了</code></pre>
 </div>
 <div id="make" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> 認識 make 及簡單操作 (mbed cli 的操作必備技能之一)</h2>
-<p>見參考文件</p>
+<p>見參考文件 <a href="https://seisman.github.io/how-to-write-makefile/">跟 Seisman 一起写Makefile</a></p>
 </div>
 <div id="vmware" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> 在 Windows 10 下安裝 VMware Workstation Player 及 Ubuntu 18.04</h2>
@@ -312,11 +312,13 @@ $ sudo dpkg -i st-stlink-udev-rules-1.0.2-2-linux-all.deb</code></pre></li>
 </div>
 <div id="arduinoide" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Arduino IDE 安裝</h2>
-<p>坊間許多的 Arduino 書/網站都有詳細的 Arduino IDE 安裝介紹, 例如 <a href="https://www.taiwansensor.com.tw/lessons/arduino-arduino-ide-下載與安裝軟硬體/">台灣智能感測科技 Arduino IDE 安裝</a>, 就不在此佔用篇幅, Arduino IDE 安裝完成後, 需要在 Arduino IDE 上安裝 Nano 33 BLE 硬體跟 TensorFlow Lite 的範例程式, 再把 g_model[ ] 複製貼上, 其餘步驟就跟一般的 Arduino 應用程式一樣.</p>
+<p>坊間許多的 Arduino 書/網站都有詳細的 Arduino IDE 安裝介紹, 例如 <a href="https://www.taiwansensor.com.tw/lessons/arduino-arduino-ide-下載與安裝軟硬體/">台灣智能感測科技 Arduino IDE 安裝</a>, 就不在此佔用篇幅, Arduino IDE 安裝完成後, 需要在 Arduino IDE 上安裝 Nano 33 BLE 硬體跟 TensorFlow Lite 的範例程式, 再把 g_model[ ] 複製貼上, 其餘步驟就跟一般的 Arduino 應用程式一樣. 簡單說明如下:</p>
 <ol style="list-style-type: decimal">
 <li>將 Arduino Nano 33 BLE 加入 Boards 支援: 到 Arduino menu 的 Tools - Board - Boards Manager 輸入 Nano 33 BLE, 找到後選擇最新版本安裝 ‘Install’<br />
 </li>
-<li>到 Arduino menu 的 Tools - Manage Libraries, 輸入 TensorFlowLite 後選擇最新版本後安裝 ‘Install’</li>
+<li>到 Arduino menu 的 Tools - Manage Libraries, 輸入 TensorFlowLite 後選擇最新版本後安裝 ‘Install’<br />
+</li>
+<li>到 Arduino menu 的 File - Examples - Arduino_TensorFlowLite 找到並打開 hello_world (或其它應用) 程式. 打開後, 會同時展開好幾個程式, 找到 model.cpp 用 colab 訓練完成的 g_model[ ] 內容來取代現有 model.cpp 內的 g_model[ ], 即可按照一般 Arduino 的程式般下載到 Nano 33 BLE 後執行.</li>
 </ol>
 
 </div>
