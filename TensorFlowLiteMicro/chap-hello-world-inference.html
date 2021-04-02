@@ -24,7 +24,7 @@
 <meta name="author" content="Marconi Jiang" />
 
 
-<meta name="date" content="2021-04-01" />
+<meta name="date" content="2021-04-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -154,7 +154,7 @@
 <p><strong>動手修改內容</strong></p>
 <p>需要修改的內容有<br />
 1. 改從 <a href="https://github.com/tensorflow" class="uri">https://github.com/tensorflow</a> 官網下載<br />
-2. 將 DISCO_F746NG 部份的程式複製到 hello world 範例的主程式目錄下<br />
+2. 將 tensorflow/lite/micro/examples/hello_world/disco_f746ng/ 這目錄改名成為 tensorflow/lite/micro/examples/hello_world/mbed/<br />
 其餘從 make 以後的操作維持跟原先內容不變</p>
 <div id="改從-httpsgithub.comtensorflow-官網下載" class="section level4" number="5.1.2.1">
 <h4><span class="header-section-number">5.1.2.1</span> 改從 <a href="https://github.com/tensorflow" class="uri">https://github.com/tensorflow</a> 官網下載</h4>
@@ -166,14 +166,16 @@ $ git clone --depth 1 https://github.com/marconi1964/tensorflow.git
 $ git clone --depth 1 https://github.com/tensorflow/tensorflow.git
 $ cd tensorflow</code></pre>
 </div>
-<div id="將-disco_f746ng-部份的程式複製到-hello_world-範例的主程式目錄下" class="section level4" number="5.1.2.2">
-<h4><span class="header-section-number">5.1.2.2</span> 將 DISCO_F746NG 部份的程式複製到 hello_world 範例的主程式目錄下</h4>
+<div id="將-tensorflowlitemicroexampleshello_worlddisco_f746ng-這目錄改名成為-tensorflowlitemicroexampleshello_worldmbed" class="section level4" number="5.1.2.2">
+<h4><span class="header-section-number">5.1.2.2</span> 將 tensorflow/lite/micro/examples/hello_world/disco_f746ng/ 這目錄改名成為 tensorflow/lite/micro/examples/hello_world/mbed/</h4>
 <pre><code># 接續上一個動作, 已經在 tensorflow 目錄下, 切換到 hello_world 示範程式目錄
 $ cd tensorflow/lite/micro/examples/hello_world/
-# DISCO_F746NG 的 constant.cc 與 output_handler.cc 這兩個程式跟示範程式不同, 需要 F746NG 特別的驅動程式才能在開發板上執行
-$ cp disco_f746ng/*.cc ./
-# 複製完成後, 回到 tensorflow 主目錄下
+# DISCO_F746NG 的驅動程式 (constant.cc 與 output_handler.cc) 跟示範程式不同, 需要讓 make 把 F746NG 的驅動程式包含在主程式才能在開發板上執行, 這部分已經在 Makefile 完成, 只是目前 Makefile 的寫法是擷取 TARGET=mbed 中的 &#39;mbed&#39;, 再到 hello_world 目錄下尋找 &#39;mbed&#39; 子目錄 (這部分的程式有問題), 而不是尋找 disco_f746ng 子目錄.
+
+$ mv disco_f746ng mbed
+# 完成後, 回到 tensorflow 主目錄下
 $ cd ~/tensorflow</code></pre>
+<p>(以上的動作, 看起來很簡單, 卻是我花最多時間的地方, 需要去了解 Makefile 及層層疊加上的 Makefile.inc 和 *_makefile.inc 的複雜架構.)</p>
 <p>繼續執行 make 以及後續的動作</p>
 <pre><code>$ make -f tensorflow/lite/micro/tools/make/Makefile TARGET=mbed ALL_TAGS=disco_f746ng generate_hello_world_mbed_project
 $ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed
