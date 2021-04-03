@@ -240,7 +240,7 @@ $ mbed compile -m DISCO_F746NG -t GCC_ARM</code></pre>
 </li>
 <li>person_detection</li>
 </ul>
-<p>選擇我們想要的範例 micro_speech 執行即可.</p>
+<p>選擇我們想要的範例 micro_speech. 打開後, IDE 環境會同時展開好幾個程式, 找到 model.cpp 檔案, 用 colab 訓練完成的 g_model[ ] 內容來取代現有 model.cpp 內的 g_model[ ], 即可按照一般 Arduino 的程式般下載到 Nano 33 BLE 後執行.</p>
 <p>執行中, 可以打開 Arduino IDE menu<br />
 * Tool - Serial Monitor : 看到 Nano 33 回饋的預測是 ‘yes,’ ‘no,’ ‘unknown,’ 或 ‘silence’</p>
 <p>同時, Nano 33 的燈號顏色也會隨著辨識結果也不同</p>

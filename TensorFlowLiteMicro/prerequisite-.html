@@ -338,14 +338,24 @@ $ sudo dpkg -i st-stlink-udev-rules-1.0.2-2-linux-all.deb</code></pre></li>
 </div>
 <div id="arduinoide" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Arduino IDE 安裝</h2>
-<p>坊間許多的 Arduino 書/網站都有詳細的 Arduino IDE 安裝介紹, 例如 <a href="https://www.taiwansensor.com.tw/lessons/arduino-arduino-ide-下載與安裝軟硬體/">台灣智能感測科技 Arduino IDE 安裝</a>, 就不在此佔用篇幅, Arduino IDE 安裝完成後, 需要在 Arduino IDE 上安裝 Nano 33 BLE 硬體跟 TensorFlow Lite 的範例程式, 再把 g_model[ ] 複製貼上, 其餘步驟就跟一般的 Arduino 應用程式一樣. 簡單說明如下:</p>
+<p>坊間許多的 Arduino 書/網站都有詳細的 Arduino IDE 安裝介紹, 例如 <a href="https://www.taiwansensor.com.tw/lessons/arduino-arduino-ide-下載與安裝軟硬體/">台灣智能感測科技 Arduino IDE 安裝</a>, 就不在此佔用篇幅, Arduino IDE 安裝完成後, 需要在 Arduino IDE 上安裝 Nano 33 BLE 硬體跟 TensorFlow Lite 的範例程式, 簡單說明如下:</p>
 <ol style="list-style-type: decimal">
 <li>將 Arduino Nano 33 BLE 加入 Boards 支援: 到 Arduino menu 的 Tools - Board - Boards Manager 輸入 Nano 33 BLE, 找到後選擇最新版本安裝 ‘Install’<br />
 </li>
 <li>到 Arduino menu 的 Tools - Manage Libraries, 輸入 TensorFlowLite 後選擇最新版本後安裝 ‘Install’<br />
 </li>
-<li>到 Arduino menu 的 File - Examples - Arduino_TensorFlowLite 找到並打開 hello_world (或其它應用) 程式. 打開後, 會同時展開好幾個程式, 找到 model.cpp 用 colab 訓練完成的 g_model[ ] 內容來取代現有 model.cpp 內的 g_model[ ], 即可按照一般 Arduino 的程式般下載到 Nano 33 BLE 後執行.</li>
+<li>到 Arduino menu 的 File - Examples - Arduino_TensorFlowLite 下會有 4 個範例</li>
 </ol>
+<ul>
+<li>hello_world<br />
+</li>
+<li>magic_wand<br />
+</li>
+<li>micro_speech<br />
+</li>
+<li>person_detection</li>
+</ul>
+<p>選擇我們想要的範例 hello_world 執行即可.</p>
 
 </div>
 </div>
