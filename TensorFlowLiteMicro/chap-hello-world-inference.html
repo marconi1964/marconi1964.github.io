@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Hello_world 示範程式 - 推論 | TensorFlow Lite for Microcontroller (TFLM)</title>
+  <title>Chapter 5 Hello_world 範例程式 - 推論 | TensorFlow Lite for Microcontroller (TFLM)</title>
   <meta name="description" content="TensorFlow Lite for Micrcontroller (TFLM) 實驗, 基於 Rmarkdown / bookdown 做成" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Hello_world 示範程式 - 推論 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta property="og:title" content="Chapter 5 Hello_world 範例程式 - 推論 | TensorFlow Lite for Microcontroller (TFLM)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Hello_world 示範程式 - 推論 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta name="twitter:title" content="Chapter 5 Hello_world 範例程式 - 推論 | TensorFlow Lite for Microcontroller (TFLM)" />
   
   <meta name="twitter:description" content="TensorFlow Lite for Micrcontroller (TFLM) 實驗, 基於 Rmarkdown / bookdown 做成" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Marconi Jiang" />
 
 
-<meta name="date" content="2021-04-02" />
+<meta name="date" content="2021-04-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="chap-hello-world-training.html"/>
-<link rel="next" href="chap-micro-speech-training.html"/>
+<link rel="next" href="chap-micro-speech-inference.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -91,16 +91,16 @@
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="prerequisite-.html"><a href="prerequisite-.html#arduinoide"><i class="fa fa-check"></i><b>3.4</b> Arduino IDE 安裝</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="chap-hello-world-training.html"><a href="chap-hello-world-training.html"><i class="fa fa-check"></i><b>4</b> Hello_world 示範程式 - 訓練</a>
+<li class="chapter" data-level="4" data-path="chap-hello-world-training.html"><a href="chap-hello-world-training.html"><i class="fa fa-check"></i><b>4</b> Hello_world 範例程式 - 訓練</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="chap-hello-world-training.html"><a href="chap-hello-world-training.html#在-google-colab-上建立及訓練-hello-world-的模型"><i class="fa fa-check"></i><b>4.1</b> 在 Google colab 上建立及訓練 hello world 的模型</a></li>
+<li class="chapter" data-level="4.1" data-path="chap-hello-world-training.html"><a href="chap-hello-world-training.html#在-google-colab-上建立及訓練-hello_world-的模型"><i class="fa fa-check"></i><b>4.1</b> 在 Google colab 上建立及訓練 hello_world 的模型</a></li>
 <li class="chapter" data-level="4.2" data-path="chap-hello-world-training.html"><a href="chap-hello-world-training.html#colab-執行-training-程式前的準備工作"><i class="fa fa-check"></i><b>4.2</b> colab 執行 training 程式前的準備工作</a></li>
-<li class="chapter" data-level="4.3" data-path="chap-hello-world-training.html"><a href="chap-hello-world-training.html#colab-執行-train-hello-world-model.ipynb-程式"><i class="fa fa-check"></i><b>4.3</b> colab 執行 train hello world model.ipynb 程式</a>
+<li class="chapter" data-level="4.3" data-path="chap-hello-world-training.html"><a href="chap-hello-world-training.html#colab-執行-train-hello_world-model.ipynb-程式"><i class="fa fa-check"></i><b>4.3</b> colab 執行 train hello_world model.ipynb 程式</a>
 <ul>
 <li class="chapter" data-level="4.3.1" data-path="chap-hello-world-training.html"><a href="chap-hello-world-training.html#訓練過程中-學習如何修正及改善模型-並將模型轉換成-tflm-接受的格式"><i class="fa fa-check"></i><b>4.3.1</b> 訓練過程中, 學習如何修正及改善模型, 並將模型轉換成 TFLM 接受的格式</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html"><i class="fa fa-check"></i><b>5</b> Hello_world 示範程式 - 推論</a>
+<li class="chapter" data-level="5" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html"><i class="fa fa-check"></i><b>5</b> Hello_world 範例程式 - 推論</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#disco-f746ng-hello-world"><i class="fa fa-check"></i><b>5.1</b> 在 STM32 DISCO_F746NG 上實現 hello_world</a>
 <ul>
@@ -110,12 +110,38 @@
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#disco-nano33-hello-world"><i class="fa fa-check"></i><b>5.2</b> 在 Arduino Nano 33 BLE 上實現 hello_world</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="chap-micro-speech-training.html"><a href="chap-micro-speech-training.html"><i class="fa fa-check"></i><b>6</b> Micro_speech 示範程式 - 訓練</a></li>
-<li class="chapter" data-level="7" data-path="chap-micro-speech-inference.html"><a href="chap-micro-speech-inference.html"><i class="fa fa-check"></i><b>7</b> Micro_speech 示範程式 - 推論</a></li>
+<li class="chapter" data-level="6" data-path="chap-micro-speech-inference.html"><a href="chap-micro-speech-inference.html"><i class="fa fa-check"></i><b>6</b> Micro_speech 範例程式-喚醒詞偵測：建構 app</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap-micro-speech-inference.html"><a href="chap-micro-speech-inference.html#disco-f746ng-micro-speech"><i class="fa fa-check"></i><b>6.1</b> 在 STM32 DISCO_F746NG 上實現 micro_speech</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="chap-micro-speech-inference.html"><a href="chap-micro-speech-inference.html#無痛執行在筆電上編譯程式-並下載至-stm32-disco_f746ng-1"><i class="fa fa-check"></i><b>6.1.1</b> (無痛執行)在筆電上編譯程式, 並下載至 STM32 DISCO_F746NG</a></li>
+<li class="chapter" data-level="6.1.2" data-path="chap-micro-speech-inference.html"><a href="chap-micro-speech-inference.html#微痛執行在筆電上編譯程式-並下載至-stm32-disco_f746ng-1"><i class="fa fa-check"></i><b>6.1.2</b> (微痛執行)在筆電上編譯程式, 並下載至 STM32 DISCO_F746NG</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="chap-micro-speech-inference.html"><a href="chap-micro-speech-inference.html#disco-nano33-micro-speech"><i class="fa fa-check"></i><b>6.2</b> 在 Arduino Nano 33 BLE 上實現 micro_speech</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-micro-speech-training.html"><a href="chap-micro-speech-training.html"><i class="fa fa-check"></i><b>7</b> Micro_speech 範例程式-喚醒詞偵測：訓練模型</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-micro-speech-training.html"><a href="chap-micro-speech-training.html#在-google-colab-上建立及訓練-micro_speech-的模型-原始程式及設定"><i class="fa fa-check"></i><b>7.1</b> 在 Google colab 上建立及訓練 micro_speech 的模型 (原始程式及設定)</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="chap-micro-speech-training.html"><a href="chap-micro-speech-training.html#colab-執行-training-程式前的準備工作-1"><i class="fa fa-check"></i><b>7.1.1</b> colab 執行 training 程式前的準備工作</a></li>
+<li class="chapter" data-level="7.1.2" data-path="chap-micro-speech-training.html"><a href="chap-micro-speech-training.html#colab-執行-train-micro_speech-model.ipynb-程式"><i class="fa fa-check"></i><b>7.1.2</b> colab 執行 train micro_speech model.ipynb 程式</a></li>
+<li class="chapter" data-level="7.1.3" data-path="chap-micro-speech-training.html"><a href="chap-micro-speech-training.html#將模型上傳至開發板"><i class="fa fa-check"></i><b>7.1.3</b> 將模型上傳至開發板</a></li>
+<li class="chapter" data-level="7.1.4" data-path="chap-micro-speech-training.html"><a href="chap-micro-speech-training.html#接續執行-make-及程式上傳"><i class="fa fa-check"></i><b>7.1.4</b> 接續執行 make 及程式上傳</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="chap-micro-speech-training.html"><a href="chap-micro-speech-training.html#colab-micro-speech-customization"><i class="fa fa-check"></i><b>7.2</b> 在 Google colab 上建立及訓練客製化 micro_speech 的模型</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="chap-micro-speech-training.html"><a href="chap-micro-speech-training.html#修改-colab-訓練程式"><i class="fa fa-check"></i><b>7.2.1</b> 修改 colab 訓練程式</a></li>
+<li class="chapter" data-level="7.2.2" data-path="chap-micro-speech-training.html"><a href="chap-micro-speech-training.html#更換模型---將-colab-訓練結果的-g_model-內容複製貼上到-model.cc-1"><i class="fa fa-check"></i><b>7.2.2</b> 更換模型 - 將 colab 訓練結果的 g_model[ ] 內容複製貼上到 model.cc</a></li>
+<li class="chapter" data-level="7.2.3" data-path="chap-micro-speech-training.html"><a href="chap-micro-speech-training.html#修改-micro_model_settings.cc"><i class="fa fa-check"></i><b>7.2.3</b> 修改 micro_model_settings.cc</a></li>
+<li class="chapter" data-level="7.2.4" data-path="chap-micro-speech-training.html"><a href="chap-micro-speech-training.html#修改-command_responder.cc"><i class="fa fa-check"></i><b>7.2.4</b> 修改 command_responder.cc</a></li>
+<li class="chapter" data-level="7.2.5" data-path="chap-micro-speech-training.html"><a href="chap-micro-speech-training.html#接續執行-make-及程式上傳-1"><i class="fa fa-check"></i><b>7.2.5</b> 接續執行 make 及程式上傳</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references-.html"><a href="references-.html"><i class="fa fa-check"></i>References 參考文獻</a></li>
 <li class="appendix"><span><b>附錄</b></span></li>
 <li class="chapter" data-level="A" data-path="appendixa.html"><a href="appendixa.html"><i class="fa fa-check"></i><b>A</b> Appendix A - 機器學習模型之加強及改善可能</a></li>
 <li class="chapter" data-level="B" data-path="appendixb.html"><a href="appendixb.html"><i class="fa fa-check"></i><b>B</b> Appendix B - Hello_world 原始碼分析</a></li>
+<li class="chapter" data-level="C" data-path="appendixc.html"><a href="appendixc.html"><i class="fa fa-check"></i><b>C</b> Appendix C - 音頻聲譜的說明與模型分析</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/marconi1964" target="blank">Marconi's github</a></li>
 
@@ -137,9 +163,18 @@
 
             <section class="normal" id="section-">
 <div id="chap-hello-world-inference" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Hello_world 示範程式 - 推論</h1>
+<h1><span class="header-section-number">Chapter 5</span> Hello_world 範例程式 - 推論</h1>
 <p>本章節對應到 <a href="https://www.books.com.tw/products/0010865580">TinyML TensorFLow Lite 機器學習中文版</a> 的第六章. (原書第五章是說明 hello_world 原始程式及測試碼, 可以當作後續的研究分析, 列入 §附錄 <a href="appendixb.html#appendixb">B</a> 的主題)</p>
 <p>上一章, 我們已經建立了可以轉移到開發板上執行的模型, 模型只是機器學習應用 app 的一部分而已, TFLM 提供不同開發板的 hello_world app, 需要在筆電上將模型加入原始程式, 重新編譯成不同開發板可以執行的程式碼(不同 CPU 的程式碼無法跨平台執行), 也可以在 PC 或 Mac 上模擬結果.</p>
+<p>本文介紹可以運作 hello_world 示範程式的有以下的前兩種 (網路上有更新, 可以支援更多設備):</p>
+<ul>
+<li><a href="chap-hello-world-inference.html#arduino_nano33_hello_world">Arduino Nano 33 BLE Sense</a><br />
+</li>
+<li><a href="chap-hello-world-inference.html#disco_f746ng_hello_world">ST Microelectronics STM32F746NG Discovery kit</a><br />
+</li>
+<li>SparkFun Edge (<a href="https://www.books.com.tw/products/0010865580">TinyML TensorFLow Lite 機器學習中文版</a> 書上有介紹, 但手上沒有這塊開發板, 就不介紹了)</li>
+</ul>
+<p><a id="disco_f746ng_hello_world"></a></p>
 <div id="disco-f746ng-hello-world" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> 在 STM32 DISCO_F746NG 上實現 hello_world</h2>
 <div id="無痛執行在筆電上編譯程式-並下載至-stm32-disco_f746ng" class="section level3" number="5.1.1">
@@ -168,9 +203,9 @@ $ cd tensorflow</code></pre>
 </div>
 <div id="將-tensorflowlitemicroexampleshello_worlddisco_f746ng-這目錄改名成為-tensorflowlitemicroexampleshello_worldmbed" class="section level4" number="5.1.2.2">
 <h4><span class="header-section-number">5.1.2.2</span> 將 tensorflow/lite/micro/examples/hello_world/disco_f746ng/ 這目錄改名成為 tensorflow/lite/micro/examples/hello_world/mbed/</h4>
+<p>DISCO_F746NG 的驅動程式 (constant.cc 與 output_handler.cc) 跟標準的示範程式不同, 需要讓 make 把 F746NG 的驅動程式包含在主程式才能在開發板上執行, 這部分已經在 Makefile 完成, 只是目前 Makefile 的寫法是擷取 TARGET=mbed 中的 ‘mbed,’ 再到 hello_world 目錄下尋找 ‘mbed’ 子目錄 (這部分的程式設定有問題, 已經在 TensorFlow github 上發 issue), 而 mbed 子目錄是不存在, 且 Makefile 不會去尋找 disco_f746ng 子目錄.</p>
 <pre><code># 接續上一個動作, 已經在 tensorflow 目錄下, 切換到 hello_world 示範程式目錄
 $ cd tensorflow/lite/micro/examples/hello_world/
-# DISCO_F746NG 的驅動程式 (constant.cc 與 output_handler.cc) 跟示範程式不同, 需要讓 make 把 F746NG 的驅動程式包含在主程式才能在開發板上執行, 這部分已經在 Makefile 完成, 只是目前 Makefile 的寫法是擷取 TARGET=mbed 中的 &#39;mbed&#39;, 再到 hello_world 目錄下尋找 &#39;mbed&#39; 子目錄 (這部分的程式有問題), 而不是尋找 disco_f746ng 子目錄.
 
 $ mv disco_f746ng mbed
 # 完成後, 回到 tensorflow 主目錄下
@@ -182,6 +217,9 @@ $ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world
 $ mbed config root .
 $ mbed deploy
 $ mbed compile -m DISCO_F746NG -t GCC_ARM</code></pre>
+</div>
+<div id="將-make-後的-mbed.bin-上傳到-disco_f746ng-開發板" class="section level4" number="5.1.2.3">
+<h4><span class="header-section-number">5.1.2.3</span> 將 make 後的 mbed.bin 上傳到 DISCO_F746NG 開發板</h4>
 </div>
 </div>
 <div id="痛苦的-debug過程-disco_f746ng-執行-hello_world-當機" class="section level3" number="5.1.3">
@@ -297,6 +335,7 @@ x_value: 1.4361557*2^0, y_value: 1.0166438*2^0
 
     y_pos = dot_radius + static_cast&lt;int&gt;(midpoint * (1.1f - y_value));    # 小調整後即可正常運作
 </code></pre>
+<p><a id="arduino_nano33_hello_world"></a></p>
 </div>
 </div>
 <div id="disco-nano33-hello-world" class="section level2" number="5.2">
@@ -311,7 +350,11 @@ x_value: 1.4361557*2^0, y_value: 1.0166438*2^0
 </li>
 <li>person_detection</li>
 </ul>
-<p>選擇想要的範例後執行即可.</p>
+<p>選擇我們想要的範例 hello_world 執行即可.</p>
+<p>執行中, 可以打開 Arduino IDE menu<br />
+* Tool - Serial Monitor : 看到 Nano 33 回饋的預測 X、Y 值
+* Tool - Serial Plotter : 看到 Nano 33 回饋的預測 X、Y 值展開的圖形</p>
+<p>同時, Nano 33 的燈號也會隨著辨識結果, 逐漸變亮到熄滅再變亮</p>
 
 </div>
 </div>
@@ -321,7 +364,7 @@ x_value: 1.4361557*2^0, y_value: 1.0166438*2^0
         </div>
       </div>
 <a href="chap-hello-world-training.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chap-micro-speech-training.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chap-micro-speech-inference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
