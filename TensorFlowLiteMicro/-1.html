@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Micro_speech 範例程式-喚醒詞偵測：建構 app | TensorFlow Lite for Microcontroller (TFLM)</title>
+  <title>D 前言 | TensorFlow Lite for Microcontroller (TFLM)</title>
   <meta name="description" content="TensorFlow Lite for Micrcontroller (TFLM) 實驗, 基於 Rmarkdown / bookdown 做成" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Micro_speech 範例程式-喚醒詞偵測：建構 app | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta property="og:title" content="D 前言 | TensorFlow Lite for Microcontroller (TFLM)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Micro_speech 範例程式-喚醒詞偵測：建構 app | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta name="twitter:title" content="D 前言 | TensorFlow Lite for Microcontroller (TFLM)" />
   
   <meta name="twitter:description" content="TensorFlow Lite for Micrcontroller (TFLM) 實驗, 基於 Rmarkdown / bookdown 做成" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="chap-hello-world-inference.html"/>
-<link rel="next" href="chap-micro-speech-training.html"/>
+<link rel="prev" href="appendixc.html"/>
+
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -142,6 +142,7 @@
 <li class="chapter" data-level="A" data-path="appendixa.html"><a href="appendixa.html"><i class="fa fa-check"></i><b>A</b> Appendix A - 機器學習模型之加強及改善可能</a></li>
 <li class="chapter" data-level="B" data-path="appendixb.html"><a href="appendixb.html"><i class="fa fa-check"></i><b>B</b> Appendix B - Hello_world 原始碼分析</a></li>
 <li class="chapter" data-level="C" data-path="appendixc.html"><a href="appendixc.html"><i class="fa fa-check"></i><b>C</b> Appendix C - 音頻聲譜的說明與模型分析</a></li>
+<li class="chapter" data-level="D" data-path="-1.html"><a href="-1.html"><i class="fa fa-check"></i><b>D</b> 前言</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/marconi1964" target="blank">Marconi's github</a></li>
 
@@ -162,105 +163,19 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="chap-micro-speech-inference" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Micro_speech 範例程式-喚醒詞偵測：建構 app</h1>
-<p>本章節對應到 <a href="https://www.books.com.tw/products/0010865580">TinyML TensorFLow Lite 機器學習中文版</a> 的第七章, 佩服作者在機器學習功力的深厚, 在這一章裡, 也介紹了機器學習 app 的模型框架, 以及語音樣本資料 - 聲譜 (spectrogram) - 的簡介. 我會再後續補充於 Appendix §<a href="appendixc.html#appendixc">C</a> 音頻聲譜的說明與模型分析.</p>
-<div align="center">
-<p>再說一次:</p>
-<p><span style="color:blue">
-<strong>訓練就是‘學習’; 推論就是‘考試’</strong></span></p>
-</div>
-<p>這個範例, 作者先從 inference - 喚醒詞偵測的構建 app 開始, 訓練模型留待下一章 (第 §<a href="chap-micro-speech-training.html#chap-micro-speech-training">7</a> 章) 介紹.</p>
-<p>本文介紹可以運作 micro_speech 示範程式的有以下的前兩種 (網路上有更新, 可以支援更多設備):</p>
-<ul>
-<li><a href="chap-micro-speech-inference.html#arduino_nano33_micro_speech">Arduino Nano 33 BLE Sense</a><br />
-</li>
-<li><a href="chap-micro-speech-inference.html#disco_f746ng_micro_speech">ST Microelectronics STM32F746NG Discovery kit</a><br />
-</li>
-<li>SparkFun Edge (<a href="https://www.books.com.tw/products/0010865580">TinyML TensorFLow Lite 機器學習中文版</a> 書上有介紹, 但手上沒有這塊開發板, 就不介紹了)</li>
-</ul>
-<p><a id="disco_f746ng_micro_speech"></a></p>
-<div id="disco-f746ng-micro-speech" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> 在 STM32 DISCO_F746NG 上實現 micro_speech</h2>
-<div id="無痛執行在筆電上編譯程式-並下載至-stm32-disco_f746ng-1" class="section level3" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> (無痛執行)在筆電上編譯程式, 並下載至 STM32 DISCO_F746NG</h3>
-<p>因為 TensorFlow Lite Micro 的開發持續在進行, 部份文件並沒有隨著開發進度而更新, 如果照著 github 上執行會產生一些錯誤, 而且, 在編譯 (make) 之前, 需要將 STM32 DISCO_F746NG 相關檔案複製到主程式目錄下, 因此, 我在 github 創建了一個 branch, 針對 DISCO_F746NG 的開發板做了檔案安排及設定調整, 可以直接編譯, 並下載到 DISCO_F746NG 開發板上執行.</p>
-<p>參考<a href="https://github.com/marconi1964/tensorflow/blob/example/tensorflow/lite/micro/examples/micro_speech/disco_f746ng/README_disco_f746ng.md">我的 TFLM github - micro_speech</a>無痛執行</p>
-<p>在下一節說明如果從 TFLM github 官網下載內容時, 需要做的修改.</p>
-</div>
-<div id="微痛執行在筆電上編譯程式-並下載至-stm32-disco_f746ng-1" class="section level3" number="6.1.2">
-<h3><span class="header-section-number">6.1.2</span> (微痛執行)在筆電上編譯程式, 並下載至 STM32 DISCO_F746NG</h3>
-<p>此節乃針對已經熟悉上一節的內容, 順利執行後, 進一步從 TFLM github 官網下載, 得自行修改部份內容方能順利執行無誤.</p>
-<p><strong>動手修改內容</strong></p>
-<p>需要修改的內容有<br />
-1. 改從 <a href="https://github.com/tensorflow" class="uri">https://github.com/tensorflow</a> 官網下載<br />
-2. 將 tensorflow/lite/micro/examples/micro_speech/disco_f746ng/ 這目錄改名成為 tensorflow/lite/micro/examples/micro_speech/mbed/<br />
-其餘從 make 以後的操作維持跟原先內容不變</p>
-<div id="改從-httpsgithub.comtensorflow-官網下載-1" class="section level4" number="6.1.2.1">
-<h4><span class="header-section-number">6.1.2.1</span> 改從 <a href="https://github.com/tensorflow" class="uri">https://github.com/tensorflow</a> 官網下載</h4>
-<pre><code># 從我的 github
-$ git clone -b example --depth 1 https://github.com/marconi1964/tensorflow.git
-# 改到用 Tensorflow 官網的 github
-$ git clone --depth 1 https://github.com/marconi1964/tensorflow.git
-# 或是
-$ git clone --depth 1 https://github.com/tensorflow/tensorflow.git
-$ cd tensorflow</code></pre>
-</div>
-<div id="micro-speech-deployment" class="section level4" number="6.1.2.2">
-<h4><span class="header-section-number">6.1.2.2</span> 將 tensorflow/lite/micro/examples/micro_speech/disco_f746ng/ 這目錄改名成為 tensorflow/lite/micro/examples/micro_speech/mbed/</h4>
-<p>DISCO_F746NG 的驅動程式 (audio_provider.cc 與 command_responder.cc) 跟標準的示範程式不同, 需要讓 make 把 F746NG 的驅動程式包含在主程式才能在開發板上執行, 這部分已經在 Makefile 完成, 只是目前 Makefile 的寫法是擷取 TARGET=mbed 中的 ‘mbed,’ 再到 micro_speech 目錄下尋找 ‘mbed’ 子目錄, 而不是尋找 disco_f746ng 子目錄, 且 mbed 子目錄是不存在的, 這是問題所在, 因此需要做以下調整.</p>
-<pre><code># 接續上一個動作, 已經在 tensorflow 目錄下, 切換到 micro_speech 示範程式目錄
-$ cd tensorflow/lite/micro/examples/micro_speech/
+<div id="前言-1" class="section level1" number="11">
+<h1><span class="header-section-number">D</span> 前言</h1>
+<p>自從 2020 年參加了台灣人工智慧學校的第一屆 Edge AI 技術專班後, 對於 edge AI 比較有點概念, 重讀 <a href="https://www.books.com.tw/products/0010865580?fbclid=IwAR1xgb-0LStRrHXajKT-u3uP982d0p8PQaDpNfhxHAzuCbATi6VOjYcwo2k">TinyML：TensorFlow Lite機器學習</a> 一書, 於 2021 春節期間比較有空時, 找出手上的 STM32 NUCLEO_F103RB 板子, 確認程式的可行性, 分享在 <a href="https://www.facebook.com/groups/edgeaitw/permalink/2841368276150520/">FB 的 Edge AI Taiwan邊緣智能交流區</a>, 接著就開始了 TensorFlow Lite for Microcontroller 更深入的探討, 同時, 也開啟了對 TensorFlow open source 的小小貢獻.</p>
+<p>附註 : 本書的 pdf 版本下載設定有問題, 無法顯示中文, 需要修改 bookdown 設定吧, 待研究.</p>
 
-$ mv disco_f746ng mbed
-# 完成後, 回到 tensorflow 主目錄下
-$ cd ~/tensorflow</code></pre>
-<p>(以上的動作, 看起來很簡單, 卻是我花最多時間的地方, 需要去了解 Makefile 及層層疊加上的 Makefile.inc 和 *_makefile.inc 的複雜架構.)</p>
-<p>繼續執行 make 以及後續的動作</p>
-<pre><code>$ make -f tensorflow/lite/micro/tools/make/Makefile TARGET=mbed ALL_TAGS=disco_f746ng generate_micro_speech_mbed_project
-$ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/micro_speech/mbed
-$ mbed config root .
-$ mbed deploy
-$ mbed compile -m DISCO_F746NG -t GCC_ARM</code></pre>
-<p>執行後, 可以打開 screen 或 Coolterminal 來監看 DISCO_F746NG 偵測 ‘yes,’ ‘no,’ ‘unknown,’ 或 ‘silence’ 的預測結果各是如何.</p>
-<p>此處的模型很小, 也不完美, 你會發現它比較擅長偵測 ‘yes,’ 處理 ‘no’ 的效果較差, 從這個例子可以看到小型模型的大小進行優化將導致準確性下降, 將在下一個章節 (第 §<a href="chap-micro-speech-training.html#chap-micro-speech-training">7</a> 章) 進一步討論這主題</p>
-<p><a id="arduino_nano33_micro_speech"></a></p>
-</div>
-</div>
-</div>
-<div id="disco-nano33-micro-speech" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> 在 Arduino Nano 33 BLE 上實現 micro_speech</h2>
-<p>在 §<a href="prerequisite-.html#arduinoide">3.4</a> Arduino IDE 安裝後, 將 Arduino Nano 33 BLE 接上電腦的 USB, 進入 Arduino IDE 的 Tools - Boards 及 Port 確定已經安裝完成, 再到 File - Examples 找到 Arduino_TensorFlowLite 下會有 4 個範例</p>
-<ul>
-<li>hello_world<br />
-</li>
-<li>magic_wand<br />
-</li>
-<li>micro_speech<br />
-</li>
-<li>person_detection</li>
-</ul>
-<p>選擇我們想要的範例 micro_speech. 打開後, IDE 環境會同時展開好幾個程式, 找到 model.cpp 檔案, 用 colab 訓練完成的 g_model[ ] 內容來取代現有 model.cpp 內的 g_model[ ], 即可按照一般 Arduino 的程式般下載到 Nano 33 BLE 後執行.</p>
-<p>執行中, 可以打開 Arduino IDE menu<br />
-* Tool - Serial Monitor : 看到 Nano 33 回饋的預測是 ‘yes,’ ‘no,’ ‘unknown,’ 或 ‘silence’</p>
-<p>同時, Nano 33 的燈號顏色也會隨著辨識結果也不同</p>
-<ul>
-<li>yes: <span style="color:green">綠燈</span></li>
-<li>no: <span style="color:red">紅燈</span></li>
-<li>unknown: <span style="color:blue">藍燈</span></li>
-<li>silence: (不亮燈)</li>
-</ul>
-<p>此處的模型很小, 也不完美, 你會發現它比較擅長偵測 ‘yes,’ 處理 ‘no’ 的效果較差, 從這個例子可以看到小型模型的大小進行優化將導致準確性下降, 將在下一個章節 (第 §<a href="chap-micro-speech-training.html#chap-micro-speech-training">7</a> 章) 進一步討論這主題</p>
-
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="chap-hello-world-inference.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chap-micro-speech-training.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="appendixc.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
