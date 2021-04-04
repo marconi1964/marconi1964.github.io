@@ -16,6 +16,7 @@ vmware
 開始執行-tensorflow-lite-for-microcontroller-程式
 參考文件
 arduinoide
+arduino-ide-安裝---方法二-從-makefile-安裝-tensorflowlite
 chap-hello-world-training
 在-google-colab-上建立及訓練-hello_world-的模型
 colab-執行-training-程式前的準備工作
