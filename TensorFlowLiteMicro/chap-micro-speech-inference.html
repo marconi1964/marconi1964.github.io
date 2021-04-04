@@ -24,7 +24,7 @@
 <meta name="author" content="Marconi Jiang" />
 
 
-<meta name="date" content="2021-04-03" />
+<meta name="date" content="2021-04-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -244,6 +244,12 @@ $ mbed compile -m DISCO_F746NG -t GCC_ARM</code></pre>
 <p>執行中, 可以打開 Arduino IDE menu<br />
 * Tool - Serial Monitor : 看到 Nano 33 回饋的預測是 ‘yes,’ ‘no,’ ‘unknown,’ 或 ‘silence’</p>
 <p>同時, Nano 33 的燈號顏色也會隨著辨識結果也不同</p>
+<ul>
+<li>yes: 綠燈</li>
+<li>no: 紅燈</li>
+<li>unknown: 藍燈</li>
+<li>silence: (不亮燈)</li>
+</ul>
 <p>此處的模型很小, 也不完美, 你會發現它比較擅長偵測 ‘yes,’ 處理 ‘no’ 的效果較差, 從這個例子可以看到小型模型的大小進行優化將導致準確性下降, 將在下一個章節 (第 §<a href="chap-micro-speech-training.html#chap-micro-speech-training">7</a> 章) 進一步討論這主題</p>
 
 </div>
