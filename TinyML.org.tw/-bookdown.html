@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 重新安裝 bookdown | Everything about TinyML</title>
+  <meta name="description" content="Chapter 5 重新安裝 bookdown | Everything about TinyML - TinyML.org.tw" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 重新安裝 bookdown | Everything about TinyML" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Chapter 5 重新安裝 bookdown | Everything about TinyML - TinyML.org.tw" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 重新安裝 bookdown | Everything about TinyML" />
+  
+  <meta name="twitter:description" content="Chapter 5 重新安裝 bookdown | Everything about TinyML - TinyML.org.tw" />
+  
+
+<meta name="author" content="Marconi.Jiang at TinyML.org.tw (to be created)" />
+
+
+<meta name="date" content="2021-04-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="-rmarkdown-blogdown-deploy-netlify.html"/>
+<link rel="next" href="chap-summary.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">TinyML.org.tw</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 前言</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> 安裝 R、RStudio 及 github 設定</a></li>
+<li class="chapter" data-level="3" data-path="-rmarkdown-github-io-.html"><a href="-rmarkdown-github-io-.html"><i class="fa fa-check"></i><b>3</b> 開始 RMarkdown 在 github.io 的冒險之旅</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="-rmarkdown-github-io-.html"><a href="-rmarkdown-github-io-.html#r-markdown-的基本指令-2"><i class="fa fa-check"></i><b>3.1</b> R Markdown 的基本指令 *2</a></li>
+<li class="chapter" data-level="3.2" data-path="-rmarkdown-github-io-.html"><a href="-rmarkdown-github-io-.html#create-project-ref-1.-step-2-create-project"><i class="fa fa-check"></i><b>3.2</b> Create project (Ref 1. Step 2 Create project)</a></li>
+<li class="chapter" data-level="3.3" data-path="-rmarkdown-github-io-.html"><a href="-rmarkdown-github-io-.html#create-site-ref-1.-step-3-create-site"><i class="fa fa-check"></i><b>3.3</b> Create site (Ref 1. Step 3 Create site)</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="-rmarkdown-github-io-.html"><a href="-rmarkdown-github-io-.html#安裝-blogdown"><i class="fa fa-check"></i><b>3.3.1</b> 安裝 blogdown</a></li>
+<li class="chapter" data-level="3.3.2" data-path="-rmarkdown-github-io-.html"><a href="-rmarkdown-github-io-.html#在-rstudio-blogdown-下創建新的網站"><i class="fa fa-check"></i><b>3.3.2</b> 在 RStudio / blogdown 下創建新的網站</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="-rmarkdown-blogdown-deploy-netlify.html"><a href="-rmarkdown-blogdown-deploy-netlify.html"><i class="fa fa-check"></i><b>4</b> 將 RMarkdown blogdown 內容 deploy 到 Netlify</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="-rmarkdown-blogdown-deploy-netlify.html"><a href="-rmarkdown-blogdown-deploy-netlify.html#設定-.gitignore-雖然不知道這時候設定-.gitignore-的必要性-還是照著說明做"><i class="fa fa-check"></i><b>4.1</b> 設定 .gitignore : 雖然不知道這時候設定 .gitignore 的必要性, 還是照著說明做</a></li>
+<li class="chapter" data-level="4.2" data-path="-rmarkdown-blogdown-deploy-netlify.html"><a href="-rmarkdown-blogdown-deploy-netlify.html#blogdown-檢查-check_gitignore"><i class="fa fa-check"></i><b>4.2</b> blogdown 檢查 check_gitignore()</a></li>
+<li class="chapter" data-level="4.3" data-path="-rmarkdown-blogdown-deploy-netlify.html"><a href="-rmarkdown-blogdown-deploy-netlify.html#blogdown-檢查-check_content"><i class="fa fa-check"></i><b>4.3</b> blogdown 檢查 check_content()</a></li>
+<li class="chapter" data-level="4.4" data-path="-rmarkdown-blogdown-deploy-netlify.html"><a href="-rmarkdown-blogdown-deploy-netlify.html#在-netlify-網站上建置並且-publish-site"><i class="fa fa-check"></i><b>4.4</b> 在 Netlify 網站上建置並且 Publish site</a></li>
+<li class="chapter" data-level="4.5" data-path="-rmarkdown-blogdown-deploy-netlify.html"><a href="-rmarkdown-blogdown-deploy-netlify.html#git-指令將電腦的內容更新於-github"><i class="fa fa-check"></i><b>4.5</b> git 指令將電腦的內容更新於 github</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="-bookdown.html"><a href="-bookdown.html"><i class="fa fa-check"></i><b>5</b> 重新安裝 bookdown</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="-bookdown.html"><a href="-bookdown.html#安裝-bookdown-套件"><i class="fa fa-check"></i><b>5.1</b> 安裝 bookdown 套件</a></li>
+<li class="chapter" data-level="5.2" data-path="-bookdown.html"><a href="-bookdown.html#在-rstudio-建立新專案"><i class="fa fa-check"></i><b>5.2</b> 在 RStudio 建立新專案</a></li>
+<li class="chapter" data-level="5.3" data-path="-bookdown.html"><a href="-bookdown.html#創建-hugo-的-academic-模板網站"><i class="fa fa-check"></i><b>5.3</b> 創建 hugo 的 academic 模板網站</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-summary.html"><a href="chap-summary.html"><i class="fa fa-check"></i><b>6</b> Summary - 成功安裝 bookdown, 且順利 deploy 到 github.io</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap-summary.html"><a href="chap-summary.html#安裝套件"><i class="fa fa-check"></i><b>6.1</b> 安裝套件</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-summary.html"><a href="chap-summary.html#產生-bookdown-範例檔案"><i class="fa fa-check"></i><b>6.2</b> 產生 bookdown 範例檔案</a></li>
+<li class="chapter" data-level="6.3" data-path="chap-summary.html"><a href="chap-summary.html#deploy-到-github.io"><i class="fa fa-check"></i><b>6.3</b> Deploy 到 github.io</a></li>
+<li class="chapter" data-level="6.4" data-path="chap-summary.html"><a href="chap-summary.html#網頁出現-404-not-found時-關於-.nojekyll-的解決方式"><i class="fa fa-check"></i><b>6.4</b> 網頁出現 404 not found時, 關於 .nojekyll 的解決方式</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-bookdown.html"><a href="chap-bookdown.html"><i class="fa fa-check"></i><b>7</b> 快速使用 Bookdown 的說明</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-bookdown.html"><a href="chap-bookdown.html#開始全新的-bookdown-檔案"><i class="fa fa-check"></i><b>7.1</b> 開始全新的 bookdown 檔案</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-bookdown.html"><a href="chap-bookdown.html#注意事項"><i class="fa fa-check"></i><b>7.2</b> 注意事項</a></li>
+<li class="chapter" data-level="7.3" data-path="chap-bookdown.html"><a href="chap-bookdown.html#chap-bookdown-outputdir"><i class="fa fa-check"></i><b>7.3</b> 檔案結構</a></li>
+<li class="chapter" data-level="7.4" data-path="chap-bookdown.html"><a href="chap-bookdown.html#rmd-內容注意事項"><i class="fa fa-check"></i><b>7.4</b> Rmd 內容注意事項</a></li>
+<li class="chapter" data-level="7.5" data-path="chap-bookdown.html"><a href="chap-bookdown.html#參考文件的參照"><i class="fa fa-check"></i><b>7.5</b> 參考文件的參照</a></li>
+<li class="chapter" data-level="7.6" data-path="chap-bookdown.html"><a href="chap-bookdown.html#圖表的參照"><i class="fa fa-check"></i><b>7.6</b> 圖表的參照</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-.html"><a href="references-.html"><i class="fa fa-check"></i>References 參考文獻</a></li>
+<li class="appendix"><span><b>附录</b></span></li>
+<li class="chapter" data-level="A" data-path="appendixa.html"><a href="appendixa.html"><i class="fa fa-check"></i><b>A</b> Appendix A</a></li>
+<li class="chapter" data-level="B" data-path="appendixb.html"><a href="appendixb.html"><i class="fa fa-check"></i><b>B</b> Appendix B</a></li>
+<li class="divider"></li>
+<li><a href="https://marconi1964.github.io/TinyML.org.tw" target="blank">TinyML.org.tw</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Everything about TinyML</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="重新安裝-bookdown" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> 重新安裝 bookdown</h1>
+<p>此章節主要參考 Ref 7. <a href="https://github.com/r-lib/hugodown">rib-hugodown github 網頁</a></p>
+<div id="安裝-bookdown-套件" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> 安裝 bookdown 套件</h2>
+<pre><code>&gt; install.packages(&quot;devtools&quot;)
+## devtools::install_github(&#39;rstudio/bookdown&#39;)
+&gt; devtools::install_github(&quot;r-lib/hugodown&quot;)
+
+## 不知是否是版本問題, 還是改安裝了 0.66.0 版後才沒問題
+&gt; hugodown::hugo_install(&#39;0.66.0&#39;)</code></pre>
+</div>
+<div id="在-rstudio-建立新專案" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> 在 RStudio 建立新專案</h2>
+<p>進入 RStudio -&gt; New Project -&gt; New Directory -&gt; New Project -&gt; “Directory name” -&gt; “Create Project”</p>
+</div>
+<div id="創建-hugo-的-academic-模板網站" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> 創建 hugo 的 academic 模板網站</h2>
+<p>創建 hugo 的 academic 模板網站</p>
+<pre><code>&gt; hugodown::create_site_academic()</code></pre>
+<p>開始 hugodown 網頁的 server</p>
+<pre><code>&gt; hugodown::hugo_start()
+Starting server on port 1313</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="-rmarkdown-blogdown-deploy-netlify.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-summary.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["TinyML.org.tw.pdf", "TinyML.org.tw.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
