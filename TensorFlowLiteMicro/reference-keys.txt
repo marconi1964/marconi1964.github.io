@@ -17,6 +17,9 @@ vmware
 參考文件
 arduinoide
 arduino-ide-安裝---方法二-從-makefile-安裝-tensorflowlite
+esp-idf
+esp32-cam-硬體簡介
+esp-idf-安裝環境設定
 chap-hello-world-training
 在-google-colab-上建立及訓練-hello_world-的模型
 colab-執行-training-程式前的準備工作
@@ -30,7 +33,8 @@ disco-f746ng-hello-world
 將-tensorflowlitemicroexampleshello_worlddisco_f746ng-這目錄改名成為-tensorflowlitemicroexampleshello_worldmbed
 將-make-後的-mbed.bin-上傳到-disco_f746ng-開發板
 痛苦的-debug過程-disco_f746ng-執行-hello_world-當機
-disco-nano33-hello-world
+arduino-nano33-hello-world
+esp32-cam-hello-world
 chap-micro-speech-inference
 disco-f746ng-micro-speech
 無痛執行在筆電上編譯程式-並下載至-stm32-disco_f746ng-1
@@ -53,6 +57,8 @@ colab-micro-speech-customization
 修改-micro_model_settings.cc
 修改-command_responder.cc
 接續執行-make-及程式上傳-1
+chap-magic_wand
+chap-person-detection
 appendixa
 appendixb
 appendixc
