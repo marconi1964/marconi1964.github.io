@@ -24,7 +24,7 @@
 <meta name="author" content="Marconi Jiang" />
 
 
-<meta name="date" content="2021-04-06" />
+<meta name="date" content="2021-04-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -173,17 +173,61 @@
             <section class="normal" id="section-">
 <div id="chap-person-detection" class="section level1" number="9">
 <h1><span class="header-section-number">Chapter 9</span> Person_detection 範例程式</h1>
-<p>ESP32-CAM</p>
-<p>Error at building person_detection<br />
-<a href="https://github.com/tensorflow/tensorflow/pull/47063">int8 問題</a>
-* 下載 patch
-* make with int8
-* make without int8</p>
-<p>執行後 error<a href="https://github.com/espressif/esp32-camera/issues/102">esp-32 Camera probe failed with error 0x20004</a></p>
-<p>Camera init failed</p>
-<p>InitCamera failed</p>
-<p>Image capture failed</p>
-<p>set to AI thinker ESP32-CAM</p>
+<p>在 §<a href="prerequisite-.html#esp-idf">3.6</a> esp-idf 安裝 ESP32-CAM 開發環境後, 進一步測試人物辨識程式 person_detection</p>
+<pre><code>$ git clone https://github.com/tensorflow/tensorflow.git
+$ cd tensorflow
+$ make -f tensorflow/lite/micro/tools/make/Makefile TARGET=esp generate_person_detection_esp_project</code></pre>
+<p>出現 github 已經在討論的 <a href="https://github.com/tensorflow/tensorflow/pull/47063">ESP32-CAM person_detectin problem</a>, 我試過後, 加入<a href="https://github.com/tensorflow/tensorflow/pull/47063#issuecomment-814165177">我的可行作法</a></p>
+<pre><code>$ git clone --depth 1 https://github.com/tensorflow/tensorflow.git
+$ cd tensorflow/
+$ make -f tensorflow/lite/micro/tools/make/Makefile TARGET=esp generate_person_detection_esp_project
+# error occurs, same as yours, I believe.
+# 下載 https://patch-diff.githubusercontent.com/raw/tensorflow/tensorflow/pull/47063.patch
+# 或是 git cherry-pick 6d69beaf73fa2488f830a7fb7ed4ef931b44ce1d
+$ ls 47063.patch                        # to make sure patch is downloaded
+$ git apply ./47063.patch
+$ make -f tensorflow/lite/micro/tools/make/Makefile TARGET=esp generate_person_detection_esp_project
+# it generate another error below and stop.
+make: *** No rule to make target &#39;tensorflow/lite/micro/tools/make/gen/esp_xtensa-esp32_default/prj/person_detection/esp-idf/main/person_model_int8/person_detect_model_data.cc&#39;, needed by &#39;generate_person_detection_esp_project&#39;.  Stop.
+$ make -f tensorflow/lite/micro/tools/make/Makefile TARGET=esp generate_person_detection_esp_int8_project
+# this command generate another error of below, but it seems fix the previous error.
+make: *** No rule to make target &#39;generate_person_detection_esp_int8_project&#39;.  Stop.
+$ make -f tensorflow/lite/micro/tools/make/Makefile TARGET=esp generate_person_detection_esp_project
+# so we re-do the generate_person_detection_esp_project again, it works and no error.</code></pre>
+<p>接下來, 執行 esp-idf 指令</p>
+<pre><code>$ cd tensorflow/lite/micro/tools/make/gen/esp_xtensa-esp32/prj/person_detection/esp-idf
+$ idf.py build
+$ idf.py -p PORT flash monitor</code></pre>
+<p>這時候, ESP32-CAM 傳回電腦的以下的錯誤訊息</p>
+<pre><code>rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1216
+ho 0 tail 12 room 4
+load:0x40078000,len:9720
+ho 0 tail 12 room 4
+load:0x40080400,len:6352
+entry 0x400806b8
+
+[E][camera.c:1049] camera_probe(): Detected camera not supported.
+[E][camera.c:1249] esp_camera_init(): Camera probe failed with error 0x20004
+
+Camera init failed
+
+InitCamera failed
+
+Image capture failed</code></pre>
+<p>找到 <a href="https://github.com/espressif/esp32-camera/issues/102">esp-32 Camera probe failed with error 0x20004</a> 文章提到 2 個可能</p>
+<ul>
+<li>ESP32-CAM 從 3.3V 改成 5V<br />
+</li>
+<li>將程式原始設定的預設的開發板 WROVER-KIT With OV2640 Module 改成 CAMERA_MODEL_AI_THINKER
+<ul>
+<li></li>
+</ul></li>
+</ul>
 
 </div>
             </section>
