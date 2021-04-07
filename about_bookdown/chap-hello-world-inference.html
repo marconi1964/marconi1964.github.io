@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)</title>
-  <meta name="description" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <title>Chapter 9 Hello_world 範例程式 - 推論 | TensorFlow Lite for Microcontroller (TFLM)</title>
+  <meta name="description" content="Chapter 9 Hello_world 範例程式 - 推論 | TensorFlow Lite for Microcontroller (TFLM)" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta property="og:title" content="Chapter 9 Hello_world 範例程式 - 推論 | TensorFlow Lite for Microcontroller (TFLM)" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta property="og:description" content="Chapter 9 Hello_world 範例程式 - 推論 | TensorFlow Lite for Microcontroller (TFLM)" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta name="twitter:title" content="Chapter 9 Hello_world 範例程式 - 推論 | TensorFlow Lite for Microcontroller (TFLM)" />
   
-  <meta name="twitter:description" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta name="twitter:description" content="Chapter 9 Hello_world 範例程式 - 推論 | TensorFlow Lite for Microcontroller (TFLM)" />
   
 
 <meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="chap-person-detection.html"/>
-<link rel="next" href="appendixa.html"/>
+<link rel="prev" href="-bookdown.html"/>
+<link rel="next" href="chap-summary.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -215,77 +215,255 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references-參考文獻-1" class="section level1 unnumbered">
-<h1>References 參考文獻</h1>
-<p>本書是基於 <a href="https://www.books.com.tw/products/0010865580">TinyML TensorFLow Lite 機器學習中文版</a> 內容的實驗結果, 作者 Pete Warden 及 Daniel Situnayake 均於 Google 工作. 可以參考 Pete 相關論文、影片如下.</p>
-<p>關於 Make 及 Makefile<br />
-1. <a href="https://github.com/tensorflow/tensorflow/issues/46667#issuecomment-766923481">取消 TAGS 程式不受影響</a><br />
-2. <a href="https://github.com/tensorflow/tensorflow/issues/46667#issuecomment-766927681">STM32F 選用 OPTIMIZED_KERNEL_DIR=cmsis_nn 來做最佳化</a></p>
-<p>英文參考文章 mbed / arm / STM<br />
-3. <a href="https://os.mbed.com/docs/mbed-os/v6.7/build-tools/install-and-set-up.html">mbed-cli v6.7 installation</a><br />
-4. <a href="https://os.mbed.com/docs/mbed-os/v5.15/tools/manual-installation.html">mbed-cli v5.15 manual installation</a><br />
-5. <a href="https://developer.arm.com/solutions/machine-learning-on-arm/developer-material/how-to-guides/build-arm-cortex-m-voice-assistant-with-google-tensorflow-lite/single-page">Build Arm Cortex-M voice assistant with Google TensorFlow Lite</a><br />
-6. <a href="http://www.longlandclan.yi.org/~stuartl/stm32f10x_stdperiph_lib_um/CMSIS_Core.htm">CMSIS - Cortex Microcontroller Software Interface Standard</a><br />
-7. <a href="http://www.longlandclan.yi.org/~stuartl/stm32f10x_stdperiph_lib_um/Library_Files.html#_cmsis">STM32F10x Standard Peripherals Library Peripheral’s Drivers Description</a><br />
-8. <a href="https://stackoverflow.com/questions/59053389/what-means-about-dstm32f10x-md-duse-stdperiph-driver-as-the-flags-of-arm-non">what means about “-DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER” as the flags of arm-none-eabi-gcc?</a></p>
-<p>Arduino 相關<br />
-9. <a href="https://forum.arduino.cc/index.php?topic=659995.0">USB 無法偵測到 Arduino Nano BLE 33</a> : 我一開始從 Mac 下載程式到 Nano 後, Nano 執行結果不如預期, 擔心是 Mac 的 USB 有問題(一直有遇到類似問題), 轉到 PC Windows 下, 發現 USB 偵測不到 Nano, 甚至懷疑到我 PC 的 USB driver 有問題, 結果是, 如果 Nano 下載的程式有問題, 是有可能造成 USB 偵測不到, 需要 reset Nano, 重新刷 firmware, 後 USB 才能正常偵測到 Nano.</p>
-<p>其它<br />
-10. <a href="https://github.com/majianjia/nnom">Neural Network on Mobile (nnom) by Ma Jianjia - github</a></p>
-<p>TensorFlow<br />
-11. <a href="https://www.tensorflow.org/lite/guide">Tensorflow.org 官網</a><br />
-12. <a href="https://www.tensorflow.org/lite/microcontrollers">TensorFlow for microcontroller - 官網</a><br />
-13. <a href="https://blog.tensorflow.org/2020/08/announcing-tensorflow-lite-micro-esp32.html">Tensorflow Lite Micro on ESP32</a><br />
-14. <a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/micro">TensorFlow for Micro Github 官網 open source</a><br />
-15. <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/hello_world/README.md">TensorFlow Lite for Microcontroller Hello world examples</a></p>
-<p>TinyML (TensorFlow Lite Micro 一開始使用的名稱)<br />
-16. <a href="https://www.oreilly.com/library/view/tinyml/9781492052036/">書 "TinyML Tensor Flow Lite 機器學習“ 英文版 O’Reilly 出版</a><br />
-17. <a href="https://www.books.com.tw/products/0010865580?fbclid=IwAR1xgb-0LStRrHXajKT-u3uP982d0p8PQaDpNfhxHAzuCbATi6VOjYcwo2k">書 "TinyML Tensor Flow Lite 機器學習“ 中文版 O’Reilly 出版</a><br />
-18. <a href="http://lib.samtuit.uz/admin/kitoblar/5f8eb590b69fb5.80592706TinyML_Machine_Learning_with_TensorFlow_Lite_on_Arduino_and_Ultra.pdf">pdf - TinyML_Machine_Learning_with_TensorFlow_Lite_on_Arduino_and_Ultra.pdf</a><br />
-19. <a href="https://developer.arm.com/solutions/machine-learning-on-arm/developer-material/how-to-guides/build-arm-cortex-m-voice-assistant-with-google-tensorflow-lite">ARM - build voice assistant on Cortex-M with TFLM</a><br />
-20. <a href="https://www.tinymlsummit.org">TinyML summit organization</a><br />
-21. <a href="https://events.eventee.co/detail/tinyml-summit-2021-7883">TinyML summit 2021</a><br />
-22. <a href="https://www.youtube.com/channel/UC9iWqvsWjhowkHWVJquHwkg">Tiny summit 2021 Youtube playback - partial only</a><br />
-23. <a href="https://www.meetup.com/tinyML-Enabling-ultra-low-Power-ML-at-the-Edge/">Meet up - 舊金山灣區</a><br />
-24. <a href="https://www.meetup.com/meetup-group-NoKBhhJK/">Meet up - 德州奧斯汀</a><br />
-25. <a href="https://github.com/tensorflow/community/blob/master/sigs/micro/CHARTER.md">SIG Micro - TensorFlow Embedded Group</a><br />
-26. <a href="https://groups.google.com/a/tensorflow.org/forum/#!forum/micro">SIG Micro mailing list</a><br />
-27. <a href="https://gitter.im/tensorflow/sig-micro">SIG Micro Gitter chat channel</a><br />
-28. <a href="https://goo.gle/tf-micro-notes">SIG Micro monthly meeting notes and agenda</a></p>
-<p>其它框架<br />
-29. <a href="https://github.com/uTensor/uTensor">uTensor - by ARM Neil Tan</a><br />
-30. <a href="https://microsoft.github.io/ELL/">Microsoft - Embedded Learning Library (ELL)</a> : 主要針對 Arduino 與 micro:bit 平台</p>
-<p>Pete Warden 及相關資料<br />
-31. <a href="https://petewarden.com/?s=tinyml&amp;submit=Search">Pete Warden’s blog</a><br />
-32. <a href="https://arxiv.org/pdf/2010.08678.pdf">Paper - TensorFlow Lite Micro</a><br />
-33. <a href="https://www.youtube.com/watch?v=8N6-WQsxwxA">Pete youtube TinyML book #1 chap 4 - hello world training model</a><br />
-34. <a href="https://www.youtube.com/watch?v=AfAyHheBk6Y">Pete youtube TinyML book #2 chap 5/6 - Deploying the Hello World model on an Arduino</a><br />
-35. <a href="https://www.youtube.com/watch?v=_NcG5estXOU">Pete youtube TinyML book #3 - Introduction to TensorFlow Lite for Microcontrollers</a><br />
-36. <a href="https://www.youtube.com/watch?v=-jBmqY_aFwE">Pete youtube TinyML book #4 - Quantization</a><br />
-37. <a href="https://www.youtube.com/watch?v=Wuq2aP5O5Z0">Pete youtube What’s TinyML good for @ AIoT Dev Summit keynote</a><br />
-38. <a href="https://forums.tinyml.org/t/getting-started-with-tinyml-pete-warden-march-31-2020/22">Getting Started with TinyML - Pete Warden - TinyML.org - March 31, 2020</a><br />
-39. <a href="https://www.youtube.com/watch?v=soOM1F70Boc">Getting Started with TinyML - Pete Warden - TinyML.org - March 31, 2020 - youtube</a><br />
-40. <a href="https://cms.tinyml.org/wp-content/uploads/talks2020/tinyML_Talks_200331_Pete_Warden.pdf">Getting Started with TinyML - Pete Warden - TinyML.org - March 31, 2020 - slides</a><br />
-41. <a href="https://www.edge-ai-vision.com/2019/06/using-tensorflow-lite-to-deploy-deep-learning-on-cortex-m-microcontrollers-a-presentation-from-google/">Pete Warden, Staff Research Engineer and TensorFlow Lite development lead at Google, presents the “Using TensorFlow Lite to Deploy Deep Learning on Cortex-M Microcontrollers” tutorial at the May 2019 Embedded Vision Summit</a><br />
-42. <a href="https://www.hackster.io/news/introducing-the-sparkfun-edge-34c9eb80a000">Introducing the SparkFun Edge - Tiny models on tiny computers!</a></p>
-<p>關於 TinyML 的另一位作者, 已經離開 Google 的 Daniel Situnayake<br />
-43. <a href="https://situnayake.com">Daniel Situnayake’s blog</a><br />
-44. <a href="https://docs.edgeimpulse.com/docs/getting-started?fbclid=IwAR10Gtry8NInWcRQfpV1SXSxefwdhUyHbxEJOUe8JsiJGQpR7ecYeTcjW5Y">Edge Impluse</a></p>
-<p>一個厲害德國人的 stupid projects, 在不同的 embedded controller 做 TFLM 的 benchmark<br />
-45. <a href="https://www.stupid-projects.com/machine-learning-on-embedded-part-1/">Stupid projects - Machine Learning on Embedded (Part 1)</a><br />
-46. <a href="https://www.stupid-projects.com/tensorflow-2-1-0-for-microcontrollers-benchmarks-on-stm32f746/">Tensorflow 2.1.0 for microcontrollers benchmarks on STM32F746</a></p>
+<div id="chap-hello-world-inference" class="section level1" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Hello_world 範例程式 - 推論</h1>
+<p>本章節對應到 <a href="https://www.books.com.tw/products/0010865580">TinyML TensorFLow Lite 機器學習中文版</a> 的第六章. (原書第五章是說明 hello_world 原始程式及測試碼, 可以當作後續的研究分析, 列入 §附錄 <a href="appendixb.html#appendixb">B</a> 的主題)</p>
+<p>上一章, 我們已經建立了可以轉移到開發板上執行的模型, 模型只是機器學習應用 app 的一部分而已, TFLM 提供不同開發板的 hello_world app, 需要在筆電上將模型加入原始程式, 重新編譯成不同開發板可以執行的程式碼(不同 CPU 的程式碼無法跨平台執行), 也可以在 PC 或 Mac 上模擬結果.</p>
+<p>本文介紹可以運作 hello_world 示範程式的有以下的前兩種 (網路上有更新, 可以支援更多設備):</p>
+<ul>
+<li><a href="chap-hello-world-inference.html#arduino-nano33-hello-world">Arduino Nano 33 BLE Sense</a><br />
+</li>
+<li><a href="chap-hello-world-inference.html#disco-f746ng-hello-world">ST Microelectronics STM32F746NG Discovery kit</a><br />
+</li>
+<li>SparkFun Edge (<a href="https://www.books.com.tw/products/0010865580">TinyML TensorFLow Lite 機器學習中文版</a> 書上有介紹, 但手上沒有這塊開發板, 就不介紹了)<br />
+</li>
+<li>2021/4/6 新增實驗 <a href="chap-hello-world-inference.html#esp32-cam-hello-world">ESP32-CAM</a></li>
+</ul>
+<p><a id="disco_f746ng_hello_world"></a></p>
+<div id="disco-f746ng-hello-world" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> 在 STM32 DISCO_F746NG 上實現 hello_world</h2>
+<div id="無痛執行在筆電上編譯程式-並下載至-stm32-disco_f746ng" class="section level3" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> (無痛執行)在筆電上編譯程式, 並下載至 STM32 DISCO_F746NG</h3>
+<p>因為 TensorFlow Lite Micro 的開發持續在進行, 部份文件並沒有隨著開發進度而更新, 如果照著 github 上執行會產生一些錯誤, 而且, 在編譯 (make) 之前, 需要將 STM32 DISCO_F746NG 相關檔案複製到主程式目錄下, 因此, 我在 github 創建了一個 branch, 針對 DISCO_F746NG 的開發板做了檔案安排及設定調整, 可以直接編譯, 並下載到 DISCO_F746NG 開發板上執行.</p>
+<p>參考<a href="https://github.com/marconi1964/tensorflow/blob/example/tensorflow/lite/micro/examples/hello_world/disco_f746ng/README_disco_f746ng.md">我的 TFLM github - hello_world</a>無痛執行</p>
+<p>在下一節說明如果從 TFLM github 官網下載內容時, 需要做的修改.</p>
+</div>
+<div id="微痛執行在筆電上編譯程式-並下載至-stm32-disco_f746ng" class="section level3" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> (微痛執行)在筆電上編譯程式, 並下載至 STM32 DISCO_F746NG</h3>
+<p>此節乃針對已經熟悉上一節的內容, 順利執行後, 進一步從 TFLM github 官網下載, 得自行修改部份內容方能順利執行無誤.</p>
+<p><strong>動手修改內容</strong></p>
+<p>需要修改的內容有<br />
+1. 改從 <a href="https://github.com/tensorflow" class="uri">https://github.com/tensorflow</a> 官網下載<br />
+2. 將 tensorflow/lite/micro/examples/hello_world/disco_f746ng/ 這目錄改名成為 tensorflow/lite/micro/examples/hello_world/mbed/<br />
+其餘從 make 以後的操作維持跟原先內容不變</p>
+<div id="改從-httpsgithub.comtensorflow-官網下載" class="section level4" number="9.1.2.1">
+<h4><span class="header-section-number">9.1.2.1</span> 改從 <a href="https://github.com/tensorflow" class="uri">https://github.com/tensorflow</a> 官網下載</h4>
+<pre><code># 從我的 github
+$ git clone -b example --depth 1 https://github.com/marconi1964/tensorflow.git
+# 改到用 Tensorflow 官網的 github
+$ git clone --depth 1 https://github.com/marconi1964/tensorflow.git
+# 或是
+$ git clone --depth 1 https://github.com/tensorflow/tensorflow.git
+$ cd tensorflow</code></pre>
+</div>
+<div id="將-tensorflowlitemicroexampleshello_worlddisco_f746ng-這目錄改名成為-tensorflowlitemicroexampleshello_worldmbed" class="section level4" number="9.1.2.2">
+<h4><span class="header-section-number">9.1.2.2</span> 將 tensorflow/lite/micro/examples/hello_world/disco_f746ng/ 這目錄改名成為 tensorflow/lite/micro/examples/hello_world/mbed/</h4>
+<p>DISCO_F746NG 的驅動程式 (constant.cc 與 output_handler.cc) 跟標準的示範程式不同, 需要讓 make 把 F746NG 的驅動程式包含在主程式才能在開發板上執行, 這部分已經在 Makefile 完成, 只是目前 Makefile 的寫法是擷取 TARGET=mbed 中的 ‘mbed,’ 再到 hello_world 目錄下尋找 ‘mbed’ 子目錄 (這部分的程式設定有問題, 已經在 TensorFlow github 上發 issue), 而 mbed 子目錄是不存在, 且 Makefile 不會去尋找 disco_f746ng 子目錄.</p>
+<pre><code># 接續上一個動作, 已經在 tensorflow 目錄下, 切換到 hello_world 示範程式目錄
+$ cd tensorflow/lite/micro/examples/hello_world/
+
+$ mv disco_f746ng mbed
+# 完成後, 回到 tensorflow 主目錄下
+$ cd ~/tensorflow</code></pre>
+<p>(以上的動作, 看起來很簡單, 卻是我花最多時間的地方, 需要去了解 Makefile 及層層疊加上的 Makefile.inc 和 *_makefile.inc 的複雜架構.)</p>
+<p>繼續執行 make 以及後續的動作</p>
+<pre><code>$ make -f tensorflow/lite/micro/tools/make/Makefile TARGET=mbed ALL_TAGS=disco_f746ng generate_hello_world_mbed_project
+$ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed
+$ mbed config root .
+$ mbed deploy
+$ mbed compile -m DISCO_F746NG -t GCC_ARM</code></pre>
+</div>
+<div id="將-make-後的-mbed.bin-上傳到-disco_f746ng-開發板" class="section level4" number="9.1.2.3">
+<h4><span class="header-section-number">9.1.2.3</span> 將 make 後的 mbed.bin 上傳到 DISCO_F746NG 開發板</h4>
+</div>
+</div>
+<div id="痛苦的-debug過程-disco_f746ng-執行-hello_world-當機" class="section level3" number="9.1.3">
+<h3><span class="header-section-number">9.1.3</span> (痛苦的 debug過程) DISCO_F746NG 執行 hello_world 當機</h3>
+<p>第一次執行時, 還來不及沒有打開 screen 接收 debug 訊息, 就一顆球在上方定住, 懷疑我的操作/操守有問題… 打開 screen, 出現 ** Error message **</p>
+<pre><code>x_value: 1.0*2^-127, y_value: 1.0*2^-127
+
+x_value: 1.4361557*2^-4, y_value: 1.7621826*2^-4
+
+x_value: 1.4361557*2^-3, y_value: 1.8977352*2^-3
+
+x_value: 1.0771168*2^-2, y_value: 1.389413*2^-2
+
+x_value: 1.4361557*2^-2, y_value: 1.5588537*2^-2
+
+x_value: 1.7951952*2^-2, y_value: 1.7960706*2^-2
+
+x_value: 1.0771168*2^-1, y_value: 1.965511*2^-2
+
+x_value: 1.2566366*2^-1, y_value: 1.1183078*2^-1
+
+x_value: 1.4361557*2^-1, y_value: 1.3724688*2^-1
+
+x_value: 1.6156756*2^-1, y_value: 1.4910772*2^-1
+
+x_value: 1.7951952*2^-1, y_value: 1.6605182*2^-1
+
+x_value: 1.9747147*2^-1, y_value: 1.7791265*2^-1
+
+x_value: 1.0771168*2^0, y_value: 1.7791265*2^-1
+
+x_value: 1.1668766*2^0, y_value: 1.8977352*2^-1
+
+x_value: 1.2566366*2^0, y_value: 1.9316229*2^-1
+
+x_value: 1.3463962*2^0, y_value: 1.965511*2^-1
+
+x_value: 1.4361557*2^0, y_value: 1.0166438*2^0
+
+++ MbedOS Fault Handler ++
+
+FaultType: HardFault
+
+Context:
+R0: 7C
+R1: 8
+R2: FFDB4437
+R3: 1
+R4: 20002D58
+R5: 34
+R6: A
+R7: FFDB4437
+R8: 0
+R9: 72
+R10: 8
+R11: 68
+R12: 34
+SP   : 2004FF8C
+LR   : 800051B
+PC   : 8000472
+xPSR : 1000200
+PSP  : 0
+MSP  : 2004FF20
+CPUID: 410FC271
+HFSR : 40000000
+MMFSR: 0
+BFSR : 4
+UFSR : 0
+DFSR : 9
+AFSR : 0
+Mode : Thread
+Priv : Privileged
+Stack: MSP
+
+-- MbedOS Fault Handler --
+
+
+
+++ MbedOS Error Info ++
+Error Status: 0x80FF013D Code: 317 Module: 255
+Error Message: Fault exception
+Location: 0x8000472
+Error Value: 0x20002E34
+For more info, visit: https://mbed.com/s/error?error=0x80FF013D&amp;tgt=DISCO_F746NG
+-- MbedOS Error Info --
+</code></pre>
+<p>查看 <a href="https://mbed.com/s/error?error=0x80FF013D&amp;tgt=DISCO_F746NG" class="uri">https://mbed.com/s/error?error=0x80FF013D&amp;tgt=DISCO_F746NG</a> 輸入錯誤碼 (error code) 0x80FF013D 後會產生以下訊息</p>
+<pre><code>
+Error Decoder
+0x80FF013D
+Type:
+System
+Module
+Unknown module
+Error Code
+HardFault exception
+Cortex-M HardFault exception has occurred. Please see https://os.mbed.com/docs/latest/tutorials/analyzing-mbed-os-crash-dump.html for more info.
+</code></pre>
+<p>進一步查看 <a href="https://os.mbed.com/docs/latest/tutorials/analyzing-mbed-os-crash-dump.html" class="uri">https://os.mbed.com/docs/latest/tutorials/analyzing-mbed-os-crash-dump.html</a></p>
+<pre><code>The following Cortex-M fault exceptions trigger the Mbed OS fault exception handler.
+
+    MemManage Exception - Memory accesses that violate the setup in the MPU and certain illegal memory accesses trigger memory management faults.
+    BusFault Exception - When an error response is received during a transfer on the AHB interfaces, it produces bus faults.
+    UsageFault Exception - Division by zero, unaligned accesses and trying to execute coprocessor instructions can cause usage faults.
+    HardFault Exception - Triggered on all fault conditions or if the corresponding fault handler (one of the above) is not enabled.
+</code></pre>
+<p>猜可能是記憶體問題, 再看一下螢幕當機時, 球是在螢幕的最上方, 是否是超過螢幕的範圍而造成錯誤, 看一下原始檔案 output_handler.cc 跟 error message 可能是有衝突的.</p>
+<pre><code># error message
+x_value: 1.4361557*2^0, y_value: 1.0166438*2^0
+
+# output_handler.cc
+    y_pos = dot_radius + static_cast&lt;int&gt;(midpoint * (1.f - y_value));     # 原始程式會有問題
+
+    y_pos = dot_radius + static_cast&lt;int&gt;(midpoint * (1.1f - y_value));    # 小調整後即可正常運作
+</code></pre>
+<p><a id="arduino_nano33_hello_world"></a></p>
+</div>
+</div>
+<div id="arduino-nano33-hello-world" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> 在 Arduino Nano 33 BLE 上實現 hello_world</h2>
+<p>在 §<a href="prerequisite-.html#arduinoide">5.4</a> Arduino IDE 安裝後, 將 Arduino Nano 33 BLE 接上電腦的 USB, 進入 Arduino IDE 的 Tools - Boards 及 Port 確定已經安裝完成, 再到 File - Examples 找到 Arduino_TensorFlowLite 下會有 4 個範例</p>
+<ul>
+<li>hello_world<br />
+</li>
+<li>magic_wand<br />
+</li>
+<li>micro_speech<br />
+</li>
+<li>person_detection</li>
+</ul>
+<p>選擇我們想要的範例 hello_world 執行即可.</p>
+<p>執行中, 可以打開 Arduino IDE menu<br />
+* Tool - Serial Monitor : 看到 Nano 33 回饋的預測 X、Y 值
+* Tool - Serial Plotter : 看到 Nano 33 回饋的預測 X、Y 值展開的圖形</p>
+<p>同時, Nano 33 的燈號也會隨著辨識結果, 逐漸變亮到熄滅再變亮</p>
+</div>
+<div id="esp32-cam-hello-world" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> 在 ESP32-CAM 上實現 hello_world</h2>
+<p>這裡不說明 Arduino 的作法(作法更 Arduino Nano 33 大同小異), 僅就 esp-idf 方法做說明</p>
+<p>在 §<a href="prerequisite-.html#esp-idf">5.6</a> esp-idf 安裝且測試完 ESP32 的 hello world 後, 現在測試的是 TensorFlow Lite Micro 的 hello_world. 類似 STM32 DISCO_F746NG 的 Makefile 的作法</p>
+<p>在 idf.py build 這步驟出現錯誤</p>
+<pre><code>$ git clone https://github.com/tensorflow/tensorflow.git
+$ cd tensorflow
+$ make -f tensorflow/lite/micro/tools/make/Makefile TARGET=esp generate_hello_world_esp_project
+$ cd tensorflow/lite/micro/tools/make/gen/esp_xtensa-esp32/prj/hello_world/esp-idf
+$ idf.py build
+
+-- Configuring done
+CMake Error at /home/rafael/esp/esp-idf/tools/cmake/project.cmake:461 (target_link_libraries):
+Error evaluating generator expression:
+
+$&lt;IN_LIST:-DTF_LITE_STATIC_MEMORY,$&lt;TARGET_PROPERTY:__idf_tfmicro,COMPILE_OPTIONS&gt;&gt;
+Expression did not evaluate to a known generator expression
+Call Stack (most recent call first):
+CMakeLists.txt:3 (project)
+
+CMake Error in main/CMakeLists.txt:
+Error evaluating generator expression:
+
+$&lt;IN_LIST:-DTF_LITE_STATIC_MEMORY,$&lt;TARGET_PROPERTY:__idf_tfmicro,COMPILE_OPTIONS&gt;&gt;
+Expression did not evaluate to a known generator expression
+
+-- Generating done
+-- Build files have been written to: /home/rafael/tensorflow/tensorflow/lite/micro/tools/make/gen/esp_xtensa-esp32/prj/hello_world/esp-idf/build
+cmake failed with exit code 1</code></pre>
+<p>Google 後發現 <a href="https://github.com/tensorflow/tensorflow/issues/42165#issuecomment-751882110">ESP32 Hello World project crashing in the target</a> 說明 cmake 的 compile option 需要 3.11 版本以上, 查了我的 cmake 版本是 3.10.2, 所以需要升級</p>
+<pre><code>$ cmake --version
+cmake version 3.10.2</code></pre>
+<p><a href="https://askubuntu.com/questions/829310/how-to-upgrade-cmake-in-ubuntu">cmake 升級作法</a></p>
+<pre><code># 從 https://cmake.org/download/ 下載 tar file, 到下載 tar file 的目錄下執行:
+
+$ cd $CMAKE_DOWNLOAD_PATH
+$ ./configure
+$ make
+$ sudo make install</code></pre>
+<p>再執行 idf, 可以結束從開發板傳回來的 X 跟 Y 的值</p>
+<pre><code>$ idf.py build
+$ idf.py -p PORT flash monitor </code></pre>
+<p>提醒 : 執行 monitor 程式時, 如果要離開, 需要按 ‘Ctrl’ + ‘]’ 的組合鍵.</p>
 
 </div>
-
-
-
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="chap-person-detection.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="appendixa.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="-bookdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-summary.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)</title>
-  <meta name="description" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <title>Chapter 11 Micro_speech 範例程式-喚醒詞偵測：建構 app | TensorFlow Lite for Microcontroller (TFLM)</title>
+  <meta name="description" content="Chapter 11 Micro_speech 範例程式-喚醒詞偵測：建構 app | TensorFlow Lite for Microcontroller (TFLM)" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta property="og:title" content="Chapter 11 Micro_speech 範例程式-喚醒詞偵測：建構 app | TensorFlow Lite for Microcontroller (TFLM)" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta property="og:description" content="Chapter 11 Micro_speech 範例程式-喚醒詞偵測：建構 app | TensorFlow Lite for Microcontroller (TFLM)" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta name="twitter:title" content="Chapter 11 Micro_speech 範例程式-喚醒詞偵測：建構 app | TensorFlow Lite for Microcontroller (TFLM)" />
   
-  <meta name="twitter:description" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta name="twitter:description" content="Chapter 11 Micro_speech 範例程式-喚醒詞偵測：建構 app | TensorFlow Lite for Microcontroller (TFLM)" />
   
 
 <meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="chap-person-detection.html"/>
-<link rel="next" href="appendixa.html"/>
+<link rel="prev" href="chap-summary.html"/>
+<link rel="next" href="chap-bookdown.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -215,77 +215,105 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references-參考文獻-1" class="section level1 unnumbered">
-<h1>References 參考文獻</h1>
-<p>本書是基於 <a href="https://www.books.com.tw/products/0010865580">TinyML TensorFLow Lite 機器學習中文版</a> 內容的實驗結果, 作者 Pete Warden 及 Daniel Situnayake 均於 Google 工作. 可以參考 Pete 相關論文、影片如下.</p>
-<p>關於 Make 及 Makefile<br />
-1. <a href="https://github.com/tensorflow/tensorflow/issues/46667#issuecomment-766923481">取消 TAGS 程式不受影響</a><br />
-2. <a href="https://github.com/tensorflow/tensorflow/issues/46667#issuecomment-766927681">STM32F 選用 OPTIMIZED_KERNEL_DIR=cmsis_nn 來做最佳化</a></p>
-<p>英文參考文章 mbed / arm / STM<br />
-3. <a href="https://os.mbed.com/docs/mbed-os/v6.7/build-tools/install-and-set-up.html">mbed-cli v6.7 installation</a><br />
-4. <a href="https://os.mbed.com/docs/mbed-os/v5.15/tools/manual-installation.html">mbed-cli v5.15 manual installation</a><br />
-5. <a href="https://developer.arm.com/solutions/machine-learning-on-arm/developer-material/how-to-guides/build-arm-cortex-m-voice-assistant-with-google-tensorflow-lite/single-page">Build Arm Cortex-M voice assistant with Google TensorFlow Lite</a><br />
-6. <a href="http://www.longlandclan.yi.org/~stuartl/stm32f10x_stdperiph_lib_um/CMSIS_Core.htm">CMSIS - Cortex Microcontroller Software Interface Standard</a><br />
-7. <a href="http://www.longlandclan.yi.org/~stuartl/stm32f10x_stdperiph_lib_um/Library_Files.html#_cmsis">STM32F10x Standard Peripherals Library Peripheral’s Drivers Description</a><br />
-8. <a href="https://stackoverflow.com/questions/59053389/what-means-about-dstm32f10x-md-duse-stdperiph-driver-as-the-flags-of-arm-non">what means about “-DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER” as the flags of arm-none-eabi-gcc?</a></p>
-<p>Arduino 相關<br />
-9. <a href="https://forum.arduino.cc/index.php?topic=659995.0">USB 無法偵測到 Arduino Nano BLE 33</a> : 我一開始從 Mac 下載程式到 Nano 後, Nano 執行結果不如預期, 擔心是 Mac 的 USB 有問題(一直有遇到類似問題), 轉到 PC Windows 下, 發現 USB 偵測不到 Nano, 甚至懷疑到我 PC 的 USB driver 有問題, 結果是, 如果 Nano 下載的程式有問題, 是有可能造成 USB 偵測不到, 需要 reset Nano, 重新刷 firmware, 後 USB 才能正常偵測到 Nano.</p>
-<p>其它<br />
-10. <a href="https://github.com/majianjia/nnom">Neural Network on Mobile (nnom) by Ma Jianjia - github</a></p>
-<p>TensorFlow<br />
-11. <a href="https://www.tensorflow.org/lite/guide">Tensorflow.org 官網</a><br />
-12. <a href="https://www.tensorflow.org/lite/microcontrollers">TensorFlow for microcontroller - 官網</a><br />
-13. <a href="https://blog.tensorflow.org/2020/08/announcing-tensorflow-lite-micro-esp32.html">Tensorflow Lite Micro on ESP32</a><br />
-14. <a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/micro">TensorFlow for Micro Github 官網 open source</a><br />
-15. <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/hello_world/README.md">TensorFlow Lite for Microcontroller Hello world examples</a></p>
-<p>TinyML (TensorFlow Lite Micro 一開始使用的名稱)<br />
-16. <a href="https://www.oreilly.com/library/view/tinyml/9781492052036/">書 "TinyML Tensor Flow Lite 機器學習“ 英文版 O’Reilly 出版</a><br />
-17. <a href="https://www.books.com.tw/products/0010865580?fbclid=IwAR1xgb-0LStRrHXajKT-u3uP982d0p8PQaDpNfhxHAzuCbATi6VOjYcwo2k">書 "TinyML Tensor Flow Lite 機器學習“ 中文版 O’Reilly 出版</a><br />
-18. <a href="http://lib.samtuit.uz/admin/kitoblar/5f8eb590b69fb5.80592706TinyML_Machine_Learning_with_TensorFlow_Lite_on_Arduino_and_Ultra.pdf">pdf - TinyML_Machine_Learning_with_TensorFlow_Lite_on_Arduino_and_Ultra.pdf</a><br />
-19. <a href="https://developer.arm.com/solutions/machine-learning-on-arm/developer-material/how-to-guides/build-arm-cortex-m-voice-assistant-with-google-tensorflow-lite">ARM - build voice assistant on Cortex-M with TFLM</a><br />
-20. <a href="https://www.tinymlsummit.org">TinyML summit organization</a><br />
-21. <a href="https://events.eventee.co/detail/tinyml-summit-2021-7883">TinyML summit 2021</a><br />
-22. <a href="https://www.youtube.com/channel/UC9iWqvsWjhowkHWVJquHwkg">Tiny summit 2021 Youtube playback - partial only</a><br />
-23. <a href="https://www.meetup.com/tinyML-Enabling-ultra-low-Power-ML-at-the-Edge/">Meet up - 舊金山灣區</a><br />
-24. <a href="https://www.meetup.com/meetup-group-NoKBhhJK/">Meet up - 德州奧斯汀</a><br />
-25. <a href="https://github.com/tensorflow/community/blob/master/sigs/micro/CHARTER.md">SIG Micro - TensorFlow Embedded Group</a><br />
-26. <a href="https://groups.google.com/a/tensorflow.org/forum/#!forum/micro">SIG Micro mailing list</a><br />
-27. <a href="https://gitter.im/tensorflow/sig-micro">SIG Micro Gitter chat channel</a><br />
-28. <a href="https://goo.gle/tf-micro-notes">SIG Micro monthly meeting notes and agenda</a></p>
-<p>其它框架<br />
-29. <a href="https://github.com/uTensor/uTensor">uTensor - by ARM Neil Tan</a><br />
-30. <a href="https://microsoft.github.io/ELL/">Microsoft - Embedded Learning Library (ELL)</a> : 主要針對 Arduino 與 micro:bit 平台</p>
-<p>Pete Warden 及相關資料<br />
-31. <a href="https://petewarden.com/?s=tinyml&amp;submit=Search">Pete Warden’s blog</a><br />
-32. <a href="https://arxiv.org/pdf/2010.08678.pdf">Paper - TensorFlow Lite Micro</a><br />
-33. <a href="https://www.youtube.com/watch?v=8N6-WQsxwxA">Pete youtube TinyML book #1 chap 4 - hello world training model</a><br />
-34. <a href="https://www.youtube.com/watch?v=AfAyHheBk6Y">Pete youtube TinyML book #2 chap 5/6 - Deploying the Hello World model on an Arduino</a><br />
-35. <a href="https://www.youtube.com/watch?v=_NcG5estXOU">Pete youtube TinyML book #3 - Introduction to TensorFlow Lite for Microcontrollers</a><br />
-36. <a href="https://www.youtube.com/watch?v=-jBmqY_aFwE">Pete youtube TinyML book #4 - Quantization</a><br />
-37. <a href="https://www.youtube.com/watch?v=Wuq2aP5O5Z0">Pete youtube What’s TinyML good for @ AIoT Dev Summit keynote</a><br />
-38. <a href="https://forums.tinyml.org/t/getting-started-with-tinyml-pete-warden-march-31-2020/22">Getting Started with TinyML - Pete Warden - TinyML.org - March 31, 2020</a><br />
-39. <a href="https://www.youtube.com/watch?v=soOM1F70Boc">Getting Started with TinyML - Pete Warden - TinyML.org - March 31, 2020 - youtube</a><br />
-40. <a href="https://cms.tinyml.org/wp-content/uploads/talks2020/tinyML_Talks_200331_Pete_Warden.pdf">Getting Started with TinyML - Pete Warden - TinyML.org - March 31, 2020 - slides</a><br />
-41. <a href="https://www.edge-ai-vision.com/2019/06/using-tensorflow-lite-to-deploy-deep-learning-on-cortex-m-microcontrollers-a-presentation-from-google/">Pete Warden, Staff Research Engineer and TensorFlow Lite development lead at Google, presents the “Using TensorFlow Lite to Deploy Deep Learning on Cortex-M Microcontrollers” tutorial at the May 2019 Embedded Vision Summit</a><br />
-42. <a href="https://www.hackster.io/news/introducing-the-sparkfun-edge-34c9eb80a000">Introducing the SparkFun Edge - Tiny models on tiny computers!</a></p>
-<p>關於 TinyML 的另一位作者, 已經離開 Google 的 Daniel Situnayake<br />
-43. <a href="https://situnayake.com">Daniel Situnayake’s blog</a><br />
-44. <a href="https://docs.edgeimpulse.com/docs/getting-started?fbclid=IwAR10Gtry8NInWcRQfpV1SXSxefwdhUyHbxEJOUe8JsiJGQpR7ecYeTcjW5Y">Edge Impluse</a></p>
-<p>一個厲害德國人的 stupid projects, 在不同的 embedded controller 做 TFLM 的 benchmark<br />
-45. <a href="https://www.stupid-projects.com/machine-learning-on-embedded-part-1/">Stupid projects - Machine Learning on Embedded (Part 1)</a><br />
-46. <a href="https://www.stupid-projects.com/tensorflow-2-1-0-for-microcontrollers-benchmarks-on-stm32f746/">Tensorflow 2.1.0 for microcontrollers benchmarks on STM32F746</a></p>
+<div id="chap-micro-speech-inference" class="section level1" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Micro_speech 範例程式-喚醒詞偵測：建構 app</h1>
+<p>本章節對應到 <a href="https://www.books.com.tw/products/0010865580">TinyML TensorFLow Lite 機器學習中文版</a> 的第七章, 佩服作者在機器學習功力的深厚, 在這一章裡, 也介紹了機器學習 app 的模型框架, 以及語音樣本資料 - 聲譜 (spectrogram) - 的簡介. 我會再後續補充於 Appendix §<a href="appendixc.html#appendixc">C</a> 音頻聲譜的說明與模型分析.</p>
+<div align="center">
+<p>再說一次:</p>
+<p><span style="color:blue">
+<strong>訓練就是‘學習’; 推論就是‘考試’</strong></span></p>
+</div>
+<p>這個範例, 作者先從 inference - 喚醒詞偵測的構建 app 開始, 訓練模型留待下一章 (第 §<a href="chap-micro-speech-training.html#chap-micro-speech-training">13</a> 章) 介紹.</p>
+<p>本文介紹可以運作 micro_speech 示範程式的有以下的前兩種 (網路上有更新, 可以支援更多設備):</p>
+<ul>
+<li><a href="chap-micro-speech-inference.html#arduino_nano33_micro_speech">Arduino Nano 33 BLE Sense</a><br />
+</li>
+<li><a href="chap-micro-speech-inference.html#disco_f746ng_micro_speech">ST Microelectronics STM32F746NG Discovery kit</a><br />
+</li>
+<li>SparkFun Edge (<a href="https://www.books.com.tw/products/0010865580">TinyML TensorFLow Lite 機器學習中文版</a> 書上有介紹, 但手上沒有這塊開發板, 就不介紹了)</li>
+</ul>
+<p><a id="disco_f746ng_micro_speech"></a></p>
+<div id="disco-f746ng-micro-speech" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> 在 STM32 DISCO_F746NG 上實現 micro_speech</h2>
+<div id="無痛執行在筆電上編譯程式-並下載至-stm32-disco_f746ng-1" class="section level3" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> (無痛執行)在筆電上編譯程式, 並下載至 STM32 DISCO_F746NG</h3>
+<p>因為 TensorFlow Lite Micro 的開發持續在進行, 部份文件並沒有隨著開發進度而更新, 如果照著 github 上執行會產生一些錯誤, 而且, 在編譯 (make) 之前, 需要將 STM32 DISCO_F746NG 相關檔案複製到主程式目錄下, 因此, 我在 github 創建了一個 branch, 針對 DISCO_F746NG 的開發板做了檔案安排及設定調整, 可以直接編譯, 並下載到 DISCO_F746NG 開發板上執行.</p>
+<p>參考<a href="https://github.com/marconi1964/tensorflow/blob/example/tensorflow/lite/micro/examples/micro_speech/disco_f746ng/README_disco_f746ng.md">我的 TFLM github - micro_speech</a>無痛執行</p>
+<p>在下一節說明如果從 TFLM github 官網下載內容時, 需要做的修改.</p>
+</div>
+<div id="微痛執行在筆電上編譯程式-並下載至-stm32-disco_f746ng-1" class="section level3" number="11.1.2">
+<h3><span class="header-section-number">11.1.2</span> (微痛執行)在筆電上編譯程式, 並下載至 STM32 DISCO_F746NG</h3>
+<p>此節乃針對已經熟悉上一節的內容, 順利執行後, 進一步從 TFLM github 官網下載, 得自行修改部份內容方能順利執行無誤.</p>
+<p><strong>動手修改內容</strong></p>
+<p>需要修改的內容有<br />
+1. 改從 <a href="https://github.com/tensorflow" class="uri">https://github.com/tensorflow</a> 官網下載<br />
+2. 將 tensorflow/lite/micro/examples/micro_speech/disco_f746ng/ 這目錄改名成為 tensorflow/lite/micro/examples/micro_speech/mbed/<br />
+其餘從 make 以後的操作維持跟原先內容不變</p>
+<div id="改從-httpsgithub.comtensorflow-官網下載-1" class="section level4" number="11.1.2.1">
+<h4><span class="header-section-number">11.1.2.1</span> 改從 <a href="https://github.com/tensorflow" class="uri">https://github.com/tensorflow</a> 官網下載</h4>
+<pre><code># 從我的 github
+$ git clone -b example --depth 1 https://github.com/marconi1964/tensorflow.git
+# 改到用 Tensorflow 官網的 github
+$ git clone --depth 1 https://github.com/marconi1964/tensorflow.git
+# 或是
+$ git clone --depth 1 https://github.com/tensorflow/tensorflow.git
+$ cd tensorflow</code></pre>
+</div>
+<div id="micro-speech-deployment" class="section level4" number="11.1.2.2">
+<h4><span class="header-section-number">11.1.2.2</span> 將 tensorflow/lite/micro/examples/micro_speech/disco_f746ng/ 這目錄改名成為 tensorflow/lite/micro/examples/micro_speech/mbed/</h4>
+<p>DISCO_F746NG 的驅動程式 (audio_provider.cc 與 command_responder.cc) 跟標準的示範程式不同, 需要讓 make 把 F746NG 的驅動程式包含在主程式才能在開發板上執行, 這部分已經在 Makefile 完成, 只是目前 Makefile 的寫法是擷取 TARGET=mbed 中的 ‘mbed,’ 再到 micro_speech 目錄下尋找 ‘mbed’ 子目錄, 而不是尋找 disco_f746ng 子目錄, 且 mbed 子目錄是不存在的, 這是問題所在, 因此需要做以下調整.</p>
+<pre><code># 接續上一個動作, 已經在 tensorflow 目錄下, 切換到 micro_speech 示範程式目錄
+$ cd tensorflow/lite/micro/examples/micro_speech/
+
+$ mv disco_f746ng mbed
+# 完成後, 回到 tensorflow 主目錄下
+$ cd ~/tensorflow</code></pre>
+<p>(以上的動作, 看起來很簡單, 卻是我花最多時間的地方, 需要去了解 Makefile 及層層疊加上的 Makefile.inc 和 *_makefile.inc 的複雜架構.)</p>
+<p>繼續執行 make 以及後續的動作</p>
+<pre><code>$ make -f tensorflow/lite/micro/tools/make/Makefile TARGET=mbed ALL_TAGS=disco_f746ng generate_micro_speech_mbed_project
+$ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/micro_speech/mbed
+$ mbed config root .
+$ mbed deploy
+$ mbed compile -m DISCO_F746NG -t GCC_ARM</code></pre>
+<p>執行後, 可以打開 screen 或 Coolterminal 來監看 DISCO_F746NG 偵測 ‘yes,’ ‘no,’ ‘unknown,’ 或 ‘silence’ 的預測結果各是如何.</p>
+<p>此處的模型很小, 也不完美, 你會發現它比較擅長偵測 ‘yes,’ 處理 ‘no’ 的效果較差, 從這個例子可以看到小型模型的大小進行優化將導致準確性下降, 將在下一個章節 (第 §<a href="chap-micro-speech-training.html#chap-micro-speech-training">13</a> 章) 進一步討論這主題</p>
+<p><a id="arduino_nano33_micro_speech"></a></p>
+</div>
+</div>
+</div>
+<div id="disco-nano33-micro-speech" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> 在 Arduino Nano 33 BLE 上實現 micro_speech</h2>
+<p>在 §<a href="prerequisite-.html#arduinoide">5.4</a> Arduino IDE 安裝後, 將 Arduino Nano 33 BLE 接上電腦的 USB, 進入 Arduino IDE 的 Tools - Boards 及 Port 確定已經安裝完成, 再到 File - Examples 找到 Arduino_TensorFlowLite 下會有 4 個範例</p>
+<ul>
+<li>hello_world<br />
+</li>
+<li>magic_wand<br />
+</li>
+<li>micro_speech<br />
+</li>
+<li>person_detection</li>
+</ul>
+<p>選擇我們想要的範例 micro_speech. 打開後, IDE 環境會同時展開好幾個程式, 找到 model.cpp 檔案, 用 colab 訓練完成的 g_model[ ] 內容來取代現有 model.cpp 內的 g_model[ ], 即可按照一般 Arduino 的程式般下載到 Nano 33 BLE 後執行.</p>
+<p>執行中, 可以打開 Arduino IDE menu<br />
+* Tool - Serial Monitor : 看到 Nano 33 回饋的預測是 ‘yes,’ ‘no,’ ‘unknown,’ 或 ‘silence’</p>
+<p>同時, Nano 33 的燈號顏色也會隨著辨識結果也不同</p>
+<ul>
+<li>yes: <span style="color:green">綠燈</span></li>
+<li>no: <span style="color:red">紅燈</span></li>
+<li>unknown: <span style="color:blue">藍燈</span></li>
+<li>silence: (不亮燈)</li>
+</ul>
+<p>此處的模型很小, 也不完美, 你會發現它比較擅長偵測 ‘yes,’ 處理 ‘no’ 的效果較差, 從這個例子可以看到小型模型的大小進行優化將導致準確性下降, 將在下一個章節 (第 §<a href="chap-micro-speech-training.html#chap-micro-speech-training">13</a> 章) 進一步討論這主題</p>
 
 </div>
-
-
-
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="chap-person-detection.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="appendixa.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chap-summary.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-bookdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

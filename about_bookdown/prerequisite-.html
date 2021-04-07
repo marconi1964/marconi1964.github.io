@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)</title>
-  <meta name="description" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <title>Chapter 5 Prerequisite 準備工作 | TensorFlow Lite for Microcontroller (TFLM)</title>
+  <meta name="description" content="Chapter 5 Prerequisite 準備工作 | TensorFlow Lite for Microcontroller (TFLM)" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta property="og:title" content="Chapter 5 Prerequisite 準備工作 | TensorFlow Lite for Microcontroller (TFLM)" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta property="og:description" content="Chapter 5 Prerequisite 準備工作 | TensorFlow Lite for Microcontroller (TFLM)" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta name="twitter:title" content="Chapter 5 Prerequisite 準備工作 | TensorFlow Lite for Microcontroller (TFLM)" />
   
-  <meta name="twitter:description" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta name="twitter:description" content="Chapter 5 Prerequisite 準備工作 | TensorFlow Lite for Microcontroller (TFLM)" />
   
 
 <meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="chap-person-detection.html"/>
-<link rel="next" href="appendixa.html"/>
+<link rel="prev" href="-rmarkdown-github-io-.html"/>
+<link rel="next" href="-rmarkdown-blogdown-deploy-netlify.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -215,77 +215,298 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references-參考文獻-1" class="section level1 unnumbered">
-<h1>References 參考文獻</h1>
-<p>本書是基於 <a href="https://www.books.com.tw/products/0010865580">TinyML TensorFLow Lite 機器學習中文版</a> 內容的實驗結果, 作者 Pete Warden 及 Daniel Situnayake 均於 Google 工作. 可以參考 Pete 相關論文、影片如下.</p>
-<p>關於 Make 及 Makefile<br />
-1. <a href="https://github.com/tensorflow/tensorflow/issues/46667#issuecomment-766923481">取消 TAGS 程式不受影響</a><br />
-2. <a href="https://github.com/tensorflow/tensorflow/issues/46667#issuecomment-766927681">STM32F 選用 OPTIMIZED_KERNEL_DIR=cmsis_nn 來做最佳化</a></p>
-<p>英文參考文章 mbed / arm / STM<br />
-3. <a href="https://os.mbed.com/docs/mbed-os/v6.7/build-tools/install-and-set-up.html">mbed-cli v6.7 installation</a><br />
-4. <a href="https://os.mbed.com/docs/mbed-os/v5.15/tools/manual-installation.html">mbed-cli v5.15 manual installation</a><br />
-5. <a href="https://developer.arm.com/solutions/machine-learning-on-arm/developer-material/how-to-guides/build-arm-cortex-m-voice-assistant-with-google-tensorflow-lite/single-page">Build Arm Cortex-M voice assistant with Google TensorFlow Lite</a><br />
-6. <a href="http://www.longlandclan.yi.org/~stuartl/stm32f10x_stdperiph_lib_um/CMSIS_Core.htm">CMSIS - Cortex Microcontroller Software Interface Standard</a><br />
-7. <a href="http://www.longlandclan.yi.org/~stuartl/stm32f10x_stdperiph_lib_um/Library_Files.html#_cmsis">STM32F10x Standard Peripherals Library Peripheral’s Drivers Description</a><br />
-8. <a href="https://stackoverflow.com/questions/59053389/what-means-about-dstm32f10x-md-duse-stdperiph-driver-as-the-flags-of-arm-non">what means about “-DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER” as the flags of arm-none-eabi-gcc?</a></p>
-<p>Arduino 相關<br />
-9. <a href="https://forum.arduino.cc/index.php?topic=659995.0">USB 無法偵測到 Arduino Nano BLE 33</a> : 我一開始從 Mac 下載程式到 Nano 後, Nano 執行結果不如預期, 擔心是 Mac 的 USB 有問題(一直有遇到類似問題), 轉到 PC Windows 下, 發現 USB 偵測不到 Nano, 甚至懷疑到我 PC 的 USB driver 有問題, 結果是, 如果 Nano 下載的程式有問題, 是有可能造成 USB 偵測不到, 需要 reset Nano, 重新刷 firmware, 後 USB 才能正常偵測到 Nano.</p>
-<p>其它<br />
-10. <a href="https://github.com/majianjia/nnom">Neural Network on Mobile (nnom) by Ma Jianjia - github</a></p>
-<p>TensorFlow<br />
-11. <a href="https://www.tensorflow.org/lite/guide">Tensorflow.org 官網</a><br />
-12. <a href="https://www.tensorflow.org/lite/microcontrollers">TensorFlow for microcontroller - 官網</a><br />
-13. <a href="https://blog.tensorflow.org/2020/08/announcing-tensorflow-lite-micro-esp32.html">Tensorflow Lite Micro on ESP32</a><br />
-14. <a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/micro">TensorFlow for Micro Github 官網 open source</a><br />
-15. <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/hello_world/README.md">TensorFlow Lite for Microcontroller Hello world examples</a></p>
-<p>TinyML (TensorFlow Lite Micro 一開始使用的名稱)<br />
-16. <a href="https://www.oreilly.com/library/view/tinyml/9781492052036/">書 "TinyML Tensor Flow Lite 機器學習“ 英文版 O’Reilly 出版</a><br />
-17. <a href="https://www.books.com.tw/products/0010865580?fbclid=IwAR1xgb-0LStRrHXajKT-u3uP982d0p8PQaDpNfhxHAzuCbATi6VOjYcwo2k">書 "TinyML Tensor Flow Lite 機器學習“ 中文版 O’Reilly 出版</a><br />
-18. <a href="http://lib.samtuit.uz/admin/kitoblar/5f8eb590b69fb5.80592706TinyML_Machine_Learning_with_TensorFlow_Lite_on_Arduino_and_Ultra.pdf">pdf - TinyML_Machine_Learning_with_TensorFlow_Lite_on_Arduino_and_Ultra.pdf</a><br />
-19. <a href="https://developer.arm.com/solutions/machine-learning-on-arm/developer-material/how-to-guides/build-arm-cortex-m-voice-assistant-with-google-tensorflow-lite">ARM - build voice assistant on Cortex-M with TFLM</a><br />
-20. <a href="https://www.tinymlsummit.org">TinyML summit organization</a><br />
-21. <a href="https://events.eventee.co/detail/tinyml-summit-2021-7883">TinyML summit 2021</a><br />
-22. <a href="https://www.youtube.com/channel/UC9iWqvsWjhowkHWVJquHwkg">Tiny summit 2021 Youtube playback - partial only</a><br />
-23. <a href="https://www.meetup.com/tinyML-Enabling-ultra-low-Power-ML-at-the-Edge/">Meet up - 舊金山灣區</a><br />
-24. <a href="https://www.meetup.com/meetup-group-NoKBhhJK/">Meet up - 德州奧斯汀</a><br />
-25. <a href="https://github.com/tensorflow/community/blob/master/sigs/micro/CHARTER.md">SIG Micro - TensorFlow Embedded Group</a><br />
-26. <a href="https://groups.google.com/a/tensorflow.org/forum/#!forum/micro">SIG Micro mailing list</a><br />
-27. <a href="https://gitter.im/tensorflow/sig-micro">SIG Micro Gitter chat channel</a><br />
-28. <a href="https://goo.gle/tf-micro-notes">SIG Micro monthly meeting notes and agenda</a></p>
-<p>其它框架<br />
-29. <a href="https://github.com/uTensor/uTensor">uTensor - by ARM Neil Tan</a><br />
-30. <a href="https://microsoft.github.io/ELL/">Microsoft - Embedded Learning Library (ELL)</a> : 主要針對 Arduino 與 micro:bit 平台</p>
-<p>Pete Warden 及相關資料<br />
-31. <a href="https://petewarden.com/?s=tinyml&amp;submit=Search">Pete Warden’s blog</a><br />
-32. <a href="https://arxiv.org/pdf/2010.08678.pdf">Paper - TensorFlow Lite Micro</a><br />
-33. <a href="https://www.youtube.com/watch?v=8N6-WQsxwxA">Pete youtube TinyML book #1 chap 4 - hello world training model</a><br />
-34. <a href="https://www.youtube.com/watch?v=AfAyHheBk6Y">Pete youtube TinyML book #2 chap 5/6 - Deploying the Hello World model on an Arduino</a><br />
-35. <a href="https://www.youtube.com/watch?v=_NcG5estXOU">Pete youtube TinyML book #3 - Introduction to TensorFlow Lite for Microcontrollers</a><br />
-36. <a href="https://www.youtube.com/watch?v=-jBmqY_aFwE">Pete youtube TinyML book #4 - Quantization</a><br />
-37. <a href="https://www.youtube.com/watch?v=Wuq2aP5O5Z0">Pete youtube What’s TinyML good for @ AIoT Dev Summit keynote</a><br />
-38. <a href="https://forums.tinyml.org/t/getting-started-with-tinyml-pete-warden-march-31-2020/22">Getting Started with TinyML - Pete Warden - TinyML.org - March 31, 2020</a><br />
-39. <a href="https://www.youtube.com/watch?v=soOM1F70Boc">Getting Started with TinyML - Pete Warden - TinyML.org - March 31, 2020 - youtube</a><br />
-40. <a href="https://cms.tinyml.org/wp-content/uploads/talks2020/tinyML_Talks_200331_Pete_Warden.pdf">Getting Started with TinyML - Pete Warden - TinyML.org - March 31, 2020 - slides</a><br />
-41. <a href="https://www.edge-ai-vision.com/2019/06/using-tensorflow-lite-to-deploy-deep-learning-on-cortex-m-microcontrollers-a-presentation-from-google/">Pete Warden, Staff Research Engineer and TensorFlow Lite development lead at Google, presents the “Using TensorFlow Lite to Deploy Deep Learning on Cortex-M Microcontrollers” tutorial at the May 2019 Embedded Vision Summit</a><br />
-42. <a href="https://www.hackster.io/news/introducing-the-sparkfun-edge-34c9eb80a000">Introducing the SparkFun Edge - Tiny models on tiny computers!</a></p>
-<p>關於 TinyML 的另一位作者, 已經離開 Google 的 Daniel Situnayake<br />
-43. <a href="https://situnayake.com">Daniel Situnayake’s blog</a><br />
-44. <a href="https://docs.edgeimpulse.com/docs/getting-started?fbclid=IwAR10Gtry8NInWcRQfpV1SXSxefwdhUyHbxEJOUe8JsiJGQpR7ecYeTcjW5Y">Edge Impluse</a></p>
-<p>一個厲害德國人的 stupid projects, 在不同的 embedded controller 做 TFLM 的 benchmark<br />
-45. <a href="https://www.stupid-projects.com/machine-learning-on-embedded-part-1/">Stupid projects - Machine Learning on Embedded (Part 1)</a><br />
-46. <a href="https://www.stupid-projects.com/tensorflow-2-1-0-for-microcontrollers-benchmarks-on-stm32f746/">Tensorflow 2.1.0 for microcontrollers benchmarks on STM32F746</a></p>
+<div id="prerequisite-準備工作" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Prerequisite 準備工作</h1>
+<p>本章介紹的準備工作, 以不同的開發板區分成幾段:</p>
+<ul>
+<li>§<a href="prerequisite-.html#git">5.1</a>, §<a href="prerequisite-.html#make">5.2</a> 及 §<a href="prerequisite-.html#vmware">5.3</a> 是準備給 STM32 DISCO F746NG (或其它 STM 及使用 ARM MCU 系列) demo board<br />
+</li>
+<li>如果是 Arduino Nano 33 BLE Sense, 則直接到 §<a href="prerequisite-.html#arduinoide">5.4</a> 準備 Arduino IDE, 相對而言, 簡單許多. (2021/4/5 新增: 用 Makefile 來產生 Arduino 的 examples 程式)<br />
+</li>
+<li>§<a href="prerequisite-.html#esp-idf">5.6</a> 說明 ESP32 的 idf 開發環境安裝</li>
+</ul>
+<div id="git" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> git 及 github 簡單操作</h2>
+<pre><code>$ git clone https://github.com/marconi1964/tensorflow.git
+$ cd tensorflow
+$ git pull                 # 每次修改前, 下載 github 最新的內容
+# 新增/修改檔案後
+$ git add *
+$ git commit -m “修改內容的註釋”
+$ git push origin master    # 新的 github 已經改成 main
+# 或是簡單點
+# git push</code></pre>
+<p><a href="https://jdhao.github.io/2019/12/03/git_stash_merge_conflict_handling/">git stash 的作法</a></p>
+<pre><code># 有時候, 忘了 git pull 就修改 local 檔案時, 跟 github remote 上的檔案有衝突時該怎麼辦?
+# 不麻煩, git  stash 可以解決這個問題
+$ git stash          # 將修改過的內容暫存起來
+$ git pull
+$ git pop            # 或 git apply, 差別在於 git pop 後, 暫存內容就消失, 而 git apply 的暫存內容依舊存在
+# 這時候, 會列出內容有衝突的檔案名稱, 可以直接修改該檔案(同時列出有衝突的內容)
+# 修改後, 記得 push 去 更新 remote 內容
+$ git push           # 更新到 github remote 內容
+$ git stash drop     # 暫存內容已無必要, 可以扔了</code></pre>
+</div>
+<div id="make" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> 認識 make 及簡單操作 (mbed cli 的操作必備技能之一)</h2>
+<p>見參考文件 <a href="https://seisman.github.io/how-to-write-makefile/">跟 Seisman 一起写Makefile</a></p>
+</div>
+<div id="vmware" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> 在 Windows 10 下安裝 VMware Workstation Player 及 Ubuntu 18.04</h2>
+<p><a href="https://github.com/marconi1964/tensorflow/blob/example/tensorflow/lite/micro/examples/README_brief_TFLM_Ubuntu_setup.md">本篇文章(原先我撰寫載於github/tensorflow/lite/micro/examples/README.md)</a>說明如何在 Windows 10 上安裝虛擬機器, 執行 Linux - Ubuntu 系統, 以便編譯 TensorFlow Lite Micro 在 STM32 DISCOVERY_F476NG 板子上執行的測試程式</p>
+<div id="事先準備" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> 0. 事先準備</h3>
+<ul>
+<li>0.1 需要一個 email 位址作為網站下載軟體之註冊用,</li>
+<li>0.2 需要在 github.com 上面開個帳號, 對以後的軟體開發會有幫助</li>
+</ul>
+</div>
+<div id="下載-ubuntu-18.04-iso-image-檔案-電腦需要至少-20gb-以上硬碟空間-預估下載時間-7-分鐘" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> 1. 下載 Ubuntu 18.04 ISO image 檔案 （電腦需要至少 20GB 以上硬碟空間, 預估下載時間： 7 分鐘）</h3>
+<ul>
+<li><a href="https://releases.ubuntu.com/18.04/" class="uri">https://releases.ubuntu.com/18.04/</a></li>
+<li>選擇 ubuntu-18.04.5-desktop-amd64.iso 下載, 記住儲存目錄</li>
+</ul>
+<p><img src="https://github.com/marconi1964/tensorflow/blob/example/tensorflow/lite/micro/examples/screenshots/VmwarePhoto1.PNG?raw=true" alt="screenshot1" style="height: 300px"></p>
+</div>
+<div id="下載及安裝-vmware-workstation-player-預估下載時間-1-分鐘-操作時間10-分鐘" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> 2. 下載及安裝 VMWare Workstation Player (預估下載時間： &lt; 1 分鐘 / 操作時間：10 分鐘)</h3>
+<ul>
+<li>2.1 下載 VMWare Workstation Player 安裝程式檔案 <a href="https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html" class="uri">https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html</a></li>
+</ul>
+<p><img src="https://github.com/marconi1964/tensorflow/blob/example/tensorflow/lite/micro/examples/screenshots/VmwarePhoto0.PNG?raw=true" alt="screenshot0" style="height: 300px"></p>
+<ul>
+<li>2.2 執行 VMWare Workstation Player 安裝程式
+<ul>
+<li>安裝完成後, 執行 VMware Workstation Player</li>
+</ul></li>
+<li>2.3 Create a new virtual machine. 點選 ‘Installer disc image file (iso),’ 到儲存 ubuntu-18.04.5-desktop-amd64.iso 的目錄後, 開始安裝</li>
+</ul>
+<p><img src="https://github.com/marconi1964/tensorflow/blob/example/tensorflow/lite/micro/examples/screenshots/VmwarePhoto2.PNG?raw=true" alt="screenshot2" style="height: 300px"><br />
+<img src="https://github.com/marconi1964/tensorflow/blob/example/tensorflow/lite/micro/examples/screenshots/VmwarePhoto3.PNG?raw=true" alt="screenshot3" style="height: 300px"><br />
+<img src="https://github.com/marconi1964/tensorflow/blob/example/tensorflow/lite/micro/examples/screenshots/VmwarePhoto4.PNG?raw=true" alt="screenshot4" style="height: 300px"><br />
+<img src="https://github.com/marconi1964/tensorflow/blob/example/tensorflow/lite/micro/examples/screenshots/VmwarePhoto5.PNG?raw=true" alt="screenshot5" style="height: 300px"><br />
+<img src="https://github.com/marconi1964/tensorflow/blob/example/tensorflow/lite/micro/examples/screenshots/VmwarePhoto6.PNG?raw=true" alt="screenshot6" style="height: 300px"><br />
+<img src="https://github.com/marconi1964/tensorflow/blob/example/tensorflow/lite/micro/examples/screenshots/VmwarePhoto7.PNG?raw=true" alt="screenshot7" style="height: 300px"><br />
+<img src="https://github.com/marconi1964/tensorflow/blob/example/tensorflow/lite/micro/examples/screenshots/VmwarePhoto8.PNG?raw=true" alt="screenshot8" style="height: 300px"><br />
+<img src="https://github.com/marconi1964/tensorflow/blob/example/tensorflow/lite/micro/examples/screenshots/VmwarePhoto9.PNG?raw=true" alt="screenshot9" style="height: 300px"></p>
+<p>*** 以上 2 個動作在上課前完成 ***</p>
+</div>
+<div id="安裝套件之準備工作-以下步驟-3---7-約需時-30-分鐘" class="section level3" number="5.3.4">
+<h3><span class="header-section-number">5.3.4</span> 3. 安裝套件之準備工作 (以下步驟 3 - 7 約需時 30 分鐘 )</h3>
+<ul>
+<li>進入 Ubuntu OS 後, 打開 terminal 檔案</li>
+<li>要記得 Ubuntu 的密碼, 執行 sudo 後需要輸入</li>
+</ul>
+<pre><code>$ sudo apt update
+$ sudo apt install -y git curl mercurial python2.7 python-pip python3-pip build-essential screen
+# Python2 跟 Python3  都會用的到, 用不同的指令來區分 : python 會指向 Python2; python3 會指向 Python3 (不要問我問甚麼會同時用到 2 個不同版本, 不同的開發團隊, 習慣的作法不同)</code></pre>
+</div>
+<div id="安裝-arm-mbed-os-command-line-編譯程式-mbed-cli" class="section level3" number="5.3.5">
+<h3><span class="header-section-number">5.3.5</span> 4. 安裝 ARM mbed-os command line 編譯程式 mbed-cli</h3>
+<ul>
+<li>參考文章 <a href="https://os.mbed.com/docs/mbed-os/v5.15/tools/manual-installation.html">mbed-cli installation</a></li>
+</ul>
+<pre><code>$ pip install mbed-cli</code></pre>
+<div id="設定-mbed-目錄路徑path" class="section level4" number="5.3.5.1">
+<h4><span class="header-section-number">5.3.5.1</span> 4.1 設定 mbed 目錄路徑(path)</h4>
+<pre><code>$ sudo find / -name mbed
+$ vi ~/.bashrc
+# 在 .bashrc 檔案的最後一行 按鍵指令 &#39;a&#39; (append) 加上以下內容, 記得, 不要加上 /mbed
+export PATH=$PATH:/path/to/mbed/you/find
+# 我自己的例子是 export PATH=$PATH:/home/ubuntu/.local/bin
+# 結束後, 按鍵 &#39;:wq!&#39; 來儲存
+$ source ~/.bashrc
+$ mbed --version     # 測試是否正確執行</code></pre>
+</div>
+</div>
+<div id="安裝-arm-gcc-compiler-編譯器" class="section level3" number="5.3.6">
+<h3><span class="header-section-number">5.3.6</span> 5. 安裝 ARM GCC compiler (編譯器)</h3>
+<ul>
+<li>參考文件 <a href="https://launchpad.net/~team-gcc-arm-embedded/+archive/ubuntu/ppa">GNU Arm Embedded Toolchain</a></li>
+</ul>
+<pre><code># 第一步: 在 Ubuntu OS 內, 打開 terminal 並輸入
+$ sudo add-apt-repository ppa:team-gcc-arm-embedded/ppa
+# 按 &#39;enter&#39; 繼續
+
+# 第一步: 更新 apt
+$ sudo apt update
+
+# 第三步: 安裝 gcc-arm toolchain
+$ sudo apt install -y gcc-arm-embedded
+
+# 設定 mbed 目錄路徑(path)
+$ vi ~/.bashrc
+# 在 .bashrc 檔案的最後一行 按鍵指令 &#39;a&#39; (append) 加上以下內容
+export GCC_ARM_PATH=/usr/bin/arm-none-eabi-gcc
+# 結束後, 按鍵 &#39;:wq!&#39; 來儲存
+$ source ~/.bashrc
+
+# 安裝完成, 測試是否正確執行
+$ gcc --version
+
+# 第四步: 安裝 Arm Compiler 5 到 64-bit Linux 系統時, 需要安裝 i386 architecture package
+$ sudo dpkg --add-architecture i386
+$ sudo apt update
+$ sudo apt install -y libc6:i386 libncurses5:i386 libstdc++6:i386</code></pre>
+</div>
+<div id="下載-tensorflow-lite-for-microcontroller-tflm" class="section level3" number="5.3.7">
+<h3><span class="header-section-number">5.3.7</span> 6. 下載 TensorFlow Lite for Microcontroller (TFLM)</h3>
+<pre><code># clone from tensorflow github
+$ git clone -b example --depth 1 https://github.com/marconi1964/tensorflow.git</code></pre>
+</div>
+<div id="下載-stm32-f-系列工具箱" class="section level3" number="5.3.8">
+<h3><span class="header-section-number">5.3.8</span> 7. 下載 STM32-F 系列工具箱</h3>
+<ul>
+<li>7.1 更新 STM32-F 板子的 ST-LINK firmware 到最新版 <a href="https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link007.html" class="uri">https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-programmers/stsw-link007.html</a>
+<ul>
+<li>Linux Ubuntu 版本</li>
+</ul>
+<pre><code>$ cd stsw-link007/AllPlatforms/StlinkRulesFilesForLinux
+$ sudo apt update
+$ sudo dpkg -i st-stlink-udev-rules-1.0.2-2-linux-all.deb</code></pre></li>
+<li>7.2 下載 CoolTerm 程式 <a href="https://freeware.the-meiers.org/" class="uri">https://freeware.the-meiers.org/</a>
+<ul>
+<li>也可以用步驟 3 已經安裝好的 cli 指令 screen, screen 是比較炫技的方法, CoolTerm 對不熟 Linux 環境的人比較 friendly</li>
+</ul></li>
+</ul>
+</div>
+<div id="開始執行-tensorflow-lite-for-microcontroller-程式" class="section level3" number="5.3.9">
+<h3><span class="header-section-number">5.3.9</span> 8. 開始執行 TensorFlow Lite for Microcontroller 程式</h3>
+<p>見下一章範例 - Hello_world</p>
+</div>
+<div id="參考文件" class="section level3" number="5.3.10">
+<h3><span class="header-section-number">5.3.10</span> 參考文件</h3>
+<ul>
+<li><p>關於 Make 及 Makefile<br />
+&gt; - <a href="https://github.com/tensorflow/tensorflow/issues/46667#issuecomment-766923481">取消 TAGS 程式不受影響</a><br />
+&gt; - <a href="https://github.com/tensorflow/tensorflow/issues/46667#issuecomment-766927681">STM32F 選用 OPTIMIZED_KERNEL_DIR=cmsis_nn 來做最佳化</a></p></li>
+<li><p>英文參考文章
+&gt; - <a href="https://os.mbed.com/docs/mbed-os/v6.7/build-tools/install-and-set-up.html">mbed-cli v6.7 installation</a><br />
+&gt; - <a href="https://os.mbed.com/docs/mbed-os/v5.15/tools/manual-installation.html">mbed-cli v5.15 manual installation</a><br />
+&gt; - <a href="https://developer.arm.com/solutions/machine-learning-on-arm/developer-material/how-to-guides/build-arm-cortex-m-voice-assistant-with-google-tensorflow-lite/single-page">Build Arm Cortex-M voice assistant with Google TensorFlow Lite</a><br />
+&gt; - <a href="http://www.longlandclan.yi.org/~stuartl/stm32f10x_stdperiph_lib_um/CMSIS_Core.htm">CMSIS - Cortex Microcontroller Software Interface Standard</a><br />
+&gt; - <a href="http://www.longlandclan.yi.org/~stuartl/stm32f10x_stdperiph_lib_um/Library_Files.html#_cmsis">STM32F10x Standard Peripherals Library Peripheral’s Drivers Description</a><br />
+&gt; - <a href="https://stackoverflow.com/questions/59053389/what-means-about-dstm32f10x-md-duse-stdperiph-driver-as-the-flags-of-arm-non">what means about “-DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER” as the flags of arm-none-eabi-gcc?</a></p></li>
+</ul>
+</div>
+</div>
+<div id="arduinoide" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Arduino IDE 安裝 - 方法一: 從 Arduino libraries 安裝 TensorFlowLite</h2>
+<p>坊間許多的 Arduino 書/網站都有詳細的 Arduino IDE 安裝介紹, 例如 <a href="https://www.taiwansensor.com.tw/lessons/arduino-arduino-ide-下載與安裝軟硬體/">台灣智能感測科技 Arduino IDE 安裝</a>, 就不在此佔用篇幅, Arduino IDE 安裝完成後, 需要在 Arduino IDE 上安裝 Nano 33 BLE 硬體跟 TensorFlow Lite 的範例程式, 簡單說明如下:</p>
+<ol style="list-style-type: decimal">
+<li>將 Arduino Nano 33 BLE 加入 Boards 支援: 到 Arduino menu 的 Tools - Board - Boards Manager 輸入 Nano 33 BLE, 找到後選擇最新版本安裝 ‘Install’<br />
+</li>
+<li>到 Arduino menu 的 Tools - Manage Libraries, 輸入 TensorFlowLite 後選擇最新版本後安裝 ‘Install’<br />
+</li>
+<li>到 Arduino menu 的 File - Examples - Arduino_TensorFlowLite 下會有 4 個範例</li>
+</ol>
+<ul>
+<li>hello_world<br />
+</li>
+<li>magic_wand<br />
+</li>
+<li>micro_speech<br />
+</li>
+<li>person_detection</li>
+</ul>
+<p>選擇我們想要的範例 hello_world 執行即可.</p>
+<p><strong>偶爾, 在燒錄過程, 或是程式問題, 可能造成筆電無法偵測到 Arduino Nano 33, 找不到 COM port</strong>, 這時候, 可以參考
+<a href="https://forum.arduino.cc/index.php?topic=679763.0">Arduino driver 問題</a> 的 #7, 快速按 2 下 Arduino Nano 33 上面的 RESET 按鈕, 可以讓 Nano 33 回到燒錄模式, 就可以看到 Arduino Nano 33, 找到 COM port.</p>
+<p><strong>也許, 程式燒錄後, COM port 位址會變, (像我就遇到燒錄前的 COM 5, 到燒錄後的 COM 6)</strong>, 這時候, 需要去 Arduino IDE 的 Tool - Port 選取對應到的 COM port.</p>
+</div>
+<div id="arduino-ide-安裝---方法二-從-makefile-安裝-tensorflowlite" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Arduino IDE 安裝 - 方法二: 從 Makefile 安裝 TensorFlowLite</h2>
+<p>參照 <a href="https://www.books.com.tw/products/0010865580?fbclid=IwAR1xgb-0LStRrHXajKT-u3uP982d0p8PQaDpNfhxHAzuCbATi6VOjYcwo2k">TinyML：TensorFlow Lite機器學習</a> 附錄 A 使用及產生 Arduino Library Zip. 採取類似 DISCO_F746NG 使用 Makefile 的作法產生 Arduino IDE 所需要的 library zip 檔案 tensorflow_lite.zip</p>
+<pre><code>$ git clone --depth 1 https://github.com/tensorflow/tensorflow.git
+$ cd tensorflow
+# 執行 test_arduino.sh 來產生 .zip 檔
+$ tensorflow/lite/micro/ci_build/test-arduino.sh
+# 可以在以下目錄找到 tensorflow_lite.zip
+$ ls tensorflow/lite/micro/tools/make/gen/arduino_x86_64_default/prj/tensorflow_lite.zip</code></pre>
+<p>記得剛才產生的 tensorflow_lite.zip 的目錄位置, 類似方法一的作法, 但是要修改步驟 2<br>
+1. 將 Arduino Nano 33 BLE 加入 Boards 支援: 到 Arduino menu 的 Tools - Board - Boards Manager 輸入 Nano 33 BLE, 找到後選擇最新版本安裝 ‘Install’<br>
+<s>2. 到 Arduino menu 的 Tools - Manage Libraries, 輸入 TensorFlowLite 後選擇最新版本後安裝 ‘Install’</s><br>
+2. 到 Arduino menu 的 Sketch - Include Library - Add .ZIP Library, 選取剛才產生的 tensorflow_lite.zip<br>
+3. 到 Arduino menu 的 File - Examples - Arduino_TensorFlowLite 下會有 4 個範例<br></p>
+<ul>
+<li>hello_world<br />
+</li>
+<li>magic_wand<br />
+</li>
+<li>micro_speech<br />
+</li>
+<li>person_detection</li>
+</ul>
+<p>選擇我們想要的範例 hello_world 執行即可.</p>
+</div>
+<div id="esp-idf" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> ESP32-CAM 安裝 esp-idf 開發環境</h2>
+<div id="esp32-cam-硬體簡介" class="section level3" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> ESP32-CAM 硬體簡介</h3>
+<p>ESP32-CAM 可以使用 Arduino IDE, 也可以使用 ESP32 官方的開發環境 esp-idf. 以下介紹 esp-idf 開發環境的設定為主:</p>
+<p>本文使用的 ESP32-CAM 使用了 2 個硬體版本,<br />
+* 需要外接 USB-serial 轉板 : 燒錄 ESP32-CAM 程式式, 需要將 GPIO 0 接到 GND, 詳見 <a href="https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/">ESP32-CAM Randomnerd-tutorials</a><br />
+* <a href="https://youyouyou.pixnet.net/blog/post/120556711-帶ch340的esp32cam簡易測試">自帶 CH340 的 ESP32-CAM</a> : 這種整合型的硬體穩定性較佳. 燒錄時, 切換下載模式步驟 : 按住Flash, 再按RST, 放開RST, 放開Flash</p>
+<p>這 2 個硬體版本的軟體設定都是選擇 AI thinker ESP32-CAM (不管是用 Arduino IDE 或是 esp-idf)</p>
+</div>
+<div id="esp-idf-安裝環境設定" class="section level3" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> esp-idf 安裝環境設定</h3>
+<p>基本上, 照著 <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html">Espressif ESP-IDF Programming Guide</a> 上的詳細說明, 大致上不會遇到問題. 我用的是 command line 的 tool chain,</p>
+<ul>
+<li>Toolchain to compile code for ESP32</li>
+<li>Build tools - CMake and Ninja to build a full Application for ESP32</li>
+<li>ESP-IDF that essentially contains API (software libraries and source code) for ESP32 and scripts to operate the Toolchain</li>
+</ul>
+<p>而不是 Eclipse 或 VS Code 的 IDE</p>
+<ul>
+<li>Eclipse Plugin (installation link)</li>
+<li>VS Code Extension (onboarding)</li>
+</ul>
+<p>照著網頁上的 10 個步驟逐步完成, 算是簡單</p>
+<ul>
+<li>Step 1. Install prerequisites for Windows, Linux, or macOS</li>
+<li>Step 2. Get ESP-IDF</li>
+<li>Step 3. Set up the tools</li>
+<li>Step 4. Set up the environment variables</li>
+</ul>
+<p>可以先執行範例程式, 確定沒有問題後, 再進行 TensorFlow Lite Micro 的範例, 才不會糾結在從何處 debug 著手的問題</p>
+<ul>
+<li>Step 5. Start a Project<br />
+</li>
+<li>Step 6. Connect Your Device<br />
+</li>
+<li>Step 7. Configure (注意 <em>1</em>)<br />
+</li>
+<li>Step 8. Build the Project<br />
+</li>
+<li>Step 9. Flash onto the Device<br />
+</li>
+<li>Step 10. Monitor (注意 <em>2</em>, <em>3</em>, <em>4</em>)</li>
+</ul>
+<p>注意 <em>1</em> : Step 7 的 config 無須特別設定, 看看後就可以 (Q)uit</p>
+<p>我曾經卡在 step 9, VMware 下的 Ubuntu 18.04 讓我無法連接上 USB Serial port, 看得到, 但讀寫有問題,Google 了好幾回, 能找到的 <a href="https://stackoverflow.com/questions/53356417/access-to-dev-ttyusb0-denied-for-dialout-group-member-in-kubuntu-18-04">Stackoverflow 最佳解</a> 還是無法解決已經將 user 設定成 dialout 群組卻還無法讀寫 USB serial port 的問題, 只能用暴力的 chmod 作法.</p>
+<pre><code>$ ls -l /dev/ttyUSB*
+crw-rw---- 1 root dialout 188,0 Apr  5 16:41 /dev/ttyUSB0
+
+$ sudo chmod 666 /dev/ttyUSB0
+$ ls -l /dev/ttyUSB*
+crw-rw-rw- 1 root dialout 188,0 Apr  5 16:41 /dev/ttyUSB0</code></pre>
+<p>注意 <em>2</em> : Step 10 的 monitor 可以跟 step 9 的指令結合如下:</p>
+<pre><code>$ idf.py -p PORT flash monitor      # 這裡的 PORT 用 /dev/ttyUSB0 取代</code></pre>
+<p>注意 <em>3</em> : 記得, 燒錄完成後, 雖然軟體會自動下個 soft reset, 可是 ESP32-CAM 都沒有動作, 還是需要按板子上的 RST 鍵才能執行新下載的程式.</p>
+<p>注意 <em>4</em> : 執行 monitor 程式時, 如果要離開, 需要按 ‘Ctrl’ + ‘]’ 的組合鍵.</p>
 
 </div>
-
-
-
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="chap-person-detection.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="appendixa.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="-rmarkdown-github-io-.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="-rmarkdown-blogdown-deploy-netlify.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

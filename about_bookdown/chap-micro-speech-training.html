@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)</title>
-  <meta name="description" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <title>Chapter 13 Micro_speech 範例程式-喚醒詞偵測：訓練模型 | TensorFlow Lite for Microcontroller (TFLM)</title>
+  <meta name="description" content="Chapter 13 Micro_speech 範例程式-喚醒詞偵測：訓練模型 | TensorFlow Lite for Microcontroller (TFLM)" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta property="og:title" content="Chapter 13 Micro_speech 範例程式-喚醒詞偵測：訓練模型 | TensorFlow Lite for Microcontroller (TFLM)" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta property="og:description" content="Chapter 13 Micro_speech 範例程式-喚醒詞偵測：訓練模型 | TensorFlow Lite for Microcontroller (TFLM)" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta name="twitter:title" content="Chapter 13 Micro_speech 範例程式-喚醒詞偵測：訓練模型 | TensorFlow Lite for Microcontroller (TFLM)" />
   
-  <meta name="twitter:description" content="References 參考文獻 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta name="twitter:description" content="Chapter 13 Micro_speech 範例程式-喚醒詞偵測：訓練模型 | TensorFlow Lite for Microcontroller (TFLM)" />
   
 
 <meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="chap-person-detection.html"/>
-<link rel="next" href="appendixa.html"/>
+<link rel="prev" href="chap-bookdown.html"/>
+<link rel="next" href="chap-magic-wand.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -215,77 +215,205 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references-參考文獻-1" class="section level1 unnumbered">
-<h1>References 參考文獻</h1>
-<p>本書是基於 <a href="https://www.books.com.tw/products/0010865580">TinyML TensorFLow Lite 機器學習中文版</a> 內容的實驗結果, 作者 Pete Warden 及 Daniel Situnayake 均於 Google 工作. 可以參考 Pete 相關論文、影片如下.</p>
-<p>關於 Make 及 Makefile<br />
-1. <a href="https://github.com/tensorflow/tensorflow/issues/46667#issuecomment-766923481">取消 TAGS 程式不受影響</a><br />
-2. <a href="https://github.com/tensorflow/tensorflow/issues/46667#issuecomment-766927681">STM32F 選用 OPTIMIZED_KERNEL_DIR=cmsis_nn 來做最佳化</a></p>
-<p>英文參考文章 mbed / arm / STM<br />
-3. <a href="https://os.mbed.com/docs/mbed-os/v6.7/build-tools/install-and-set-up.html">mbed-cli v6.7 installation</a><br />
-4. <a href="https://os.mbed.com/docs/mbed-os/v5.15/tools/manual-installation.html">mbed-cli v5.15 manual installation</a><br />
-5. <a href="https://developer.arm.com/solutions/machine-learning-on-arm/developer-material/how-to-guides/build-arm-cortex-m-voice-assistant-with-google-tensorflow-lite/single-page">Build Arm Cortex-M voice assistant with Google TensorFlow Lite</a><br />
-6. <a href="http://www.longlandclan.yi.org/~stuartl/stm32f10x_stdperiph_lib_um/CMSIS_Core.htm">CMSIS - Cortex Microcontroller Software Interface Standard</a><br />
-7. <a href="http://www.longlandclan.yi.org/~stuartl/stm32f10x_stdperiph_lib_um/Library_Files.html#_cmsis">STM32F10x Standard Peripherals Library Peripheral’s Drivers Description</a><br />
-8. <a href="https://stackoverflow.com/questions/59053389/what-means-about-dstm32f10x-md-duse-stdperiph-driver-as-the-flags-of-arm-non">what means about “-DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER” as the flags of arm-none-eabi-gcc?</a></p>
-<p>Arduino 相關<br />
-9. <a href="https://forum.arduino.cc/index.php?topic=659995.0">USB 無法偵測到 Arduino Nano BLE 33</a> : 我一開始從 Mac 下載程式到 Nano 後, Nano 執行結果不如預期, 擔心是 Mac 的 USB 有問題(一直有遇到類似問題), 轉到 PC Windows 下, 發現 USB 偵測不到 Nano, 甚至懷疑到我 PC 的 USB driver 有問題, 結果是, 如果 Nano 下載的程式有問題, 是有可能造成 USB 偵測不到, 需要 reset Nano, 重新刷 firmware, 後 USB 才能正常偵測到 Nano.</p>
-<p>其它<br />
-10. <a href="https://github.com/majianjia/nnom">Neural Network on Mobile (nnom) by Ma Jianjia - github</a></p>
-<p>TensorFlow<br />
-11. <a href="https://www.tensorflow.org/lite/guide">Tensorflow.org 官網</a><br />
-12. <a href="https://www.tensorflow.org/lite/microcontrollers">TensorFlow for microcontroller - 官網</a><br />
-13. <a href="https://blog.tensorflow.org/2020/08/announcing-tensorflow-lite-micro-esp32.html">Tensorflow Lite Micro on ESP32</a><br />
-14. <a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/micro">TensorFlow for Micro Github 官網 open source</a><br />
-15. <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/hello_world/README.md">TensorFlow Lite for Microcontroller Hello world examples</a></p>
-<p>TinyML (TensorFlow Lite Micro 一開始使用的名稱)<br />
-16. <a href="https://www.oreilly.com/library/view/tinyml/9781492052036/">書 "TinyML Tensor Flow Lite 機器學習“ 英文版 O’Reilly 出版</a><br />
-17. <a href="https://www.books.com.tw/products/0010865580?fbclid=IwAR1xgb-0LStRrHXajKT-u3uP982d0p8PQaDpNfhxHAzuCbATi6VOjYcwo2k">書 "TinyML Tensor Flow Lite 機器學習“ 中文版 O’Reilly 出版</a><br />
-18. <a href="http://lib.samtuit.uz/admin/kitoblar/5f8eb590b69fb5.80592706TinyML_Machine_Learning_with_TensorFlow_Lite_on_Arduino_and_Ultra.pdf">pdf - TinyML_Machine_Learning_with_TensorFlow_Lite_on_Arduino_and_Ultra.pdf</a><br />
-19. <a href="https://developer.arm.com/solutions/machine-learning-on-arm/developer-material/how-to-guides/build-arm-cortex-m-voice-assistant-with-google-tensorflow-lite">ARM - build voice assistant on Cortex-M with TFLM</a><br />
-20. <a href="https://www.tinymlsummit.org">TinyML summit organization</a><br />
-21. <a href="https://events.eventee.co/detail/tinyml-summit-2021-7883">TinyML summit 2021</a><br />
-22. <a href="https://www.youtube.com/channel/UC9iWqvsWjhowkHWVJquHwkg">Tiny summit 2021 Youtube playback - partial only</a><br />
-23. <a href="https://www.meetup.com/tinyML-Enabling-ultra-low-Power-ML-at-the-Edge/">Meet up - 舊金山灣區</a><br />
-24. <a href="https://www.meetup.com/meetup-group-NoKBhhJK/">Meet up - 德州奧斯汀</a><br />
-25. <a href="https://github.com/tensorflow/community/blob/master/sigs/micro/CHARTER.md">SIG Micro - TensorFlow Embedded Group</a><br />
-26. <a href="https://groups.google.com/a/tensorflow.org/forum/#!forum/micro">SIG Micro mailing list</a><br />
-27. <a href="https://gitter.im/tensorflow/sig-micro">SIG Micro Gitter chat channel</a><br />
-28. <a href="https://goo.gle/tf-micro-notes">SIG Micro monthly meeting notes and agenda</a></p>
-<p>其它框架<br />
-29. <a href="https://github.com/uTensor/uTensor">uTensor - by ARM Neil Tan</a><br />
-30. <a href="https://microsoft.github.io/ELL/">Microsoft - Embedded Learning Library (ELL)</a> : 主要針對 Arduino 與 micro:bit 平台</p>
-<p>Pete Warden 及相關資料<br />
-31. <a href="https://petewarden.com/?s=tinyml&amp;submit=Search">Pete Warden’s blog</a><br />
-32. <a href="https://arxiv.org/pdf/2010.08678.pdf">Paper - TensorFlow Lite Micro</a><br />
-33. <a href="https://www.youtube.com/watch?v=8N6-WQsxwxA">Pete youtube TinyML book #1 chap 4 - hello world training model</a><br />
-34. <a href="https://www.youtube.com/watch?v=AfAyHheBk6Y">Pete youtube TinyML book #2 chap 5/6 - Deploying the Hello World model on an Arduino</a><br />
-35. <a href="https://www.youtube.com/watch?v=_NcG5estXOU">Pete youtube TinyML book #3 - Introduction to TensorFlow Lite for Microcontrollers</a><br />
-36. <a href="https://www.youtube.com/watch?v=-jBmqY_aFwE">Pete youtube TinyML book #4 - Quantization</a><br />
-37. <a href="https://www.youtube.com/watch?v=Wuq2aP5O5Z0">Pete youtube What’s TinyML good for @ AIoT Dev Summit keynote</a><br />
-38. <a href="https://forums.tinyml.org/t/getting-started-with-tinyml-pete-warden-march-31-2020/22">Getting Started with TinyML - Pete Warden - TinyML.org - March 31, 2020</a><br />
-39. <a href="https://www.youtube.com/watch?v=soOM1F70Boc">Getting Started with TinyML - Pete Warden - TinyML.org - March 31, 2020 - youtube</a><br />
-40. <a href="https://cms.tinyml.org/wp-content/uploads/talks2020/tinyML_Talks_200331_Pete_Warden.pdf">Getting Started with TinyML - Pete Warden - TinyML.org - March 31, 2020 - slides</a><br />
-41. <a href="https://www.edge-ai-vision.com/2019/06/using-tensorflow-lite-to-deploy-deep-learning-on-cortex-m-microcontrollers-a-presentation-from-google/">Pete Warden, Staff Research Engineer and TensorFlow Lite development lead at Google, presents the “Using TensorFlow Lite to Deploy Deep Learning on Cortex-M Microcontrollers” tutorial at the May 2019 Embedded Vision Summit</a><br />
-42. <a href="https://www.hackster.io/news/introducing-the-sparkfun-edge-34c9eb80a000">Introducing the SparkFun Edge - Tiny models on tiny computers!</a></p>
-<p>關於 TinyML 的另一位作者, 已經離開 Google 的 Daniel Situnayake<br />
-43. <a href="https://situnayake.com">Daniel Situnayake’s blog</a><br />
-44. <a href="https://docs.edgeimpulse.com/docs/getting-started?fbclid=IwAR10Gtry8NInWcRQfpV1SXSxefwdhUyHbxEJOUe8JsiJGQpR7ecYeTcjW5Y">Edge Impluse</a></p>
-<p>一個厲害德國人的 stupid projects, 在不同的 embedded controller 做 TFLM 的 benchmark<br />
-45. <a href="https://www.stupid-projects.com/machine-learning-on-embedded-part-1/">Stupid projects - Machine Learning on Embedded (Part 1)</a><br />
-46. <a href="https://www.stupid-projects.com/tensorflow-2-1-0-for-microcontrollers-benchmarks-on-stm32f746/">Tensorflow 2.1.0 for microcontrollers benchmarks on STM32F746</a></p>
+<div id="chap-micro-speech-training" class="section level1" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Micro_speech 範例程式-喚醒詞偵測：訓練模型</h1>
+<p>本章節對應到 <a href="https://www.books.com.tw/products/0010865580">TinyML TensorFLow Lite 機器學習中文版</a> 的第八章, 在這一章裡, 也介紹了 TensorBoard 來監看訓練過程, 可以進一步了解可視化機器學習. 本章最後一小部分, 也再說明語音特徵生產的程序, 這部分, 我有機會再於 Appendix §<a href="appendixc.html#appendixc">C</a> 音頻聲譜的說明與模型分析說明.</p>
+<p>類似 hello_world 的範例程式的模型訓練是於 Google colab 上執行, 此 micro_speech 範例也是在 colab 上執行另一個模型訓練程式, 我們先不做任何的修改, 於下一段的 <a href="chap-micro-speech-training.html#colab-micro-speech-customization">colab 訓練客製化</a>可以修改原始辨識 ‘yes’ 與 ‘no’ 的模型, 改為辨識其它喚醒詞.</p>
+<div id="在-google-colab-上建立及訓練-micro_speech-的模型-原始程式及設定" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> 在 Google colab 上建立及訓練 micro_speech 的模型 (原始程式及設定)</h2>
+<p>到 <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/micro_speech/train/train_micro_speech_model.ipynb">github 的 Train a Simple TensorFlow Lite for Microcontrollers model</a> 會同時看到 “在 Google colab 上執行” 及 “github 原始碼” 的圖示如下, 我們點選 “在 Google colab 上執行,” 就會在 browser 上新開一個畫面, 執行 colab 上的 training 程式.</p>
+<p><a href="https://colab.research.google.com/github/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/micro_speech/train/train_micro_speech_model.ipynb"><img src="images/colab.png" alt="colabandgithub" style="height: 80px"></a>
+<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/micro_speech/train/train_micro_speech_model.ipynb"><img src="images/github.png" alt="colabandgithub" style="height: 80px"></a></p>
+<div id="colab-執行-training-程式前的準備工作-1" class="section level3" number="13.1.1">
+<h3><span class="header-section-number">13.1.1</span> colab 執行 training 程式前的準備工作</h3>
+<p>機器學習需要大量的運算, 尤其是浮點運算, 所以 NVidia 的 GPU 比 intel 的 CPU 更適合做機器學習的訓練工作, 可以縮短大量的訓練時間. Google 的 colab 提供了 3 種 runtime type 的選擇, 到選單 ‘Runtime’ 下的 “Change runtime type” 選擇 GPU. (如果選擇 None, 就會使用 CPU, 選擇 TPU, 會使用 Google 特殊設計的機器學習加速晶片, 截至目前為止, GPU 還是機器學習訓練速度最快的選項. 只是, 本次訓練的模型不大, 不管選擇哪一種, 時間都差異不大)</p>
+</div>
+<div id="colab-執行-train-micro_speech-model.ipynb-程式" class="section level3" number="13.1.2">
+<h3><span class="header-section-number">13.1.2</span> colab 執行 train micro_speech model.ipynb 程式</h3>
+<p>到選單 “Runtime” 選擇 “Run all,” 整個執行過程所需時間比 hello_world 的訓練長出許多, 我曾經有跑過 4 個小時以上 (可能是我同時在 colab 有跑其它應用有關, 同學們可以試試看不同的 runtime type 所需的時間各是多少), 原始程式也提供一個縮短訓練時間的方式, 把下面最底下 2 行的指令 # 拿掉 (!curl 跟 !tar 開頭那 2 行) , 直接下載已經訓練好的模型, 我在這樣條件下執行的時間約為 3.5 個小時.</p>
+<pre><code>Skipping the training
+
+If you don&#39;t want to spend an hour or two training the model from scratch, you can download pretrained checkpoints by uncommenting the lines below (removing the &#39;#&#39;s at the start of each line) and running them.</code></pre>
+<pre><code>#!curl -O &quot;https://storage.googleapis.com/download.tensorflow.org/models/tflite/speech_micro_train_2020_05_10.tgz&quot;
+#!tar xzf speech_micro_train_2020_05_10.tgz
+</code></pre>
+</div>
+<div id="將模型上傳至開發板" class="section level3" number="13.1.3">
+<h3><span class="header-section-number">13.1.3</span> 將模型上傳至開發板</h3>
+<p>類似 hello_world 的作法, 將 colab 訓練結果複製貼上到開發板的 app, 我們回到開發環境, 需要注意 3 個地方</p>
+<ul>
+<li><a href="chap-micro-speech-training.html#micro-speech-copy-gmodel">更換模型 - 複製貼上到 model.cc</a><br />
+</li>
+<li><a href="chap-micro-speech-training.html#micro-speech-model-settings">確認 micro_model_settings.cc</a><br />
+</li>
+<li><a href="chap-micro-speech-training.html#micro-speech-command-responder">確認 command_responder.cc</a></li>
+</ul>
+<p><a id="micro-speech-copy-gmodel"></a></p>
+<div id="更換模型---將-colab-訓練結果的-g_model-內容複製貼上到-model.cc" class="section level4" number="13.1.3.1">
+<h4><span class="header-section-number">13.1.3.1</span> 更換模型 - 將 colab 訓練結果的 g_model[ ] 內容複製貼上到 model.cc</h4>
+<p>colab 訓練最後一行的 g_model[ ] 的內容 (書上寫的 g_tiny_conv_micro_features_model_data[ ] 資料太舊, 已經更新為 g_model[ ]), 複製貼上到 , tensorflow/lite/micro/examples/micro_speech/micro_features/model.cc 內容的 g_model[ ]. 並確認 g_model_len = 18712 的數字部份與 colab 的 g_model_len 一致, 如有不同, 採用 colab 的數字.</p>
+<pre><code>!cat {MODEL_TFLITE_MICRO}
+
+const unsigned char g_model[] DATA_ALIGN_ATTRIBUTE = {
+  0x20, 0x00, 0x00, 0x00, 0x54, 0x46, 0x4c, 0x33, 0x00, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x12, 0x00, 0x1c, 0x00, 0x04, 0x00, 0x08, 0x00, 0x0c, 0x00,
+  0x10, 0x00, 0x14, 0x00, 0x00, 0x00, 0x18, 0x00, 0x12, 0x00, 0x00, 0x00,
+  0x03, 0x00, 0x00, 0x00, 0x94, 0x48, 0x00, 0x00, 0x34, 0x42, 0x00, 0x00,
+  0x1c, 0x42, 0x00, 0x00, 0x3c, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00,
+  ......
+  0x06, 0x00, 0x00, 0x00, 0x00, 0x16, 0x0a, 0x00, 0x0e, 0x00, 0x07, 0x00,
+  0x00, 0x00, 0x08, 0x00, 0x0a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x09,
+  0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x00, 0x0c, 0x00, 0x07, 0x00,
+  0x00, 0x00, 0x08, 0x00, 0x0a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04,
+  0x03, 0x00, 0x00, 0x00};
+const int g_model_len = 18712;
+</code></pre>
+<p><a id="micro-speech-model-settings"></a></p>
+</div>
+<div id="確認-micro_model_settings.cc" class="section level4" number="13.1.3.2">
+<h4><span class="header-section-number">13.1.3.2</span> 確認 micro_model_settings.cc</h4>
+<p>打開 examples/micro_speech/micro_features/micro_model_settings.cc, 這個檔案有關類別標籤陣列, 確定跟 colab 裡面的是一致的.</p>
+<pre><code>const char* kCategoryLabels[kCategoryCount] = {
+    &quot;silence&quot;,
+    &quot;unknown&quot;,
+    &quot;yes&quot;,
+    &quot;no&quot;,
+};
+</code></pre>
+<p><a id="micro-speech-command-responder"></a></p>
+</div>
+<div id="確認-command-responder.cc---以-disco_f746ng-為例" class="section level4" number="13.1.3.3">
+<h4><span class="header-section-number">13.1.3.3</span> 確認 command-responder.cc - 以 DISCO_F746NG 為例</h4>
+<p>DISCO_F746NG 指令回應器檔案位於 examples/micro_speech/disco_f746ng/command_responder.cc, 它會根據聽到的指令來顯示不同的單字, 在檔案裡面可以找到這個 if 陳述式:</p>
+<pre><code>    if (*found_command == &#39;y&#39;) {
+      lcd.Clear(0xFF0F9D58);
+      lcd.DisplayStringAt(0, LINE(5), (uint8_t*)&quot;Heard yes!&quot;, CENTER_MODE);
+    } else if (*found_command == &#39;n&#39;) {
+      lcd.Clear(0xFFDB4437);
+      lcd.DisplayStringAt(0, LINE(5), (uint8_t*)&quot;Heard no&quot;, CENTER_MODE);
+    } else if (*found_command == &#39;u&#39;) {
+      lcd.Clear(0xFFF4B400);
+      lcd.DisplayStringAt(0, LINE(5), (uint8_t*)&quot;Heard unknown&quot;, CENTER_MODE);
+    } else {
+      lcd.Clear(0xFF4285F4);
+      lcd.DisplayStringAt(0, LINE(5), (uint8_t*)&quot;Heard silence&quot;, CENTER_MODE);
+    }</code></pre>
+</div>
+</div>
+<div id="接續執行-make-及程式上傳" class="section level3" number="13.1.4">
+<h3><span class="header-section-number">13.1.4</span> 接續執行 make 及程式上傳</h3>
+<p><strong>接下去再回頭執行上一章介紹的推論部份的動作 §<a href="chap-micro-speech-inference.html#micro-speech-deployment">11.1.2.2</a> 修改 disco_f746ng 目錄繼續執行.</strong></p>
+<p><a id="colab-micro-speech-customization"></a></p>
+</div>
+</div>
+<div id="colab-micro-speech-customization" class="section level2" number="13.2">
+<h2><span class="header-section-number">13.2</span> 在 Google colab 上建立及訓練客製化 micro_speech 的模型</h2>
+<p>我們接下來進行的客製化的過程, 可以讓你選擇的開發板, 不僅是辨識此範例中的 ‘yes’ 與 ‘no,’ 而是有其它選擇, 甚至超過 2 個以上的單字當作喚醒詞辨識. 因為範例中的模型設計, 可以選取的單字有下列, 我們會選用 ‘on’ 與 ‘off’ 當作此次的範例.</p>
+<ul>
+<li>常見指令: yes, no, up, down, left, right, on, off, stop, go backward, foward, follow, learn</li>
+<li>0 - 9 數字: zero, one, two, three, four, five, six, seven, eight, nine</li>
+<li>隨機單字: bed, bird, cat, dog, happy, house, Marvin, Sheila, tree, wow</li>
+</ul>
+<p>需要修改的有 4 個部份, 1 個在 colab 訓練程式, 3 個在開發板開發環境的程式內容</p>
+<ul>
+<li>修改 colab 訓練程式</li>
+<li>更換模型</li>
+<li>修改 micro_model_settings.cc<br />
+</li>
+<li>修改 command_responder.cc (⚠️ 注意: 如果是選用其它開發板, 如 DISCO_F746NG 時, Makefile 會選用其它目錄下的 /micro_speech/disco_f746ng/command_responder.cc, 這時候需要修改的檔案就是 disco_f746ng 目錄下的)</li>
+</ul>
+<div id="修改-colab-訓練程式" class="section level3" number="13.2.1">
+<h3><span class="header-section-number">13.2.1</span> 修改 colab 訓練程式</h3>
+<p>到 <a href="https://colab.research.google.com/github/tensorflow/tensorflow/blob/master/tensorflow/lite/micro/examples/micro_speech/train/train_micro_speech_model.ipynb">Google colab 的 train_micro_speech_model.ipynb</a> 下尋找 WANTED_WORDS, 可以看到下面這行</p>
+<pre><code>WANTED_WORDS = &quot;yes,no&quot;</code></pre>
+<p>我們接下來的練習用 ‘on,’ ‘off’ 來取代</p>
+<pre><code>WANTED_WORDS = &quot;on, off&quot;</code></pre>
+<p>到選單 “Runtime” 選擇 “Run all”</p>
+</div>
+<div id="更換模型---將-colab-訓練結果的-g_model-內容複製貼上到-model.cc-1" class="section level3" number="13.2.2">
+<h3><span class="header-section-number">13.2.2</span> 更換模型 - 將 colab 訓練結果的 g_model[ ] 內容複製貼上到 model.cc</h3>
+<p>等 colab 訓練完成後, 將最後一行的 g_model[ ] 的內容 (書上寫的 g_tiny_conv_micro_features_model_data[ ] 資料太舊, 已經更新為 g_model[ ]), 複製貼上到 , tensorflow/lite/micro/examples/micro_speech/micro_features/model.cc 內容的 g_model[ ]. 並確認 g_model_len = 18712 的數字部份與 colab 的 g_model_len 一致, 如有不同, 採用 colab 的數字.</p>
+<pre><code>!cat {MODEL_TFLITE_MICRO}
+
+const unsigned char g_model[] DATA_ALIGN_ATTRIBUTE = {
+  0x20, 0x00, 0x00, 0x00, 0x54, 0x46, 0x4c, 0x33, 0x00, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x12, 0x00, 0x1c, 0x00, 0x04, 0x00, 0x08, 0x00, 0x0c, 0x00,
+  0x10, 0x00, 0x14, 0x00, 0x00, 0x00, 0x18, 0x00, 0x12, 0x00, 0x00, 0x00,
+  0x03, 0x00, 0x00, 0x00, 0x94, 0x48, 0x00, 0x00, 0x34, 0x42, 0x00, 0x00,
+  0x1c, 0x42, 0x00, 0x00, 0x3c, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00,
+  ......
+  0x06, 0x00, 0x00, 0x00, 0x00, 0x16, 0x0a, 0x00, 0x0e, 0x00, 0x07, 0x00,
+  0x00, 0x00, 0x08, 0x00, 0x0a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x09,
+  0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x00, 0x0c, 0x00, 0x07, 0x00,
+  0x00, 0x00, 0x08, 0x00, 0x0a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04,
+  0x03, 0x00, 0x00, 0x00};
+const int g_model_len = 18712;
+</code></pre>
+</div>
+<div id="修改-micro_model_settings.cc" class="section level3" number="13.2.3">
+<h3><span class="header-section-number">13.2.3</span> 修改 micro_model_settings.cc</h3>
+<p>打開 tensorflow/lite/micro/examples/micro_speech/micro_features/micro_model_settings.cc, 這個檔案有關類別標籤陣列：</p>
+<pre><code>const char* kCategoryLabels[kCategoryCount] = {
+    &quot;silence&quot;,
+    &quot;unknown&quot;,
+    &quot;yes&quot;,
+    &quot;no&quot;,
+};
+</code></pre>
+<p>我們為新模型進行調整, 將 ‘yes’ 與 ‘no’ 換成 ‘on’ 與 ‘off,’ 我們讓標籤的順序與模型輸出張量 (tensor) 的元素順序一樣, 讓它們的順序與訓練腳本裡面的相同非常重要. (如果用來訓練模型的標籤超過 2 個, 只要將它們都加入這個串列即可)</p>
+<pre><code>const char* kCategoryLabels[kCategoryCount] = {
+    &quot;silence&quot;,
+    &quot;unknown&quot;,
+    &quot;on&quot;,
+    &quot;off&quot;,
+};
+</code></pre>
+</div>
+<div id="修改-command_responder.cc" class="section level3" number="13.2.4">
+<h3><span class="header-section-number">13.2.4</span> 修改 command_responder.cc</h3>
+<p>最後一個步驟是修改使用這些標籤的輸出程式碼, 我們以 STM32 DISCO_F746NG 為例. STM32 DISCO_F746NG 指令回應器位於 examples/micro_speech/disco_f746ng/command_responder.cc, 它會根據聽到的指令來顯示不同的單字, 在 command_responder.cc 裡面找到以下這個 if 陳述式:</p>
+<pre><code>    if (*found_command == &#39;y&#39;) {
+      lcd.Clear(0xFF0F9D58);
+      lcd.DisplayStringAt(0, LINE(5), (uint8_t*)&quot;Heard yes!&quot;, CENTER_MODE);
+    } else if (*found_command == &#39;n&#39;) {
+      lcd.Clear(0xFFDB4437);
+      lcd.DisplayStringAt(0, LINE(5), (uint8_t*)&quot;Heard no&quot;, CENTER_MODE);
+    } else if (*found_command == &#39;u&#39;) {
+      lcd.Clear(0xFFF4B400);
+      lcd.DisplayStringAt(0, LINE(5), (uint8_t*)&quot;Heard unknown&quot;, CENTER_MODE);
+    } else {
+      lcd.Clear(0xFF4285F4);
+      lcd.DisplayStringAt(0, LINE(5), (uint8_t*)&quot;Heard silence&quot;, CENTER_MODE);
+    }</code></pre>
+<p>將它改成回應 ‘on’ 與 ‘off’ 不算太難, 只是之前只要判斷第一個字母的差異 (*found_command 來區分 yes 第一個字母的 ‘y’ 與 no 的 ‘n’), 現在必須用 2 個字母來區別 (found_command[0] 與 found_command[1] 來區分 on 的 ‘on’ 與 off 的 ‘of’)</p>
+<pre><code>    if (found_command[0] == &#39;o&#39; &amp;&amp; found_command[1] == &#39;n&#39;) {
+      lcd.Clear(0xFF0F9D58);
+      lcd.DisplayStringAt(0, LINE(5), (uint8_t*)&quot;Heard on!&quot;, CENTER_MODE);
+    } else if (found_command[0] == &#39;o&#39; &amp;&amp; found_command[1] == &#39;f&#39;) {
+      lcd.Clear(0xFFDB4437);
+      lcd.DisplayStringAt(0, LINE(5), (uint8_t*)&quot;Heard off&quot;, CENTER_MODE);
+    } else if (*found_command == &#39;u&#39;) {
+      lcd.Clear(0xFFF4B400);
+      lcd.DisplayStringAt(0, LINE(5), (uint8_t*)&quot;Heard unknown&quot;, CENTER_MODE);
+    } else {
+      lcd.Clear(0xFF4285F4);
+      lcd.DisplayStringAt(0, LINE(5), (uint8_t*)&quot;Heard silence&quot;, CENTER_MODE);
+    }</code></pre>
+</div>
+<div id="接續執行-make-及程式上傳-1" class="section level3" number="13.2.5">
+<h3><span class="header-section-number">13.2.5</span> 接續執行 make 及程式上傳</h3>
+<p><strong>接下去再回頭執行上一章介紹的推論部份的動作 §<a href="chap-micro-speech-inference.html#micro-speech-deployment">11.1.2.2</a> 修改 disco_f746ng 目錄繼續執行.</strong></p>
 
 </div>
-
-
-
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="chap-person-detection.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="appendixa.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chap-bookdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-magic-wand.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
