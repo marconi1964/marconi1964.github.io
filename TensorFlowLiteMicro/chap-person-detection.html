@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="TensorFlow Lite for Micrcontroller (TFLM) 實驗, 基於 Rmarkdown / bookdown 做成" />
   
 
-<meta name="author" content="Marconi Jiang" />
+<meta name="author" content="marconi964@yahoo.com or marconi.jiang@gmail.com" />
 
 
 <meta name="date" content="2021-04-07" />
@@ -153,6 +153,8 @@
 <li class="chapter" data-level="C" data-path="appendixc.html"><a href="appendixc.html"><i class="fa fa-check"></i><b>C</b> Appendix C - 音頻聲譜的說明與模型分析</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/marconi1964" target="blank">Marconi's github</a></li>
+<li><a href="mailto:marconi1964@yahoo.com">marconi1964@yahoo.com or</a></li>
+<li><a href="mailto:marconi.jiang@gmail.com">marconi.jiang@gmail.com</a></li>
 
 </ul>
 
@@ -198,7 +200,7 @@ $ make -f tensorflow/lite/micro/tools/make/Makefile TARGET=esp generate_person_d
 <pre><code>$ cd tensorflow/lite/micro/tools/make/gen/esp_xtensa-esp32/prj/person_detection/esp-idf
 $ idf.py build
 $ idf.py -p PORT flash monitor</code></pre>
-<p>這時候, ESP32-CAM 傳回電腦的以下的錯誤訊息</p>
+<p>這時候, ESP32-CAM 的執行結果傳回電腦的以下的錯誤訊息</p>
 <pre><code>rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
 configsip: 0, SPIWP:0xee
 clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
@@ -223,10 +225,42 @@ Image capture failed</code></pre>
 <ul>
 <li>ESP32-CAM 從 3.3V 改成 5V<br />
 </li>
-<li>將程式原始設定的預設的開發板 WROVER-KIT With OV2640 Module 改成 CAMERA_MODEL_AI_THINKER
+<li>將程式原始設定的預設的開發板 WROVER-KIT With OV2640 Module 改成 CAMERA_MODEL_AI_THINKER, 修改的檔案是
 <ul>
-<li></li>
+<li>esp-idf
+<ul>
+<li>examples/person_detection/esp/app_camera_esp.h
+<ul>
+<li>似乎是需要在 menuconfig 中做設定, 將 CONFIG_CAMERA_MODEL_AI_THINKER 設成 TRUE</li>
+</ul>
+```
+#if CONFIG_CAMERA_MODEL_WROVER_KIT
+#define PWDN_GPIO_NUM -1
+#define RESET_GPIO_NUM -1</li>
 </ul></li>
+</ul></li>
+</ul>
+<p>….</p>
+<p>#elif CONFIG_CAMERA_MODEL_AI_THINKER
+#define PWDN_GPIO_NUM 32
+#define RESET_GPIO_NUM -1</p>
+<pre><code>  ```
+* examples/person_detection/esp/main/Kconfig.projbuild  
+  *  修改第 17 行
+  
+  ```
+  default CAMERA_MODEL_WROVER_KIT      # line 17
+  # 改成 
+  default ESP32-CAM by AI-Thinker
+  ```</code></pre>
+<ul>
+<li><p>Arduino: 如果是在 Arduino 上的應用 (不一定是 person_detection), 需要修改的設定如下:</p>
+<pre><code>// Select camera model
+//#define CAMERA_MODEL_WROVER_KIT
+//#define CAMERA_MODEL_ESP_EYE
+//#define CAMERA_MODEL_M5STACK_PSRAM
+//#define CAMERA_MODEL_M5STACK_WIDE
+#define CAMERA_MODEL_AI_THINKER</code></pre></li>
 </ul>
 
 </div>

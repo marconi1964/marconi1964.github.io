@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="TensorFlow Lite for Micrcontroller (TFLM) 實驗, 基於 Rmarkdown / bookdown 做成" />
   
 
-<meta name="author" content="Marconi Jiang" />
+<meta name="author" content="marconi964@yahoo.com or marconi.jiang@gmail.com" />
 
 
 <meta name="date" content="2021-04-07" />
@@ -153,6 +153,8 @@
 <li class="chapter" data-level="C" data-path="appendixc.html"><a href="appendixc.html"><i class="fa fa-check"></i><b>C</b> Appendix C - 音頻聲譜的說明與模型分析</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/marconi1964" target="blank">Marconi's github</a></li>
+<li><a href="mailto:marconi1964@yahoo.com">marconi1964@yahoo.com or</a></li>
+<li><a href="mailto:marconi.jiang@gmail.com">marconi.jiang@gmail.com</a></li>
 
 </ul>
 
@@ -367,6 +369,9 @@ $ sudo dpkg -i st-stlink-udev-rules-1.0.2-2-linux-all.deb</code></pre></li>
 <li>person_detection</li>
 </ul>
 <p>選擇我們想要的範例 hello_world 執行即可.</p>
+<p><strong>偶爾, 在燒錄過程, 或是程式問題, 可能造成筆電無法偵測到 Arduino Nano 33, 找不到 COM port</strong>, 這時候, 可以參考
+<a href="https://forum.arduino.cc/index.php?topic=679763.0">Arduino driver 問題</a> 的 #7, 快速按 2 下 Arduino Nano 33 上面的 RESET 按鈕, 可以讓 Nano 33 回到燒錄模式, 就可以看到 Arduino Nano 33, 找到 COM port.</p>
+<p><strong>也許, 程式燒錄後, COM port 位址會變, (像我就遇到燒錄前的 COM 5, 到燒錄後的 COM 6)</strong>, 這時候, 需要去 Arduino IDE 的 Tool - Port 選取對應到的 COM port.</p>
 </div>
 <div id="arduino-ide-安裝---方法二-從-makefile-安裝-tensorflowlite" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Arduino IDE 安裝 - 方法二: 從 Makefile 安裝 TensorFlowLite</h2>
