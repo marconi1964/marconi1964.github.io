@@ -1,11 +1,11 @@
 索引
 tflm
-tinyml-category---subject
 hardware
 hardware-stm32
 hardware-arduino
 hardware-esp
 hardware-others
+tinyml-hardware---tflm-running-on-arm-cortex-m55-and-ethos-u55-npu.
 commercialnews
 technicalnews
 event
