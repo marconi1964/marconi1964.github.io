@@ -24,7 +24,7 @@
 <meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
 
 
-<meta name="date" content="2021-04-07" />
+<meta name="date" content="2021-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -145,7 +145,11 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="chap-magic-wand.html"><a href="chap-magic-wand.html"><i class="fa fa-check"></i><b>8</b> Magic_wand 範例程式</a></li>
-<li class="chapter" data-level="9" data-path="chap-person-detection.html"><a href="chap-person-detection.html"><i class="fa fa-check"></i><b>9</b> Person_detection 範例程式</a></li>
+<li class="chapter" data-level="9" data-path="chap-person-detection.html"><a href="chap-person-detection.html"><i class="fa fa-check"></i><b>9</b> Person_detection 範例程式</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap-person-detection.html"><a href="chap-person-detection.html#esp32-cam-於-esp-idf-開發環境"><i class="fa fa-check"></i><b>9.1</b> ESP32-CAM 於 esp-idf 開發環境</a></li>
+<li class="chapter" data-level="9.2" data-path="chap-person-detection.html"><a href="chap-person-detection.html#esp32-cam-於-arduino-開發環境"><i class="fa fa-check"></i><b>9.2</b> ESP32-CAM 於 Arduino 開發環境</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references-.html"><a href="references-.html"><i class="fa fa-check"></i>References 參考文獻</a></li>
 <li class="appendix"><span><b>附錄</b></span></li>
 <li class="chapter" data-level="A" data-path="appendixa.html"><a href="appendixa.html"><i class="fa fa-check"></i><b>A</b> Appendix A - Hello_world 原始碼分析</a></li>
@@ -175,6 +179,15 @@
             <section class="normal" id="section-">
 <div id="chap-person-detection" class="section level1" number="9">
 <h1><span class="header-section-number">Chapter 9</span> Person_detection 範例程式</h1>
+<p>本範例使用 Espressif 的 ESP32-CAM 開發板來操作人像辨識功能</p>
+<ul>
+<li><a href="#person-detection-esp32-idf">esp-idf 開發環境</a><br />
+</li>
+<li><a href="#person-detection-esp32-arduino">Arduino 開發環境</a></li>
+</ul>
+<p><a id='person-detection-esp32-idf'></a></p>
+<div id="esp32-cam-於-esp-idf-開發環境" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> ESP32-CAM 於 esp-idf 開發環境</h2>
 <p>在 §<a href="prerequisite-.html#esp-idf">3.6</a> esp-idf 安裝 ESP32-CAM 開發環境後, 進一步測試人物辨識程式 person_detection</p>
 <pre><code>$ git clone https://github.com/tensorflow/tensorflow.git
 $ cd tensorflow
@@ -225,44 +238,47 @@ Image capture failed</code></pre>
 <ul>
 <li>ESP32-CAM 從 3.3V 改成 5V<br />
 </li>
-<li>將程式原始設定的預設的開發板 WROVER-KIT With OV2640 Module 改成 CAMERA_MODEL_AI_THINKER, 修改的檔案是
-<ul>
-<li>esp-idf
+<li>將程式原始設定的預設的開發板 WROVER-KIT With OV2640 Module 改成 CAMERA_MODEL_AI_THINKER, 需要修改 2 個檔案
 <ul>
 <li>examples/person_detection/esp/app_camera_esp.h
 <ul>
-<li>似乎是需要在 menuconfig 中做設定, 將 CONFIG_CAMERA_MODEL_AI_THINKER 設成 TRUE</li>
+<li>似乎是需要在 menuconfig 中做設定, 將 CONFIG_CAMERA_MODEL_AI_THINKER 設成 TRUE<br />
+</li>
+</ul></li>
+<li>examples/person_detection/esp/main/Kconfig.projbuild 第 17 行</li>
+</ul></li>
 </ul>
-```
-#if CONFIG_CAMERA_MODEL_WROVER_KIT
+<pre><code>#if CONFIG_CAMERA_MODEL_WROVER_KIT
 #define PWDN_GPIO_NUM -1
-#define RESET_GPIO_NUM -1</li>
-</ul></li>
-</ul></li>
-</ul>
-<p>….</p>
-<p>#elif CONFIG_CAMERA_MODEL_AI_THINKER
+#define RESET_GPIO_NUM -1
+
+.skipped.
+
+#elif CONFIG_CAMERA_MODEL_AI_THINKER
 #define PWDN_GPIO_NUM 32
-#define RESET_GPIO_NUM -1</p>
-<pre><code>  ```
-* examples/person_detection/esp/main/Kconfig.projbuild  
-  *  修改第 17 行
-  
-  ```
-  default CAMERA_MODEL_WROVER_KIT      # line 17
-  # 改成 
-  default ESP32-CAM by AI-Thinker
-  ```</code></pre>
+#define RESET_GPIO_NUM -1
+</code></pre>
+<pre><code># 修改 examples/person_detection/esp/main/Kconfig.projbuild 第 17 行   
+      
+default CAMERA_MODEL_WROVER_KIT      # line 17
+# 改成 
+default ESP32-CAM by AI-Thinker</code></pre>
 <ul>
-<li><p>Arduino: 如果是在 Arduino 上的應用 (不一定是 person_detection), 需要修改的設定如下:</p>
+<li>Arduino: 下面的範例, 需要修改的設定如下:</li>
+</ul>
 <pre><code>// Select camera model
 //#define CAMERA_MODEL_WROVER_KIT
 //#define CAMERA_MODEL_ESP_EYE
 //#define CAMERA_MODEL_M5STACK_PSRAM
 //#define CAMERA_MODEL_M5STACK_WIDE
-#define CAMERA_MODEL_AI_THINKER</code></pre></li>
-</ul>
+#define CAMERA_MODEL_AI_THINKER</code></pre>
+<p><a id='person-detection-esp32-arduino'></a></p>
+</div>
+<div id="esp32-cam-於-arduino-開發環境" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> ESP32-CAM 於 Arduino 開發環境</h2>
+<p>此範例 <a href="https://youyouyou.pixnet.net/blog/post/120801237-esp32cam-tensorflow-lite-人體偵測-初體驗">運用 TinyML 於 ESP32-CAM 人體偵測 初體驗</a> 不是使用 TFLM 的標準範例, 而是針對 ESP32-CAM 開發的特定範例, 這範例的好處是可以在 Arduino 的 serial monitor 上畫出 camera 偵測到的簡圖. (TFLM 原始範例僅僅輸出偵測出人像的可能性)</p>
 
+</div>
 </div>
             </section>
 

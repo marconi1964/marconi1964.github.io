@@ -4,6 +4,7 @@ hardware
 hardware-stm32
 hardware-arduino
 hardware-esp
+tinyml-hardware---運用-tinyml-於-esp32-cam-人體偵測-初體驗
 hardware-others
 tinyml-hardware---tflm-running-on-arm-cortex-m55-and-ethos-u55-npu.
 commercialnews

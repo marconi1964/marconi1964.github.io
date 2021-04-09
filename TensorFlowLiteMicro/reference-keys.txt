@@ -59,6 +59,8 @@ colab-micro-speech-customization
 接續執行-make-及程式上傳-1
 chap-magic_wand
 chap-person-detection
+esp32-cam-於-esp-idf-開發環境
+esp32-cam-於-arduino-開發環境
 appendixa
 appendixb
 appendixc

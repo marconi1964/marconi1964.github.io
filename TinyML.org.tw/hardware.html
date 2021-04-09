@@ -76,7 +76,10 @@
 <ul>
 <li class="chapter" data-level="3.1" data-path="hardware.html"><a href="hardware.html#hardware-stm32"><i class="fa fa-check"></i><b>3.1</b> TinyML 支援的硬體-ARM-STM32</a></li>
 <li class="chapter" data-level="3.2" data-path="hardware.html"><a href="hardware.html#hardware-arduino"><i class="fa fa-check"></i><b>3.2</b> TinyML 支援的硬體-Arduino</a></li>
-<li class="chapter" data-level="3.3" data-path="hardware.html"><a href="hardware.html#hardware-esp"><i class="fa fa-check"></i><b>3.3</b> TinyML 支援的硬體-Eespressif</a></li>
+<li class="chapter" data-level="3.3" data-path="hardware.html"><a href="hardware.html#hardware-esp"><i class="fa fa-check"></i><b>3.3</b> TinyML 支援的硬體-Eespressif</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="hardware.html"><a href="hardware.html#tinyml-hardware---運用-tinyml-於-esp32-cam-人體偵測-初體驗"><i class="fa fa-check"></i><b>3.3.1</b> TinyML Hardware - 運用 TinyML 於 ESP32-CAM 人體偵測 初體驗</a></li>
+</ul></li>
 <li class="chapter" data-level="3.4" data-path="hardware.html"><a href="hardware.html#hardware-others"><i class="fa fa-check"></i><b>3.4</b> TinyML 支援的硬體-其它</a>
 <ul>
 <li class="chapter" data-level="3.4.1" data-path="hardware.html"><a href="hardware.html#tinyml-hardware---tflm-running-on-arm-cortex-m55-and-ethos-u55-npu."><i class="fa fa-check"></i><b>3.4.1</b> TinyML Hardware - TFLM running on Arm® Cortex™-M55 and Ethos™-U55 NPU.</a></li>
@@ -85,10 +88,7 @@
 <li class="chapter" data-level="4" data-path="commercialnews.html"><a href="commercialnews.html"><i class="fa fa-check"></i><b>4</b> TinyML 商業活動新聞</a></li>
 <li class="chapter" data-level="5" data-path="technicalnews.html"><a href="technicalnews.html"><i class="fa fa-check"></i><b>5</b> TinyML 技術文章新聞</a></li>
 <li class="chapter" data-level="6" data-path="event.html"><a href="event.html"><i class="fa fa-check"></i><b>6</b> TinyML 活動公告</a></li>
-<li class="chapter" data-level="" data-path="references-.html"><a href="references-.html"><i class="fa fa-check"></i>References 參考文獻</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="references-.html"><a href="references-.html#template"><i class="fa fa-check"></i><b>6.1</b> Template</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="references-.html"><a href="references-.html"><i class="fa fa-check"></i>References 參考文獻</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/marconi1964/TinyML.org.tw" target="blank">TinyML.org.tw @github</a></li>
 <li><a href="mailto:marconi1964@yahoo.com">marconi1964@yahoo.com or</a></li>
@@ -126,13 +126,19 @@
 <div id="hardware-esp" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> TinyML 支援的硬體-Eespressif</h2>
 
+<div id="tinyml-hardware---運用-tinyml-於-esp32-cam-人體偵測-初體驗" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> TinyML Hardware - 運用 TinyML 於 ESP32-CAM 人體偵測 初體驗</h3>
+<p>2020/11/4</p>
+<p>運用 TinyML 於 ESP32 (5 分鐘搞定) <a href="https://youyouyou.pixnet.net/blog/post/120801237-esp32cam-tensorflow-lite-人體偵測-初體驗">ESP32-CAM tensorflow lite micro 人體偵測 初體驗</a></p>
+
+</div>
 </div>
 <div id="hardware-others" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> TinyML 支援的硬體-其它</h2>
 
 <div id="tinyml-hardware---tflm-running-on-arm-cortex-m55-and-ethos-u55-npu." class="section level3" number="3.4.1">
 <h3><span class="header-section-number">3.4.1</span> TinyML Hardware - TFLM running on Arm® Cortex™-M55 and Ethos™-U55 NPU.</h3>
-<p>date: “2021/4/9”</p>
+<p>2021/4/9</p>
 <p><a href="https://review.mlplatform.org/plugins/gitiles/ml/ethos-u/ml-embedded-evaluation-kit?fbclid=IwAR2giwKU9KHqmn0aKDYLTa9Fjk5xJDRpqyl2gCsp_tOfSxQ2M37WkTc21-o" class="uri">https://review.mlplatform.org/plugins/gitiles/ml/ethos-u/ml-embedded-evaluation-kit?fbclid=IwAR2giwKU9KHqmn0aKDYLTa9Fjk5xJDRpqyl2gCsp_tOfSxQ2M37WkTc21-o</a></p>
 <p>Arm® ML embedded evaluation kit - 為機器學習訂製的 ARM@ ETHOS(TM)-U55 NPU</p>
 <p>This repository is for building and deploying Machine Learning (ML) applications targeted for Arm® Cortex®-M and Arm® Ethos™-U NPU. To run evaluations using this software, we suggest using an <a href="https://developer.arm.com/tools-and-software/development-boards/fpga-prototyping-boards/mps3">MPS3 board</a> or a fixed virtual platform (FVP) that supports Ethos-U55 software fast model. Both environments run a combination of the new <a href="https://www.arm.com/products/silicon-ip-cpu/cortex-m/cortex-m55">Arm® Cortex™-M55 processor</a> and the <a href="https://www.arm.com/products/silicon-ip-cpu/ethos/ethos-u55">Arm® Ethos™-U55 NPU</a>.</p>
