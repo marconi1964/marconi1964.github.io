@@ -24,7 +24,7 @@
 <meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
 
 
-<meta name="date" content="2021-04-09" />
+<meta name="date" content="2021-04-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -91,10 +91,11 @@
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="prerequisite-.html"><a href="prerequisite-.html#arduinoide"><i class="fa fa-check"></i><b>3.4</b> Arduino IDE 安裝 - 方法一: 從 Arduino libraries 安裝 TensorFlowLite</a></li>
 <li class="chapter" data-level="3.5" data-path="prerequisite-.html"><a href="prerequisite-.html#arduino-ide-安裝---方法二-從-makefile-安裝-tensorflowlite"><i class="fa fa-check"></i><b>3.5</b> Arduino IDE 安裝 - 方法二: 從 Makefile 安裝 TensorFlowLite</a></li>
-<li class="chapter" data-level="3.6" data-path="prerequisite-.html"><a href="prerequisite-.html#esp-idf"><i class="fa fa-check"></i><b>3.6</b> ESP32-CAM 安裝 esp-idf 開發環境</a>
+<li class="chapter" data-level="3.6" data-path="prerequisite-.html"><a href="prerequisite-.html#esp-arduino"><i class="fa fa-check"></i><b>3.6</b> ESP32-CAM 安裝 Arduino 開發環境</a></li>
+<li class="chapter" data-level="3.7" data-path="prerequisite-.html"><a href="prerequisite-.html#esp-idf"><i class="fa fa-check"></i><b>3.7</b> ESP32-CAM 安裝 esp-idf 開發環境</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="prerequisite-.html"><a href="prerequisite-.html#esp32-cam-硬體簡介"><i class="fa fa-check"></i><b>3.6.1</b> ESP32-CAM 硬體簡介</a></li>
-<li class="chapter" data-level="3.6.2" data-path="prerequisite-.html"><a href="prerequisite-.html#esp-idf-安裝環境設定"><i class="fa fa-check"></i><b>3.6.2</b> esp-idf 安裝環境設定</a></li>
+<li class="chapter" data-level="3.7.1" data-path="prerequisite-.html"><a href="prerequisite-.html#esp32-cam-硬體簡介"><i class="fa fa-check"></i><b>3.7.1</b> ESP32-CAM 硬體簡介</a></li>
+<li class="chapter" data-level="3.7.2" data-path="prerequisite-.html"><a href="prerequisite-.html#esp-idf-安裝環境設定"><i class="fa fa-check"></i><b>3.7.2</b> esp-idf 安裝環境設定</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="chap-hello-world-training.html"><a href="chap-hello-world-training.html"><i class="fa fa-check"></i><b>4</b> Hello_world 範例程式 - 訓練</a>
@@ -376,7 +377,7 @@ x_value: 1.4361557*2^0, y_value: 1.0166438*2^0
 <div id="esp32-cam-hello-world" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> 在 ESP32-CAM 上實現 hello_world</h2>
 <p>這裡不說明 Arduino 的作法(作法更 Arduino Nano 33 大同小異), 僅就 esp-idf 方法做說明</p>
-<p>在 §<a href="prerequisite-.html#esp-idf">3.6</a> esp-idf 安裝且測試完 ESP32 的 hello world 後, 現在測試的是 TensorFlow Lite Micro 的 hello_world. 類似 STM32 DISCO_F746NG 的 Makefile 的作法</p>
+<p>在 §<a href="prerequisite-.html#esp-idf">3.7</a> esp-idf 安裝且測試完 ESP32 的 hello world 後, 現在測試的是 TensorFlow Lite Micro 的 hello_world. 類似 STM32 DISCO_F746NG 的 Makefile 的作法</p>
 <p>在 idf.py build 這步驟出現錯誤</p>
 <pre><code>$ git clone https://github.com/tensorflow/tensorflow.git
 $ cd tensorflow

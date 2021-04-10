@@ -24,7 +24,7 @@
 <meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
 
 
-<meta name="date" content="2021-04-09" />
+<meta name="date" content="2021-04-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -91,10 +91,11 @@
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="prerequisite-.html"><a href="prerequisite-.html#arduinoide"><i class="fa fa-check"></i><b>3.4</b> Arduino IDE 安裝 - 方法一: 從 Arduino libraries 安裝 TensorFlowLite</a></li>
 <li class="chapter" data-level="3.5" data-path="prerequisite-.html"><a href="prerequisite-.html#arduino-ide-安裝---方法二-從-makefile-安裝-tensorflowlite"><i class="fa fa-check"></i><b>3.5</b> Arduino IDE 安裝 - 方法二: 從 Makefile 安裝 TensorFlowLite</a></li>
-<li class="chapter" data-level="3.6" data-path="prerequisite-.html"><a href="prerequisite-.html#esp-idf"><i class="fa fa-check"></i><b>3.6</b> ESP32-CAM 安裝 esp-idf 開發環境</a>
+<li class="chapter" data-level="3.6" data-path="prerequisite-.html"><a href="prerequisite-.html#esp-arduino"><i class="fa fa-check"></i><b>3.6</b> ESP32-CAM 安裝 Arduino 開發環境</a></li>
+<li class="chapter" data-level="3.7" data-path="prerequisite-.html"><a href="prerequisite-.html#esp-idf"><i class="fa fa-check"></i><b>3.7</b> ESP32-CAM 安裝 esp-idf 開發環境</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="prerequisite-.html"><a href="prerequisite-.html#esp32-cam-硬體簡介"><i class="fa fa-check"></i><b>3.6.1</b> ESP32-CAM 硬體簡介</a></li>
-<li class="chapter" data-level="3.6.2" data-path="prerequisite-.html"><a href="prerequisite-.html#esp-idf-安裝環境設定"><i class="fa fa-check"></i><b>3.6.2</b> esp-idf 安裝環境設定</a></li>
+<li class="chapter" data-level="3.7.1" data-path="prerequisite-.html"><a href="prerequisite-.html#esp32-cam-硬體簡介"><i class="fa fa-check"></i><b>3.7.1</b> ESP32-CAM 硬體簡介</a></li>
+<li class="chapter" data-level="3.7.2" data-path="prerequisite-.html"><a href="prerequisite-.html#esp-idf-安裝環境設定"><i class="fa fa-check"></i><b>3.7.2</b> esp-idf 安裝環境設定</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="chap-hello-world-training.html"><a href="chap-hello-world-training.html"><i class="fa fa-check"></i><b>4</b> Hello_world 範例程式 - 訓練</a>
@@ -185,7 +186,9 @@
 </li>
 <li>如果是 Arduino Nano 33 BLE Sense, 則直接到 §<a href="prerequisite-.html#arduinoide">3.4</a> 準備 Arduino IDE, 相對而言, 簡單許多. (2021/4/5 新增: 用 Makefile 來產生 Arduino 的 examples 程式)<br />
 </li>
-<li>§<a href="prerequisite-.html#esp-idf">3.6</a> 說明 ESP32 的 idf 開發環境安裝</li>
+<li>§<a href="prerequisite-.html#esp-arduino">3.6</a> 說明 ESP32 的 Arduino 開發環境安裝<br />
+</li>
+<li>§<a href="prerequisite-.html#esp-idf">3.7</a> 說明 ESP32 的 idf 開發環境安裝</li>
 </ul>
 <div id="git" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> git 及 github 簡單操作</h2>
@@ -402,18 +405,22 @@ $ ls tensorflow/lite/micro/tools/make/gen/arduino_x86_64_default/prj/tensorflow_
 </ul>
 <p>選擇我們想要的範例 hello_world 執行即可.</p>
 </div>
-<div id="esp-idf" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> ESP32-CAM 安裝 esp-idf 開發環境</h2>
-<div id="esp32-cam-硬體簡介" class="section level3" number="3.6.1">
-<h3><span class="header-section-number">3.6.1</span> ESP32-CAM 硬體簡介</h3>
-<p>ESP32-CAM 可以使用 Arduino IDE, 也可以使用 ESP32 官方的開發環境 esp-idf. 以下介紹 esp-idf 開發環境的設定為主:</p>
+<div id="esp-arduino" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> ESP32-CAM 安裝 Arduino 開發環境</h2>
+<p>與 Arduino Nano 33 不同的地方, ESP32-CAM 在選擇 Tools - Boards 之前, 需要先到 File - Preserence -AdditionalBoards Manager URLs: 加入 “<a href="https://dl.espressif.com/dl/package_esp32_index.json" class="uri">https://dl.espressif.com/dl/package_esp32_index.json</a>” 後, 再到 Tools - Boards 去選擇 ESP32-CAM.</p>
+</div>
+<div id="esp-idf" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> ESP32-CAM 安裝 esp-idf 開發環境</h2>
+<div id="esp32-cam-硬體簡介" class="section level3" number="3.7.1">
+<h3><span class="header-section-number">3.7.1</span> ESP32-CAM 硬體簡介</h3>
+<p>ESP32-CAM 可以使用 Arduino IDE, 也可以使用 ESP32 官方的開發環境 esp-idf. 以下介紹 esp-idf 開發環境的設定:</p>
 <p>本文使用的 ESP32-CAM 使用了 2 個硬體版本,<br />
 * 需要外接 USB-serial 轉板 : 燒錄 ESP32-CAM 程式式, 需要將 GPIO 0 接到 GND, 詳見 <a href="https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/">ESP32-CAM Randomnerd-tutorials</a><br />
 * <a href="https://youyouyou.pixnet.net/blog/post/120556711-帶ch340的esp32cam簡易測試">自帶 CH340 的 ESP32-CAM</a> : 這種整合型的硬體穩定性較佳. 燒錄時, 切換下載模式步驟 : 按住Flash, 再按RST, 放開RST, 放開Flash</p>
 <p>這 2 個硬體版本的軟體設定都是選擇 AI thinker ESP32-CAM (不管是用 Arduino IDE 或是 esp-idf)</p>
 </div>
-<div id="esp-idf-安裝環境設定" class="section level3" number="3.6.2">
-<h3><span class="header-section-number">3.6.2</span> esp-idf 安裝環境設定</h3>
+<div id="esp-idf-安裝環境設定" class="section level3" number="3.7.2">
+<h3><span class="header-section-number">3.7.2</span> esp-idf 安裝環境設定</h3>
 <p>基本上, 照著 <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html">Espressif ESP-IDF Programming Guide</a> 上的詳細說明, 大致上不會遇到問題. 我用的是 command line 的 tool chain,</p>
 <ul>
 <li>Toolchain to compile code for ESP32</li>

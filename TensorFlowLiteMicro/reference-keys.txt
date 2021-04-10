@@ -17,6 +17,7 @@ vmware
 參考文件
 arduinoide
 arduino-ide-安裝---方法二-從-makefile-安裝-tensorflowlite
+esp-arduino
 esp-idf
 esp32-cam-硬體簡介
 esp-idf-安裝環境設定
