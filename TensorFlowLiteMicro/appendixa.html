@@ -4,27 +4,27 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A Appendix A - Hello_world 原始碼分析 | TensorFlow Lite for Microcontroller (TFLM)</title>
-  <meta name="description" content="A Appendix A - Hello_world 原始碼分析 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <title>A Appendix A - 開發板運算能力分析 | TensorFlow Lite for Microcontroller (TFLM)</title>
+  <meta name="description" content="A Appendix A - 開發板運算能力分析 | TensorFlow Lite for Microcontroller (TFLM)" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Appendix A - Hello_world 原始碼分析 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta property="og:title" content="A Appendix A - 開發板運算能力分析 | TensorFlow Lite for Microcontroller (TFLM)" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="A Appendix A - Hello_world 原始碼分析 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta property="og:description" content="A Appendix A - 開發板運算能力分析 | TensorFlow Lite for Microcontroller (TFLM)" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Appendix A - Hello_world 原始碼分析 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta name="twitter:title" content="A Appendix A - 開發板運算能力分析 | TensorFlow Lite for Microcontroller (TFLM)" />
   
-  <meta name="twitter:description" content="A Appendix A - Hello_world 原始碼分析 | TensorFlow Lite for Microcontroller (TFLM)" />
+  <meta name="twitter:description" content="A Appendix A - 開發板運算能力分析 | TensorFlow Lite for Microcontroller (TFLM)" />
   
 
 <meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
 
 
-<meta name="date" content="2021-04-10" />
+<meta name="date" content="2021-04-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -153,9 +153,10 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="references-.html"><a href="references-.html"><i class="fa fa-check"></i>References 參考文獻</a></li>
 <li class="appendix"><span><b>附錄</b></span></li>
-<li class="chapter" data-level="A" data-path="appendixa.html"><a href="appendixa.html"><i class="fa fa-check"></i><b>A</b> Appendix A - Hello_world 原始碼分析</a></li>
-<li class="chapter" data-level="B" data-path="appendixb.html"><a href="appendixb.html"><i class="fa fa-check"></i><b>B</b> Appendix B - 機器學習模型之加強及改善可能</a></li>
-<li class="chapter" data-level="C" data-path="appendixc.html"><a href="appendixc.html"><i class="fa fa-check"></i><b>C</b> Appendix C - 音頻聲譜的說明與模型分析</a></li>
+<li class="chapter" data-level="A" data-path="appendixa.html"><a href="appendixa.html"><i class="fa fa-check"></i><b>A</b> Appendix A - 開發板運算能力分析</a></li>
+<li class="chapter" data-level="B" data-path="appendixb.html"><a href="appendixb.html"><i class="fa fa-check"></i><b>B</b> Appendix B - Hello_world 原始碼分析</a></li>
+<li class="chapter" data-level="C" data-path="appendixc.html"><a href="appendixc.html"><i class="fa fa-check"></i><b>C</b> Appendix C - 機器學習模型之加強及改善可能</a></li>
+<li class="chapter" data-level="D" data-path="appendixd.html"><a href="appendixd.html"><i class="fa fa-check"></i><b>D</b> Appendix D - 音頻聲譜的說明與模型分析</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/marconi1964" target="blank">Marconi github</a></li>
 <li><a href="mailto:marconi1964@yahoo.com">marconi1964@yahoo.com or</a></li>
@@ -179,7 +180,168 @@
 
             <section class="normal" id="section-">
 <div id="appendixa" class="section level1" number="10">
-<h1><span class="header-section-number">A</span> Appendix A - Hello_world 原始碼分析</h1>
+<h1><span class="header-section-number">A</span> Appendix A - 開發板運算能力分析</h1>
+<table style="width:100%;">
+<colgroup>
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">分類</th>
+<th align="left">開發板</th>
+<th align="left">CPU</th>
+<th align="left">RAM</th>
+<th align="left">Flash ROM</th>
+<th align="left">其它記憶體</th>
+<th align="left">IO週邊</th>
+<th align="left">form factor</th>
+<th align="left">照片</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">MCU</td>
+<td align="left">TFL-Micro</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">TFLM</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+</tr>
+<tr class="even">
+<td align="left">Arduino</td>
+<td align="left">Nano 33 BLE</td>
+<td align="left">nRF52840 ARM M4 64MHz with FPU</td>
+<td align="left">256KB SRAM</td>
+<td align="left">1MB Flash</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">45x18 mm2</td>
+<td align="left"><a href="https://store-cdn.arduino.cc/usa/catalog/product/cache/1/image/500x375/f8876a31b63532bbba4e781c30024a0a/a/b/abx00030_iso.jpg">Photo from Arduino web</a></td>
+</tr>
+<tr class="odd">
+<td align="left">STM32</td>
+<td align="left">DISCO_F746NG</td>
+<td align="left">ARM M7 216MHz BGA216</td>
+<td align="left">340KB RAM + 16MB SDRAM</td>
+<td align="left">1MB Flash + 16MB Quad-SPI Flash</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><a href="https://www.st.com/bin/ecommerce/api/image.PF261641.en.feature-description-include-personalized-no-cpn-large.jpg">F746NG photo from STM web</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">NUCLEO_F103RB</td>
+<td align="left">ARM M3 72MHz LQFP64</td>
+<td align="left">20KB SRAM</td>
+<td align="left">128KB Flash</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><a href="https://os.mbed.com/media/cache/platforms/Nucleo64_main_logo_1024_wQdiMXV.jpg.250x250_q85.jpg">F103RB photo from STM web</a></td>
+</tr>
+<tr class="odd">
+<td align="left">ESP</td>
+<td align="left">ESP32-CAM</td>
+<td align="left">Xensia 160MHz</td>
+<td align="left">520KB + 4MB PSRAM</td>
+<td align="left">4MB SPI Flash</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">27x40.5x2.5mm3</td>
+<td align="left"><a href="http://www.ai-thinker.com/Uploads/file/20190604/20190604153510_44650.jpg">ESP32-CAM photo from AI Thinker web</a></td>
+</tr>
+<tr class="even">
+<td align="left">MPU</td>
+<td align="left">TF-Lite</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">TF Lite</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+</tr>
+<tr class="odd">
+<td align="left">ARM</td>
+<td align="left">A 系列</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">NVidia</td>
+<td align="left">Jetson</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">intel</td>
+<td align="left">Movidius</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">MPU</td>
+<td align="left">TensorFlow</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">TensorFlow</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+</tr>
+<tr class="odd">
+<td align="left">Nvidia</td>
+<td align="left">A100</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Intel</td>
+<td align="left">Xeon-SP</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p>各類 CPU 介紹(待完成)</p>
 
 </div>
             </section>
