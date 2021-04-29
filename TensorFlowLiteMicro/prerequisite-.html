@@ -24,7 +24,7 @@
 <meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
 
 
-<meta name="date" content="2021-04-16" />
+<meta name="date" content="2021-04-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -117,6 +117,12 @@
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#arduino-nano33-hello-world"><i class="fa fa-check"></i><b>5.2</b> 在 Arduino Nano 33 BLE 上實現 hello_world</a></li>
 <li class="chapter" data-level="5.3" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#esp32-cam-hello-world"><i class="fa fa-check"></i><b>5.3</b> 在 ESP32-CAM 上實現 hello_world</a></li>
+<li class="chapter" data-level="5.4" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#riscv-amigo-hello-world"><i class="fa fa-check"></i><b>5.4</b> 在 MaxiPy Amigo (RISC-V CPU) 上實現 hello_world</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#建立-maixypy-tool-chains"><i class="fa fa-check"></i><b>5.4.1</b> 建立 MaixyPy tool chains</a></li>
+<li class="chapter" data-level="5.4.2" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#下載-tensorflow-lite-micro-執行-make-來產生-source-code"><i class="fa fa-check"></i><b>5.4.2</b> 下載 TensorFlow lite micro, 執行 make 來產生 source code</a></li>
+<li class="chapter" data-level="5.4.3" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#將-tensforflow-的-source-code-檔案整理成-maixipy-tool-chain-的檔案架構"><i class="fa fa-check"></i><b>5.4.3</b> 將 tensforflow 的 source code 檔案整理成 MaixiPy tool chain 的檔案架構</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="chap-micro-speech-inference.html"><a href="chap-micro-speech-inference.html"><i class="fa fa-check"></i><b>6</b> Micro_speech 範例程式-喚醒詞偵測：建構 app</a>
 <ul>
@@ -145,6 +151,7 @@
 <li class="chapter" data-level="7.2.5" data-path="chap-micro-speech-training.html"><a href="chap-micro-speech-training.html#接續執行-make-及程式上傳-1"><i class="fa fa-check"></i><b>7.2.5</b> 接續執行 make 及程式上傳</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="chapter" data-level="8" data-path="chap-magic-wand.html"><a href="chap-magic-wand.html"><i class="fa fa-check"></i><b>8</b> Magic_wand 範例程式</a></li>
 <li class="chapter" data-level="9" data-path="chap-person-detection.html"><a href="chap-person-detection.html"><i class="fa fa-check"></i><b>9</b> Person_detection 範例程式</a>
 <ul>
@@ -212,6 +219,7 @@ $ git pop            # 或 git apply, 差別在於 git pop 後, 暫存內容就�
 # 修改後, 記得 push 去 更新 remote 內容
 $ git push           # 更新到 github remote 內容
 $ git stash drop     # 暫存內容已無必要, 可以扔了</code></pre>
+<p>可以參考<a href="https://andrewintw.github.io/introduction-to-version-control-with-git/?fbclid=IwAR2h_G__eGRPrtXtamKMydzyZPFiKbHprj1iBqiMaGqwYVUVx0Y7ybQPWIo">網路文章對於 git 及 github 的淺顯說明</a></p>
 </div>
 <div id="make" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> 認識 make 及簡單操作 (mbed cli 的操作必備技能之一)</h2>

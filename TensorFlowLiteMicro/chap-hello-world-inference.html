@@ -24,7 +24,7 @@
 <meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
 
 
-<meta name="date" content="2021-04-16" />
+<meta name="date" content="2021-04-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -117,6 +117,12 @@
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#arduino-nano33-hello-world"><i class="fa fa-check"></i><b>5.2</b> 在 Arduino Nano 33 BLE 上實現 hello_world</a></li>
 <li class="chapter" data-level="5.3" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#esp32-cam-hello-world"><i class="fa fa-check"></i><b>5.3</b> 在 ESP32-CAM 上實現 hello_world</a></li>
+<li class="chapter" data-level="5.4" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#riscv-amigo-hello-world"><i class="fa fa-check"></i><b>5.4</b> 在 MaxiPy Amigo (RISC-V CPU) 上實現 hello_world</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#建立-maixypy-tool-chains"><i class="fa fa-check"></i><b>5.4.1</b> 建立 MaixyPy tool chains</a></li>
+<li class="chapter" data-level="5.4.2" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#下載-tensorflow-lite-micro-執行-make-來產生-source-code"><i class="fa fa-check"></i><b>5.4.2</b> 下載 TensorFlow lite micro, 執行 make 來產生 source code</a></li>
+<li class="chapter" data-level="5.4.3" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#將-tensforflow-的-source-code-檔案整理成-maixipy-tool-chain-的檔案架構"><i class="fa fa-check"></i><b>5.4.3</b> 將 tensforflow 的 source code 檔案整理成 MaixiPy tool chain 的檔案架構</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="chap-micro-speech-inference.html"><a href="chap-micro-speech-inference.html"><i class="fa fa-check"></i><b>6</b> Micro_speech 範例程式-喚醒詞偵測：建構 app</a>
 <ul>
@@ -145,6 +151,7 @@
 <li class="chapter" data-level="7.2.5" data-path="chap-micro-speech-training.html"><a href="chap-micro-speech-training.html#接續執行-make-及程式上傳-1"><i class="fa fa-check"></i><b>7.2.5</b> 接續執行 make 及程式上傳</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="chapter" data-level="8" data-path="chap-magic-wand.html"><a href="chap-magic-wand.html"><i class="fa fa-check"></i><b>8</b> Magic_wand 範例程式</a></li>
 <li class="chapter" data-level="9" data-path="chap-person-detection.html"><a href="chap-person-detection.html"><i class="fa fa-check"></i><b>9</b> Person_detection 範例程式</a>
 <ul>
@@ -192,6 +199,7 @@
 <li>SparkFun Edge (<a href="https://www.books.com.tw/products/0010865580">TinyML TensorFLow Lite 機器學習中文版</a> 書上有介紹, 但手上沒有這塊開發板, 就不介紹了)<br />
 </li>
 <li>2021/4/6 新增實驗 <a href="chap-hello-world-inference.html#esp32-cam-hello-world">ESP32-CAM</a></li>
+<li>2021/4/27 新增實驗 <a href="chap-hello-world-inference.html#riscv-amigo-hello-world">MaixPy Amigo (RISC-V CPU)</a></li>
 </ul>
 <p><a id="disco_f746ng_hello_world"></a></p>
 <div id="disco-f746ng-hello-world" class="section level2" number="5.1">
@@ -418,7 +426,149 @@ $ sudo make install</code></pre>
 <pre><code>$ idf.py build
 $ idf.py -p PORT flash monitor </code></pre>
 <p>提醒 : 執行 monitor 程式時, 如果要離開, 需要按 ‘Ctrl’ + ‘]’ 的組合鍵.</p>
+</div>
+<div id="riscv-amigo-hello-world" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> 在 MaxiPy Amigo (RISC-V CPU) 上實現 hello_world</h2>
+<div id="建立-maixypy-tool-chains" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> 建立 MaixyPy tool chains</h3>
+<p>⚠️注意 截止目前為止, 還有問題, 請不要輕易嘗試, 歡迎提出改善建議</p>
+<p>照著 <a href="https://github.com/sipeed/MaixPy/blob/master/build.md">Build Maixpy from source code</a> 步驟執行</p>
+<div id="get-source-code" class="section level4" number="5.4.1.1">
+<h4><span class="header-section-number">5.4.1.1</span> Get source code</h4>
+<pre><code># Clone by https link
+$ git clone https://github.com/sipeed/maixpy.git
+# Then get submodules
+$ cd maixpy
+$ git submodule update --init</code></pre>
+</div>
+<div id="install-dependencies" class="section level4" number="5.4.1.2">
+<h4><span class="header-section-number">5.4.1.2</span> Install dependencies</h4>
+<pre><code>$ sudo apt update
+$ sudo apt install python3 python3-pip build-essential cmake
+$ cd maixpy     # if you ever change directory 
+$ pip3 install -r requirements.txt</code></pre>
+</div>
+<div id="download-toolchain" class="section level4" number="5.4.1.3">
+<h4><span class="header-section-number">5.4.1.3</span> Download toolchain</h4>
+<p>Download the latest toolchain from <a href="https://github.com/kendryte/kendryte-gnu-toolchain/releases">here</a> (macOS and linux), or <a href="http://dl.cdn.sipeed.com/kendryte-toolchain-ubuntu-amd64-8.2.0-20190409.tar.xz">kendryte-toolchain-ubuntu-amd64-8.2.0-20190409.tar.xz(CDN)</a> (for linux)</p>
+<p>And extract to /opt/kendryte-toolchain/</p>
+<pre><code>$ cd ~
+$ wget http://dl.cdn.sipeed.com/kendryte-toolchain-ubuntu-amd64-8.2.0-20190409.tar.xz
+$ sudo tar -Jxvf kendryte-toolchain-ubuntu-amd64-8.2.0-20190409.tar.xz -C /opt
+$ ls /opt/kendryte-toolchain/bin</code></pre>
+</div>
+<div id="configure-project" class="section level4" number="5.4.1.4">
+<h4><span class="header-section-number">5.4.1.4</span> Configure project</h4>
+<div id="切換到-projectshello_world-目錄或-projectsmaixpy_k210-必須遵循它的目錄結構才可以順利執行-參照-reference-文章說明." class="section level5" number="5.4.1.4.1">
+<h5><span class="header-section-number">5.4.1.4.1</span> 切換到 projects/hello_world 目錄或 projects/maixpy_k210, 必須遵循它的目錄結構才可以順利執行, 參照 Reference 文章說明.</h5>
+<pre><code>$ cd maixpy
+$ cd projects/hello_world
+# 或
+$ cd maixpy
+$ cd projects/maixpy_k210
 
+# 我的作法是複製 hello_world 到新的目錄 amigo_tflm
+$ cd maixpy
+$ cp -r projects/hello_world/ projects/amigo_tflm/
+$ cd projects/amigo_tflm</code></pre>
+</div>
+<div id="configure-project-1" class="section level5" number="5.4.1.4.2">
+<h5><span class="header-section-number">5.4.1.4.2</span> Configure project</h5>
+<p>Usually, just use the default configuration.</p>
+<p>If you want to customsize project modules, execute command:</p>
+<pre><code>python3 project.py menuconfig</code></pre>
+<p>接下來, 在 build 之前, 我們先下載 tensorflow lite micro 程式</p>
+</div>
+</div>
+</div>
+<div id="下載-tensorflow-lite-micro-執行-make-來產生-source-code" class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> 下載 TensorFlow lite micro, 執行 make 來產生 source code</h3>
+<div id="類似-disco_f746ng-的作法下載及執行-make" class="section level4" number="5.4.2.1">
+<h4><span class="header-section-number">5.4.2.1</span> 類似 DISCO_F746NG 的作法下載及執行 make</h4>
+<pre><code>$ git clone https://github.com/tensorflow/tensorflow.git
+$ cd tensorflow
+# 修改 tensorflow 命名 riscv32_mcu 與 riscv_mcu / mcu_riscv 不一致處
+$ mv tensorflow/lite/micro/tools/make/targets/mcu_riscv_makefile.inc \
+     tensorflow/lite/micro/tools/make/targets/riscv32_mcu_makefile.inc
+$ mv tensorflow/lite/micro/riscv_mcu/ tensorflow/lite/micro/riscv32_mcu/
+$ make -f tensorflow/lite/micro/tools/make/Makefile TARGET=riscv32_mcu generate_hello_world_make_project
+# source code 位於 tensorflow/micro/tools/make/gen/riscv32_mcu_riscv32_mcu_micro/prj/hello_world/make/
+$ cd tensorflow/micro/tools/make/gen/riscv32_mcu_riscv32_mcu_micro/prj/hello_world/make/
+$ ls
+LICENSE  Makefile README_MAKE.md  tensorflow  third_party
+# 可以先看 Makefile 的內容 
+# SRCS := \
+# tensorflow/lite/micro/simple_memory_allocator.cc .......
+# 需要將這部分的 SRCS 內容複製到 MaixPy 的 maixpy/projects/amigo_tflm/main/CMakeList.txt 的 Add source files 下
+# 再度看了全部檔案, 發現並沒有 hello_world 的程式列表 😄 還有一段路要走</code></pre>
+</div>
+</div>
+<div id="將-tensforflow-的-source-code-檔案整理成-maixipy-tool-chain-的檔案架構" class="section level3" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> 將 tensforflow 的 source code 檔案整理成 MaixiPy tool chain 的檔案架構</h3>
+<p>目前的探索需要手動整理許多檔案, 而且目前為止還有錯誤, 還不確定哪裡需要修正</p>
+<div id="複製-tensorflow-原始碼到-maixpy-原始檔目錄" class="section level4" number="5.4.3.1">
+<h4><span class="header-section-number">5.4.3.1</span> 複製 Tensorflow 原始碼到 MaixPy 原始檔目錄</h4>
+<pre><code>$ cd ~/tensorflow
+$ cp -r tensorflow/micro/tools/make/gen/riscv32_mcu_riscv32_mcu_micro/prj/hello_world/make/ \
+        ~/maixpy/projects/amigo_tflm
+$ cd ~/maixpy/projects/amigo_tflm</code></pre>
+</div>
+<div id="修改-maixpy-build-的相關設定" class="section level4" number="5.4.3.2">
+<h4><span class="header-section-number">5.4.3.2</span> 修改 MaixPy build 的相關設定</h4>
+<ol style="list-style-type: decimal">
+<li>修改 CMakeList.txt 的 C/C++ 原始程式碼檔案設定<br />
+</li>
+</ol>
+<ul>
+<li>修改 ~/maixpy/projects/amigo_tflm/main/CMakeLists.txt 檔案內容</li>
+</ul>
+<pre><code># 將目前目錄 . 設成 include 目錄
+############## Add include ###################
+list(APPEND ADD_INCLUDE &quot;.&quot;
+   )
+# list(APPEND ADD_PRIVATE_INCLUDE &quot;&quot;)
+###############################################
+
+# 將上一個動作的結果產生的 ensorflow/micro/tools/make/gen/riscv32_mcu_riscv32_mcu_micro/prj/hello_world/make/Makefile 內容
+# SRCS := \
+# tensorflow/lite/micro/simple_memory_allocator.cc ....... 
+# 的所有 .cc 檔案名稱複製貼上, 用雙引號隔開
+############## Add source files ###################
+list(APPEND ADD_SRCS
+&quot;tensorflow/lite/micro/simple_memory_allocator.c&quot;
+.....
+   )
+###############################################
+</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>修改 的 C/C++ 編譯設定<br />
+</li>
+</ol>
+<ul>
+<li>修改 ~/maixpy/projects/amigo_tflm/compile/compile_flags.cmake</li>
+</ul>
+<pre><code># 原先設定
+set(CMAKE_CXX_FLAGS -mcmodel=medany
+...
+                    -std=gnu11
+# 將 -std=gnu11 改成 -std=c++11
+set(CMAKE_CXX_FLAGS -mcmodel=medany
+...
+                    -std=c++11
+</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>出現 error</li>
+</ol>
+<p>References:</p>
+<ul>
+<li><a href="https://maixpy.sipeed.com/dev/en/advanced/code_struct.html">Sipeed MaixPy 官網</a></li>
+<li><a href="https://wiki.sipeed.com/soft/maixpy/zh/">Sipeed MaixPy 文件說明</a></li>
+<li><a href="https://github.com/sipeed/MaixPy/blob/master/build.md">Build Maixpy from source code</a></li>
+<li><a href="https://github.com/Neutree/c_cpp_project_framework">Simple and configurable C/C++ project/SDK template - CMake</a></li>
+</ul>
+
+</div>
+</div>
 </div>
 </div>
             </section>
