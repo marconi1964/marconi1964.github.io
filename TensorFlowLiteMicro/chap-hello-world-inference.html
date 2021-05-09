@@ -24,7 +24,7 @@
 <meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
 
 
-<meta name="date" content="2021-04-29" />
+<meta name="date" content="2021-05-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -117,9 +117,9 @@
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#arduino-nano33-hello-world"><i class="fa fa-check"></i><b>5.2</b> 在 Arduino Nano 33 BLE 上實現 hello_world</a></li>
 <li class="chapter" data-level="5.3" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#esp32-cam-hello-world"><i class="fa fa-check"></i><b>5.3</b> 在 ESP32-CAM 上實現 hello_world</a></li>
-<li class="chapter" data-level="5.4" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#riscv-amigo-hello-world"><i class="fa fa-check"></i><b>5.4</b> 在 MaxiPy Amigo (RISC-V CPU) 上實現 hello_world</a>
+<li class="chapter" data-level="5.4" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#riscv-amigo-hello-world"><i class="fa fa-check"></i><b>5.4</b> 在 MaixPy Amigo (RISC-V CPU) 上實現 hello_world</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#建立-maixypy-tool-chains"><i class="fa fa-check"></i><b>5.4.1</b> 建立 MaixyPy tool chains</a></li>
+<li class="chapter" data-level="5.4.1" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#建立-maixpy-tool-chains"><i class="fa fa-check"></i><b>5.4.1</b> 建立 MaixPy tool chains</a></li>
 <li class="chapter" data-level="5.4.2" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#下載-tensorflow-lite-micro-執行-make-來產生-source-code"><i class="fa fa-check"></i><b>5.4.2</b> 下載 TensorFlow lite micro, 執行 make 來產生 source code</a></li>
 <li class="chapter" data-level="5.4.3" data-path="chap-hello-world-inference.html"><a href="chap-hello-world-inference.html#將-tensforflow-的-source-code-檔案整理成-maixipy-tool-chain-的檔案架構"><i class="fa fa-check"></i><b>5.4.3</b> 將 tensforflow 的 source code 檔案整理成 MaixiPy tool chain 的檔案架構</a></li>
 </ul></li>
@@ -428,10 +428,10 @@ $ idf.py -p PORT flash monitor </code></pre>
 <p>提醒 : 執行 monitor 程式時, 如果要離開, 需要按 ‘Ctrl’ + ‘]’ 的組合鍵.</p>
 </div>
 <div id="riscv-amigo-hello-world" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> 在 MaxiPy Amigo (RISC-V CPU) 上實現 hello_world</h2>
-<div id="建立-maixypy-tool-chains" class="section level3" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> 建立 MaixyPy tool chains</h3>
-<p>⚠️注意 截止目前為止, 還有問題, 請不要輕易嘗試, 歡迎提出改善建議</p>
+<h2><span class="header-section-number">5.4</span> 在 MaixPy Amigo (RISC-V CPU) 上實現 hello_world</h2>
+<div id="建立-maixpy-tool-chains" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> 建立 MaixPy tool chains</h3>
+<p><span style="color:red">⚠️注意 截止目前為止, 還有問題, 請不要輕易嘗試, 歡迎提出改善建議</span></p>
 <p>照著 <a href="https://github.com/sipeed/MaixPy/blob/master/build.md">Build Maixpy from source code</a> 步驟執行</p>
 <div id="get-source-code" class="section level4" number="5.4.1.1">
 <h4><span class="header-section-number">5.4.1.1</span> Get source code</h4>

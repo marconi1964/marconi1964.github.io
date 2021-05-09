@@ -37,7 +37,7 @@ disco-f746ng-hello-world
 arduino-nano33-hello-world
 esp32-cam-hello-world
 riscv-amigo-hello-world
-建立-maixypy-tool-chains
+建立-maixpy-tool-chains
 get-source-code
 install-dependencies
 download-toolchain
