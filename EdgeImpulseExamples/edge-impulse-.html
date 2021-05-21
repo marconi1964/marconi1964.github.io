@@ -24,7 +24,7 @@
 <meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
 
 
-<meta name="date" content="2021-05-21" />
+<meta name="date" content="2021-05-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -230,11 +230,11 @@ $ edge-impulse-daemon --clean</code></pre>
 <p><a href="https://docs.edgeimpulse.com/docs/audio-classification">Edge Impulse 網頁 - 語音辨識</a> 說明的蠻清楚</p>
 <p>訓練的結果還不錯, 但 validation 的結果就不是太好, 留待後續改善的空間</p>
 <p>訓練結果
-<img src="./images/TrainingAccuracy.png" width=600></p>
+<img src="../images/TrainingAccuracy.png" width=600></p>
 <p>測試結果
-<img src="./images/ValidationAccuracy.png" width=600></p>
+<img src="../images/ValidationAccuracy.png" width=600></p>
 <p>到了最後的 build 時, 可以選擇 Arduino Library 再到 Arduino IDE 去執行, 或是直接選擇 Arduino Nano 33 BLE Sense 用電腦來控制執行, 留待下一章節再說</p>
-<p><img src="./images/EdgeImpulseBuild.png" width=800></p>
+<p><img src="../images/EdgeImpulseBuild.png" width=800></p>
 </div>
 <div id="到-arduino-ide-下載程式到-nano-33-ble-sense-執行語音關鍵字偵測" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> 到 Arduino IDE 下載程式到 Nano 33 BLE Sense 執行語音關鍵字偵測</h2>
@@ -266,15 +266,15 @@ $ edge-impulse-run-impulse</code></pre>
 <ol style="list-style-type: decimal">
 <li>選擇 Arduino library 作 Build 後, 網頁在 build model 完成後, 會要求下載一個 zip 檔案, 下載完成, 但<span style="color:red">不要解壓縮</span>. 下載完成時, 螢幕也提供接下來的作法</li>
 </ol>
-<p><img src="./images/ArduinoLibrary.png" width=400></p>
+<p><img src="../images/ArduinoLibrary.png" width=400></p>
 <ol start="2" style="list-style-type: decimal">
 <li>接下來, 開啟 Arduino IDE, 到 Sketch - include Library - Add .ZIP Library 去選取下載的檔案</li>
 </ol>
-<p><img src="./images/ArduinoAddZIP.png" width=400></p>
+<p><img src="../images/ArduinoAddZIP.png" width=400></p>
 <ol start="3" style="list-style-type: decimal">
 <li>再到 File - Examples 的最下方選取 nano_ble33_sense_microphone 範例程式, 就可以執行語音關鍵字偵測</li>
 </ol>
-<p><img src="./images/ArduinoExamples.png" width=400></p>
+<p><img src="../images/ArduinoExamples.png" width=400></p>
 </div>
 </div>
 <div id="修改-nano-33-ble-sense-控制線路-增加按鍵作為辨識的開始-用板上-led-表示狀態" class="section level2" number="2.5">
@@ -285,7 +285,7 @@ $ edge-impulse-run-impulse</code></pre>
 <p>麵包板及線路圖
 <img src="https://hackster.imgix.net/uploads/attachments/697975/_quS6gzZny2.tmp_file?auto=compress%2Cformat&w=680&h=510&fit=max" width=400></p>
 <p>實作
-<img src="./images/ArduinoNano33.jpeg" width=400></p>
+<img src="../images/ArduinoNano33.jpeg" width=400></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Nano 33 BLE Sense 上有 3 個 LED (紅/綠/藍) 供使用者操作, 就利用這來表示目前程式的狀態<br />
 </li>
