@@ -1,0 +1,17 @@
+前言
+edge-impulse-語音關鍵字偵測範例
+installing-dependencies-安裝套件
+安裝-edge-impulse-cli
+安裝-arduino-cli
+安裝-gnu-screen
+arduino-nano-33-連接上-edge-impulse
+透過-usb-將-nano-33-連上電腦
+更新韌體-firmware
+將-nano-33-透過-usb-連上電腦-連接上-edge-impulse-網頁
+到-edge-impulse-網頁確認連結成功
+到-edge-impulse-studio-網頁做訓練
+到-arduino-ide-下載程式到-nano-33-ble-sense-執行語音關鍵字偵測
+build-時-選擇-arduino-nano-33-ble-sense-用電腦來控制
+build-時-選擇-arduino-libiary-用-arduino-ide-來執行
+修改-nano-33-ble-sense-控制線路-增加按鍵作為辨識的開始-用板上-led-表示狀態
+appendixa
