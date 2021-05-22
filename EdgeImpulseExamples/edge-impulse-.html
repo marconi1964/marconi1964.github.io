@@ -282,9 +282,9 @@ $ edge-impulse-run-impulse</code></pre>
 <ol style="list-style-type: decimal">
 <li>Edge Impulse 的語音關鍵字偵測程式以無限循環的方式進行, 常常不知道何時開始辨識, 加上個按鍵來控制, 作為辨識的開始應該是個不錯的作法. 這在 Arduino 是個標準作法, 網路上都可以找得到, 只是需要注意這還是有幾種接法, 不同的接法, 程式的寫法也不同, 我用的是 pull-up 電阻的作法 (電子業界大多採取這種省電的作法), 因此, 當按鍵沒按時是 ‘1,’ 按下時是 ‘0.’</li>
 </ol>
-<p>麵包板及線路圖
+<p>麵包板及線路圖<br>
 <img src="https://hackster.imgix.net/uploads/attachments/697975/_quS6gzZny2.tmp_file?auto=compress%2Cformat&w=680&h=510&fit=max" width=400></p>
-<p>實作
+<p>實作<br>
 <img src="../images/ArduinoNano33.jpeg" width=400></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Nano 33 BLE Sense 上有 3 個 LED (紅/綠/藍) 供使用者操作, 就利用這來表示目前程式的狀態<br />
