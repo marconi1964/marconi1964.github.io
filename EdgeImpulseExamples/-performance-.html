@@ -127,6 +127,37 @@
 <div id="比較語音關鍵字偵測的-performance-差異" class="section level1" number="3">
 <h1><span class="header-section-number">Chapter 3</span> 比較語音關鍵字偵測的 performance 差異</h1>
 <p>上一章節裡面, 介紹了語音關鍵字偵測, 來偵測 right, left, forward, stop 這 4 個字. 可是有時候, 偵測的結果不盡滿意, 後來找到另一個硬體 Seeed Studio 的 Wio Terminal, 它的語音偵測恰好也是用 Arduino IDE 跟 Nano 33 BLE Sense 同一套應用軟體, 激起把這 2 套硬體的語音偵測結果來做個比較的想法.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">開發板</th>
+<th align="left">CPU</th>
+<th align="left">CPU core</th>
+<th align="left">CPU 速度</th>
+<th align="left">ROM</th>
+<th align="left">RAM</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Arduino Nano</td>
+<td align="left">Nordic nRF52840</td>
+<td align="left">ARM Cortex-M4</td>
+<td align="left">64MHz</td>
+<td align="left">1MB</td>
+<td align="left">256KB</td>
+</tr>
+<tr class="even">
+<td align="left">Wio Terminal</td>
+<td align="left">Microchip ATSAMD51P19</td>
+<td align="left">ARM Cortex-M4F*</td>
+<td align="left">120MHz</td>
+<td align="left">4MB</td>
+<td align="left">192KB</td>
+</tr>
+</tbody>
+</table>
+<p>Remark * M4F 含 FPU (浮點運算單元)</p>
 <p>既然是比較硬體的 performance, 就盡量用同一套應用程式, 所以, 就決定用 Wio Terminal 的方式, 完全透過 Edge Impulse 的作法, Wio terminal 有個 colab 的 ipynb 程式, 會將資料上傳到 Edge Impulse, 透過 Edge Impulse 訓練後, 結果是產生直接給 Arduino IDE 操作的 .zip 檔案.</p>
 <p>Arduino Nano 33 BLE Sense 跟 Wio Terminal 都是用同一個 .zip 檔在 Arduino IDE 上執行. 唯一的差別在於 Wio Terminal 的麥克風擷取程式需要修改, 我用的是 Wio Terminal 官方提供的版本, 相對於 Arduino Nano 33 BLE Sense 用的是 Edge Impulse 提供的版本, 看起來 Wio Terminal 除了修改麥克風擷取程式之外, 主程式也做了部份修改, 造成彼此在辨識結果也有差別.</p>
 <p>為了避免每次發音不同造成的結果差異, 同時將 Arduino Nano 33 BLE Sense 跟 Wio Terminal 同時接到不同筆電 (PC 跟 Mac) 來做測試, 也交換筆電來看不同組合下是否有不同結果. 各以 3 次的測試結果避免單次誤差.</p>
@@ -177,7 +208,7 @@
 </tbody>
 </table>
 <p>Right 單字的辨識率似乎對 Nano 跟 Wio 都有難度, 但是, Nano 還是有可能辨識率達 93%.</p>
-<p>似乎 Nano 的辨識率比較高, 但是 Wio Terminal 辨識的頻率比較高, 列出其中各一段相同時間內的辨識結果, Nano 在這段時間內辨識了 9 次, 而 Wio Terminal 辨識了 24 次.</p>
+<p>似乎無法比較兩者的辨識率, 但是 Wio Terminal 辨識的頻率比較高, 列出其中各一段相同時間內的辨識結果, Nano 在這段時間內辨識了 9 次, 而 Wio Terminal 辨識了 24 次.</p>
 <div id="arduino-nano-33-ble-sense-辨識結果---3" class="section level3" number="3.0.1">
 <h3><span class="header-section-number">3.0.1</span> Arduino Nano 33 BLE Sense 辨識結果 - 3</h3>
 <pre><code>15:53:28.881 -&gt; Predictions (DSP: 90 ms., Classification: 7 ms., Anomaly: 0 ms.): 
