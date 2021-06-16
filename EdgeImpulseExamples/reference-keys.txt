@@ -14,4 +14,7 @@ arduino-nano-33-連接上-edge-impulse
 build-時-選擇-arduino-nano-33-ble-sense-用電腦來控制
 build-時-選擇-arduino-libiary-用-arduino-ide-來執行
 修改-nano-33-ble-sense-控制線路-增加按鍵作為辨識的開始-用板上-led-表示狀態
+比較語音關鍵字偵測的-performance-差異
+arduino-nano-33-ble-sense-辨識結果---3
+wio-terminal-辨識結果---3
 appendixa

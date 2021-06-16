@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 比較語音關鍵字偵測的 performance | Edge Impulse examples</title>
+  <meta name="description" content="Chapter 3 比較語音關鍵字偵測的 performance | Edge Impulse examples" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 比較語音關鍵字偵測的 performance | Edge Impulse examples" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Chapter 3 比較語音關鍵字偵測的 performance | Edge Impulse examples" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 比較語音關鍵字偵測的 performance | Edge Impulse examples" />
+  
+  <meta name="twitter:description" content="Chapter 3 比較語音關鍵字偵測的 performance | Edge Impulse examples" />
+  
+
+<meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
+
+
+<meta name="date" content="2021-06-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="edge-impulse-.html"/>
+<link rel="next" href="references-.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">EdgeImpulse_examples</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 前言</a></li>
+<li class="chapter" data-level="2" data-path="edge-impulse-.html"><a href="edge-impulse-.html"><i class="fa fa-check"></i><b>2</b> Edge Impulse 語音關鍵字偵測範例</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="edge-impulse-.html"><a href="edge-impulse-.html#installing-dependencies-安裝套件"><i class="fa fa-check"></i><b>2.1</b> Installing dependencies 安裝套件</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="edge-impulse-.html"><a href="edge-impulse-.html#安裝-edge-impulse-cli"><i class="fa fa-check"></i><b>2.1.1</b> 安裝 <span>Edge Impulse CLI</span></a></li>
+<li class="chapter" data-level="2.1.2" data-path="edge-impulse-.html"><a href="edge-impulse-.html#安裝-arduino-cli"><i class="fa fa-check"></i><b>2.1.2</b> 安裝 <span>Arduino CLI</span></a></li>
+<li class="chapter" data-level="2.1.3" data-path="edge-impulse-.html"><a href="edge-impulse-.html#安裝-gnu-screen"><i class="fa fa-check"></i><b>2.1.3</b> 安裝 GNU Screen:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="edge-impulse-.html"><a href="edge-impulse-.html#arduino-nano-33-連接上-edge-impulse"><i class="fa fa-check"></i><b>2.2</b> Arduino Nano 33 連接上 Edge Impulse</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="edge-impulse-.html"><a href="edge-impulse-.html#透過-usb-將-nano-33-連上電腦"><i class="fa fa-check"></i><b>2.2.1</b> 透過 USB 將 Nano 33 連上電腦</a></li>
+<li class="chapter" data-level="2.2.2" data-path="edge-impulse-.html"><a href="edge-impulse-.html#更新韌體-firmware"><i class="fa fa-check"></i><b>2.2.2</b> 更新韌體 (firmware)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="edge-impulse-.html"><a href="edge-impulse-.html#將-nano-33-透過-usb-連上電腦-連接上-edge-impulse-網頁"><i class="fa fa-check"></i><b>2.2.3</b> 將 Nano 33 (透過 USB 連上電腦) 連接上 Edge Impulse 網頁</a></li>
+<li class="chapter" data-level="2.2.4" data-path="edge-impulse-.html"><a href="edge-impulse-.html#到-edge-impulse-網頁確認連結成功"><i class="fa fa-check"></i><b>2.2.4</b> 到 Edge Impulse 網頁確認連結成功</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="edge-impulse-.html"><a href="edge-impulse-.html#到-edge-impulse-studio-網頁做訓練"><i class="fa fa-check"></i><b>2.3</b> 到 Edge Impulse Studio 網頁做訓練</a></li>
+<li class="chapter" data-level="2.4" data-path="edge-impulse-.html"><a href="edge-impulse-.html#到-arduino-ide-下載程式到-nano-33-ble-sense-執行語音關鍵字偵測"><i class="fa fa-check"></i><b>2.4</b> 到 Arduino IDE 下載程式到 Nano 33 BLE Sense 執行語音關鍵字偵測</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="edge-impulse-.html"><a href="edge-impulse-.html#build-時-選擇-arduino-nano-33-ble-sense-用電腦來控制"><i class="fa fa-check"></i><b>2.4.1</b> Build 時, 選擇 Arduino Nano 33 BLE Sense 用電腦來控制</a></li>
+<li class="chapter" data-level="2.4.2" data-path="edge-impulse-.html"><a href="edge-impulse-.html#build-時-選擇-arduino-libiary-用-arduino-ide-來執行"><i class="fa fa-check"></i><b>2.4.2</b> Build 時, 選擇 Arduino Libiary, 用 Arduino IDE 來執行</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="edge-impulse-.html"><a href="edge-impulse-.html#修改-nano-33-ble-sense-控制線路-增加按鍵作為辨識的開始-用板上-led-表示狀態"><i class="fa fa-check"></i><b>2.5</b> 修改 Nano 33 BLE Sense 控制線路, 增加按鍵作為辨識的開始, 用板上 LED 表示狀態</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="-performance.html"><a href="-performance.html"><i class="fa fa-check"></i><b>3</b> 比較語音關鍵字偵測的 performance</a>
+<ul>
+<li class="chapter" data-level="3.0.1" data-path="-performance.html"><a href="-performance.html#arduino-nano-33-ble-sense-辨識結果---3"><i class="fa fa-check"></i><b>3.0.1</b> Arduino Nano 33 BLE Sense 辨識結果 - 3</a></li>
+<li class="chapter" data-level="3.0.2" data-path="-performance.html"><a href="-performance.html#wio-terminal-辨識結果---3"><i class="fa fa-check"></i><b>3.0.2</b> Wio Terminal 辨識結果 - 3</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-.html"><a href="references-.html"><i class="fa fa-check"></i>References 參考文獻</a></li>
+<li class="appendix"><span><b>附錄</b></span></li>
+<li class="chapter" data-level="A" data-path="appendixa.html"><a href="appendixa.html"><i class="fa fa-check"></i><b>A</b> Appendix A</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/marconi1964" target="blank">Marconi github</a></li>
+<li><a href="mailto:marconi1964@yahoo.com">marconi1964@yahoo.com or</a></li>
+<li><a href="mailto:marconi.jiang@gmail.com">marconi.jiang@gmail.com</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Edge Impulse examples</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="比較語音關鍵字偵測的-performance" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> 比較語音關鍵字偵測的 performance</h1>
+<p>上一章節裡面, 介紹了語音關鍵字偵測, 來偵測 right, left, forward, stop 這 4 個字. 可是有時候, 偵測的結果不盡滿意, 後來找到另一個硬體 Seeed Studio 的 Wio Terminal, 它的語音偵測恰好也是用 Arduino IDE 跟 Nano 33 BLE Sense 同一套應用軟體, 激起把這 2 套硬體的語音偵測結果來做個比較的想法.</p>
+<p>既然是比較硬體的 performance, 就盡量用同一套應用程式, 所以, 就決定用 Wio Terminal 的方式, 完全透過 Edge Impulse 的作法, Wio terminal 有個 colab 的 ipynb 程式, 會將資料上傳到 Edge Impulse, 透過 Edge Impulse 訓練後, 結果是產生直接給 Arduino IDE 操作的 .zip 檔案.</p>
+<p>Arduino Nano 33 BLE Sense 跟 Wio Terminal 都是用同一個 .zip 檔在 Arduino IDE 上執行. 唯一的差別在於 Wio Terminal 的麥克風擷取程式需要修改, 我用的是 Wio Terminal 官方提供的版本, 相對於 Arduino Nano 33 BLE Sense 用的是 Edge Impulse 提供的版本, 看起來 Wio Terminal 除了修改麥克風擷取程式之外, 主程式也做了部份修改, 造成彼此在辨識結果也有差別.</p>
+<p>為了避免每次發音不同造成的結果差異, 同時將 Arduino Nano 33 BLE Sense 跟 Wio Terminal 同時接到不同筆電 (PC 跟 Mac) 來做測試, 也交換筆電來看不同組合下是否有不同結果. 各以 3 次的測試結果避免單次誤差.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">組合</th>
+<th align="left">開發板組合</th>
+<th align="center">Right</th>
+<th align="center">Left</th>
+<th align="center">Forward</th>
+<th align="center">Stop</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">Nano + Mac</td>
+<td align="center">0.93/0.83/0.87</td>
+<td align="center">0.86/0.77/0.97</td>
+<td align="center">0.81/0.91/0.93</td>
+<td align="center">0.99/0.99/0.99</td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="left">Wio + PC</td>
+<td align="center">0.68/0.76/0.60</td>
+<td align="center">0.97/0.81/0.59</td>
+<td align="center">0.88/0.92/0.91</td>
+<td align="center">0.82/0.92/0.83</td>
+</tr>
+<tr class="odd">
+<td align="left">2</td>
+<td align="left">Nano + PC</td>
+<td align="center">0.03/0.50/0.37</td>
+<td align="center">0.82/0.86/0.74</td>
+<td align="center">0.91/0.91/0.71</td>
+<td align="center">0.44/0.99/0.66</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left">Wio + Mac</td>
+<td align="center">0.16/0.58/0.63</td>
+<td align="center">0.77/0.66/0.79</td>
+<td align="center">0.96/0.89/0.89</td>
+<td align="center">0.97/0.97/0.77</td>
+</tr>
+</tbody>
+</table>
+<p>Right 單字的辨識率似乎對 Nano 跟 Wio 都有難度, 但是, Nano 還是有可能辨識率達 93%.</p>
+<p>似乎 Nano 的辨識率比較高, 但是 Wio Terminal 辨識的頻率比較高, 列出其中各一段相同時間內的辨識結果, Nano 在這段時間內辨識了 9 次, 而 Wio Terminal 辨識了 24 次.</p>
+<div id="arduino-nano-33-ble-sense-辨識結果---3" class="section level3" number="3.0.1">
+<h3><span class="header-section-number">3.0.1</span> Arduino Nano 33 BLE Sense 辨識結果 - 3</h3>
+<pre><code>15:53:28.881 -&gt; Predictions (DSP: 90 ms., Classification: 7 ms., Anomaly: 0 ms.): 
+15:53:28.881 -&gt;     _noise: 0.00000
+15:53:28.881 -&gt;     _unknown: 0.07422
+15:53:28.881 -&gt;     forward: 0.00391
+15:53:28.881 -&gt;     left: 0.05078
+15:53:28.881 -&gt;     right: 0.87109
+15:53:28.881 -&gt;     stop: 0.00000
+15:53:29.893 -&gt; Predictions (DSP: 90 ms., Classification: 6 ms., Anomaly: 0 ms.): 
+15:53:29.893 -&gt;     _noise: 0.88281
+15:53:29.893 -&gt;     _unknown: 0.01562
+15:53:29.893 -&gt;     forward: 0.00000
+15:53:29.893 -&gt;     left: 0.00781
+15:53:29.893 -&gt;     right: 0.01562
+15:53:29.893 -&gt;     stop: 0.07422
+15:53:30.890 -&gt; Predictions (DSP: 90 ms., Classification: 6 ms., Anomaly: 0 ms.): 
+15:53:30.890 -&gt;     _noise: 0.71094
+15:53:30.890 -&gt;     _unknown: 0.06250
+15:53:30.890 -&gt;     forward: 0.00391
+15:53:30.890 -&gt;     left: 0.05078
+15:53:30.890 -&gt;     right: 0.04297
+15:53:30.890 -&gt;     stop: 0.12891
+15:53:31.872 -&gt; Predictions (DSP: 91 ms., Classification: 6 ms., Anomaly: 0 ms.): 
+15:53:31.872 -&gt;     _noise: 0.00000
+15:53:31.872 -&gt;     _unknown: 0.01172
+15:53:31.872 -&gt;     forward: 0.00000
+15:53:31.872 -&gt;     left: 0.97656
+15:53:31.872 -&gt;     right: 0.01172
+15:53:31.872 -&gt;     stop: 0.00000
+15:53:32.880 -&gt; Predictions (DSP: 91 ms., Classification: 6 ms., Anomaly: 0 ms.): 
+15:53:32.880 -&gt;     _noise: 0.78906
+15:53:32.880 -&gt;     _unknown: 0.06641
+15:53:32.880 -&gt;     forward: 0.01172
+15:53:32.880 -&gt;     left: 0.02734
+15:53:32.880 -&gt;     right: 0.00781
+15:53:32.880 -&gt;     stop: 0.09766
+15:53:33.893 -&gt; Predictions (DSP: 90 ms., Classification: 7 ms., Anomaly: 0 ms.): 
+15:53:33.893 -&gt;     _noise: 0.00000
+15:53:33.893 -&gt;     _unknown: 0.02734
+15:53:33.893 -&gt;     forward: 0.93359
+15:53:33.893 -&gt;     left: 0.01172
+15:53:33.893 -&gt;     right: 0.02734
+15:53:33.893 -&gt;     stop: 0.00000
+15:53:34.866 -&gt; Predictions (DSP: 90 ms., Classification: 6 ms., Anomaly: 0 ms.): 
+15:53:34.866 -&gt;     _noise: 0.11328
+15:53:34.866 -&gt;     _unknown: 0.29297
+15:53:34.866 -&gt;     forward: 0.00391
+15:53:34.866 -&gt;     left: 0.51172
+15:53:34.866 -&gt;     right: 0.01562
+15:53:34.866 -&gt;     stop: 0.06250
+15:53:35.878 -&gt; Predictions (DSP: 91 ms., Classification: 6 ms., Anomaly: 0 ms.): 
+15:53:35.878 -&gt;     _noise: 0.88672
+15:53:35.878 -&gt;     _unknown: 0.03125
+15:53:35.878 -&gt;     forward: 0.00000
+15:53:35.878 -&gt;     left: 0.02344
+15:53:35.878 -&gt;     right: 0.00781
+15:53:35.878 -&gt;     stop: 0.05078
+15:53:36.887 -&gt; Predictions (DSP: 91 ms., Classification: 6 ms., Anomaly: 0 ms.): 
+15:53:36.887 -&gt;     _noise: 0.00000
+15:53:36.887 -&gt;     _unknown: 0.00391
+15:53:36.887 -&gt;     forward: 0.00000
+15:53:36.887 -&gt;     left: 0.00000
+15:53:36.887 -&gt;     right: 0.00000
+15:53:36.887 -&gt;     stop: 0.99609</code></pre>
+</div>
+<div id="wio-terminal-辨識結果---3" class="section level3" number="3.0.2">
+<h3><span class="header-section-number">3.0.2</span> Wio Terminal 辨識結果 - 3</h3>
+<pre><code>15:53:28.722 -&gt; Predictions (DSP: 206 ms, NN: 15 ms)
+15:53:28.722 -&gt;     _noise: 0.00000
+15:53:28.722 -&gt;     _unknown: 0.19531
+15:53:28.722 -&gt;     forward: 0.00781
+15:53:28.722 -&gt;     left: 0.60156
+15:53:28.722 -&gt;     right: 0.16016
+15:53:28.722 -&gt;     stop: 0.03516
+15:53:29.117 -&gt; Predictions (DSP: 206 ms, NN: 15 ms)
+15:53:29.117 -&gt;     _noise: 0.00000
+15:53:29.117 -&gt;     _unknown: 0.41016
+15:53:29.117 -&gt;     forward: 0.00000
+15:53:29.117 -&gt;     left: 0.33984
+15:53:29.117 -&gt;     right: 0.19141
+15:53:29.117 -&gt;     stop: 0.06250
+15:53:29.515 -&gt; Predictions (DSP: 196 ms, NN: 16 ms)
+15:53:29.515 -&gt;     _noise: 0.69141
+15:53:29.515 -&gt;     _unknown: 0.05078
+15:53:29.515 -&gt;     forward: 0.00391
+15:53:29.515 -&gt;     left: 0.02734
+15:53:29.515 -&gt;     right: 0.00781
+15:53:29.515 -&gt;     stop: 0.22266
+15:53:29.911 -&gt; Predictions (DSP: 207 ms, NN: 15 ms)
+15:53:29.911 -&gt;     _noise: 0.98828
+15:53:29.911 -&gt;     _unknown: 0.00000
+15:53:29.911 -&gt;     forward: 0.00000
+15:53:29.911 -&gt;     left: 0.00000
+15:53:29.911 -&gt;     right: 0.00000
+15:53:29.911 -&gt;     stop: 0.00781
+15:53:30.198 -&gt; Predictions (DSP: 206 ms, NN: 15 ms)
+15:53:30.198 -&gt;     _noise: 0.87109
+15:53:30.198 -&gt;     _unknown: 0.05078
+15:53:30.198 -&gt;     forward: 0.01172
+15:53:30.198 -&gt;     left: 0.00781
+15:53:30.198 -&gt;     right: 0.01172
+15:53:30.198 -&gt;     stop: 0.04297
+15:53:30.485 -&gt; Predictions (DSP: 196 ms, NN: 16 ms)
+15:53:30.485 -&gt;     _noise: 0.88672
+15:53:30.485 -&gt;     _unknown: 0.04297
+15:53:30.485 -&gt;     forward: 0.01562
+15:53:30.485 -&gt;     left: 0.02344
+15:53:30.485 -&gt;     right: 0.01172
+15:53:30.485 -&gt;     stop: 0.01953
+15:53:30.917 -&gt; Predictions (DSP: 207 ms, NN: 16 ms)
+15:53:30.917 -&gt;     _noise: 0.85547
+15:53:30.917 -&gt;     _unknown: 0.05078
+15:53:30.917 -&gt;     forward: 0.00391
+15:53:30.917 -&gt;     left: 0.01562
+15:53:30.917 -&gt;     right: 0.00000
+15:53:30.917 -&gt;     stop: 0.07422
+15:53:31.209 -&gt; Predictions (DSP: 207 ms, NN: 15 ms)
+15:53:31.209 -&gt;     _noise: 0.00000
+15:53:31.209 -&gt;     _unknown: 0.37500
+15:53:31.209 -&gt;     forward: 0.04688
+15:53:31.209 -&gt;     left: 0.37500
+15:53:31.209 -&gt;     right: 0.05859
+15:53:31.209 -&gt;     stop: 0.14453
+15:53:31.603 -&gt; Predictions (DSP: 196 ms, NN: 16 ms)
+15:53:31.603 -&gt;     _noise: 0.00000
+15:53:31.603 -&gt;     _unknown: 0.23047
+15:53:31.603 -&gt;     forward: 0.00391
+15:53:31.603 -&gt;     left: 0.59375
+15:53:31.603 -&gt;     right: 0.04297
+15:53:31.603 -&gt;     stop: 0.13281
+15:53:32.107 -&gt; Predictions (DSP: 207 ms, NN: 15 ms)
+15:53:32.107 -&gt;     _noise: 0.00000
+15:53:32.107 -&gt;     _unknown: 0.64453
+15:53:32.107 -&gt;     forward: 0.00000
+15:53:32.107 -&gt;     left: 0.06641
+15:53:32.107 -&gt;     right: 0.03906
+15:53:32.107 -&gt;     stop: 0.25000
+15:53:32.395 -&gt; Predictions (DSP: 206 ms, NN: 15 ms)
+15:53:32.395 -&gt;     _noise: 0.74219
+15:53:32.395 -&gt;     _unknown: 0.00781
+15:53:32.395 -&gt;     forward: 0.00000
+15:53:32.395 -&gt;     left: 0.00391
+15:53:32.395 -&gt;     right: 0.00391
+15:53:32.395 -&gt;     stop: 0.23828
+15:53:32.683 -&gt; Predictions (DSP: 196 ms, NN: 16 ms)
+15:53:32.683 -&gt;     _noise: 0.97656
+15:53:32.683 -&gt;     _unknown: 0.00781
+15:53:32.683 -&gt;     forward: 0.00000
+15:53:32.683 -&gt;     left: 0.00781
+15:53:32.683 -&gt;     right: 0.00391
+15:53:32.683 -&gt;     stop: 0.00781
+15:53:33.114 -&gt; Predictions (DSP: 207 ms, NN: 16 ms)
+15:53:33.114 -&gt;     _noise: 0.98828
+15:53:33.114 -&gt;     _unknown: 0.00391
+15:53:33.114 -&gt;     forward: 0.00000
+15:53:33.114 -&gt;     left: 0.00391
+15:53:33.114 -&gt;     right: 0.00391
+15:53:33.114 -&gt;     stop: 0.00391
+15:53:33.401 -&gt; Predictions (DSP: 206 ms, NN: 15 ms)
+15:53:33.401 -&gt;     _noise: 0.00781
+15:53:33.401 -&gt;     _unknown: 0.18750
+15:53:33.401 -&gt;     forward: 0.39844
+15:53:33.401 -&gt;     left: 0.18750
+15:53:33.401 -&gt;     right: 0.05859
+15:53:33.401 -&gt;     stop: 0.15625
+15:53:33.835 -&gt; Predictions (DSP: 196 ms, NN: 16 ms)
+15:53:33.835 -&gt;     _noise: 0.00000
+15:53:33.835 -&gt;     _unknown: 0.05469
+15:53:33.835 -&gt;     forward: 0.91797
+15:53:33.835 -&gt;     left: 0.01172
+15:53:33.835 -&gt;     right: 0.00781
+15:53:33.835 -&gt;     stop: 0.01172
+15:53:34.194 -&gt; Predictions (DSP: 207 ms, NN: 15 ms)
+15:53:34.194 -&gt;     _noise: 0.00000
+15:53:34.194 -&gt;     _unknown: 0.14844
+15:53:34.194 -&gt;     forward: 0.80859
+15:53:34.194 -&gt;     left: 0.00781
+15:53:34.194 -&gt;     right: 0.00781
+15:53:34.194 -&gt;     stop: 0.03125
+15:53:34.487 -&gt; Predictions (DSP: 206 ms, NN: 15 ms)
+15:53:34.487 -&gt;     _noise: 0.00000
+15:53:34.487 -&gt;     _unknown: 0.16406
+15:53:34.487 -&gt;     forward: 0.75000
+15:53:34.487 -&gt;     left: 0.00781
+15:53:34.487 -&gt;     right: 0.06250
+15:53:34.487 -&gt;     stop: 0.00781
+15:53:34.884 -&gt; Predictions (DSP: 195 ms, NN: 15 ms)
+15:53:34.884 -&gt;     _noise: 0.93750
+15:53:34.884 -&gt;     _unknown: 0.02734
+15:53:34.884 -&gt;     forward: 0.00391
+15:53:34.884 -&gt;     left: 0.01953
+15:53:34.884 -&gt;     right: 0.00391
+15:53:34.884 -&gt;     stop: 0.01172
+15:53:35.316 -&gt; Predictions (DSP: 207 ms, NN: 15 ms)
+15:53:35.316 -&gt;     _noise: 0.86328
+15:53:35.316 -&gt;     _unknown: 0.05078
+15:53:35.316 -&gt;     forward: 0.01172
+15:53:35.316 -&gt;     left: 0.01172
+15:53:35.316 -&gt;     right: 0.00781
+15:53:35.316 -&gt;     stop: 0.05078
+15:53:35.606 -&gt; Predictions (DSP: 206 ms, NN: 15 ms)
+15:53:35.606 -&gt;     _noise: 0.73828
+15:53:35.606 -&gt;     _unknown: 0.06250
+15:53:35.606 -&gt;     forward: 0.04297
+15:53:35.606 -&gt;     left: 0.03125
+15:53:35.606 -&gt;     right: 0.01562
+15:53:35.606 -&gt;     stop: 0.11328
+15:53:35.894 -&gt; Predictions (DSP: 195 ms, NN: 15 ms)
+15:53:35.894 -&gt;     _noise: 0.94141
+15:53:35.894 -&gt;     _unknown: 0.01172
+15:53:35.894 -&gt;     forward: 0.00000
+15:53:35.894 -&gt;     left: 0.01953
+15:53:35.894 -&gt;     right: 0.00781
+15:53:35.894 -&gt;     stop: 0.02344
+15:53:36.290 -&gt; Predictions (DSP: 207 ms, NN: 15 ms)
+15:53:36.290 -&gt;     _noise: 0.00000
+15:53:36.290 -&gt;     _unknown: 0.17188
+15:53:36.290 -&gt;     forward: 0.00391
+15:53:36.290 -&gt;     left: 0.04688
+15:53:36.290 -&gt;     right: 0.00391
+15:53:36.290 -&gt;     stop: 0.77344
+15:53:36.722 -&gt; Predictions (DSP: 206 ms, NN: 15 ms)
+15:53:36.722 -&gt;     _noise: 0.00000
+15:53:36.722 -&gt;     _unknown: 0.05078
+15:53:36.722 -&gt;     forward: 0.00000
+15:53:36.722 -&gt;     left: 0.10547
+15:53:36.722 -&gt;     right: 0.01172
+15:53:36.722 -&gt;     stop: 0.83594
+15:53:36.974 -&gt; Predictions (DSP: 195 ms, NN: 15 ms)
+15:53:36.974 -&gt;     _noise: 0.00000
+15:53:36.974 -&gt;     _unknown: 0.39844
+15:53:36.974 -&gt;     forward: 0.00000
+15:53:36.974 -&gt;     left: 0.05078
+15:53:36.974 -&gt;     right: 0.07422
+15:53:36.974 -&gt;     stop: 0.48047</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="edge-impulse-.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references-.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["EdgeImpulse_examples_by_marconi1964.pdf", "EdgeImpulse_examples_by_marconi1964.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
