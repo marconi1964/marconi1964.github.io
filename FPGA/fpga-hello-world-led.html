@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 FPGA 入門 Hello World 程式 - 點亮 LED | FGPA for RISC-V CPU running Linux</title>
+  <meta name="description" content="Chapter 2 FPGA 入門 Hello World 程式 - 點亮 LED | FGPA for RISC-V CPU running Linux" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 FPGA 入門 Hello World 程式 - 點亮 LED | FGPA for RISC-V CPU running Linux" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Chapter 2 FPGA 入門 Hello World 程式 - 點亮 LED | FGPA for RISC-V CPU running Linux" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 FPGA 入門 Hello World 程式 - 點亮 LED | FGPA for RISC-V CPU running Linux" />
+  
+  <meta name="twitter:description" content="Chapter 2 FPGA 入門 Hello World 程式 - 點亮 LED | FGPA for RISC-V CPU running Linux" />
+  
+
+<meta name="author" content="Marconi Jiang" />
+
+
+<meta name="date" content="2021-06-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="references-.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">用 FPGA 實現 RISC-V CPU 執行 Linux OS </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 前言</a></li>
+<li class="chapter" data-level="2" data-path="fpga-hello-world-led.html"><a href="fpga-hello-world-led.html"><i class="fa fa-check"></i><b>2</b> <span style="color:green"> FPGA 入門 Hello World 程式 - 點亮 LED</span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="fpga-hello-world-led.html"><a href="fpga-hello-world-led.html#硬體準備"><i class="fa fa-check"></i><b>2.1</b> 硬體準備</a></li>
+<li class="chapter" data-level="2.2" data-path="fpga-hello-world-led.html"><a href="fpga-hello-world-led.html#安裝-intel-altera-ide-quartus-於-ubuntu-18.04"><i class="fa fa-check"></i><b>2.2</b> 安裝 intel Altera IDE Quartus 於 Ubuntu 18.04：</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="fpga-hello-world-led.html"><a href="fpga-hello-world-led.html#安裝-intel-altera-ide-quartus-設定及遇到的問題"><i class="fa fa-check"></i><b>2.2.1</b> 安裝 intel Altera IDE Quartus 設定及遇到的問題</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="fpga-hello-world-led.html"><a href="fpga-hello-world-led.html#安裝-device-我們在安裝-quartus-已經安裝過了-如果需要重新安裝時-選擇-quartus-menu-tools---install-devices"><i class="fa fa-check"></i><b>2.3</b> 安裝 device : 我們在安裝 Quartus 已經安裝過了, 如果需要重新安裝時, 選擇 Quartus menu Tools - Install devices…</a></li>
+<li class="chapter" data-level="2.4" data-path="fpga-hello-world-led.html"><a href="fpga-hello-world-led.html#建立新專案-quartus-menu-選擇-file---new-project-wizard-一步步執行"><i class="fa fa-check"></i><b>2.4</b> 建立新專案 : Quartus menu 選擇 File - New Project Wizard… 一步步執行</a></li>
+<li class="chapter" data-level="2.5" data-path="fpga-hello-world-led.html"><a href="fpga-hello-world-led.html#建立新檔案-quartus-menu-選擇-file---new-後-再選擇-design-files---vhdl-file-點選-ok-即可-會出現-vdhl1.vhd-這個檔案-可以自行改名稱後儲存."><i class="fa fa-check"></i><b>2.5</b> 建立新檔案 : Quartus menu 選擇 File - New… 後, 再選擇 Design Files - VHDL File 點選 OK 即可, 會出現 Vdhl1.vhd 這個檔案, 可以自行改名稱後儲存.</a></li>
+<li class="chapter" data-level="2.6" data-path="fpga-hello-world-led.html"><a href="fpga-hello-world-led.html#輸入-vhdl-檔案內容"><i class="fa fa-check"></i><b>2.6</b> 輸入 VHDL 檔案內容</a></li>
+<li class="chapter" data-level="2.7" data-path="fpga-hello-world-led.html"><a href="fpga-hello-world-led.html#vhdl-檔案內容建立完成後-進入-quartus-menu-的-processing---start-compilation-來編譯程式-編譯結果沒有-error-但有不少-warning-不妨礙."><i class="fa fa-check"></i><b>2.7</b> VHDL 檔案內容建立完成後, 進入 Quartus menu 的 Processing - Start Compilation 來編譯程式, 編譯結果沒有 error, 但有不少 warning, 不妨礙.</a></li>
+<li class="chapter" data-level="2.8" data-path="fpga-hello-world-led.html"><a href="fpga-hello-world-led.html#確認腳位-quartus-menu-選取-assignment---pin-planner-會出現類似下圖-這次需要設定-location-我們這次用到-led0-跟-pb-push-button-按鍵的意思-需要設定這-2-個-node-的-location"><i class="fa fa-check"></i><b>2.8</b> 確認腳位, Quartus menu 選取 Assignment - Pin Planner, 會出現類似下圖, 這次需要設定 Location, 我們這次用到 LED0 跟 PB (push button 按鍵的意思), 需要設定這 2 個 Node 的 location</a></li>
+<li class="chapter" data-level="2.9" data-path="fpga-hello-world-led.html"><a href="fpga-hello-world-led.html#再編譯一次-processing---start-compilation"><i class="fa fa-check"></i><b>2.9</b> 再編譯一次, Processing - Start Compilation</a></li>
+<li class="chapter" data-level="2.10" data-path="fpga-hello-world-led.html"><a href="fpga-hello-world-led.html#燒錄-quartus-menu-選擇-tools---programmer"><i class="fa fa-check"></i><b>2.10</b> 燒錄: Quartus menu 選擇 Tools - Programmer</a></li>
+<li class="chapter" data-level="2.11" data-path="fpga-hello-world-led.html"><a href="fpga-hello-world-led.html#bonus-1-轉檔-從-vhdl-檔案轉成-verilog-格式-程式下載點-httpdoolittle.icarus.comlarryvhd2vl"><i class="fa fa-check"></i><b>2.11</b> Bonus 1 : 轉檔, 從 VHDL 檔案轉成 Verilog 格式, 程式下載點 <span>http://doolittle.icarus.com/~larry/vhd2vl/</span></a></li>
+<li class="chapter" data-level="2.12" data-path="fpga-hello-world-led.html"><a href="fpga-hello-world-led.html#bonus-2-後來才發現-intel-有個-youtube---how-to-begin-a-simple-fgpa-design-比較完整-也比較複雜了點-其實可以省略一些還是可以動作-我的文章只有文字-可以配合這-youtube-會更清楚"><i class="fa fa-check"></i><b>2.12</b> Bonus 2 : 後來才發現 intel 有個 <span>youtube - How to begin a simple FGPA design</span> 比較完整 (也比較複雜了點, 其實可以省略一些還是可以動作), 我的文章只有文字, 可以配合這 youtube 會更清楚</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-.html"><a href="references-.html"><i class="fa fa-check"></i>References 參考文獻</a></li>
+<li class="appendix"><span><b>附录</b></span></li>
+<li class="chapter" data-level="A" data-path="appendixa.html"><a href="appendixa.html"><i class="fa fa-check"></i><b>A</b> Appendix A</a></li>
+<li class="chapter" data-level="B" data-path="appendixb.html"><a href="appendixb.html"><i class="fa fa-check"></i><b>B</b> Appendix B</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/marconi1964/FPGA4RISC-V" target="blank">FPGA for RISC-V CPU running Linux</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">FGPA for RISC-V CPU running Linux</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="fpga-入門-hello-world-程式---點亮-led" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> <span style="color:green"> FPGA 入門 Hello World 程式 - 點亮 LED</span></h1>
+<p>看到這個網頁似乎是蠻簡單的, 來試試 FPGA 的 Hello World 來點亮 LED - <a href="https://medium.com/swlh/get-started-on-fpga-programming-with-20-f59f30dfd88b">Get Started on FPGA Programming</a>, 照著這個一步步來 (雖然我的板子跟他的不同, 改過去應該不會太難)</p>
+<div id="硬體準備" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> 硬體準備</h2>
+<ul>
+<li>FPGA 開發板 - QMTech Cyclone IV Core board (intel Altera Cyclone IV EP4CE15F23C8N) 的資料 <a href="http://www.chinaqmtech.com/download_fpga">QMTech 官網下載網頁</a>
+<ul>
+<li>包含使用說明、線路圖<br />
+</li>
+</ul></li>
+<li><a href="https://shopee.tw/-easy_diy-Lubcf-USB-Blaster-BLASTER-ALTERA-CPLD-FPGA-下載器-附線-i.63186309.3753087358?fbclid=IwAR0u_4WgFE9IFFWeJeAc5vtgOOFynzJmk7OTgZuB6-HI-O4wABDc_SqGUr0">intel Altera USB Blaster</a> : intel 在併購 Altera 後將這條 cable 改成很普通的名字, 叫做 <a href="https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/ug/ug_usb_blstr.pdf">FPGA download cable</a></li>
+<li><a href="https://www.ruten.com.tw/item/show?22116911378630">USB 轉 TTL RS232 cable</a></li>
+</ul>
+</div>
+<div id="安裝-intel-altera-ide-quartus-於-ubuntu-18.04" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> 安裝 intel Altera IDE Quartus 於 Ubuntu 18.04：</h2>
+<ul>
+<li>原先安裝在 Windows 10, 但是 USB Blaster driver 無法更新, 就放棄, 改裝在 VM 的 Ubuntu 18.04</li>
+<li>到 <a href="https://fpgasoftware.intel.com/13.0sp1/?edition=web&amp;platform=linux">intel Altera 的官網下載 Quartus Prime Lite 免費版</a>
+<ul>
+<li>其它版本 (Standard 及 Pro) 都需要付費. 也得先註冊取得帳號、密碼才能下載.</li>
+</ul></li>
+<li>完整版的檔案非常大, 因此我只單獨下載 3 個檔案
+<ul>
+<li>Quartus II Software (includes Nios II EDS)</li>
+<li>ModelSim-Altera Edition (includes Starter Edition)</li>
+<li>Devices: 一定要安裝至少一個 device family, 我安裝我使用的 Cyclone IV 板子
+<ul>
+<li>Arria II device support : Cyclone II, Cyclone III, Cyclone IV device support (includes all variations)<br />
+</li>
+</ul></li>
+<li><a href="https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/manual/quartus_install.pdf">Intel® FPGA Software Installation and Licensing 文件</a></li>
+</ul></li>
+<li>下載後, 執行 ./QuartusLiteSetup-20.1.1.720-linux.run 來安裝
+<ul>
+<li>安裝算簡單, 只是要注意 ModelSim 安裝的目錄 (default 是 ～/intelFPGA, 我改成 ~/intelFPGA_lite) 得和 Quartus 的安裝目錄是同一個 (~/intelFPGA_lite)<br />
+</li>
+<li>同時也安裝了 device, Cyclone IV</li>
+</ul></li>
+<li>安裝完畢後, 執行檔位於 ./intelFPGA_lite/20.1/quartus/bin/quartus 下</li>
+</ul>
+<pre><code>$ # 執行 Quartus 程式
+$ ./intelFPGA_lite/20.1/quartus/bin/quartus</code></pre>
+<div id="安裝-intel-altera-ide-quartus-設定及遇到的問題" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> 安裝 intel Altera IDE Quartus 設定及遇到的問題</h3>
+<ul>
+<li><span style="color:red">Quartus 一執行時就出現錯誤訊息 Failed to load module “canberra-gtk-module”</span>
+<ul>
+<li>根據 <a href="https://askubuntu.com/questions/342202/failed-to-load-module-canberra-gtk-module-but-already-installed">Failed to load module “canberra-gtk-module”</a>, 解決方式如下</li>
+</ul></li>
+</ul>
+<pre><code>$ sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
+$</code></pre>
+<ul>
+<li><p><span style="color:red">執行 Processing - Start Compilation 後, 出現錯誤訊息 Altera Quartus Error (12007): Top-level design entity “……” is undefined</span>:</p>
+<ul>
+<li>根據 <a href="https://stackoverflow.com/questions/25832326/altera-quartus-error-12007-top-level-design-entity-alt-ex-1-is-undefined">Stackoverflow - Altera Quartus Error (12007): Top-level design entity “……” is undefined</a> 的第二個答案, 到 menu 的 Assignments - Settings - General - Top-Level Entity - Select Entity 去選取我的 project, 名稱是 MyProj</li>
+</ul></li>
+<li><p><span style="color:red">執行 Processing - Start Compilation 後, 出現錯誤訊息 Can’t launch ModelSim-altera simulation software</span>: 得注意 2 點</p>
+<ul>
+<li>參考 intel 文章 <a href="https://community.intel.com/t5/Programmable-Devices/quot-Can-t-lunch-ModelSim-altera-simulation-software-quot/td-p/36400">“Can’t lunch ModelSim-altera simulation software”</a>, 需要確定以下設定的目錄
+<ul>
+<li>Tools - Options - General - EDA Tool Options - ModelSim-Alt… : 我的設定是 /home/ubuntu/intelFPGA_lite/20.1/modelsim_ase/linuxaloem</li>
+</ul></li>
+<li>另外, 我一開始的設定 Assignment - Settings - EDA Tool Settings - EDA tools - Simulation - Run Tool Automatically - [x] Run gate-level simulation automatically after compilation 設成 enable, 把它 disable 後就可以</li>
+</ul></li>
+<li><p><span style="color:red">關於 USB Blaster 的 driver 設定:</span> 在安裝 Quartus 之後, ‘理論上’ USB Blaster 的驅動程式應該已經安裝完成, 而且, 進入 Tools - Programmer - Hardware Setup - Hardware Settings 也可以選得到 USB-Blaster (port 2-2.2), 但是, <span style="color:red">在 Programmer - Start 後, Progress 會出現 failed</span>, 安裝以下設定後才能順利運作, 也才發現, 在沒安裝前, Hardware Setup 下的 Hardware Frequency 是空的, 安裝後, 會顯示 6,000,000 Hz.</p>
+<ul>
+<li><a href="https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/ug/ug_usb_blstr.pdf">intel FPGA Download Cable / USB Blaster 官網的資料</a> , 用途不大, 現在已經不再用 USB Blaster 這名詞, 改名為 intel FPGA Download Cable<br />
+</li>
+<li>USB Blaster 的 driver 設定: 參考網站文章 <a href="https://rocketboards.org/foswiki/Documentation/UsingUSBBlasterUnderLinux">Using USB Blaster / USB Blaster II under Linux</a><br />
+</li>
+<li>Driver Setup for Ubuntu : For Ubuntu 12.04/14.04/16.04 create the file /etc/udev/rules.d/51-usbblaster.rules with the following contents:<br />
+</li>
+<li>也適用 Ubuntu 18.04</li>
+</ul></li>
+</ul>
+<pre><code>$ # 建立 /etc 下的檔案需要用 sudo
+$ sudo vi /etc/udev/rules.d/51-usbblaster.rules     # 輸入以下內容
+
+# USB Blaster
+SUBSYSTEM==&quot;usb&quot;, ENV{DEVTYPE}==&quot;usb_device&quot;, ATTR{idVendor}==&quot;09fb&quot;, ATTR{idProduct}==&quot;6001&quot;, MODE=&quot;0666&quot;, NAME=&quot;bus/usb/$env{BUSNUM}/$env{DEVNUM}&quot;, RUN+=&quot;/bin/chmod 0666 %c&quot;
+SUBSYSTEM==&quot;usb&quot;, ENV{DEVTYPE}==&quot;usb_device&quot;, ATTR{idVendor}==&quot;09fb&quot;, ATTR{idProduct}==&quot;6002&quot;, MODE=&quot;0666&quot;, NAME=&quot;bus/usb/$env{BUSNUM}/$env{DEVNUM}&quot;, RUN+=&quot;/bin/chmod 0666 %c&quot;
+SUBSYSTEM==&quot;usb&quot;, ENV{DEVTYPE}==&quot;usb_device&quot;, ATTR{idVendor}==&quot;09fb&quot;, ATTR{idProduct}==&quot;6003&quot;, MODE=&quot;0666&quot;, NAME=&quot;bus/usb/$env{BUSNUM}/$env{DEVNUM}&quot;, RUN+=&quot;/bin/chmod 0666 %c&quot;</code></pre>
+</div>
+</div>
+<div id="安裝-device-我們在安裝-quartus-已經安裝過了-如果需要重新安裝時-選擇-quartus-menu-tools---install-devices" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> 安裝 device : 我們在安裝 Quartus 已經安裝過了, 如果需要重新安裝時, 選擇 Quartus menu Tools - Install devices…</h2>
+</div>
+<div id="建立新專案-quartus-menu-選擇-file---new-project-wizard-一步步執行" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> 建立新專案 : Quartus menu 選擇 File - New Project Wizard… 一步步執行</h2>
+<pre><code>Page 1:
+On “Directory, Name, Top-Level Entity [Page 1 of 5]”, fill in blanks as the following 
+“What is the working directory for this project”
+C:/Projects/Altera/MyProj 
+(You have to create the folder before you can select the above folder)
+“What is the name of this project”
+MyProj
+“What is the name of top-level design entity for this project?”
+MyProj
+Click on “Next”
+Page 2:
+On “Add Files [page 2 of 5]”
+Click “Next” as we’ll add files later on
+Page 3:
+On “Family &amp; Device Settings [Page 3 of 5]”
+In “Family:” dropdown list, select “Cyclone II”
+In “Available devices:” table, select “EP2C5T144C8”
+Click “Next”
+Page 4:
+On “EDA Tool Settings [page 4 of 5]”
+Click “Next”
+Page 5:
+On “Summary [page 5 of 5]”
+Click “Finish”</code></pre>
+</div>
+<div id="建立新檔案-quartus-menu-選擇-file---new-後-再選擇-design-files---vhdl-file-點選-ok-即可-會出現-vdhl1.vhd-這個檔案-可以自行改名稱後儲存." class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> 建立新檔案 : Quartus menu 選擇 File - New… 後, 再選擇 Design Files - VHDL File 點選 OK 即可, 會出現 Vdhl1.vhd 這個檔案, 可以自行改名稱後儲存.</h2>
+</div>
+<div id="輸入-vhdl-檔案內容" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> 輸入 VHDL 檔案內容</h2>
+<pre><code>-- MyProj &quot;Hello, FPGA&quot;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+entity MyProj is
+ Port (PB   : in  STD_lOGIC;  -- pin 144
+       LED0 : out STD_lOGIC;  -- pin 3
+       LED1 : out STD_lOGIC;  -- pin 7
+       LED2 : out STD_lOGIC); -- pin 9
+end MyProj;
+architecture Behavioral of MyProj is
+begin
+ LED0 &lt;= PB;
+end Behavioral;
+</code></pre>
+</div>
+<div id="vhdl-檔案內容建立完成後-進入-quartus-menu-的-processing---start-compilation-來編譯程式-編譯結果沒有-error-但有不少-warning-不妨礙." class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> VHDL 檔案內容建立完成後, 進入 Quartus menu 的 Processing - Start Compilation 來編譯程式, 編譯結果沒有 error, 但有不少 warning, 不妨礙.</h2>
+</div>
+<div id="確認腳位-quartus-menu-選取-assignment---pin-planner-會出現類似下圖-這次需要設定-location-我們這次用到-led0-跟-pb-push-button-按鍵的意思-需要設定這-2-個-node-的-location" class="section level2" number="2.8">
+<h2><span class="header-section-number">2.8</span> 確認腳位, Quartus menu 選取 Assignment - Pin Planner, 會出現類似下圖, 這次需要設定 Location, 我們這次用到 LED0 跟 PB (push button 按鍵的意思), 需要設定這 2 個 Node 的 location</h2>
+<ul>
+<li>回去看 步驟 0 的 QMTech 線路圖,
+<ul>
+<li>板子上的 LED0 是可以控制的, 接到 E4 腳位 (另一個 LED 是 power 的 LED 無法控制)</li>
+<li>板子上有 3 個按鍵, SW1 / SW2 分別接到 KEY0 的 pin W13, 及 KEY1 的 pin Y13, SW3 接到 nCONFIG (待確定是不是 reset 鍵). 我們接到 W13</li>
+<li>可以看到下圖的 Location, 我們分別設定 LED0 / PB 到 PIN_E4, PIN_W13</li>
+</ul></li>
+</ul>
+<p><img src="../images/CycloneIVpinassign.png"/></p>
+</div>
+<div id="再編譯一次-processing---start-compilation" class="section level2" number="2.9">
+<h2><span class="header-section-number">2.9</span> 再編譯一次, Processing - Start Compilation</h2>
+</div>
+<div id="燒錄-quartus-menu-選擇-tools---programmer" class="section level2" number="2.10">
+<h2><span class="header-section-number">2.10</span> 燒錄: Quartus menu 選擇 Tools - Programmer</h2>
+<p>9.1 選擇 Hardware Setup…, 確定 Available hardware items 有找到 USB-Blaster 後, 選取 Close<br />
+9.2 選擇 Add Device… 後, 選 Cyclone IV E 的 EP4CE15F23<br />
+9.3 選擇 Add File…” 後, 到 output_files 目錄下, 選取 QMTechCycloneIV_EP4CE15F23CBN.sof (或是你設定的名稱)<br />
+9.4 <span style="color:red">記得 下圖中的 Program/Configure 要打勾☑️</span><br />
+9.5 接著, 按下圖的 Start, 就可以將程式上傳到 QMtech 的開發板, 按開發板上的 SW1, 就可以控制 LED0 的亮或暗 - project 成功 ！</p>
+<p><img src="../images/QuartusProject_sof.png"/></p>
+</div>
+<div id="bonus-1-轉檔-從-vhdl-檔案轉成-verilog-格式-程式下載點-httpdoolittle.icarus.comlarryvhd2vl" class="section level2" number="2.11">
+<h2><span class="header-section-number">2.11</span> Bonus 1 : 轉檔, 從 VHDL 檔案轉成 Verilog 格式, 程式下載點 <a href="http://doolittle.icarus.com/~larry/vhd2vl/" class="uri">http://doolittle.icarus.com/~larry/vhd2vl/</a></h2>
+<pre><code># 轉檔
+$ tar — extract — file vhd2vl-2.5.tar.gz
+$ ./vhd2vl MyProj.vhd &gt; MyProj.v
+# note that Verilog file’s extension is .v</code></pre>
+</div>
+<div id="bonus-2-後來才發現-intel-有個-youtube---how-to-begin-a-simple-fgpa-design-比較完整-也比較複雜了點-其實可以省略一些還是可以動作-我的文章只有文字-可以配合這-youtube-會更清楚" class="section level2" number="2.12">
+<h2><span class="header-section-number">2.12</span> Bonus 2 : 後來才發現 intel 有個 <a href="https://www.youtube.com/watch?v=bwoyQ_RnaiA">youtube - How to begin a simple FGPA design</a> 比較完整 (也比較複雜了點, 其實可以省略一些還是可以動作), 我的文章只有文字, 可以配合這 youtube 會更清楚</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references-.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["FPGA for RISC-V CPU running Linux.pdf", "FPGA for RISC-V CPU running Linux.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

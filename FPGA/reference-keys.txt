@@ -1,0 +1,17 @@
+前言
+fpga-入門-hello-world-程式---點亮-led
+硬體準備
+安裝-intel-altera-ide-quartus-於-ubuntu-18.04
+安裝-intel-altera-ide-quartus-設定及遇到的問題
+安裝-device-我們在安裝-quartus-已經安裝過了-如果需要重新安裝時-選擇-quartus-menu-tools---install-devices
+建立新專案-quartus-menu-選擇-file---new-project-wizard-一步步執行
+建立新檔案-quartus-menu-選擇-file---new-後-再選擇-design-files---vhdl-file-點選-ok-即可-會出現-vdhl1.vhd-這個檔案-可以自行改名稱後儲存.
+輸入-vhdl-檔案內容
+vhdl-檔案內容建立完成後-進入-quartus-menu-的-processing---start-compilation-來編譯程式-編譯結果沒有-error-但有不少-warning-不妨礙.
+確認腳位-quartus-menu-選取-assignment---pin-planner-會出現類似下圖-這次需要設定-location-我們這次用到-led0-跟-pb-push-button-按鍵的意思-需要設定這-2-個-node-的-location
+再編譯一次-processing---start-compilation
+燒錄-quartus-menu-選擇-tools---programmer
+bonus-1-轉檔-從-vhdl-檔案轉成-verilog-格式-程式下載點-httpdoolittle.icarus.comlarryvhd2vl
+bonus-2-後來才發現-intel-有個-youtube---how-to-begin-a-simple-fgpa-design-比較完整-也比較複雜了點-其實可以省略一些還是可以動作-我的文章只有文字-可以配合這-youtube-會更清楚
+appendixa
+appendixb
