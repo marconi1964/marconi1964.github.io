@@ -24,14 +24,14 @@
 <meta name="author" content="Marconi Jiang" />
 
 
-<meta name="date" content="2021-06-23" />
+<meta name="date" content="2021-06-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="fpga-hello-world-led.html"/>
+<link rel="prev" href="running-linux-on-fpga-vexriscv-cpu-implementation.html"/>
 <link rel="next" href="appendixa.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -89,6 +89,23 @@
 <li class="chapter" data-level="2.11" data-path="fpga-hello-world-led.html"><a href="fpga-hello-world-led.html#bonus-1-轉檔-從-vhdl-檔案轉成-verilog-格式-程式下載點-httpdoolittle.icarus.comlarryvhd2vl"><i class="fa fa-check"></i><b>2.11</b> Bonus 1 : 轉檔, 從 VHDL 檔案轉成 Verilog 格式, 程式下載點 <span>http://doolittle.icarus.com/~larry/vhd2vl/</span></a></li>
 <li class="chapter" data-level="2.12" data-path="fpga-hello-world-led.html"><a href="fpga-hello-world-led.html#bonus-2-後來才發現-intel-有個-youtube---how-to-begin-a-simple-fgpa-design-比較完整-也比較複雜了點-其實省略一些還是可以動作-我的文章只有文字-可以配合這-youtube-會更清楚"><i class="fa fa-check"></i><b>2.12</b> Bonus 2 : 後來才發現 intel 有個 <span>youtube - How to begin a simple FGPA design</span> 比較完整 (也比較複雜了點, 其實省略一些還是可以動作), 我的文章只有文字, 可以配合這 youtube 會更清楚</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="running-linux-on-fpga-vexriscv-cpu-implementation.html"><a href="running-linux-on-fpga-vexriscv-cpu-implementation.html"><i class="fa fa-check"></i><b>3</b> Running Linux on FPGA VexRiscv CPU implementation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="running-linux-on-fpga-vexriscv-cpu-implementation.html"><a href="running-linux-on-fpga-vexriscv-cpu-implementation.html#準備工作"><i class="fa fa-check"></i><b>3.1</b> 準備工作</a></li>
+<li class="chapter" data-level="3.2" data-path="running-linux-on-fpga-vexriscv-cpu-implementation.html"><a href="running-linux-on-fpga-vexriscv-cpu-implementation.html#軟體安裝"><i class="fa fa-check"></i><b>3.2</b> 軟體安裝</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="running-linux-on-fpga-vexriscv-cpu-implementation.html"><a href="running-linux-on-fpga-vexriscv-cpu-implementation.html#軟體介紹"><i class="fa fa-check"></i><b>3.2.1</b> 軟體介紹</a></li>
+<li class="chapter" data-level="3.2.2" data-path="running-linux-on-fpga-vexriscv-cpu-implementation.html"><a href="running-linux-on-fpga-vexriscv-cpu-implementation.html#適用開發板"><i class="fa fa-check"></i><b>3.2.2</b> 適用開發板</a></li>
+<li class="chapter" data-level="3.2.3" data-path="running-linux-on-fpga-vexriscv-cpu-implementation.html"><a href="running-linux-on-fpga-vexriscv-cpu-implementation.html#預備安裝"><i class="fa fa-check"></i><b>3.2.3</b> 預備安裝</a></li>
+<li class="chapter" data-level="3.2.4" data-path="running-linux-on-fpga-vexriscv-cpu-implementation.html"><a href="running-linux-on-fpga-vexriscv-cpu-implementation.html#pre-built-bitstreams-跟-linuxopensbi-images"><i class="fa fa-check"></i><b>3.2.4</b> Pre-built Bitstreams 跟 Linux/OpenSBI images</a></li>
+<li class="chapter" data-level="3.2.5" data-path="running-linux-on-fpga-vexriscv-cpu-implementation.html"><a href="running-linux-on-fpga-vexriscv-cpu-implementation.html#安裝-litex"><i class="fa fa-check"></i><b>3.2.5</b> 安裝 LiteX</a></li>
+<li class="chapter" data-level="3.2.6" data-path="running-linux-on-fpga-vexriscv-cpu-implementation.html"><a href="running-linux-on-fpga-vexriscv-cpu-implementation.html#安裝-risc-v-toolchain"><i class="fa fa-check"></i><b>3.2.6</b> 安裝 RISC-V toolchain</a></li>
+<li class="chapter" data-level="3.2.7" data-path="running-linux-on-fpga-vexriscv-cpu-implementation.html"><a href="running-linux-on-fpga-vexriscv-cpu-implementation.html#安裝-openocd-做硬體測試時需要-所以我們需要安裝"><i class="fa fa-check"></i><b>3.2.7</b> 安裝 OpenOCD (做硬體測試時需要, 所以我們需要安裝)</a></li>
+<li class="chapter" data-level="3.2.8" data-path="running-linux-on-fpga-vexriscv-cpu-implementation.html"><a href="running-linux-on-fpga-vexriscv-cpu-implementation.html#執行-litex-模擬"><i class="fa fa-check"></i><b>3.2.8</b> 執行 LiteX 模擬</a></li>
+<li class="chapter" data-level="3.2.9" data-path="running-linux-on-fpga-vexriscv-cpu-implementation.html"><a href="running-linux-on-fpga-vexriscv-cpu-implementation.html#在硬體上測試"><i class="fa fa-check"></i><b>3.2.9</b> 在硬體上測試</a></li>
+<li class="chapter" data-level="3.2.10" data-path="running-linux-on-fpga-vexriscv-cpu-implementation.html"><a href="running-linux-on-fpga-vexriscv-cpu-implementation.html#option-選項---configureuse-the-peripherals"><i class="fa fa-check"></i><b>3.2.10</b> Option 選項 - Configure/Use the peripherals</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references-.html"><a href="references-.html"><i class="fa fa-check"></i>References 參考文獻</a></li>
 <li class="appendix"><span><b>附录</b></span></li>
 <li class="chapter" data-level="A" data-path="appendixa.html"><a href="appendixa.html"><i class="fa fa-check"></i><b>A</b> Appendix A</a></li>
@@ -127,7 +144,7 @@
           </div>
         </div>
       </div>
-<a href="fpga-hello-world-led.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="running-linux-on-fpga-vexriscv-cpu-implementation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="appendixa.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
