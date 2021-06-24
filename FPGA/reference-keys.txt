@@ -1,7 +1,7 @@
 前言
 fpga-入門-hello-world-程式---點亮-led
 硬體準備
-安裝-intel-altera-ide-quartus-於-ubuntu-18.04
+quartus-install
 安裝-altera-ide-quartus-設定及遇到的問題
 安裝-device-我們在安裝-quartus-已經安裝過了-如果需要重新安裝時-選擇-quartus-menu-tools---install-devices
 建立新專案-quartus-menu-選擇-file---new-project-wizard-一步步執行
