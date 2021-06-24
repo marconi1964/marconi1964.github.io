@@ -18,7 +18,7 @@ running-linux-on-fpga-vexriscv-cpu-implementation
 軟體安裝
 軟體介紹
 適用開發板
-預備安裝
+預先安裝
 pre-built-bitstreams-跟-linuxopensbi-images
 安裝-litex
 安裝-migenlitex-及-litexs-核心
