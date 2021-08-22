@@ -7,7 +7,7 @@
 單獨在-fpga-上測試-clock-source
 整合-65c02-cpu-跟-clock-source
 整合-65c02-cpu-跟-clock-source-之加強版
-將-clock-source-獨立成一個-module
+將-clock-source-獨立成一個-vhdl-entity-module
 整合-65c02-cpu-及-rom-ram
 整合-65c02-cpu-及-rom-使用-block-ram
 整合-65c02-cpu-及-ram-使用-fpga-ip
