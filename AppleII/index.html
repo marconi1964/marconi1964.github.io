@@ -73,7 +73,10 @@
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 前言</a></li>
 <li class="chapter" data-level="2" data-path="-pc-apple-ii-basic.html"><a href="-pc-apple-ii-basic.html"><i class="fa fa-check"></i><b>2</b> <span style="color:blue">在 PC 網頁上 執行 Apple II BASIC </span></a></li>
 <li class="chapter" data-level="3" data-path="-6502-cpu-.html"><a href="-6502-cpu-.html"><i class="fa fa-check"></i><b>3</b> <span style="color:blue">看 6502 CPU 如何開機</span></a></li>
-<li class="chapter" data-level="4" data-path="-fpga-6502-.html"><a href="-fpga-6502-.html"><i class="fa fa-check"></i><b>4</b> <span style="color:blue">用 FPGA 模擬 6502 開機</span></a></li>
+<li class="chapter" data-level="4" data-path="-fpga-6502-.html"><a href="-fpga-6502-.html"><i class="fa fa-check"></i><b>4</b> <span style="color:blue">用 FPGA 模擬 6502 開機</span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="-fpga-6502-.html"><a href="-fpga-6502-.html#用-fpga-模擬-6502-cpu"><i class="fa fa-check"></i><b>4.1</b> 用 FPGA 模擬 6502 CPU</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html"><i class="fa fa-check"></i><b>5</b> <span style="color:blue">用 FPGA 來模擬 Ben Eater 的可調式 clock</span></a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html#單獨在-fpga-上測試-clock-source"><i class="fa fa-check"></i><b>5.1</b> <span style="color:blue">單獨在 FPGA 上測試 clock source </span></a></li>
@@ -120,13 +123,13 @@
 <div id="前言" class="section level1" number="1">
 <h1><span class="header-section-number">Chapter 1</span> 前言</h1>
 <p>從上一篇 <a href="https://marconi1964.github.io/FPGA/index.html">FGPA for RISC-V CPU running Linux</a> 了解 FPGA 的威力後, 也同時看到 Ben Eater 關於 6502 的介紹 - <a href="https://eater.net/6502">Build a 6502 computer</a>, 對於想要跨進電子業的同學是一個非常好的入門, 跟他定了零件包, 也發現可能用一片 FPGA 就可以達到一大片麵包板的功能, 就開始了這段 FPGA 冒險之旅.</p>
-<p>軟硬體說明:
+<p>軟硬體說明:<br />
 * 硬體使用 QMTech 的 <a href="http://www.chinaqmtech.com/download_fpga">Intel Altera Cyclone IV EP4CE15 Starter Kit</a><br />
 * 環境用的是 VM Ubuntu 18.04<br />
 * IDE 是 Quartus, 用 VHDL code 為主<br />
 * VHDL 程式儲存於 <a href="https://github.com/marconi1964/FPGA_65c02_CPU">github - FPGA_65c02_CPU</a></p>
 <p>目前為止 github 的進度及各個 release 如下,
-<a href="https://github.com/marconi1964/FPGA_65c02_CPU">我的 VHDL 在 github 存檔 - 2021/7/26</a>, 不同階段的 commit<br />
+我的 VHDL 在 github 不同階段的 commit<br />
 * <a href="https://github.com/marconi1964/FPGA_65c02_CPU/tree/8b0c742f5f276d7a57c47bde564132a617233841">2021/07/26 - r65c02 CPU and clock source of 1Hz / 1MHz / Step</a><br />
 * <a href="https://github.com/marconi1964/FPGA_65c02_CPU/tree/122f704fc121c3f53fa5699ea71d5e78ffc9bbc6">2021/08/06 - Adding FPGA block memory as ROM $C000 - $FFFF</a><br />
 * <a href="https://github.com/marconi1964/FPGA_65c02_CPU/tree/fda2f1729fe99c7f9863ed5cdef89128775b1b83">2021/08/07 - Adding data buffer between ROM and CPU</a><br />

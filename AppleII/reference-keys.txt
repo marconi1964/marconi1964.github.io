@@ -2,6 +2,7 @@
 在-pc-網頁上-執行-apple-ii-basic
 看-6502-cpu-如何開機
 用-fpga-模擬-6502-開機
+用-fpga-模擬-6502-cpu
 用-fpga-來模擬-ben-eater-的可調式-clock
 單獨在-fpga-上測試-clock-source
 整合-65c02-cpu-跟-clock-source

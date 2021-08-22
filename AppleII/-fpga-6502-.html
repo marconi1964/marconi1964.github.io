@@ -73,7 +73,10 @@
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 前言</a></li>
 <li class="chapter" data-level="2" data-path="-pc-apple-ii-basic.html"><a href="-pc-apple-ii-basic.html"><i class="fa fa-check"></i><b>2</b> <span style="color:blue">在 PC 網頁上 執行 Apple II BASIC </span></a></li>
 <li class="chapter" data-level="3" data-path="-6502-cpu-.html"><a href="-6502-cpu-.html"><i class="fa fa-check"></i><b>3</b> <span style="color:blue">看 6502 CPU 如何開機</span></a></li>
-<li class="chapter" data-level="4" data-path="-fpga-6502-.html"><a href="-fpga-6502-.html"><i class="fa fa-check"></i><b>4</b> <span style="color:blue">用 FPGA 模擬 6502 開機</span></a></li>
+<li class="chapter" data-level="4" data-path="-fpga-6502-.html"><a href="-fpga-6502-.html"><i class="fa fa-check"></i><b>4</b> <span style="color:blue">用 FPGA 模擬 6502 開機</span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="-fpga-6502-.html"><a href="-fpga-6502-.html#用-fpga-模擬-6502-cpu"><i class="fa fa-check"></i><b>4.1</b> 用 FPGA 模擬 6502 CPU</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html"><i class="fa fa-check"></i><b>5</b> <span style="color:blue">用 FPGA 來模擬 Ben Eater 的可調式 clock</span></a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html#單獨在-fpga-上測試-clock-source"><i class="fa fa-check"></i><b>5.1</b> <span style="color:blue">單獨在 FPGA 上測試 clock source </span></a></li>
@@ -119,24 +122,44 @@
 * <span style="color:green">2021/7/17: 下載 65C02 CPU VHDL 程式到 QMtech Cyclone IV Starter kit, 還不確定是否運作正常, Address bus 沒有訊號</span><br />
 * <span style="color:green">2021/7/18: 將 65C02 VHDL code 下載到 QMtech Cyclone IV Starter kit 用 breadboard 接出來看訊號</span><br />
 * <span style="color:green">2021/7/19: 用 Arduino Mega 2560 可以看得出 FPGA 上的 6502 power on 從 FFFC:FFFD 開始執行</span></p>
-<p>之前的動作都是站在巨人的肩膀上實作, 接下來就要靠自己了.
-### 用 FPGA 模擬 6502 CPU
-* 到 <a href="https://www.allaboutcircuits.com/ip-cores/processor/6502vhdl/">FPGA-Based 6502 Processor in VHDL</a> 下載檔案, <a href="./cpu6502vhdl">local 存檔</a><br />
-* 失敗
-* 改用另一個設計 <a href="https://opencores.org/projects/cpu65c02_true_cycle">OpenCores.org - cpu65c02_true_cycle</a>, <a href="./cpu65c02_true_cycle">local 存檔</a><br />
-* user id / pw 都是 Marconi1964
-* 有好幾個檔案, top level 是 r65c02_tc
-* 解壓縮後, 到目錄 cpu65c02_true_cycle/trunk/released/rtl/vhdl 下, 會有好幾個 .vhd 檔案, 找到 r65c02_tc.vhd (一開始, 有幾次在 r65c02_tc.vhd 或 core.vhd 間掙扎, 熟悉了 VHDL 的 hierarchical 架構才找到 r65c02_tc 是 top level)<br />
-* 參考 <a href="https://www.intel.com/content/www/us/en/programmable/support/support-resources/design-examples/design-software/vhdl/v_hier.html">VHDL: Creating a Hierarchical Design with multiple entities</a>
-* 打開 Quartus
-* 建立新的 project, 命名為 r65c02_tc (project 名稱得跟 r65c02_tc.vhd 定義的 entity r65c02_tc 同名)<br />
-* 到 Quartus 的 Processing - Start Compilation<br />
-* 到 Quartus 的 Assignments - Pin Planner
-* 設定以下的 pin definition
-* 將 I/O Standard 全部設定為 3.3-V LVTTL<br />
-* Pin Planner 後需要再一次 Quartus 的 Processing - Start Compilation<br />
-* 到 Tools 的 programmer
-* 類似 <a href="https://www.youtube.com/watch?v=LnzuMJLZRdU">Ben Eater 的 6502 Hello World</a> 接上 Arduino Mega 2560, <a href="http://www.robotigs.com/robotigs/documentatie/plaatjes/megapins.png">Mega 2560 接腳圖</a> 可以看得到 6502 power on sequence 從 FFFC:FFFD 位址開始</p>
+<p>之前的動作都是站在巨人的肩膀上實作, 接下來就要靠自己了.</p>
+<div id="用-fpga-模擬-6502-cpu" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> 用 FPGA 模擬 6502 CPU</h2>
+<ul>
+<li>到 <a href="https://www.allaboutcircuits.com/ip-cores/processor/6502vhdl/">FPGA-Based 6502 Processor in VHDL</a> 下載檔案
+<ul>
+<li>失敗<br />
+</li>
+</ul></li>
+<li>改用另一個設計 <a href="https://opencores.org/projects/cpu65c02_true_cycle">OpenCores.org - cpu65c02_true_cycle</a>
+<ul>
+<li>有好幾個檔案, top level 是 r65c02_tc<br />
+</li>
+</ul></li>
+<li>解壓縮後, 到目錄 cpu65c02_true_cycle/trunk/released/rtl/vhdl 下, 會有好幾個 .vhd 檔案, 找到 r65c02_tc.vhd (一開始, 有幾次在 r65c02_tc.vhd 或 core.vhd 間掙扎, 熟悉了 VHDL 的 hierarchical 架構才找到 r65c02_tc 是 top level)
+<ul>
+<li>參考 <a href="https://www.intel.com/content/www/us/en/programmable/support/support-resources/design-examples/design-software/vhdl/v_hier.html">VHDL: Creating a Hierarchical Design with multiple entities</a><br />
+</li>
+</ul></li>
+<li>打開 Quartus<br />
+</li>
+<li>建立新的 project, 命名為 r65c02_tc (project 名稱得跟 r65c02_tc.vhd 定義的 entity r65c02_tc 同名)<br />
+</li>
+<li>到 Quartus 的 Processing - Start Compilation<br />
+</li>
+<li>到 Quartus 的 Assignments - Pin Planner
+<ul>
+<li>設定以下的 pin definition<br />
+</li>
+<li>將 I/O Standard 全部設定為 3.3-V LVTTL<br />
+</li>
+</ul></li>
+<li>Pin Planner 後需要再一次 Quartus 的 Processing - Start Compilation<br />
+</li>
+<li>到 Tools 的 programmer<br />
+</li>
+<li>類似 <a href="https://www.youtube.com/watch?v=LnzuMJLZRdU">Ben Eater 的 6502 Hello World</a> 接上 Arduino Mega 2560, <a href="http://www.robotigs.com/robotigs/documentatie/plaatjes/megapins.png">Mega 2560 接腳圖</a> 可以看得到 6502 power on sequence 從 FFFC:FFFD 位址開始</li>
+</ul>
 <p>Cyclone IV EP4CE15F23C8N</p>
 <table>
 <colgroup>
@@ -481,6 +504,7 @@
 </tbody>
 </table>
 
+</div>
 </div>
             </section>
 
