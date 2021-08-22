@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 用 FPGA 模擬 6502 開機 | FPGA for 6502 and Apple II, hopefully Apple BASIC</title>
+  <meta name="description" content="用 FPGA 模擬 6502 CPU 跟 AppleII 電腦, 希望可以執行 Apple BASIC" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 用 FPGA 模擬 6502 開機 | FPGA for 6502 and Apple II, hopefully Apple BASIC" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="用 FPGA 模擬 6502 CPU 跟 AppleII 電腦, 希望可以執行 Apple BASIC" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 用 FPGA 模擬 6502 開機 | FPGA for 6502 and Apple II, hopefully Apple BASIC" />
+  
+  <meta name="twitter:description" content="用 FPGA 模擬 6502 CPU 跟 AppleII 電腦, 希望可以執行 Apple BASIC" />
+  
+
+<meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
+
+
+<meta name="date" content="2021-08-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="-6502-cpu-.html"/>
+<link rel="next" href="-fpga-ben-eater-clock.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">FPGA 模擬 6502 CPU 及 Apple ][</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 前言</a></li>
+<li class="chapter" data-level="2" data-path="-pc-apple-ii-basic.html"><a href="-pc-apple-ii-basic.html"><i class="fa fa-check"></i><b>2</b> <span style="color:blue">在 PC 網頁上 執行 Apple II BASIC </span></a></li>
+<li class="chapter" data-level="3" data-path="-6502-cpu-.html"><a href="-6502-cpu-.html"><i class="fa fa-check"></i><b>3</b> <span style="color:blue">看 6502 CPU 如何開機</span></a></li>
+<li class="chapter" data-level="4" data-path="-fpga-6502-.html"><a href="-fpga-6502-.html"><i class="fa fa-check"></i><b>4</b> <span style="color:blue">用 FPGA 模擬 6502 開機</span></a></li>
+<li class="chapter" data-level="5" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html"><i class="fa fa-check"></i><b>5</b> <span style="color:blue">用 FPGA 來模擬 Ben Eater 的可調式 clock</span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html#單獨在-fpga-上測試-clock-source"><i class="fa fa-check"></i><b>5.1</b> <span style="color:blue">單獨在 FPGA 上測試 clock source </span></a></li>
+<li class="chapter" data-level="5.2" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html#整合-65c02-cpu-跟-clock-source"><i class="fa fa-check"></i><b>5.2</b> <span style="color:blue">整合 65C02 CPU 跟 clock source </span></a></li>
+<li class="chapter" data-level="5.3" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html#整合-65c02-cpu-跟-clock-source-之加強版"><i class="fa fa-check"></i><b>5.3</b> <span style="color:blue">整合 65C02 CPU 跟 clock source 之加強版</span></a></li>
+<li class="chapter" data-level="5.4" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html#將-clock-source-獨立成一個-module"><i class="fa fa-check"></i><b>5.4</b> <span style="color:blue">將 clock source 獨立成一個 module</span></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html"><i class="fa fa-check"></i><b>6</b> <span style="color:blue">整合 65C02 CPU 及 ROM / RAM</span></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html#整合-65c02-cpu-及-rom-使用-block-ram"><i class="fa fa-check"></i><b>6.1</b> <span style="color:blue">整合 65C02 CPU 及 ROM (使用 Block RAM)</span></a></li>
+<li class="chapter" data-level="6.2" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html#整合-65c02-cpu-及-ram-使用-fpga-ip"><i class="fa fa-check"></i><b>6.2</b> <span style="color:blue">整合 65C02 CPU 及 RAM (使用 FPGA IP)</span></a></li>
+<li class="chapter" data-level="6.3" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html#整合-65c02-cpu-及-ram-使用-qmtech-板上的-ram---待完成"><i class="fa fa-check"></i><b>6.3</b> <span style="color:blue">整合 65C02 CPU 及 RAM (使用 QMTech 板上的 RAM) - 待完成</span></a></li>
+</ul></li>
+<li class="appendix"><span><b>附錄</b></span></li>
+<li class="chapter" data-level="A" data-path="appendixa.html"><a href="appendixa.html"><i class="fa fa-check"></i><b>A</b> Appendix A - <span style="color:blue">Apple II 及 6502 CPU 相關資源</span></a></li>
+<li class="chapter" data-level="B" data-path="appendixb.html"><a href="appendixb.html"><i class="fa fa-check"></i><b>B</b> Appendix B</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/marconi1964" target="blank">Marconi github</a></li>
+<li><a href="mailto:marconi1964@yahoo.com">marconi1964@yahoo.com or</a></li>
+<li><a href="mailto:marconi.jiang@gmail.com">marconi.jiang@gmail.com</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">FPGA for 6502 and Apple II, hopefully Apple BASIC</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="用-fpga-模擬-6502-開機" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> <span style="color:blue">用 FPGA 模擬 6502 開機</span></h1>
+<p><span style="color:green">進度: 100% 7/19 (2021/7/15 started)</span><br />
+* <span style="color:green">2021/7/15: 收到 Ben Eater 的 6502 CPU kit, 完成開機</span><br />
+* <span style="color:green">2021/7/17: 下載 65C02 CPU VHDL 程式到 QMtech Cyclone IV Starter kit, 還不確定是否運作正常, Address bus 沒有訊號</span><br />
+* <span style="color:green">2021/7/18: 將 65C02 VHDL code 下載到 QMtech Cyclone IV Starter kit 用 breadboard 接出來看訊號</span><br />
+* <span style="color:green">2021/7/19: 用 Arduino Mega 2560 可以看得出 FPGA 上的 6502 power on 從 FFFC:FFFD 開始執行</span></p>
+<p>之前的動作都是站在巨人的肩膀上實作, 接下來就要靠自己了.
+### 用 FPGA 模擬 6502 CPU
+* 到 <a href="https://www.allaboutcircuits.com/ip-cores/processor/6502vhdl/">FPGA-Based 6502 Processor in VHDL</a> 下載檔案, <a href="./cpu6502vhdl">local 存檔</a><br />
+* 失敗
+* 改用另一個設計 <a href="https://opencores.org/projects/cpu65c02_true_cycle">OpenCores.org - cpu65c02_true_cycle</a>, <a href="./cpu65c02_true_cycle">local 存檔</a><br />
+* user id / pw 都是 Marconi1964
+* 有好幾個檔案, top level 是 r65c02_tc
+* 解壓縮後, 到目錄 cpu65c02_true_cycle/trunk/released/rtl/vhdl 下, 會有好幾個 .vhd 檔案, 找到 r65c02_tc.vhd (一開始, 有幾次在 r65c02_tc.vhd 或 core.vhd 間掙扎, 熟悉了 VHDL 的 hierarchical 架構才找到 r65c02_tc 是 top level)<br />
+* 參考 <a href="https://www.intel.com/content/www/us/en/programmable/support/support-resources/design-examples/design-software/vhdl/v_hier.html">VHDL: Creating a Hierarchical Design with multiple entities</a>
+* 打開 Quartus
+* 建立新的 project, 命名為 r65c02_tc (project 名稱得跟 r65c02_tc.vhd 定義的 entity r65c02_tc 同名)<br />
+* 到 Quartus 的 Processing - Start Compilation<br />
+* 到 Quartus 的 Assignments - Pin Planner
+* 設定以下的 pin definition
+* 將 I/O Standard 全部設定為 3.3-V LVTTL<br />
+* Pin Planner 後需要再一次 Quartus 的 Processing - Start Compilation<br />
+* 到 Tools 的 programmer
+* 類似 <a href="https://www.youtube.com/watch?v=LnzuMJLZRdU">Ben Eater 的 6502 Hello World</a> 接上 Arduino Mega 2560, <a href="http://www.robotigs.com/robotigs/documentatie/plaatjes/megapins.png">Mega 2560 接腳圖</a> 可以看得到 6502 power on sequence 從 FFFC:FFFD 位址開始</p>
+<p>Cyclone IV EP4CE15F23C8N</p>
+<table>
+<colgroup>
+<col width="35%" />
+<col width="7%" />
+<col width="18%" />
+<col width="23%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">6502 CPU pin name / no.</th>
+<th align="left">PCB</th>
+<th align="left">PCB pin</th>
+<th align="left">FGPA location</th>
+<th align="left">FPGA PIN</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A15 / pin / output</td>
+<td align="left">J12</td>
+<td align="left">33</td>
+<td align="left">A10</td>
+<td align="left">IO,DIFFIO_T14N</td>
+</tr>
+<tr class="even">
+<td align="left">A14 / pin</td>
+<td align="left">J12</td>
+<td align="left">31</td>
+<td align="left">A13</td>
+<td align="left">FPGA J12 pin 31 的 A14 燒掉, 暫時改成 JP1 pin 6 的 B7</td>
+</tr>
+<tr class="odd">
+<td align="left">A13 / pin</td>
+<td align="left">J12</td>
+<td align="left">29</td>
+<td align="left">A14</td>
+<td align="left">FPGA J12 pin 29 的 A13 燒掉, 暫時改成 pin 35 的 A9</td>
+</tr>
+<tr class="even">
+<td align="left">A12 / pin</td>
+<td align="left">J12</td>
+<td align="left">27</td>
+<td align="left">A15</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">A11 / pin</td>
+<td align="left">J12</td>
+<td align="left">25</td>
+<td align="left">A16</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">A10 / pin</td>
+<td align="left">J12</td>
+<td align="left">23</td>
+<td align="left">A17</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">A9 / pin</td>
+<td align="left">J12</td>
+<td align="left">21</td>
+<td align="left">A18</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">A8 / pin</td>
+<td align="left">J12</td>
+<td align="left">19</td>
+<td align="left">A19</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">A7 / pin</td>
+<td align="left">J12</td>
+<td align="left">17</td>
+<td align="left">A20</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">A6 / pin</td>
+<td align="left">J12</td>
+<td align="left">15</td>
+<td align="left">C17</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">A5 / pin</td>
+<td align="left">J12</td>
+<td align="left">13</td>
+<td align="left">C19</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">A4 / pin</td>
+<td align="left">J12</td>
+<td align="left">11</td>
+<td align="left">C20</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">A3 / pin</td>
+<td align="left">J12</td>
+<td align="left">9</td>
+<td align="left">F20</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">A2 / pin</td>
+<td align="left">J12</td>
+<td align="left">7</td>
+<td align="left">H20</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">A1 / pin</td>
+<td align="left">J12</td>
+<td align="left">5</td>
+<td align="left">B22</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">A0 / pin</td>
+<td align="left">J12</td>
+<td align="left">3</td>
+<td align="left">C22</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">clk_clk_i / pin / input</td>
+<td align="left">J12</td>
+<td align="left">36</td>
+<td align="left">B9</td>
+<td align="left">B9 unconnected, use internal clock source clock_out</td>
+</tr>
+<tr class="even">
+<td align="left">irq_n_i / pin / input</td>
+<td align="left">J12</td>
+<td align="left">34</td>
+<td align="left">B10</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">nmi_n_i / pin / input</td>
+<td align="left">J12</td>
+<td align="left">32</td>
+<td align="left">B13</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">rdy_i / pin / input</td>
+<td align="left">J12</td>
+<td align="left">30</td>
+<td align="left">B14</td>
+<td align="left">FPGA J12 pin 30 的B14 燒掉, connected to Vcc, 暫時先接到 J12 pin 24 B17</td>
+</tr>
+<tr class="odd">
+<td align="left">rst_rst_n_i / pin /input</td>
+<td align="left">J12</td>
+<td align="left">28</td>
+<td align="left">B15</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">so_n_i / pin / input</td>
+<td align="left">J12</td>
+<td align="left">26</td>
+<td align="left">B16</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">D7 / pin / input</td>
+<td align="left">J12</td>
+<td align="left">18</td>
+<td align="left">B20</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">D6 / pin / input</td>
+<td align="left">J12</td>
+<td align="left">16</td>
+<td align="left">D17</td>
+<td align="left">FPGA J12 pin 16 的 D17 燒掉, 暫時改成 pin 22 的 B18</td>
+</tr>
+<tr class="odd">
+<td align="left">D5 / pin / input</td>
+<td align="left">J12</td>
+<td align="left">14</td>
+<td align="left">D19</td>
+<td align="left">FPGA J12 pin 14 的 D19 燒掉, 暫時改成 pin 20 的 B19</td>
+</tr>
+<tr class="even">
+<td align="left">D4 / pin / input</td>
+<td align="left">J12</td>
+<td align="left">12</td>
+<td align="left">D20</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">D3 / pin / input</td>
+<td align="left">J12</td>
+<td align="left">10</td>
+<td align="left">F19</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">D2 / pin / input</td>
+<td align="left">J12</td>
+<td align="left">8</td>
+<td align="left">H19</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">D1 / pin / input</td>
+<td align="left">J12</td>
+<td align="left">6</td>
+<td align="left">B21</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">D0 / pin / input</td>
+<td align="left">J12</td>
+<td align="left">4</td>
+<td align="left">C21</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">:———————-</td>
+<td align="left">:—-</td>
+<td align="left">:———–</td>
+<td align="left">:————–</td>
+<td align="left">:———</td>
+</tr>
+<tr class="even">
+<td align="left">rd_o / pin / output</td>
+<td align="left">JP1</td>
+<td align="left">5</td>
+<td align="left">A7</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">sync_o / pin / output</td>
+<td align="left">JP1</td>
+<td align="left">7</td>
+<td align="left">A6</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">wr_n_o / pin / output</td>
+<td align="left">JP1</td>
+<td align="left">9</td>
+<td align="left">A5</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">wr_o / pin / output</td>
+<td align="left">JP1</td>
+<td align="left">11</td>
+<td align="left">A4</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Result (Clock step debounce)</td>
+<td align="left"><strike>JP1</strike></td>
+<td align="left"><strike>13</strike></td>
+<td align="left"><strike>A3</strike></td>
+<td align="left">unconnected, 訊號接到 clock_out</td>
+</tr>
+<tr class="odd">
+<td align="left">Clock</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">T2</td>
+<td align="left">unconnected, debounce clock 輸入, 接到 50MHz T2 訊號</td>
+</tr>
+<tr class="even">
+<td align="left">Clock 1Hz</td>
+<td align="left"><strike>JP1</strike></td>
+<td align="left"><strike>14</strike></td>
+<td align="left"><strike>B3</strike></td>
+<td align="left">unconnected, 訊號經過邏輯運算接到 clock_out</td>
+</tr>
+<tr class="odd">
+<td align="left">Clock 1MHz</td>
+<td align="left"><strike>JP1</strike></td>
+<td align="left"><strike>15</strike></td>
+<td align="left"><strike>B1</strike></td>
+<td align="left">unconnected, 訊號經過邏輯運算接到 clock_out</td>
+</tr>
+<tr class="even">
+<td align="left">sw2_in</td>
+<td align="left">JP1</td>
+<td align="left">13</td>
+<td align="left">A3</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">sw1_in</td>
+<td align="left">JP1</td>
+<td align="left">14</td>
+<td align="left">B3</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">clock_out</td>
+<td align="left">JP1</td>
+<td align="left">15</td>
+<td align="left">B1</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Button (for step clock)</td>
+<td align="left">JP1</td>
+<td align="left">16</td>
+<td align="left">B2</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Clock_reset_n</td>
+<td align="left">JP1</td>
+<td align="left">17</td>
+<td align="left">C1</td>
+<td align="left">connected to Vcc</td>
+</tr>
+<tr class="odd">
+<td align="left">:———————-</td>
+<td align="left">:—-</td>
+<td align="left">:———–</td>
+<td align="left">:————–</td>
+<td align="left">:———</td>
+</tr>
+<tr class="even">
+<td align="left">d_o[0-7] / pin / output</td>
+<td align="left">J10</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="-6502-cpu-.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="-fpga-ben-eater-clock.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Bookdown101_by_marconi1964.pdf", "Bookdown101_by_marconi1964.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

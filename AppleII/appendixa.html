@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>A Appendix A - Apple II 及 6502 CPU 相關資源 | FPGA for 6502 and Apple II, hopefully Apple BASIC</title>
+  <meta name="description" content="用 FPGA 模擬 6502 CPU 跟 AppleII 電腦, 希望可以執行 Apple BASIC" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="A Appendix A - Apple II 及 6502 CPU 相關資源 | FPGA for 6502 and Apple II, hopefully Apple BASIC" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="用 FPGA 模擬 6502 CPU 跟 AppleII 電腦, 希望可以執行 Apple BASIC" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A Appendix A - Apple II 及 6502 CPU 相關資源 | FPGA for 6502 and Apple II, hopefully Apple BASIC" />
+  
+  <meta name="twitter:description" content="用 FPGA 模擬 6502 CPU 跟 AppleII 電腦, 希望可以執行 Apple BASIC" />
+  
+
+<meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
+
+
+<meta name="date" content="2021-08-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="-65c02-cpu-rom-ram.html"/>
+<link rel="next" href="appendixb.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">FPGA 模擬 6502 CPU 及 Apple ][</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 前言</a></li>
+<li class="chapter" data-level="2" data-path="-pc-apple-ii-basic.html"><a href="-pc-apple-ii-basic.html"><i class="fa fa-check"></i><b>2</b> <span style="color:blue">在 PC 網頁上 執行 Apple II BASIC </span></a></li>
+<li class="chapter" data-level="3" data-path="-6502-cpu-.html"><a href="-6502-cpu-.html"><i class="fa fa-check"></i><b>3</b> <span style="color:blue">看 6502 CPU 如何開機</span></a></li>
+<li class="chapter" data-level="4" data-path="-fpga-6502-.html"><a href="-fpga-6502-.html"><i class="fa fa-check"></i><b>4</b> <span style="color:blue">用 FPGA 模擬 6502 開機</span></a></li>
+<li class="chapter" data-level="5" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html"><i class="fa fa-check"></i><b>5</b> <span style="color:blue">用 FPGA 來模擬 Ben Eater 的可調式 clock</span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html#單獨在-fpga-上測試-clock-source"><i class="fa fa-check"></i><b>5.1</b> <span style="color:blue">單獨在 FPGA 上測試 clock source </span></a></li>
+<li class="chapter" data-level="5.2" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html#整合-65c02-cpu-跟-clock-source"><i class="fa fa-check"></i><b>5.2</b> <span style="color:blue">整合 65C02 CPU 跟 clock source </span></a></li>
+<li class="chapter" data-level="5.3" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html#整合-65c02-cpu-跟-clock-source-之加強版"><i class="fa fa-check"></i><b>5.3</b> <span style="color:blue">整合 65C02 CPU 跟 clock source 之加強版</span></a></li>
+<li class="chapter" data-level="5.4" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html#將-clock-source-獨立成一個-module"><i class="fa fa-check"></i><b>5.4</b> <span style="color:blue">將 clock source 獨立成一個 module</span></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html"><i class="fa fa-check"></i><b>6</b> <span style="color:blue">整合 65C02 CPU 及 ROM / RAM</span></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html#整合-65c02-cpu-及-rom-使用-block-ram"><i class="fa fa-check"></i><b>6.1</b> <span style="color:blue">整合 65C02 CPU 及 ROM (使用 Block RAM)</span></a></li>
+<li class="chapter" data-level="6.2" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html#整合-65c02-cpu-及-ram-使用-fpga-ip"><i class="fa fa-check"></i><b>6.2</b> <span style="color:blue">整合 65C02 CPU 及 RAM (使用 FPGA IP)</span></a></li>
+<li class="chapter" data-level="6.3" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html#整合-65c02-cpu-及-ram-使用-qmtech-板上的-ram---待完成"><i class="fa fa-check"></i><b>6.3</b> <span style="color:blue">整合 65C02 CPU 及 RAM (使用 QMTech 板上的 RAM) - 待完成</span></a></li>
+</ul></li>
+<li class="appendix"><span><b>附錄</b></span></li>
+<li class="chapter" data-level="A" data-path="appendixa.html"><a href="appendixa.html"><i class="fa fa-check"></i><b>A</b> Appendix A - <span style="color:blue">Apple II 及 6502 CPU 相關資源</span></a></li>
+<li class="chapter" data-level="B" data-path="appendixb.html"><a href="appendixb.html"><i class="fa fa-check"></i><b>B</b> Appendix B</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/marconi1964" target="blank">Marconi github</a></li>
+<li><a href="mailto:marconi1964@yahoo.com">marconi1964@yahoo.com or</a></li>
+<li><a href="mailto:marconi.jiang@gmail.com">marconi.jiang@gmail.com</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">FPGA for 6502 and Apple II, hopefully Apple BASIC</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="appendixa" class="section level1" number="7">
+<h1><span class="header-section-number">A</span> Appendix A - <span style="color:blue">Apple II 及 6502 CPU 相關資源</span></h1>
+<ul>
+<li><a href="https://github.com/eiroca/awesome-list/blob/master/Apple2.md">github - Eiroca - Awesome List of Apple II resources</a>
+<ul>
+<li><a href="https://applesaucefdc.com/woz/">Apple II emulator on MacOS</a>
+<ul>
+<li><a href="https://archive.org/details/OpenEmulatorSnapshots">Open Emulator - Apple II BASIC on MacOS</a>
+<ul>
+<li>下載 OpenEmulator.app</li>
+<li>執行 OpenEmulator.app 後, 選擇 Apple II plus (或其它), 會顯示以下螢幕
+<img src="./Images/AppleIIPowerOnScreen.png" width = 400/></li>
+<li>左上角有幾個選擇: Power Down, Sleep, Wake Up, Reset. 選擇 Reset 會進入 BASIC, 可以開始寫 BASIC 程式</li>
+<li>可以參考<a href="http://www.hoist-point.com/applesoft_basic_tutorial.htm">Apple BASIC 範例程式 - 包含簡單繪圖</a> : 這網頁最後還有幾個連結, 包含 <a href="https://archive.org/stream/The_Applesoft_Tutorial">The Applesoft Tutorial</a>, <a href="https://www.scribd.com/doc/232832/Applesoft-Basic-Programming-Reference-Manual">Applesoft BASIC Programming Reference Manual</a>.
+<ul>
+<li>這個網站對於 Apple BASIC 提供很好的入門, 擔心他後續不維護這網頁, 就把這網頁存下來, 建立個 <a href="../02-HW_Misc/Apple_II_6502/applesoft_basic_tutorial_mirror/applesoft_basic_tutorial.htm">mirroring site</a><br />
+</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="http://wiki.apple2.org/index.php?title=Emulators_Complete#2.13_Emulator_Source_Code">Apple II emulator</a><br />
+</li>
+<li><a href="https://www.howtogeek.com/659450/how-to-write-an-apple-ii-basic-program-in-your-web-browser/">如何在網頁上撰寫 Apple BASIC</a>
+<ul>
+<li><a href="https://www.scullinsteel.com/apple2/">網頁模擬 Apple IIjs</a><br />
+</li>
+</ul></li>
+<li><a href="https://www.calormen.com/jsbasic/">Applesoft BASIC in Javascript</a> 也是不錯的入門網站, 也包含許多示範程式, 及 <a href="http://www.6502asm.com">6502 assembly 網頁</a><br />
+</li>
+</ul></li>
+<li><a href="http://www.applelogic.org/Processors.html">AppleLogic.org</a><br />
+</li>
+<li><a href="https://www.apple.asimov.net/documentation/programming/basic/">Apple Documents - Programming - BASIC</a> : 不只是 BASIC, 裡面有完整的 Apple 相關資料, 包括 source code, 硬體線路圖, 各種 CPU 及各種語言如 PASCAL、FORTRAN 等, <span style="color:red">可以說是 Apple 的藏寶圖</span>
+<ul>
+<li><a href="./AppleTreasueIsland_programming">Local mirroring - BASIC</a> : 只有部分存檔<br />
+</li>
+</ul></li>
+<li><a href="https://github.com/cmosher01/Apple-II-Source">github - Apple II System Software Source Code</a></li>
+</ul>
+<p><a id=appleiiromlistings></a>
+<span style="color:red">Apple II ROM listings</span><br />
+* <a href="http://cmosher01.github.io/Apple-II-Source/">Source code for Apple II series System Software and DOS</a><br />
+* <a href="https://github.com/cmosher01/Apple-II-Source">github source code</a><br />
+* <a href="http://www.kreativekorp.com/miscpages/a2info/memorymap.shtml">Jon Relay’s Apple II Info Archives - memory map</a></p>
+<pre><code>Apple II and II+ memory map
+
+RAM - 48KB ($0000 - $BFFF)
+$0000 - $00FF (0 - 255)       &lt;1KB: Zero Page
+$0100 - $01FF (256 - 511)     &lt;1KB: 6502 Processor Stack
+$0200 - $02FF (512 - 767)     &lt;1KB: GETLN Line Input Buffer
+$0300 - $03CF (768 - 975)     &lt;1KB: Free Space for Machine Language, Shape Table, etc.
+$03D0 - $03FF (976 - 1023)     1KB: DOS, ProDOS, and Interrupt Vectors
+$0400 - $07FF (1024 - 2047)    1KB: Text Video Page and Peripheral Screenholes
+$0800 - $0BFF (2048 - 3071)    2KB: Text Video Page 2 or Applesoft Program and Variables
+$0C00 - $1FFF (3072 - 8191)    5KB: Free Space for Machine Language, Shapes, etc.
+(might be overwritten if you use a lot of variables or BASIC program is long)
+$2000 - $3FFF (8192 - 16383)   8KB: High Resolution Graphics Page 1
+$4000 - $5FFF (16384 - 24575)  8KB: High Resolution Graphics Page 2
+$6000 - $95FF (24576 - 38399) 14KB: Applesoft String Data
+(may have a little space free)
+(some BASIC programs move the variables all the way up to $4000 or even $6000)
+
+IO - 4KB
+$C000 - $CFFF                  4KB: Mainboard I/O and peripheral slot ROM
+
+ROM - 12KB ($D000 - $FFFF)
+$D000 - $F7FF (53248 - 63487)  10KB: Applesoft Interpreter
+$F800 - $FFFF (63488 - 65535)   2KB: System Monitor
+</code></pre>
+<ul>
+<li><p><a href="https://www.slideshare.net/mattjenkins355/a-trip-down-memory-lane">A trip down memory lane - Apple II Memory Map</a><br />
+<img src="images/AppleIIMemoryMap.jpg" width=800 /></p></li>
+<li><p>ROM 的內容參考 <a href="https://6502disassembly.com/a2-rom/">Apple II ROM Disassembly</a> 裡面 “<a href="https://6502disassembly.com/a2-rom/Apple%20II%20Plus%20ROM%20Disassembly.zip">download the project file .ZIP</a>”</p>
+<ul>
+<li>或是 <a href="./AppleIIPlusROMDisassembly/APPLE2.ROM">local 存檔</a>, <a href="./AppleIIPlusROMDisassembly/">存檔目錄 - APPLE2.ROM</a></li>
+</ul></li>
+<li><p>James Davis created a detailed <a href="https://6502disassembly.com/a2-rom/APPLE2.ROM.html">disassembly of the Apple II+ ROM that covers the full span, from <span class="math inline">\(C000-\)</span>FFFF</a></p></li>
+</ul>
+<p><span style="color:red">Apple II 歷史</span><br />
+* <a href="https://apple2history.org/history/ah03/">Apple II history.org</a>
+* <a href="https://computerhistory.org/blog/apple-ii-dos-source-code/">APPLE II DOS SOURCE CODE By Leonard J. Shustek | November 12, 2013</a></p>
+<p>6502 CPU<br />
+* <a href="https://eater.net/8bit/kits">Build an 8-bit computer from scratch - by Ben Eater</a>
+* <a href="https://eater.net/8bit/kits">Ben Eater’s blog and shop to sell 8-bit breadboard computer kits</a>
+* <a href="https://ia803000.us.archive.org/8/items/367026792DigitalComputerElectronicsAlbertPaulMalvinoAndJeraldABrownPdf1/367026792-Digital-Computer-Electronics-Albert-Paul-Malvino-and-Jerald-A-Brown-pdf%20%281%29.pdf">Book - on line - Digital Computer Electronics by Albert Paul Malvino</a>
+* <a href="../02-HW_FPGA/">Book - Downloads - Digital Computer Electronics by Albert Paul Malvino</a> DigitalComputerElectronicsByAlbertPaulMalvino.pdf
+* <span style="color:blue">6502 CPU power on</span>
+* <a href="https://www.youtube.com/watch?v=LnzuMJLZRdU">Youtube - 6502 hello world by Ben Eater</a><br />
+* <a href="https://www.westerndesigncenter.com/wdc/w65c02s-core.php">CPU - WDC 65C02S 官網及相關資料</a><br />
+* <a href="https://www.westerndesigncenter.com/wdc/documentation/w65c02s.pdf">W65C02 data sheet</a><br />
+* <span style="color:blue">EEPROM - ATMEL AT28C256</span><br />
+* <a href="http://ww1.microchip.com/downloads/en/DeviceDoc/doc0006.pdf">ATMEL AT28C256 data sheet - 原廠網頁</a><br />
+* <a href="./IC_data_sheet/Atmel_AT28C256_spec.pdf">ATMEL AT28C256 data sheet - local 存檔</a><br />
+* <span style="color:blue">RAM - </span><br />
+*<br />
+* <span style="color:blue">Clock module</span>
+* <a href="./BenEater/BenEaterClockModuleManual.pdf">Ben Eater Clock module manual copy .pdf</a><br />
+* <a href="./BenEater/BenEaterClockModuleManual_jpgs">Ben Eater Clock module manual copy .jpg</a><br />
+* <a href="https://www.youtube.com/watch?v=kRlSFm519Bo">Youtube - Clock module using timer 555</a><br />
+* Youtube 中提及 <a href="https://asset.conrad.com/media10/add/160267/c1/-/en/000179426DS01/datasheet-179426-tft680-1-mhz-crystal-oscillator-dip-14-cmos-1000-mhz-207-mm-131-mm-53-mm-1-pcs.pdf">1MHz Oscillator 的接腳圖</a></p>
+<p>1MHz Osc 接腳圖</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">pin</th>
+<th align="left">定義</th>
+<th align="left">pin</th>
+<th align="left">定義</th>
+<th align="left">Remark</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">14</td>
+<td align="left">+VCC</td>
+<td align="left">8</td>
+<td align="left">1MHz output</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="left">NC/Enable</td>
+<td align="left">7</td>
+<td align="left">GND</td>
+<td align="left">我將 pin 1 接 330Ohm 到 Vcc</td>
+</tr>
+</tbody>
+</table>
+<p>以下照片版權屬於 Ben Eater</p>
+<p><img src="./BenEater/BenEaterClockModuleManual_jpgs/ClockModule6.jpg" width="600" style="transform:rotate(90deg);"></p>
+<ul>
+<li><p><a href="https://github.com/hoglet67/CoPro6502/blob/master/src/AlanD/R65Cx2.vhd">65Cx2 core by A.Daly</a></p></li>
+<li><p><a href="http://visual6502.org">Visual Transistor-level Simulation of the 6502 CPU</a><br />
+</p></li>
+<li><p><a href="https://www.design-reuse.com/sip/?q=6502+microprocess">NOT Open Source - Design-Reuse IP’s</a></p></li>
+<li><p><a href="https://embeddedmicro.weebly.com/embedded-6502-on-fpga.html">Embedding a 6502 in an FPGA - seems not completed</a></p></li>
+<li><p><a href="https://www.google.com/search?client=safari&amp;rls=en&amp;q=fpga+6502+cpu+and+c+and+assembly&amp;ie=UTF-8&amp;oe=UTF-8">Google keyword: fpga 6502 cpu and c and assembly</a></p></li>
+<li><p><a href="http://land-boards.com/blwiki/index.php?title=RETRO-EP4CE15">Retro-Computer</a></p>
+<ul>
+<li><a href="http://www1.cs.columbia.edu/~sedwards/papers/edwards2009retrocomputing.pdf">Retrocomputer on a FPGA</a></li>
+</ul></li>
+<li><p><a href="https://microcorelabs.wordpress.com">MCL64 – WORLD’S FASTEST COMMODORE 64</a><br />
+</p></li>
+<li><p><a href="https://github.com/mkeller0815/MOUSE2Go?fbclid=IwAR1zmHtBaRRmyehPyig0Gj008skJzRXLqNYP7hKBWiACdDiJR7wyYXtzkPY">MOUSE2Go - A 6502 computer emulated by an Arduino</a><br />
+</p></li>
+<li><p><a href="https://create.arduino.cc/projecthub/obsolescence/kim-uno-a-6502-kim-1-computer-on-arduino-e5c82c">KIM Uno - a 6502 KIM-1 Computer on Arduino</a></p></li>
+</ul>
+<p>6800 CPU<br />
+* <a href="https://www.youtube.com/watch?v=85ZCTuekjGA">Youtube - Building a 6800 CPU on an FPGA with nMigen</a><br />
+* <a href="https://github.com/RobertBaruch/n6800?fbclid=IwAR28u7rHvkywmLBTRZUTrQX_n6_3Qc0W_nEQsiV7d9V1kMk2CMzvvSTqOR0">github - Building a 6800 CPU on an FPGA with nMigen</a><br />
+* <a href="https://github.com/RobertBaruch/nmigen-tutorial?fbclid=IwAR2CiCu-FkZbVFlh0juj47OhKIvKYW0DzKYJPxuA4bWZe8cutfzSNb_KWYE">nMigen tutorial by Robert Baruch</a></p>
+<p>8 bit MCU<br />
+* <a href="https://www.fpga4student.com/2016/12/a-complete-8-bit-microcontroller-in-vhdl.html">A complete 8-bit Microcontroller in VHDL - FPGA4Student</a></p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="-65c02-cpu-rom-ram.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendixb.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Bookdown101_by_marconi1964.pdf", "Bookdown101_by_marconi1964.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

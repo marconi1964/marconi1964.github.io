@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 整合 65C02 CPU 及 ROM / RAM | FPGA for 6502 and Apple II, hopefully Apple BASIC</title>
+  <meta name="description" content="用 FPGA 模擬 6502 CPU 跟 AppleII 電腦, 希望可以執行 Apple BASIC" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 整合 65C02 CPU 及 ROM / RAM | FPGA for 6502 and Apple II, hopefully Apple BASIC" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="用 FPGA 模擬 6502 CPU 跟 AppleII 電腦, 希望可以執行 Apple BASIC" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 整合 65C02 CPU 及 ROM / RAM | FPGA for 6502 and Apple II, hopefully Apple BASIC" />
+  
+  <meta name="twitter:description" content="用 FPGA 模擬 6502 CPU 跟 AppleII 電腦, 希望可以執行 Apple BASIC" />
+  
+
+<meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
+
+
+<meta name="date" content="2021-08-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="-fpga-ben-eater-clock.html"/>
+<link rel="next" href="appendixa.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">FPGA 模擬 6502 CPU 及 Apple ][</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 前言</a></li>
+<li class="chapter" data-level="2" data-path="-pc-apple-ii-basic.html"><a href="-pc-apple-ii-basic.html"><i class="fa fa-check"></i><b>2</b> <span style="color:blue">在 PC 網頁上 執行 Apple II BASIC </span></a></li>
+<li class="chapter" data-level="3" data-path="-6502-cpu-.html"><a href="-6502-cpu-.html"><i class="fa fa-check"></i><b>3</b> <span style="color:blue">看 6502 CPU 如何開機</span></a></li>
+<li class="chapter" data-level="4" data-path="-fpga-6502-.html"><a href="-fpga-6502-.html"><i class="fa fa-check"></i><b>4</b> <span style="color:blue">用 FPGA 模擬 6502 開機</span></a></li>
+<li class="chapter" data-level="5" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html"><i class="fa fa-check"></i><b>5</b> <span style="color:blue">用 FPGA 來模擬 Ben Eater 的可調式 clock</span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html#單獨在-fpga-上測試-clock-source"><i class="fa fa-check"></i><b>5.1</b> <span style="color:blue">單獨在 FPGA 上測試 clock source </span></a></li>
+<li class="chapter" data-level="5.2" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html#整合-65c02-cpu-跟-clock-source"><i class="fa fa-check"></i><b>5.2</b> <span style="color:blue">整合 65C02 CPU 跟 clock source </span></a></li>
+<li class="chapter" data-level="5.3" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html#整合-65c02-cpu-跟-clock-source-之加強版"><i class="fa fa-check"></i><b>5.3</b> <span style="color:blue">整合 65C02 CPU 跟 clock source 之加強版</span></a></li>
+<li class="chapter" data-level="5.4" data-path="-fpga-ben-eater-clock.html"><a href="-fpga-ben-eater-clock.html#將-clock-source-獨立成一個-module"><i class="fa fa-check"></i><b>5.4</b> <span style="color:blue">將 clock source 獨立成一個 module</span></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html"><i class="fa fa-check"></i><b>6</b> <span style="color:blue">整合 65C02 CPU 及 ROM / RAM</span></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html#整合-65c02-cpu-及-rom-使用-block-ram"><i class="fa fa-check"></i><b>6.1</b> <span style="color:blue">整合 65C02 CPU 及 ROM (使用 Block RAM)</span></a></li>
+<li class="chapter" data-level="6.2" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html#整合-65c02-cpu-及-ram-使用-fpga-ip"><i class="fa fa-check"></i><b>6.2</b> <span style="color:blue">整合 65C02 CPU 及 RAM (使用 FPGA IP)</span></a></li>
+<li class="chapter" data-level="6.3" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html#整合-65c02-cpu-及-ram-使用-qmtech-板上的-ram---待完成"><i class="fa fa-check"></i><b>6.3</b> <span style="color:blue">整合 65C02 CPU 及 RAM (使用 QMTech 板上的 RAM) - 待完成</span></a></li>
+</ul></li>
+<li class="appendix"><span><b>附錄</b></span></li>
+<li class="chapter" data-level="A" data-path="appendixa.html"><a href="appendixa.html"><i class="fa fa-check"></i><b>A</b> Appendix A - <span style="color:blue">Apple II 及 6502 CPU 相關資源</span></a></li>
+<li class="chapter" data-level="B" data-path="appendixb.html"><a href="appendixb.html"><i class="fa fa-check"></i><b>B</b> Appendix B</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/marconi1964" target="blank">Marconi github</a></li>
+<li><a href="mailto:marconi1964@yahoo.com">marconi1964@yahoo.com or</a></li>
+<li><a href="mailto:marconi.jiang@gmail.com">marconi.jiang@gmail.com</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">FPGA for 6502 and Apple II, hopefully Apple BASIC</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="整合-65c02-cpu-及-rom-ram" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> <span style="color:blue">整合 65C02 CPU 及 ROM / RAM</span></h1>
+<div id="整合-65c02-cpu-及-rom-使用-block-ram" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> <span style="color:blue">整合 65C02 CPU 及 ROM (使用 Block RAM)</span></h2>
+<p><span style="color:green">進度: 100% 8/4 (started on 2021/7/27)</span><br />
+* 關於 FPGA 內部 Block RAM 資料的參考文件: <a href="https://vhdlguide.readthedocs.io/en/latest/vhdl/dex.html#read-only-memory-rom">FPGA design usin VHDL - ROM implementation using block RAM</a><br />
+* Altera 建議使用內建的 IP, 透過 Quartus 的 MegaWizard Plug-In Manager, 使用 library of parameterized modules (LPM) 及 Soft IP <a href="https://www.intel.com/content/www/us/en/programmable/quartushelp/13.0/mergedProjects/hdl/mega/mega_view_megawiz.htm">MegaWizard Plug-In Manager</a>, 但是遇到了幾個問題:<br />
+* <span style="color:red">在 Quartus 的 menu - edit 無法找得到 MegaWizard Plug-In Manager. 解決方式: 選 menu - Tools - IP Catalog, 會在主畫面右側顯示 IP Catalog 子畫面, 選擇 (double click) Installed IP - Library - On Chip Memory - ROM 1-PORT</span><br />
+* 選擇 VHDL
+* 選擇檔案儲存的目錄, 輸入檔案名稱, 要注意檔案名稱, 有錯誤時會提示 (我輸入 r65c02_rom_8kb.vhd)
+* <span style="color:red">這時候電腦反應很慢, 甚至當機, </span> 查到<a href="https://community.intel.com/t5/Intel-Quartus-Prime-Software/MegaWizard-with-LPM-MUX-runs-extremely-slowly-and-is-unusable/td-p/252872">intel 網頁說明 - MegaWizard extremely slow and unstable</a></p>
+<pre><code># 原來執行 
+$ quartus 
+# 或是執行 
+$ /home/ubuntu/intelFPGA_lite/20.1/quartus/bin/quartus
+# 會造成 MegaWizard 出問題, 應該改用以下執行方式 
+$ ssh -Y /home/ubuntu/intelFPGA_lite/20.1/quartus/bin/quartus
+# 但是執行時, 出現問題
+connect to host localhost port 22: Connection refused
+# 這時候, 重新安裝一次 ssh
+$ sudo apt-get install ssh
+# 再執行一次
+$ ssh -Y /home/ubuntu/intelFPGA_lite/20.1/quartus/bin/quartus
+$</code></pre>
+<ul>
+<li>接下來, 設定 ROM: 1-PORT
+<ul>
+<li>how wide: 8 bits</li>
+<li>how many 8-bits (menu 會隨著上一個設定而更新) words of memory: 32768 words
+<ul>
+<li>參考前面的 <a href="#appleiiromlistings">Apple II ROM Listings</a> 的 APPLE2.ROM <span class="math inline">\(C000-\)</span>FFFF 需要用到 20KB (還不清楚如何設定將 20KB 的資料映射到對的位址, 因為 Quartus 是先填 20KB, 再將其餘補零, 我們需要在前面的 12KB 補零, 20KB 的資料留在最後)<br />
+</li>
+</ul></li>
+<li>Quartus 需要 ROM 的 hex 檔案是 <a href="https://www.intel.com/content/www/us/en/programmable/quartushelp/13.0/mergedProjects/reference/glossary/def_hexfile.htm">intel hex 格式</a>, 找到了個轉換程式 <a href="https://www.keil.com/download/docs/113.asp">ARM Keil - BINARY to Intel HEX Converter Utility</a> BIN2HEX.EXE 但只能在 Windows XP 下執行, 只得根據 <a href="https://www.makeuseof.com/tag/download-windows-xp-for-free-and-legally-straight-from-microsoft-si/">How to Download and Install Windows XP for Free</a>, 在 VirtualBox 建立個 Windows XP 的 VM, 雖然網路設定不通, 我只需要設定 shared folders 將 BIN2HEX.EXE 及 APPLE2.ROM 在 Windows XP 上執行即可產生 APPLE2.HEX.</li>
+<li>因為 APPLE2.ROM 只有 20KB, 而 Quartus 上的 ROM 只能選 32KB, 因此 Quartus 會先把 APPLE2.ROM 的 20KB 填在前面, 後面補 0. 而我們需要的是前面補 0. 因此, 先修改 APPLE2.ROM, 先補上 12KB 的 0, 再執行一次 BIN2HEX.EXE, 這樣就對的上了.</li>
+</ul></li>
+<li><span style="color:red">執行 single step 時, 發現 CPU 讀到 ROM 的 data 會慢半拍, 原來, 我 ROM 的 clock 跟 CPU clock 一致造成的, 把 ROM 的 clock 拉到 FPGA 主頻率的 50MHz clk 來解決這問題.</span></li>
+<li>照 Apple II 的 ROM 逐步執行, 發現 CPU 在 return 時, 跳到 0000h 的位址, 以為是哪裡有問題, 才注意到 jsr 的時候, CPU 先將目前的位址 push 到 1FF 的位置 (一開始還懷疑 CPU 的 soft core 設計有問題, 錯怪了), 但是我還沒有裝 RAM, return 時讀回來的是 0000h, 接下來就是安裝 RAM 了.
+## <span style="color:blue">將 ROM data out 與 CPU data_in, data_out 連接, 且設定為 tri-state</span></li>
+</ul>
+<p><span style="color:green">進度: 100% 08/08 (started on 2021/08/05)</span><br />
+* <a href="https://github.com/marconi1964/FPGA_65c02_CPU/tree/bf6daf4754a02978f0bee60bc0c8bbe60a130944">2021/08/08 - Connectoring CPU data_out and data_in with tri-state</a></p>
+</div>
+<div id="整合-65c02-cpu-及-ram-使用-fpga-ip" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> <span style="color:blue">整合 65C02 CPU 及 RAM (使用 FPGA IP)</span></h2>
+<p><span style="color:green">進度: 100% 8/21 (started on 2021/8/4)</span><br />
+* 本來是想使用 QMTech 上的 DRAM, 看來幾天, 還是看不懂.
+* 發現 FPGA 也是可以實現 RAM 的功能 (而且不需要設計 DRAM 必要的 refresh 線路), 參考<a href="https://www.intel.com/content/www/us/en/programmable/support/support-resources/design-examples/design-software/vhdl/vhd-single-port-ram.html">intel VHDL Single Port RAM 設計</a><br />
+* 還沒搞清楚 single port 跟 dual port 的差異 (有 read/write 2 個 address port)<br />
+* 也沒搞清楚 synchronous 跟 asynchronus 的差異<br />
+* 先試範例的 single port ram<br />
+* 稍微改選範例程式, 因為原始程式 addr 的設定是 unsigned integer,
+* 關於 <a href="https://www.csee.umbc.edu/portal/help/VHDL/types.html">VHDL Predefined Types from the package standard</a><br />
+* Integer : signed value<br />
+* Natural : unsigned value starting at 0<br />
+* Positive: unsigned value starting at 1</p>
+<ul>
+<li>修改範例參考 <a href="https://www.fpga4student.com/2017/08/vhdl-code-for-single-port-ram.html">FGPA4Student VHDL code for single port RAM</a>,</li>
+</ul>
+<pre><code>    addr:    in    natural range 0 to 32767;    
+    -- 應該是配合 RAM 使用的定址方式 以 0 開始的 unsigned integer type
+    -- 改成以下
+    addr:    in    std_logic_vector(14 downto 0);
+    
+    
+    -- 存取到 ram 時, 需要做 type 轉換
+    ram(addr) &lt;= data;
+    -- 從 std_logic_vector 轉成 unsigned integer
+    ram(to_integer(unsigned(addr))) &lt;= data;
+  </code></pre>
+<ul>
+<li>如果是倒過來, 應該用這個 function, # 不過, 我自己還沒驗證過.</li>
+</ul>
+<pre><code>    my_vector &lt;= std_logic_vector(to_unsigned(my_int, my_vector&#39;length))); </code></pre>
+<ul>
+<li>整合進 r65c02_tc 時, Quartus 報錯, 無法容納 RAM size (32768 Bytes x 8 bits), 改成 16384 Bytes
+<ul>
+<li><a href="https://github.com/marconi1964/FPGA_65c02_CPU/tree/a30aae3bd9d8fe2371ff3d054132a4295872ac35">2021/08/21 - Adding FPGA RAM -32768-Bytes x 8 bit FGPA 容量不夠 ==&gt; 16384Bytes x 8 bits</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="整合-65c02-cpu-及-ram-使用-qmtech-板上的-ram---待完成" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> <span style="color:blue">整合 65C02 CPU 及 RAM (使用 QMTech 板上的 RAM) - 待完成</span></h2>
+<p><span style="color:green">進度: 0% 8/21 (started on 2021/8/21)</span><br />
+* 把 FPGA 當 RAM 應該是太浪費了, (需要去了解 FPGA 做成 RAM 需要多少個 gates), 只能塞 16KBytes 的 RAM, 而 Apple II 需要 32KB RAM, 所以, 還是得試試用 QMTech 上的 RAM</p>
+
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="-fpga-ben-eater-clock.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendixa.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Bookdown101_by_marconi1964.pdf", "Bookdown101_by_marconi1964.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
