@@ -24,7 +24,7 @@
 <meta name="author" content="marconi1964@yahoo.com or marconi.jiang@gmail.com" />
 
 
-<meta name="date" content="2021-08-22" />
+<meta name="date" content="2021-08-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -87,8 +87,9 @@
 <li class="chapter" data-level="6" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html"><i class="fa fa-check"></i><b>6</b> <span style="color:blue">整合 65C02 CPU 及 ROM / RAM</span></a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html#整合-65c02-cpu-及-rom-使用-block-ram"><i class="fa fa-check"></i><b>6.1</b> <span style="color:blue">整合 65C02 CPU 及 ROM (使用 Block RAM)</span></a></li>
-<li class="chapter" data-level="6.2" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html#整合-65c02-cpu-及-ram-使用-fpga-ip"><i class="fa fa-check"></i><b>6.2</b> <span style="color:blue">整合 65C02 CPU 及 RAM (使用 FPGA IP)</span></a></li>
-<li class="chapter" data-level="6.3" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html#整合-65c02-cpu-及-ram-使用-qmtech-板上的-ram---待完成"><i class="fa fa-check"></i><b>6.3</b> <span style="color:blue">整合 65C02 CPU 及 RAM (使用 QMTech 板上的 RAM) - 待完成</span></a></li>
+<li class="chapter" data-level="6.2" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html#將-rom-data-out-與-cpu-data_in-data_out-連接-且設定為-tri-state"><i class="fa fa-check"></i><b>6.2</b> <span style="color:blue">將 ROM data out 與 CPU data_in, data_out 連接, 且設定為 tri-state</span></a></li>
+<li class="chapter" data-level="6.3" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html#整合-65c02-cpu-及-ram-使用-fpga-ip"><i class="fa fa-check"></i><b>6.3</b> <span style="color:blue">整合 65C02 CPU 及 RAM (使用 FPGA IP)</span></a></li>
+<li class="chapter" data-level="6.4" data-path="-65c02-cpu-rom-ram.html"><a href="-65c02-cpu-rom-ram.html#整合-65c02-cpu-及-ram-使用-qmtech-板上的-ram---待完成"><i class="fa fa-check"></i><b>6.4</b> <span style="color:blue">整合 65C02 CPU 及 RAM (使用 QMTech 板上的 RAM) - 待完成</span></a></li>
 </ul></li>
 <li class="appendix"><span><b>附錄</b></span></li>
 <li class="chapter" data-level="A" data-path="appendixa.html"><a href="appendixa.html"><i class="fa fa-check"></i><b>A</b> Appendix A <span style="color:blue">Apple II 及 6502 CPU 相關資源</span></a></li>
@@ -121,18 +122,13 @@
 <h2><span class="header-section-number">5.1</span> <span style="color:blue">單獨在 FPGA 上測試 clock source </span></h2>
 <p><span style="color:red">進度: 100% 7/21 (started on 2021/7/18)</span><br />
 * <a href="https://www.youtube.com/watch?v=LnzuMJLZRdU">Youtube - “Hello, world” from scratch on a 6502 — by Ben Eater</a><br />
-* Debounce circuit
+* Debounce circuit<br />
 * <a href="https://forum.digikey.com/t/debounce-logic-circuit-vhdl/12573">Debounce circuit - VHDL - from DigiKey</a><br />
-* Clock with various frequency
-* <a href="https://www.thecodingforums.com/threads/how-to-write-a-vhdl-code-for-1hz-signal.583231/page-2">How to write a VHDL code for 1Hz signal?</a>
-* <a href="https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/an/an496.pdf">intel / Altera - AN 496: Using the Internal Oscillator IP Core</a>
-* 參考 <a href="https://stackoverflow.com/questions/65670200/how-combine-multiple-vhdl-codes-to-make-one-system">How combine multiple VHDL codes to make one system</a> 文章, 修改 vhdl 檔案如下,<br />
-* <a href="./cpu65c02_true_cycle/trunk/released/rtl/vhdl_clocks/">目錄</a><br />
-* <a href="./cpu65c02_true_cycle/trunk/released/rtl/vhdl_clocks/clock_various.vhd">top level vhdl, 包含 button debounce 設計</a><br />
-* 在 module 的 entity 定義裡面, 用到 word. 的 keyword, 參考 <a href="https://www.ics.uci.edu/~jmoorkan/vhdlref/Synario%20VHDL%20Manual.pdf">Synario Design Automation - VHDL Reference Manual</a>
-* <a href="./cpu65c02_true_cycle/trunk/released/rtl/vhdl_clocks/VHDL_1Hz.vhd">VHDL1Hz.vhd</a><br />
-* <a href="./cpu65c02_true_cycle/trunk/released/rtl/vhdl_clocks/VHDL_1MHz.vhd">VHDL1MHz.vhd</a></p>
-<p><span style="color:green">應用於 65C02 CPU 的 single step, 1Hz 都可以在 Arduino Mega 2560 上抓到精準的資料, 跑到 1MHz 時, Arduino 抓到的資料就亂了 (正常, Mega 的速度不夠快到足以處理 1MHz CPU 的頻率)</span>
+* Clock with various frequency<br />
+* <a href="https://www.thecodingforums.com/threads/how-to-write-a-vhdl-code-for-1hz-signal.583231/page-2">How to write a VHDL code for 1Hz signal?</a><br />
+* <a href="https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/an/an496.pdf">intel / Altera - AN 496: Using the Internal Oscillator IP Core</a><br />
+* 參考 <a href="https://stackoverflow.com/questions/65670200/how-combine-multiple-vhdl-codes-to-make-one-system">How combine multiple VHDL codes to make one system</a> 文章</p>
+<p><span style="color:green">應用於 65C02 CPU 的 single step, 1Hz 都可以在 Arduino Mega 2560 上抓到精準的資料, 跑到 1MHz 時, Arduino 抓到的資料就亂了 (正常, Mega 的速度不夠快到足以處理 1MHz CPU 的頻率)</span><br />
 * 曾經 single step 時會跳行, 嘗試了<br />
 * 加了電容到地 ==&gt; 有幫助, 但無法徹底解決<br />
 * 修改 debounce 的 stable 值, 發現值越大反而有問題, 最後用原始設定的 10ms 反而是最好…..</p>

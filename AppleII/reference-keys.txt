@@ -10,6 +10,7 @@
 將-clock-source-獨立成一個-vhdl-entity-module
 整合-65c02-cpu-及-rom-ram
 整合-65c02-cpu-及-rom-使用-block-ram
+將-rom-data-out-與-cpu-data_in-data_out-連接-且設定為-tri-state
 整合-65c02-cpu-及-ram-使用-fpga-ip
 整合-65c02-cpu-及-ram-使用-qmtech-板上的-ram---待完成
 appendixa
